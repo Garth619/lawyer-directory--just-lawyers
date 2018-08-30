@@ -145,13 +145,18 @@ else { ?>
 
 	<p>School: <?php the_field( 'school_one_name' ); ?></p>
 	
-	<?php if(get_field('school_one_degree')):?>
+	<?php if(get_field('school_one_degree') == ('NULL') || get_field('school_one_degree') == ('N/A') || empty(get_field('school_one_degree'))) {
+		
+		
+	}
+	
+	else {?>
 
 		<p>Degree: <?php the_field( 'school_one_degree' ); ?></p>
 
-	<?php endif;?>
+	<?php } ?>
 	
-	<?php if(get_field('school_one_major') == ('NULL') || empty(get_field('school_one_major'))) {
+	<?php if(get_field('school_one_major') == ('NULL') || get_field('school_one_major') == ('N/A') || empty(get_field('school_one_major'))) {
 		
 		
 	}
@@ -162,11 +167,15 @@ else { ?>
 
 	<?php } ?>
 	
-	<?php if(get_field('school_one_year_graduated')):?>
+	<?php if(get_field('school_one_year_graduated') == ('NULL') || get_field('school_one_major') == ('N/A') || empty(get_field('school_one_year_graduated'))) {
+		
+		}
+		
+		else { ?>
 
 		<p>Year Graduated: <?php the_field( 'school_one_year_graduated' ); ?></p>
 
-	<?php endif;?>
+	<?php } ?>
 		
 
 <?php }?>
@@ -174,7 +183,7 @@ else { ?>
 
 
 
-<?php if(get_field('school_two_name') == ('NULL') || empty(get_field('school_two_name'))) {
+<?php if(get_field('school_two_name') == ('NULL') || get_field('school_two_name') == ('N/A') || empty(get_field('school_two_name'))) {
 	
 }
 
@@ -189,13 +198,18 @@ else { ?>
 
 	<p>School: <?php the_field( 'school_two_name' ); ?></p>
 	
-	<?php if(get_field('school_two_degree')):?>
+	<?php if(get_field('school_two_degree') == ('NULL') || get_field('school_two_degree') == ('N/A') || empty(get_field('school_two_degree'))) {
+		
+		
+	}
+	
+	else { ?>
 
 		<p>Degree: <?php the_field( 'school_two_degree' ); ?></p>
 
-	<?php endif;?>
+	<?php }?>
 	
-	<?php if(get_field('school_two_major') == ('NULL') || empty(get_field('school_two_major'))) {
+	<?php if(get_field('school_two_major') == ('NULL') || get_field('school_two_major') == ('N/A') || empty(get_field('school_two_major'))) {
 		
 		
 	}
@@ -206,11 +220,16 @@ else { ?>
 
 	<?php } ?>
 	
-	<?php if(get_field('school_two_year_graduated')):?>
+	<?php if(get_field('school_two_year_graduated') == ('NULL') || get_field('school_two_year_graduated') == ('N/A') || empty(get_field('school_two_year_graduated'))) {
+		
+		
+		}
+		
+		else { ?>
 
 		<p>Year Graduated: <?php the_field( 'school_two_year_graduated' ); ?></p>
 
-	<?php endif;?>
+	<?php }?>
 		
 
 <?php }?>
