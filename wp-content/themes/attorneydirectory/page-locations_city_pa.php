@@ -9,7 +9,7 @@
 	
 	
 	$taxlocations = 'location';
-	$taxpracticeareas = 'office_practice_area';
+	$taxpracticeareas = 'practice_area';
 	
 	
 	// pa url query -> pa id conversion
@@ -45,7 +45,7 @@
 	
 	<a href="<?php bloginfo('url');?>">Home</a>
 	
-	<a href="<?php the_permalink(554156);?>">Practice Areas</a> 
+	<a href="<?php the_permalink(126);?>">Practice Areas</a> 
 	
 	<a class="" href="<?php bloginfo('url');?>/lawyers-practice/<?php echo $currentpracticearea;?>"><?php echo  $patermstitle;?></a>
 	
@@ -89,12 +89,12 @@
 
 
 
-Browse by Lawfirm
+<br/><br/>Browse by Lawfirm
 
 <?php 
 	
 	$query_args = array (
-		'post_type' => 'office',
+		'post_type' => 'lawyer',
 		'fields' => 'ids',
 		'posts_per_page' => -1,
 		'tax_query' => array(

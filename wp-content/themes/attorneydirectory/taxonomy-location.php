@@ -6,7 +6,7 @@
 	
 	<a href="<?php bloginfo('url');?>">Home</a> 
 	
-	<a href="<?php the_permalink(554158);?>">Locations</a>
+	<a href="<?php the_permalink(133);?>">Locations</a>
 	
 	<a><?php single_term_title();?></a>
 	
@@ -14,7 +14,7 @@
 	<br/>
 	<br/>
 	<br/>
-	
+
 </div><!-- breadcrumb -->
 
 <h1><?php single_term_title();?> Lawyers</h1>
@@ -46,12 +46,12 @@
 		}	
 
 
-	echo "Browse By City";
+	echo "<br/><br/>Browse By City";
 
 
 	
 	$taxlocations = 'location';
-	$taxpracticeareas = 'office_practice_area';
+	$taxpracticeareas = 'practice_area';
 	
 	$terms = get_terms( array( // change to WP_Term_Query later its faster I think
     'taxonomy' => 'location',
@@ -79,7 +79,7 @@
      
      if(is_user_logged_in()) {
 	
-				echo '<a href="' . get_bloginfo('url') .  '/wp-admin/edit-tags.php?taxonomy=location&post_type=office">Edit</a><br/><br/><br/>';
+				echo '<a href="' . get_bloginfo('url') .  '/wp-admin/edit-tags.php?taxonomy=location&post_type=lawyer">Edit</a><br/><br/><br/>';
 			 		
 			}
     

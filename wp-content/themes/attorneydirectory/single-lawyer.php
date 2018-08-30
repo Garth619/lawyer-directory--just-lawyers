@@ -1,131 +1,132 @@
 <?php get_header(); ?>
 
 <div class="section_inner">
-
-<div class="breadcrumb">
 	
-
-	<a href="<?php bloginfo('url');?>">Home</a>
+	<div class="breadcrumb">
 	
-	<?php $officeid = get_field('office_id');
+		<a href="<?php bloginfo('url');?>">Home</a>
 	
-	$new_argsone = array(
-    'post_type' => 'office',
-    'meta_query' => array(
-        array(
-            'key' => 'office_id',
-						'value' => array($officeid)
-        )
-    )
-		); 
-
-
- $mymain_queryone = new WP_Query($new_argsone); while($mymain_queryone->have_posts()) : $mymain_queryone->the_post(); ?>
-                	
-     	
-     <a href="<?php the_permalink();?>"><?php the_title();?></a>
-     
-     
-
-     	<br/>
-     	<br/>
-                    	
-                  
- <?php endwhile; 
- wp_reset_postdata(); // reset the query ?>	
-
+		<a><?php the_title();?></a>
 	
-	<br/>
-	<br/>
-	<br/>
-	
-</div><!-- breadcrumb -->
-	
-<h1><?php the_title();?></h1>
+	</div><!-- breadcrumb -->
 
-<br/>
-<br/>
-
-<?php $lawyer_profile_image = get_field( 'lawyer_profile_image' ); ?>
-	
-	<?php if ( $lawyer_profile_image ) { ?>
+		<br/><br/><br/>
 		
-		<img src="<?php echo $lawyer_profile_image['url']; ?>" alt="<?php echo $lawyer_profile_image['alt']; ?>" />
-
-	<?php } else { ?>
-
-		<img style="width:200px;" src="<?php bloginfo('template_directory');?>/images/default.jpg"/>
-
-<?php }?>
-
-<br/>
-<br/>
-
-<?php 
+		<h1><?php the_title();?></h1>
+		
+		<br/><br/>
+		
+		<?php $lawyer_profile_image = get_field( 'lawyer_profile_image' ); ?>
 	
-	$lawfirmtitle = $mymain_queryone->posts[0]->post_title;
+		<?php if ( $lawyer_profile_image ) { ?>
+		
+			<img src="<?php echo $lawyer_profile_image['url']; ?>" alt="<?php echo $lawyer_profile_image['alt']; ?>" />
+
+			<?php } else { ?>
+
+			<img style="width:200px;" src="<?php bloginfo('template_directory');?>/images/default.jpg"/>
+
+		<?php }?>
+		
+		<br/><br/>
+		
+		<?php if(get_field('lawyer_phone') == ('NULL') || empty(get_field('lawyer_phone'))) {
 	
-	$lawfirmslug = $mymain_queryone->posts[0]->post_name;
 	
-	$lawfirmid =  $mymain_queryone->posts[0]->ID;
+			}
+	
+			else {?>
+
+			Phone: <a href="tel:<?php the_field('lawyer_phone');?>"><?php the_field('lawyer_phone');?></a>
+
+
+		<?php } ?>
+		
+		<br/><br/>
+		
+		<?php if(get_field('lawyer_website') == ('NULL') || empty(get_field('lawyer_website'))) {
+		 
+		 
+		 }
+		 
+	 else { ?>
+     	
+     <a href="<?php the_field( 'lawyer_website' ); ?>" target="_blank">Visit Site</a>
+     
+     <br/>
+     <br/>
+     
+     (regex if already has http:// or https:// or http://www. or https://www. leave alone otherwise fix to have //)
+     
+     <br/><br/>
+     
+     like http://lawyerdirectory.1p21.io/office/hennigan-bennett-dorman-llp/
+     		
+     <br/>
+     <br/>
+		 
+	 <?php }?>
+		
+		<?php if(get_field('lawyer_address')):?>
+
+
+<?php $address = get_field('lawyer_address');
+	
+	
+	$addressCleaned = str_replace(' ', '%20', $address); // this works but doesnt echo in ahref below?
 	
 ?>
-
-Lawfirm: <a href="<?php bloginfo('url');?>/office/<?php echo $lawfirmslug;?>"><?php echo $lawfirmtitle;?></a>
-
-<br/>
-<br/>
-
-<?php if(get_field('office_phone', $lawfirmid) == ('NULL') || empty(get_field('office_phone', $lawfirmid))) {
 	
 	
-	}
+	<a href="https://www.google.com/maps/search/?api=1&query=<?php echo $addressCleaned;?>" target="_blank">
+		
+		<?php the_field('lawyer_address');?>
+		
+	</a>
 	
-	else {?>
+	
+<!-- https://www.google.com/maps/search/?api=1&query=1200%20Pennsylvania%20Ave%20SE%2C%20Washington%2C%20District%20of%20Columbia%2C%2020003 -->
 
-Phone: <a href="tel:<?php the_field('office_phone', $lawfirmid);?>"><?php the_field('office_phone', $lawfirmid);?></a>
-
-
-<?php } ?>
 
 <br/>
 <br/>
 
-<h2>Practice Areas</h2>
+<?php endif;?>
+
+		
+		<h2>Practice Areas</h2>
 
 
-<?php $terms = get_the_terms( get_the_ID(), 'practice_area' );
+		<?php $terms = get_the_terms( get_the_ID(), 'practice_area' );
                          
-if ( $terms && ! is_wp_error( $terms ) ) : 
+				if ( $terms && ! is_wp_error( $terms ) ) : 
  
-    
- 
-    foreach ( $terms as $term ) {
-        echo $term->name . "<br/>";
-    }
-                         
-   
+				foreach ( $terms as $term ) {
+        	echo $term->name . "<br/>";
+    		}
     
     ?>
  
     
 <?php endif; ?>
+		
+		<?php if(get_field('years_licensed_for')):?>
 
-<?php if(get_field('years_licensed_for')):?>
+			<br/>
+			<br/>
 
-<br/>
-<br/>
+			<h2>Years Licensed For: <?php the_field( 'years_licensed_for' ); ?> </h2>
 
-<h2>Years Licensed For: <?php the_field( 'years_licensed_for' ); ?> </h2>
-
-<?php endif;?>
+			<?php endif;?>
 
 
 <?php if(get_field('lawyer_bio')):?>
 
 	<?php the_field( 'lawyer_bio' ); ?>
 
-<?php endif;?>
+<?php endif;?>	
+
+
 
 
 <?php if(get_field('school_one_name') == ('NULL') || empty(get_field('school_one_name'))) {
@@ -144,11 +145,22 @@ else { ?>
 
 	<p>School: <?php the_field( 'school_one_name' ); ?></p>
 	
-	<?php if(get_field('schoo_one_degree')):?>
+	<?php if(get_field('school_one_degree')):?>
 
-		<p>Degree: <?php the_field( 'schoo_one_degree' ); ?></p>
+		<p>Degree: <?php the_field( 'school_one_degree' ); ?></p>
 
 	<?php endif;?>
+	
+	<?php if(get_field('school_one_major') == ('NULL') || empty(get_field('school_one_major'))) {
+		
+		
+	}
+	
+	else { ?>
+
+		<p>Major: <?php the_field( 'school_one_major' ); ?></p>
+
+	<?php } ?>
 	
 	<?php if(get_field('school_one_year_graduated')):?>
 
@@ -183,6 +195,17 @@ else { ?>
 
 	<?php endif;?>
 	
+	<?php if(get_field('school_two_major') == ('NULL') || empty(get_field('school_two_major'))) {
+		
+		
+	}
+	
+	else { ?>
+
+		<p>Major: <?php the_field( 'school_two_major' ); ?></p>
+
+	<?php } ?>
+	
 	<?php if(get_field('school_two_year_graduated')):?>
 
 		<p>Year Graduated: <?php the_field( 'school_two_year_graduated' ); ?></p>
@@ -192,10 +215,12 @@ else { ?>
 
 <?php }?>
 
-
-
-
-</div>
 	
+			<?php edit_post_link( __( 'Edit'), '', '' ); ?>
+
+
+
+</div><!-- section_inner -->
+
 
 <?php get_footer(); ?>

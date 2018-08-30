@@ -28,7 +28,7 @@
 		
 	$state_terms = get_terms( array( // change new WP_Term_Query later, its newer and faster i think
     'taxonomy' => 'location',
-    'parent'  => 1048
+    'parent'  => 7
 	
 	) );
 		
@@ -47,7 +47,7 @@
  
   if(is_user_logged_in()) {
 	
-	echo '<a href="' . get_bloginfo('url') .  '/wp-admin/edit-tags.php?taxonomy=location&post_type=office">Edit</a><br/><br/><br/>';
+	echo '<a href="' . get_bloginfo('url') .  '/wp-admin/edit-tags.php?taxonomy=location&post_type=lawyer">Edit</a><br/><br/><br/>';
 			 		
 	}
 		

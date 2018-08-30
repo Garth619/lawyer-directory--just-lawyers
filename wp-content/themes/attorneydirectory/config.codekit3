@@ -4,7 +4,7 @@
 	{
 		"name": "Process All Remaining Files and Folders",
 		"stepType": 1,
-		"uuidString": "67CC6CA7-0570-4A0D-9204-C174ACD483EF"
+		"uuidString": "B6D78F69-D553-4D65-8FB8-7AEC55AE4EE8"
 		}
 	],
 "creatorBuild": "26680",
@@ -298,17 +298,6 @@
 		"oAP": "\/page.php",
 		"oF": 0
 		},
-	"\/screenshot.png": {
-		"ft": 32768,
-		"iS": 57403,
-		"oA": 0,
-		"oAP": "\/screenshot.png",
-		"oF": 0,
-		"oIPL": 0,
-		"opt": 0,
-		"oT": 1,
-		"q": 100
-		},
 	"\/search.php": {
 		"cB": 0,
 		"ft": 8192,
@@ -335,13 +324,6 @@
 		"ft": 8192,
 		"oA": 0,
 		"oAP": "\/single-lawyer.php",
-		"oF": 0
-		},
-	"\/single-office.php": {
-		"cB": 0,
-		"ft": 8192,
-		"oA": 0,
-		"oAP": "\/single-office.php",
 		"oF": 0
 		},
 	"\/single.php": {
@@ -375,11 +357,11 @@
 		"oAP": "\/taxonomy-location.php",
 		"oF": 0
 		},
-	"\/taxonomy-office_practice_area.php": {
+	"\/taxonomy-practice_area.php": {
 		"cB": 0,
 		"ft": 8192,
 		"oA": 0,
-		"oAP": "\/taxonomy-office_practice_area.php",
+		"oAP": "\/taxonomy-practice_area.php",
 		"oF": 0
 		}
 	},
@@ -388,10 +370,10 @@
 "manualImportLinks": {
 	},
 "projectAttributes": {
-	"creationDate": 555197873,
+	"creationDate": 557351728,
 	"displayValue": "attorneydirectory",
 	"displayValueWasSetByUser": 0,
-	"iconImageName": "meme-ceiling",
+	"iconImageName": "meme-angryBaby",
 	"iconImageWasSetByUser": 0
 	},
 "projectSettings": {
@@ -1787,7 +1769,7 @@
 			}
 		},
 	"esLintSourceType": 0,
-	"externalServerAddress": "http:\/\/lawyers-directory.com",
+	"externalServerAddress": "http:\/\/att-directory-2.com",
 	"gitIgnoreBuildFolder": 1,
 	"hideConfigFile": 0,
 	"jsCheckerReservedNamesString": "",

@@ -21,7 +21,7 @@
 				
 				$currentparentid = $parentid->slug;
 				
-				echo '<li><a href="' . get_bloginfo('url') . '/lawyers-location/locations/' . $currentparentid . '/' . $select_city_ids->slug .  '">' . $select_city_ids->name . '</a></li>';
+				echo '<li><a href="' . get_bloginfo('url') . '/lawyers-location/state/' . $currentparentid . '/' . $select_city_ids->slug .  '">' . $select_city_ids->name . '</a></li>';
 
 				
 		    

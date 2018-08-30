@@ -9,7 +9,7 @@
 	$currentstate = get_query_var( 'currentstate');
 	
 	$taxlocations = 'location';
-	$taxpracticeareas = 'office_practice_area';
+	$taxpracticeareas = 'practice_area';
 	
 	
 
@@ -39,7 +39,7 @@
 	
 	<a href="<?php bloginfo('url');?>">Home</a>
 	
-	<a href="<?php the_permalink(554156);?>">Practice Areas</a>
+	<a href="<?php the_permalink(126);?>">Practice Areas</a>
 	
 	<a href="<?php bloginfo('url');?>/lawyers-practice/<?php echo $currentpracticearea;?>"><?php echo $patermstitle;?></a>
 	
@@ -53,7 +53,6 @@
 </div><!-- breadcrumb -->
 
 <h1><?php echo $statetermtitle;?> <?php echo $patermstitle;?> Lawyers</h1>
-
 
 <?php if(get_field('pa_location_content_blocks','option')) {
 		 		 
@@ -83,7 +82,7 @@
 <?php
 	
 	$query_args = array (
-		'post_type' => 'office',
+		'post_type' => 'lawyer',
 		'posts_per_page' => -1,
 		'fields' => 'ids',
 		'tax_query' => array(

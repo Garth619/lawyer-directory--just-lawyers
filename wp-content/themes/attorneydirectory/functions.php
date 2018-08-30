@@ -209,7 +209,7 @@ function tgm_io_cpt_search( $query ) {
 	
     if ( $query->is_search ) {
 	
-			$query->set( 'post_type', array( 'office', 'lawyer') );
+			$query->set( 'post_type', array('lawyer') );
     
     }
     
@@ -298,7 +298,7 @@ function wpbeginner_numeric_posts_nav() {
 function prefix_rewrite_rule() {
 		
 		
-		add_rewrite_rule( 'lawyers-location/locations/([^/]+)/([^/]+)', 'index.php?office_location_currentstate=$matches[1]&office_location_currentcity=$matches[2]', 'top' );
+		add_rewrite_rule( 'lawyers-location/state/([^/]+)/([^/]+)', 'index.php?office_location_currentstate=$matches[1]&office_location_currentcity=$matches[2]', 'top' );
 	
 		add_rewrite_rule( 'lawyers-practice/([^/]+)/([^/]+)/([^/]+)', 'index.php?office_pa=$matches[1]&currentstate=$matches[2]&currentcity=$matches[3]', 'top' );
 		

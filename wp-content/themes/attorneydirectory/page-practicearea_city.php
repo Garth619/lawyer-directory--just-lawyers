@@ -4,7 +4,7 @@
 <?php 
 
 	$taxlocations = 'location';
-	$taxpracticeareas = 'office_practice_area';
+	$taxpracticeareas = 'practice_area';
 	
 	$lawfirm_location_currentstate = get_query_var( 'office_location_currentstate');
 	$lawfirm_location_currentcity = get_query_var( 'office_location_currentcity');
@@ -33,9 +33,9 @@
 	
 	<a href="<?php bloginfo('url');?>">Home</a>
 	
-	<a href="<?php the_permalink(554158);?>">Locations</a>
+	<a href="<?php the_permalink(133);?>">Locations</a>
 	
-	<a href="<?php bloginfo('url');?>/lawyers-location/locations/<?php echo $lawfirm_location_currentstate;?>"><?php echo $statetitle;?></a>
+	<a href="<?php bloginfo('url');?>/lawyers-location/state/<?php echo $lawfirm_location_currentstate;?>"><?php echo $statetitle;?></a>
 	
 	<a><?php echo $citytermtitle;?></a>
 	
@@ -96,7 +96,7 @@
 		 		echo "<br/>Browse By Practice Area<br/></br/>";	 		
 		 		
 		 		$args = array (
-		 			'post_type' => 'office',
+		 			'post_type' => 'lawyer',
 		 			'fields' => 'ids',
 		 			'tax_query' => array(
 
@@ -146,7 +146,7 @@
 				
 				if(is_user_logged_in()) {
 	
-					echo '<a href="' . get_bloginfo('url') .  '/wp-admin/edit-tags.php?taxonomy=office_practice_area&post_type=office">Edit</a><br/><br/><br/>';
+					echo '<a href="' . get_bloginfo('url') .  '/wp-admin/edit-tags.php?taxonomy=practice_area&post_type=lawyer">Edit</a><br/><br/><br/>';
 			 		
 				}
 

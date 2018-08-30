@@ -7,7 +7,7 @@
 	
 	<a href="<?php bloginfo('url');?>">Home</a>
 	
-	<a href="<?php the_permalink(554156);?>">Practice Areas</a>
+	<a href="<?php the_permalink(126);?>">Practice Areas</a>
 	
 	<a><?php single_term_title();?></a>
 	
@@ -19,11 +19,6 @@
 
 
 <h1><?php single_term_title();?> Lawyers</h1>
-
-
-<!-- start on this one -->
-
-
 
 
 <?php
@@ -61,17 +56,17 @@
 	
 	
 	$taxlocations = 'location';
-	$taxpracticeareas = 'office_practice_area';
+	$taxpracticeareas = 'practice_area';
 	
 	$query_args = array (
-		'post_type' => 'office',
+		'post_type' => 'lawyer',
 		'fields' => 'ids',
 		'posts_per_page' => -1,
 		'tax_query' => array(
 			 array(
 			   'taxonomy'  => $taxlocations,
 			    'field'     => 'ids',
-			    'terms'     => 1048, // i gotta narrow this down to the state level somehow
+			    'terms'     => 7, // i gotta narrow this down to the state level somehow
 			),
 			array(
 			   'taxonomy'  => $taxpracticeareas,
@@ -90,7 +85,7 @@
 		'taxonomy' => $taxlocations,
 		'posts_per_page' => -1,
 		'object_ids' => $myposts->posts,
-		'parent' => 1048, // location cat
+		'parent' => 7, // location cat
 			
 	);
 	

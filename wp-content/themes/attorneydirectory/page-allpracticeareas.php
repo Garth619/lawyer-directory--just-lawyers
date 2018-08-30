@@ -30,7 +30,7 @@
 	<?php 
 		
 		$terms = get_terms( array(
-    'taxonomy' => 'office_practice_area',
+    'taxonomy' => 'practice_area',
 	
 	) );
 		
@@ -45,6 +45,12 @@
      }
      echo '</ul>';
  }
+ 
+ if(is_user_logged_in()) {
+	
+	echo '<a href="' . get_bloginfo('url') .  '/wp-admin/edit-tags.php?taxonomy=practice_area&post_type=lawyer">Edit</a><br/><br/><br/>';
+			 		
+	}
 		
 	?>
 
