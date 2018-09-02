@@ -44,6 +44,14 @@
 		
 		<br/><br/>
 		
+		<?php if(get_field('lawfirm_name')) {?>
+		
+		<br/><br/>
+		
+		<?php the_field('lawfirm_name');?>
+		
+		<?php }?>
+		
 		<?php if(get_field('lawyer_website') == ('NULL') || empty(get_field('lawyer_website'))) {
 		 
 		 

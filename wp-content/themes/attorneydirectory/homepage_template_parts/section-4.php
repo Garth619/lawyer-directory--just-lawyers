@@ -10,7 +10,7 @@
 		
 	$state_terms = get_terms( array( // change new WP_Term_Query later, its newer and faster i think
     'taxonomy' => 'location',
-    'parent'  => 7
+    'parent'  => 139 // add a slug to id conversion here
 	
 	) );
 		

@@ -66,7 +66,7 @@
 			 array(
 			   'taxonomy'  => $taxlocations,
 			    'field'     => 'ids',
-			    'terms'     => 7, // i gotta narrow this down to the state level somehow
+			    'terms'     => 139 // add a slug to id conversion here or is it ok to change field to slug
 			),
 			array(
 			   'taxonomy'  => $taxpracticeareas,
@@ -85,7 +85,7 @@
 		'taxonomy' => $taxlocations,
 		'posts_per_page' => -1,
 		'object_ids' => $myposts->posts,
-		'parent' => 7, // location cat
+		'parent' => 139 // add a slug to id conversion here
 			
 	);
 	
