@@ -109,10 +109,11 @@ class WPSEO_Admin_Init {
 
 		$current_url   = ( is_ssl() ? 'https://' : 'http://' );
 		$current_url  .= sanitize_text_field( $_SERVER['SERVER_NAME'] ) . sanitize_text_field( $_SERVER['REQUEST_URI'] );
-		$customize_url = add_query_arg( array(
+		$query_args    = array(
 			'autofocus[control]' => 'blogdescription',
 			'url'                => urlencode( $current_url ),
-		), wp_customize_url() );
+		);
+		$customize_url = add_query_arg( $query_args, wp_customize_url() );
 
 		$info_message = sprintf(
 			/* translators: 1: link open tag; 2: link close tag. */
@@ -212,7 +213,7 @@ class WPSEO_Admin_Init {
 
 		// We are checking against the WordPress internal translation.
 		// @codingStandardsIgnoreLine
-		$translated_blog_description = __( 'Just another WordPress site' );
+		$translated_blog_description = __( 'Just another WordPress site', 'default' );
 
 		return $translated_blog_description === $blog_description || $default_blog_description === $blog_description;
 	}
@@ -445,34 +446,8 @@ class WPSEO_Admin_Init {
 	 * @return void
 	 */
 	public function unsupported_php_notice() {
-		$info_message = sprintf(
-			/* translators: 1: The strong opening tag; 2: The strong closing tag; 3: the Yoast SEO version that is dropping support; 4: The release date of the version of Yoast SEO that is dropping support; 5: The PHP version no longer being supported; */
-			__( '%1$sAction is needed%2$s: As of version %3$s, due to be released on %4$s, Yoast SEO will no longer work with PHP %5$s. Unfortunately, your site is running on PHP %5$s right now, so action is needed. Thankfully, you can update your PHP yourself.', 'wordpress-seo' ),
-			'<strong>',
-			'</strong>',
-			'7.7',
-			date_i18n( get_option( 'date_format' ), strtotime( '11-06-2018' ) ),
-			'5.2'
-		);
-
-		$unsupported_php_notification = new Yoast_Notification(
-			$info_message,
-			array(
-				'type'         => Yoast_Notification::ERROR,
-				'id'           => 'wpseo-dismiss-unsupported-php',
-				'capabilities' => 'wpseo_manage_options',
-			)
-		);
-
 		$notification_center = Yoast_Notification_Center::get();
-
-		if ( WPSEO_Admin_Utils::is_supported_php_version_installed() === false ) {
-			$notification_center->add_notification( $unsupported_php_notification );
-
-			return;
-		}
-
-		$notification_center->remove_notification( $unsupported_php_notification );
+		$notification_center->remove_notification_by_id( 'wpseo-dismiss-unsupported-php' );
 	}
 
 	/**
@@ -593,7 +568,8 @@ class WPSEO_Admin_Init {
 				'textdomain'  => 'wordpress-seo',
 				'plugin_name' => 'Yoast SEO',
 				'hook'        => 'wpseo_admin_promo_footer',
-			), false
+			),
+			false
 		);
 
 		$message = $i18n_module->get_promo_message();

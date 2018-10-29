@@ -5,12 +5,22 @@
 
 final class Permalinks_Customizer_Form {
 
+  private $permalink_metabox = 0;
+
   /**
    * Initialize WordPress Hooks
    */
   public function init() {
     add_filter( 'get_sample_permalink_html',
       array( $this, 'post_edit_form' ), 10, 4
+    );
+
+    add_action( 'add_meta_boxes',
+      array( $this, 'permalink_edit_box' )
+    );
+
+    add_filter( 'is_protected_meta',
+      array( $this, 'make_meta_protected' ), 10, 3
     );
 
     add_action( 'save_post',
@@ -46,6 +56,52 @@ final class Permalinks_Customizer_Form {
     add_action( 'init', array( $this, 'register_taxonomies_form' ) );
 
     add_action( 'admin_init', array( $this, 'add_bulk_option' ) );
+
+    add_action( 'admin_bar_menu',
+      array( $this, 'flush_permalink_cache' ), 999
+    );
+  }
+
+  /**
+   * Register meta box(es).
+   *
+   * @access public
+   * @since 2.3.0
+   *
+   * @return void
+   */
+  public function permalink_edit_box() {
+    add_meta_box( 'permalinks-customizer-edit-box',
+      __( 'Permalink', 'permalinks-customizer' ),
+      array( $this, 'meta_edit_form' ), null, 'normal', 'high',
+      array(
+        '__back_compat_meta_box' => false,
+      )
+    );
+  }
+
+  /**
+   * Set the meta_keys to protected which is created by the plugin.
+   *
+   * @access public
+   * @since 2.3.1
+   *
+   * @param boolean $protected
+   *   Whether the key is protected or not
+   * @param string $meta_key
+   *   Meta key
+   * @param string $meta_type
+   *   Meta type
+   *
+   * @return boolean
+   *   return `true` for the permalinks_customizer key
+   */
+  public function make_meta_protected( $protected, $meta_key, $meta_type ) {
+    if ( 'permalink_customizer' === $meta_key
+      || 'permalink_customizer_regenerate_status' === $meta_key ) {
+      $protected = true;
+    }
+    return $protected;
   }
 
   /**
@@ -133,9 +189,11 @@ final class Permalinks_Customizer_Form {
     if ( $renderContainers ) {
       wp_enqueue_script( 'permalink-customizer-admin', plugins_url( '/js/script-form.min.js', __FILE__ ), array(), false, true );
       if ( isset( $permalink ) && ! empty( $permalink ) ) {
-        echo '<span id="view-post-btn"><a href="/' . $permalink . '" class="button button-small" target="_blank">View</a></span><span id="regenerate_permalink"><a href="javascript:void(0);" class="button button-small">Regenerate Permalink</a></span>';
+        $view_url = trailingslashit( home_url() ) . $permalink;
+        echo ' <span id="view-post-btn"><a href="' . $view_url . '" class="button button-small" target="_blank">View</a></span> <span id="regenerate_permalink"><a href="javascript:void(0);" class="button button-small">Regenerate Permalink</a></span>';
       } elseif ( isset( $original_permalink ) && ! empty( $original_permalink ) ) {
-        echo '<span id="view-post-btn"><a href="/' . $original_permalink . '" class="button button-small" target="_blank">View</a></span><span id="regenerate_permalink"><a href="javascript:void(0);" class="button button-small">Regenerate Permalink</a></span>';
+        $view_url = trailingslashit( home_url() ) . $original_permalink;
+        echo ' <span id="view-post-btn"><a href="' . $view_url . '" class="button button-small" target="_blank">View</a></span> <span id="regenerate_permalink"><a href="javascript:void(0);" class="button button-small">Regenerate Permalink</a></span>';
       }
       echo '</td></tr></table>';
     }
@@ -161,8 +219,8 @@ final class Permalinks_Customizer_Form {
    *   Returns Edit Form string
    */
   public function post_edit_form( $html, $id, $new_title, $new_slug ) {
-    $permalink = get_post_meta( $id, 'permalink_customizer', true );
-    $post      = get_post( $id );
+    $post                    = get_post( $id );
+    $this->permalink_metabox = 1;
 
     if ( $post->ID == get_option( 'page_on_front' ) ) {
       return $html;
@@ -185,6 +243,8 @@ final class Permalinks_Customizer_Form {
     if ( '__true' === $excluded ) {
       return $html;
     }
+
+    $permalink = get_post_meta( $id, 'permalink_customizer', true );
 
     ob_start();
     $pc_frontend = new Permalinks_Customizer_Frontend;
@@ -209,17 +269,19 @@ final class Permalinks_Customizer_Form {
         plugins_url( '/js/script-form.min.js', __FILE__ ), array(), false, true
       );
       if ( isset( $permalink ) && ! empty( $permalink ) ) {
-        $content .= '<span id="view-post-btn">' .
-                    '<a href="/' . $permalink . '" class="button button-small" target="_blank">' . $view_post . '</a>' .
+        $view_url = trailingslashit( home_url() ) . $permalink;
+        $content .= ' <span id="view-post-btn">' .
+                    '<a href="' . $view_url . '" class="button button-small" target="_blank">' . $view_post . '</a>' .
                     '</span>' .
-                    '<span id="regenerate_permalink">' .
+                    ' <span id="regenerate_permalink">' .
                     '<a href="javascript:void(0);" class="button button-small">Regenerate Permalink</a>' .
                     '</span><br>';
       } else {
-        $content .= '<span id="view-post-btn">' .
-                    '<a href="/' . $original_permalink . '" class="button button-small" target="_blank">' . $view_post .' </a>' .
+        $view_url = trailingslashit( home_url() ) . $original_permalink;
+        $content .= ' <span id="view-post-btn">' .
+                    '<a href="' . $view_url . '" class="button button-small" target="_blank">' . $view_post .' </a>' .
                     '</span>' .
-                    '<span id="regenerate_permalink">' .
+                    ' <span id="regenerate_permalink">' .
                     '<a href="javascript:void(0);" class="button button-small">Regenerate Permalink</a>' .
                     '</span><br>';
       }
@@ -235,6 +297,118 @@ final class Permalinks_Customizer_Form {
     }
 
     return '<strong>' . __( 'Permalink', 'permalinks-customizer' ) . '</strong>: ' . $content;
+  }
+
+  /**
+   * This is the Main Function which adds the Permalink Edit Meta box
+   * for the user with validating the Post Types to make
+   * compatibility with Gutenberg.
+   *
+   * @access public
+   * @since 2.3.0
+   *
+   * @param object $post
+   *   WP Post Object
+   *
+   * @return void
+   *   Add Permalink edit box
+   */
+  public function meta_edit_form( $post ) {
+    if ( isset( $this->permalink_metabox ) && 1 === $this->permalink_metabox ) {
+      wp_enqueue_script( 'permalink-customizer-admin',
+        plugins_url( '/js/script-form.min.js', __FILE__ ), array(), false, true
+      );
+      return;
+    }
+
+    $screen = get_current_screen();
+    if ( 'add' === $screen->action ) {
+      wp_enqueue_script( 'permalink-customizer-admin',
+        plugins_url( '/js/script-form.min.js', __FILE__ ), array(), false, true
+      );
+      return;
+    }
+
+    if ( $post->ID == get_option( 'page_on_front' ) ) {
+      wp_enqueue_script( 'permalink-customizer-admin',
+        plugins_url( '/js/script-form.min.js', __FILE__ ), array(), false, true
+      );
+      return;
+    }
+
+    $args = array(
+      'public' => true
+    );
+
+    $post_types = get_post_types( $args, 'objects' );
+    if ( ! isset( $post_types[$post->post_type] ) ) {
+      wp_enqueue_script( 'permalink-customizer-admin',
+        plugins_url( '/js/script-form.min.js', __FILE__ ), array(), false, true
+      );
+      return;
+    }
+
+    // Filter to excluding PostTypes to be worked on by the plugin
+    $exclude_post_types = $post->post_type;
+    $excluded           = apply_filters(
+      'permalinks_customizer_exclude_post_type', $exclude_post_types
+    );
+    if ( '__true' === $excluded ) {
+      wp_enqueue_script( 'permalink-customizer-admin',
+        plugins_url( '/js/script-form.min.js', __FILE__ ), array(), false, true
+      );
+      return;
+    }
+
+    $permalink = get_post_meta( $post->ID, 'permalink_customizer', true );
+
+    ob_start();
+    $pc_frontend = new Permalinks_Customizer_Frontend;
+
+    if ( 'page' == $post->post_type ) {
+      $original_permalink = $pc_frontend->original_page_link( $post->ID );
+      $view_post = __( 'View Page', 'permalinks-customizer' );
+    } elseif ( 'attachment' == $post->post_type ) {
+      $original_permalink = $pc_frontend->original_attachment_link( $post->ID );
+      $view_post = __( 'View Attachment', 'permalinks-customizer' );
+    } else {
+      $original_permalink = $pc_frontend->original_post_link( $post->ID );
+      $view_post = __( 'View ' . ucfirst( $post->post_type ), 'permalinks-customizer' );
+    }
+    $this->get_form( $permalink, $original_permalink, false, $post->post_name );
+
+    $content = ob_get_contents();
+    ob_end_clean();
+
+    if ( 'trash' != $post->post_status ) {
+      wp_enqueue_script( 'permalink-customizer-admin',
+        plugins_url( '/js/script-form.min.js', __FILE__ ), array(), false, true
+      );
+      if ( isset( $permalink ) && ! empty( $permalink ) ) {
+        $view_url = trailingslashit( home_url() ) . $permalink;
+        $content .= ' <span id="view-post-btn">' .
+                    '<a href="' . $view_url . '" class="button button-small" target="_blank">' . $view_post . '</a>' .
+                    '</span>' .
+                    ' <span id="regenerate_permalink">' .
+                    '<a href="javascript:void(0);" class="button button-small">Regenerate Permalink</a>' .
+                    '</span><br>';
+      } else {
+        $view_url = trailingslashit( home_url() ) . $original_permalink;
+        $content .= ' <span id="view-post-btn">' .
+                    '<a href="' . $view_url . '" class="button button-small" target="_blank">' . $view_post .' </a>' .
+                    '</span>' .
+                    ' <span id="regenerate_permalink">' .
+                    '<a href="javascript:void(0);" class="button button-small">Regenerate Permalink</a>' .
+                    '</span><br>';
+      }
+    }
+
+    if ( false !== strpos( $permalink, '%postname%' )
+      || false !== strpos( $permalink, '%pagename%' ) ) {
+      $permalink = str_replace( array( '%pagename%','%postname%' ), $post_name, $permalink );
+    }
+
+    echo $content;
   }
 
   /**
@@ -420,7 +594,7 @@ final class Permalinks_Customizer_Form {
       }
 
       $permalink = preg_replace( '/(\/+)/', '/', $permalink );
-      $permalink = preg_replace( '/(\-+)/', '-', $permalink );  
+      $permalink = preg_replace( '/(\-+)/', '-', $permalink );
       update_post_meta( $post_id, 'permalink_customizer', $permalink );
       $_REQUEST['permalinks_customizer'] = $permalink;
       if ( 'publish' == $post_status ) {
@@ -1373,5 +1547,30 @@ final class Permalinks_Customizer_Form {
       );
     }
     return $redirect_to;
+  }
+
+  /**
+   * Add `Flush Permalinks Cache` link in Admin Toolbar.
+   *
+   * @access public
+   * @since 2.4.0
+   *
+   * @param object $wp_admin_bar
+   *   Contain Toolbar links
+   *
+   * @return void
+   */
+  public function flush_permalink_cache( $wp_admin_bar ) {
+    $cache = 'wp-admin/admin.php?page=permalinks-customizer-posts-settings&cache=1';
+
+    $wp_admin_bar->add_node([
+      'id' => 'permalinks-customizer',
+      'title' => 'Flush Permalinks Cache',
+      'href' => trailingslashit( home_url() ) . $cache,
+      'meta'  => array(
+        'target' => '_blank',
+        'title' => 'Flush Permalinks Cache'
+      )
+    ]);
   }
 }

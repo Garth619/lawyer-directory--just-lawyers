@@ -58,6 +58,25 @@ ul {
 }
 
 
+.contact_inner {
+	max-width:1200px;
+	margin:0px auto 0;
+	padding:100px 30px 80px;
+	ul {
+		li {
+			margin-bottom:25px;
+			label {
+				display: block;
+				margin-bottom:15px;
+			}
+			input, textarea {
+				width:100%;
+			}
+		}
+	}
+}
+
+
 
 .attorney_wrapper {
 	display: flex;
