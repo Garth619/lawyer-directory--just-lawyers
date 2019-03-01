@@ -4,76 +4,76 @@ Tags: Link, Permalink, URL, Redirects, Tags
 Requires at least: 3.5
 Requires PHP: 5.2.4
 Tested up to: 5.0
-Stable tag: 2.4.0
+Stable tag: 2.5.2
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl.html
 
-Auto-generate Permalinks for PostTypes, Taxonomies and Attachments as per your desired structure defined in Settings. Permalink can also be changed manually or automatically using Regenerate Permalink button from the edit page. It can also be re-generated using Bulk Action.
+**Permalinks Customizer** helps you to set the different permalink structure for different PostTypes and Taxonomies which are publicly available.
 
-== Description ==
+You can use the tags which are defined by the WordPress as mentioned [here](https://github.com/yasglobal/permalinks-customizer#default-tags-for-posttypes). Also, you can use the tags which are customily defined by this plugin for [PostTypes](https://github.com/yasglobal/permalinks-customizer#custom-tags-for-posttypes) and [Taxonomies](https://github.com/yasglobal/permalinks-customizer#custom-tags-for-taxonomies). You can also find these tags in Permalinks Customizer menu on WordPress Dashboard (if the plugin is installed).
 
-Customize your URL and set the slug. You can use basic keywords which is defined by the WordPress for defining the permalinks as well as some new keywords which is defined by this plugin. All the keywords are defined on the Tags page under Permalinks Customizer.
+== How to set the Permalinks for different PostTypes ==
 
-By using <strong>Permalinks Customizer</strong> you can set the different permalink structure for each PostType and Taxonomy.
+Let's assume that you have 6 **PostTypes** and you like to apply differnet **permalink** structure for them. Like:
 
-= How to set the Permalinks for the PostTypes separately =
+1. **Blog :** For this post type you want to create a <strong>permalink</strong> which looks like this: http://www.example.com/blog/year-month-date-postname/
+2. **Customers :** For this post type you want to create a <strong>permalink</strong> which looks like this: http://www.example.com/customers/postname/
+3. **Events :** For this post type you want to create a <strong>permalink</strong> which looks like this: http://www.example.com/events/year-month-date-postname/
+4. **Press :** For this post type you want to create a <strong>permalink</strong> which looks like this: http://www.example.com/press/category/year/postname/
+5. **News :** For this post type you want to create a <strong>permalink</strong> which looks like this: http://www.example.com/news/year/postname/
+6. **Sponsors :** For this post type you want to create a <strong>permalink</strong> which looks like this: http://www.example.com/company/sponsor/post_title/
 
-Let's assume that you have 6 <strong>PostTypes</strong> and they all have different style of <strong>permalinks</strong>. Like:
+This plugin allows you to do this very easily. You just need to go on **Permalinks Customizer** Settings Page. Where text fields are shown with PostType name. You can define your permalinks you want to create for each post type.
 
-1. <strong>Blog :</strong> For this post type you want to create a <strong>permalink</strong> which looks like this: http://www.example.com/blog/year-month-date-postname/
-2. <strong>Customers :</strong> For this post type you want to create a <strong>permalink</strong> which looks like this: http://www.example.com/customers/postname/
-3. <strong>Events :</strong> For this post type you want to create a <strong>permalink</strong> which looks like this: http://www.example.com/events/year-month-date-postname/
-4. <strong>Press :</strong> For this post type you want to create a <strong>permalink</strong> which looks like this: http://www.example.com/press/category/year/postname/
-5. <strong>News :</strong> For this post type you want to create a <strong>permalink</strong> which looks like this: http://www.example.com/news/year/postname/
-6. <strong>Sponsors :</strong> For this post type you want to create a <strong>permalink</strong> which looks like this: http://www.example.com/company/sponsor/post_title/
+If you leave any PostType field empty, **Permalinks Customizer** will create a permalink for that PostType by using the default **permalink** settings.
 
-This plugin allows you to do this very easily. You just need to go on <strong>Permalinks Customizer</strong> Settings Page. Where text fields are shown with PostType name. You can define your permalinks you want to create for each post type.
-
-If you leave any PostType field empty. So, <strong>Permalinks Customizer</strong> would create a permalink for that PostType by using the default <strong>permalink</strong> settings.
-
-> <strong>How to Configure Permalinks Customizer</strong>
->
-> You can configure the plugin by going to the menu `Permalinks Customizer` that appears in your admin menu.<br><br><strong>                                   OR</strong><br><br> http://www.example.com/wp-admin/admin.php?page=permalinks-customizer-posts-settings
+== How to Configure Permalinks Customizer ==
+You can configure the plugin by navigating to the `Permalinks Customizer` menu from the WordPress Dashboard
 
 == Structure Tags ==
+You can find all the tags which are currently supported by the `Permalinks Customizer`.
 
-=== Tags for PostTypes ===
+=== Default Tags for PostTypes ===
+Below mentioned tags are provided by the `WordPress`. These tags can be used on Default `WordPress Permalink` Settings Page as well as `Permalinks Customizer` Settings page.
 
-* <strong>%title%</strong> : Title of the post. let's say the title is "This Is A Great Post!" so, it becomes this-is-a-great-post in the URI.
-* <strong>%year%</strong> : The year of the post, four digits, for example 2004
-* <strong>%monthnum%</strong> : Month of the year, for example 05
-* <strong>%day%</strong> : Day of the month, for example 28
-* <strong>%hour%</strong> : Hour of the day, for example 15
-* <strong>%minute%</strong> : Minute of the hour, for example 43
-* <strong>%second%</strong> : Second of the minute, for example 33
-* <strong>%post_id%</strong> : The unique ID # of the post, for example 423
-* <strong>%postname%</strong> : A sanitized version of the title of the post (post slug field on Edit Post/Page panel). So "This Is A Great Post!" becomes this-is-a-great-post in the URI.
-* <strong>%parent_postname%</strong> : A sanitized version of the title of the post (post slug field on Edit Post/Page panel). So "This Is A Great Post!" becomes this-is-a-great-post in the URI. This <strong>Tag</strong> contains Immediate <strong>Parent Page Slug</strong> if any parent page is selected before publishing.
-* <strong>%all_parents_postname%</strong> : A sanitized version of the title of the post (post slug field on Edit Post/Page panel). So "This Is A Great Post!" becomes this-is-a-great-post in the URI. This <strong>Tag</strong> contains all the <strong>Parent Page Slugs</strong> if any parent page is selected before publishing.
-* <strong>%category%</strong> : A sanitized version of the category name (category slug field on New/Edit Category panel). Nested sub-categories appear as nested directories in the URI.
-* <strong>%child-category%</strong> : A sanitized version of the category name (category slug field on New/Edit Category panel).
-* <strong>%product_cat%</strong> : A sanitized version of the product category name (category slug field on New/Edit Category panel). Nested sub-categories appear as nested directories in the URI. <i>This <strong>tag</strong> is specially used for WooCommerce Products.</i>
-* <strong>&lt;%ctax_custom_taxonomy%&gt;</strong> : A sanitized version of the custom taxonomy where the taxonomy name is <strong><i>custom_taxonomy</i></strong>. Replace the <i>custom_taxonomy</i> with your appropriate created taxonomy name.
-  If you want to provide the default slug which is used when the category/taxonomy doesn\'t be selected so, make sure to provide default name/slug which looks like this: <strong><i>&lt;%ctax_custom_taxonomy??sales%&gt;</i></strong>. Value which is written between the <strong><i>??</i></strong> and <strong><i>%&gt;</i></strong> is used as default slug.
-* <strong>%author%</strong> : A sanitized version of the author name.
-* <strong>%author_firstname%</strong> : A sanitized version of the author first name. If author first name is not available so, it uses the author\'s username.
-* <strong>%author_lastname%</strong> : A sanitized version of the author last name. If author last name is not available so, it uses the author\'s username.
+1. `%year%`:  The year of the post, four digits, for example 2019.
+2. `%monthnum%`: Month of the year, for example 01.
+3. `%day%`: Day of the month, for example 02.
+4. `%hour%`: Hour of the day, for example 15.
+5. `%minute%`: Minute of the hour, for example 43.
+6. `%second%`: Second of the minute, for example 33.
+7. `%post_id%`: The unique ID of the post, for example 123.
+8. `%postname%`: A sanitized version of the title of the post (post slug field on Edit Post/Page panel). So "This Is A Great Post!" becomes this-is-a-great-post in the URI.
+9. `%category%`: A sanitized version of the category name (category slug field on New/Edit Category panel). Nested sub-categories appear as nested directories in the URI.
+10. `%author%`: A sanitized version of the author name.
 
-<strong>Note</strong>: *%postname%* is similar as of the *%title%* tag but the difference is that *%postname%* can only be set once whereas *%title%* can be changed. let's say the title is "This Is A Great Post!" so, it becomes "this-is-a-great-post" in the URI(At the first time, *%postname%* and *%title%* works same) but if you edit and change title let's say "This Is A WordPress Post!" so, *%postname%* in the URI remains same "this-is-a-great-post" whereas *%title%* in the URI becomes "this-is-a-wordpress-post"
+=== Custom Tags for PostTypes ===
+Below mentioned tags are provided by the `Permalinks Customizer` for PostTypes. These tags can not be used on the Default `WordPress Permalink` Settings Page.
 
-=== Tags for Taxonomies ===
+1. `%title%`: Title of the post. let's say the title is "This Is A Great Post!" so, it becomes this-is-a-great-post in the URI.
+2. `%parent_postname%`: This tag is similar as `%postname%`.<br><br> Only difference is that it appends Immediate **Parent Page Slug** if any parent page is selected before publishing.
+3. `%child-category%`: A sanitized version of the category name (category slug field on New/Edit Category panel).
+4. `%product_cat%`: A sanitized version of the product category name (category slug field on New/Edit Category panel). Nested sub-categories appear as nested directories in the URI.<br><br> *This `tag` is specially used in WooCommerce Products.*
+5. `<%ctax_custom_taxonomy%>`: A sanitized version of the custom taxonomy where the taxonomy name is `custom_taxonomy`. Replace the `custom_taxonomy` with your appropriate created taxonomy name.<br><br> If you want to provide the default slug which is used when the category/taxonomy doesn't be selected so, make sure to provide default name/slug which looks like this: `<%ctax_custom_taxonomy??sales%>`. Value which is written between the `??` and `%>` is used as default slug.
+6. `<%ctaxparents_custom_taxonomy%>`: This tag is similar as `<%ctax_custom_taxonomy%>`.<br><br> Only difference is that it appends all the parent slugs of the selected category/term.
+7. `%author_firstname%`: A sanitized version of the author first name. If author first name is not available so, it uses the author's username.
+8. `%author_lastname%`: A sanitized version of the author last name. If author last name is not available so, it uses the author's username.
 
-* <strong>%name%</strong> : Name of the Term/Category. let's say the name is "External API" so, it becomes external-api in the URI.
-* <strong>%term_id%</strong> : The unique ID # of the Term/Category, for example 423
-* <strong>%slug%</strong> : A sanitized version of the name of the Term/Category. So "External API" becomes external-api in the URI.
-* <strong>%parent_slug%</strong> : A sanitized version of the name of the Term/Category. So "External API" becomes external-api in the URI. This Tag contains Immediate Parent Term/Category Slug if any parent Term/Category is selected before adding it.
-* <strong>%all_parents_slug%</strong> : A sanitized version of the name of the Term/Category. So "External API" becomes external-api in the URI. This Tag contains all the Parent Term/Category Slug if any parent Term/Category is selected before adding it.
+**Note**: `%title%` is similar as `%postname%` tag but the difference is that `%postname%` can only be set once by WordPress whereas `%title%` can be changed by user at multiple times. let's say the title is "This Is A Great Post!" so, it becomes "this-is-a-great-post" in the URI(At the first time, `%postname%` and `%title%` works same) but if you edit and change title let's say "This Is A WordPress Post!" so, `%postname%` in the URI remains same "this-is-a-great-post" whereas `%title%` in the URI becomes "this-is-a-wordpress-post"
 
-<strong>Be warned:</strong> *This plugin is not a replacement for WordPress's built-in permalink system*. Check your WordPress administration's "Permalinks" settings page first, to make sure that this doesn't already meet your needs.
+=== Custom Tags for Taxonomies ===
+Below mentioned tags are provided by the `Permalinks Customizer` for Taxonomies. These can not be used on the Default `WordPress Permalink` Settings Page.
 
-=== Filter ===
+1. `%name%`: Name of the Term/Category. let's say the name is "External API" so, it becomes external-api in the URI.
+2. `%term_id%`: The unique ID # of the Term/Category, for example 423
+3. `%slug%`: A sanitized version of the name of the Term/Category. So "External API" becomes external-api in the URI.
+4. `%parent_slug%`: A sanitized version of the name of the Term/Category. So "External API" becomes external-api in the URI. This Tag contains Immediate Parent Term/Category Slug if any parent Term/Category is selected before adding it.
+5. `%all_parents_slug%`: A sanitized version of the name of the Term/Category. So "External API" becomes external-api in the URI. This Tag contains all the Parent Term/Category Slug if any parent Term/Category is selected before adding it.
 
-==== Exclude Permalinks ====
+== Filters ==
+You can find all the filters below which are provided by `Permalinks Customizer` plugin. These filters can be used as per your Website requirement.
+
+=== Exclude Permalinks ===
 
 If you want to exclude some Permalink to processed with the plugin so, just add the filter looks like this:
 `
@@ -86,16 +86,16 @@ function yasglobal_exclude_url( $permalink ) {
 add_filter( 'permalinks_customizer_exclude_request', 'yasglobal_exclude_url' );
 `
 
-==== Show Relative Permalink/URL ====
+=== Show Relative Permalink/URL ===
 
-To show relative permalink/url in Edit Post, add this filter in your themes functions.php.
+To show relative permalink/url in Edit Post, add this filter in your themes `functions.php`.s
 `
 add_filter( 'permalinks_customizer_remove_home_url', '__return_true' );
 `
 
-==== Exclude PostType from the Plugin ====
+=== Exclude PostType from the Plugin ===
 
-To exclude the plugin to be worked on any PostType. Add this filter in your themes functions.php.
+To exclude the plugin to be worked on any PostType. Add this filter in your themes `functions.php`.
 `
 function yasglobal_exclude_post_types( $post_type ) {
   if ( $post_type == 'page' ) {
@@ -107,7 +107,7 @@ add_filter( 'permalinks_customizer_exclude_post_type', 'yasglobal_exclude_post_t
 `
 **Note**: Plugin stops working on the backend. *No more permalinks* would be generated by the plugin but the permalink which are already created will remains in work.
 
-==== Disable automatically create redirects ====
+=== Disable automatically create redirects ===
 
 To disable automatically create redirects feature on creating and updating the post/pages/categories, add this filter in your themes functions.php.
 `
@@ -115,7 +115,7 @@ add_filter( 'permalinks_customizer_auto_created_redirects', '__return_false');
 `
 This filter stops to be creating new redirects but existed redirects keeps working. To stop existed redirects, add `permalinks_customizer_disable_redirects` filter.
 
-==== Disable Redirects ====
+=== Disable Redirects ===
 
 To disable redirects to be applied , add this filter in your themes functions.php.
 `
@@ -123,11 +123,7 @@ add_filter( 'permalinks_customizer_disable_redirects', '__return_false');
 `
 This filter only stop redirects to be work but the automatically create redirects still works. To stop automatically create redirects feature add `permalinks_customizer_auto_created_redirects` filter.
 
-=== Thanks for the Support ===
-
-The support from the users that love Permalinks Customizer is huge. You can support Permalinks Customizer future development and help to make it even better by leaving a 5 star rating with a nice message to me :)
-
-=== Bug reports ===
+== Bug reports ==
 
 Bug reports for Permalinks Customizer are [welcomed on GitHub](https://github.com/yasglobal/permalinks-customizer). Please note GitHub is not a support forum, and issues that aren't properly qualified as bugs will be closed.
 
@@ -170,22 +166,22 @@ This process defines you the steps to follow either you are installing through W
 == Frequently Asked Questions ==
 
 = Q. How to define Settings for the PostType? =
-A. Go to WordPress Dashboard under Permalinks Customizer, Go to PostTypes Settings Page, there is a textfield for all the available PostType. On this field, you can define structure which is used for this PostType.
+A. Navigate on `Permalinks Customizer` Menu from the `WordPress Dashboard`, Open PostTypes Settings Page, there is a textfield for each and every PostType (if the PostType is available for `Public`) . On this field, you can define structure which is used for that PostType.
 
 = Q. Can i use tags in PostType Settings? =
-A. Yes, you can use any tag as defined on the [Permalinks Customizer page](https://wordpress.org/plugins/permalinks-customizer/) under the *TAGS FOR POSTTYPES* heading.
+A. Yes, you can use any tag which are defined in [Default Tags for PostTypes](https://github.com/yasglobal/permalinks-customizer#default-tags-for-posttypes) and [Custom Tags for Taxonomies](https://github.com/yasglobal/permalinks-customizer#custom-tags-for-taxonomies).
 
 = Q. Does the plugin supports custom taxonomy tag? =
-A. Yes, it supports custom taxonomy tag. You can define the tag as mentioned on the [Permalinks Customizer page](https://wordpress.org/plugins/permalinks-customizer/).
+A. Yes, it supports the custom taxonomy tag as defined [here](https://github.com/yasglobal/permalinks-customizer#custom-tags-for-posttypes).
 
 = Q. Can i see the created permalinks for the PostType? =
 A. Yes, you can see all the created permalinks on the PostType Permalinks Page under Permalinks Customizer.
 
 = Q. How to define Settings for the Taxonomies? =
-A. Go to WordPress Dashboard under Permalinks Customizer, Go to Taxonomies Settings Page, there is a textfield for every available Taxonomies. On this field, you can define structure which is used for this Taxonomy.
+A. Navigate on `Permalinks Customizer` Menu from the `WordPress Dashboard`, Open Taxonomies Settings Page, there is a textfield for each and every Taxonomy (if the Taxonomy is available for `Public`) . On this field, you can define structure which is used for that Taxonomy.
 
 = Q. Can i use tags in Taxonomies Settings? =
-A. Yes, you can use any tag as defined on the [Permalinks Customizer page](https://wordpress.org/plugins/permalinks-customizer/) under the *TAGS FOR TAXONOMIES* heading.
+A. Yes, you can use any tag which are defined [here](https://github.com/yasglobal/permalinks-customizer#custom-tags-for-taxonomies).
 
 = Q. Can i see the created permalinks for the Taxonomies? =
 A. Yes, you can see all the created permalinks on the Taxonomies Permalinks Page under Permalinks Customizer.
@@ -207,13 +203,33 @@ A. Yes, you can exclude any posttype from the plugin to be worked on. For this j
 
 == Changelog ==
 
+= 2.5.2 - Jan 02, 2019 =
+
+  * Enhancement
+    * Added `<%ctaxparents_custom_taxonomy%>` tag for PostTypes
+  * Bug
+    * Fixed PHP Fatal error in `uninstall.php`
+      [https://wordpress.org/support/topic/unable-to-uninstall-10/](https://wordpress.org/support/topic/unable-to-uninstall-10/)
+
+= 2.5.1 - Nov 30, 2018 =
+
+  * Enhancement
+    * &lt;%ctax_custom_taxonomy%&gt; use category which is selected as Primary Category (Yoast SEO)
+
+= 2.5.0 - Nov 28, 2018 =
+
+  * Enhancement
+    * Auto refreshing permalink in Gutenberg
+    * Removing need of Page refresh on `Regenerate Permalink` button
+    * Added Permalink in Sidebar to Support Latest Gutenberg
+
 = 2.4.0 - Oct 25, 2018 =
 
   * Enhancement
     * Add `Flush Permalink Cache` option in Admin Toolbar
   * Bug
     * `View Post` button does not open expected URL (due to relative Path)
-      https://wordpress.org/support/topic/view-post-button-does-not-open-expected-url/
+      [https://wordpress.org/support/topic/view-post-button-does-not-open-expected-url/](https://wordpress.org/support/topic/view-post-button-does-not-open-expected-url/)
     * Removed auto flush rewrite rules to prevent permalink cache
 
 = 2.3.1 - Oct 16, 2018 =

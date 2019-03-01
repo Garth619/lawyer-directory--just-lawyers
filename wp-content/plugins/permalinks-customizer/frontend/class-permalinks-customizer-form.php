@@ -57,6 +57,8 @@ final class Permalinks_Customizer_Form {
 
     add_action( 'admin_init', array( $this, 'add_bulk_option' ) );
 
+    add_action( 'rest_api_init', array( $this, 'rest_edit_form' ) );
+
     add_action( 'admin_bar_menu',
       array( $this, 'flush_permalink_cache' ), 999
     );
@@ -73,7 +75,7 @@ final class Permalinks_Customizer_Form {
   public function permalink_edit_box() {
     add_meta_box( 'permalinks-customizer-edit-box',
       __( 'Permalink', 'permalinks-customizer' ),
-      array( $this, 'meta_edit_form' ), null, 'normal', 'high',
+      array( $this, 'meta_edit_form' ), null, 'side', 'high',
       array(
         '__back_compat_meta_box' => false,
       )
@@ -159,13 +161,18 @@ final class Permalinks_Customizer_Form {
       && '__false' !== $remove_url ) {
       $home_url = '/';
     }
+    $permalink_edit_field = '';
+    if ( isset( $this->permalink_metabox ) && 0 === $this->permalink_metabox ) {
+      $permalink_edit_field = '<label style="display:block;">URL</label>';
+      $home_url = '';
+    }
 
-    $permalink_edit_field = $home_url .
-                            '<span id="editable-post-name" title="Click to edit this part of the permalink">' .
-                            $postname_html .
-                            '<input type="text" id="permalinks-customizer-post-slug" class="text" value="' . $permalink_edit_value . '" style="width: 250px; color: #ddd;" onfocus="focusPermalinkField()" onblur="blurPermalinkField()" />' .
-                            '<input type="hidden" value="' . $original_permalink . '" id="original_permalink" />' .
-                            '</span>';
+    $permalink_edit_field .= $home_url .
+                              '<span id="editable-post-name" title="Click to edit this part of the permalink">' .
+                              $postname_html .
+                              '<input type="text" id="permalinks-customizer-post-slug" class="text" value="' . $permalink_edit_value . '" style="width: 250px; color: #ddd;" onfocus="focusPermalinkField()" onblur="blurPermalinkField()" />' .
+                              '<input type="hidden" value="' . $original_permalink . '" id="original_permalink" />' .
+                              '</span>';
     echo apply_filters( 'edit_permalink_field', $permalink_edit_field );
 
     echo '<script type="text/javascript">
@@ -290,9 +297,11 @@ final class Permalinks_Customizer_Form {
       $permalink = $matches[1];
     } else {
       list( $permalink, $post_name ) = get_sample_permalink( $post->ID, $new_title, $new_slug );
-      if ( false !== strpos( $permalink, '%postname%' )
-        || false !== strpos( $permalink, '%pagename%' ) ) {
-        $permalink = str_replace( array( '%pagename%','%postname%' ), $post_name, $permalink );
+      if ( false !== strpos( $permalink, '%pagename%' ) ) {
+        $permalink = str_replace( '%pagename%', $post_name, $permalink );
+      }
+      if ( false !== strpos( $permalink, '%postname%' ) ) {
+        $permalink = str_replace( '%postname%', $post_name, $permalink );
       }
     }
 
@@ -315,14 +324,6 @@ final class Permalinks_Customizer_Form {
    */
   public function meta_edit_form( $post ) {
     if ( isset( $this->permalink_metabox ) && 1 === $this->permalink_metabox ) {
-      wp_enqueue_script( 'permalink-customizer-admin',
-        plugins_url( '/js/script-form.min.js', __FILE__ ), array(), false, true
-      );
-      return;
-    }
-
-    $screen = get_current_screen();
-    if ( 'add' === $screen->action ) {
       wp_enqueue_script( 'permalink-customizer-admin',
         plugins_url( '/js/script-form.min.js', __FILE__ ), array(), false, true
       );
@@ -360,7 +361,18 @@ final class Permalinks_Customizer_Form {
       return;
     }
 
+    $screen = get_current_screen();
+    if ( 'add' === $screen->action ) {
+      echo '<input value="add" type="hidden" name="permalinks_customizer_add" id="permalinks_customizer_add" />';
+    }
+
     $permalink = get_post_meta( $post->ID, 'permalink_customizer', true );
+    if ( false !== strpos( $permalink, '%pagename%' ) ) {
+      $permalink = str_replace( '%pagename%', $post_name, $permalink );
+    }
+    if ( false !== strpos( $permalink, '%postname%' ) ) {
+      $permalink = str_replace( '%postname%', $post_name, $permalink );
+    }
 
     ob_start();
     $pc_frontend = new Permalinks_Customizer_Frontend;
@@ -384,6 +396,7 @@ final class Permalinks_Customizer_Form {
       wp_enqueue_script( 'permalink-customizer-admin',
         plugins_url( '/js/script-form.min.js', __FILE__ ), array(), false, true
       );
+      $content .= '<label style="display:block;">Actions</label>';
       if ( isset( $permalink ) && ! empty( $permalink ) ) {
         $view_url = trailingslashit( home_url() ) . $permalink;
         $content .= ' <span id="view-post-btn">' .
@@ -401,11 +414,7 @@ final class Permalinks_Customizer_Form {
                     '<a href="javascript:void(0);" class="button button-small">Regenerate Permalink</a>' .
                     '</span><br>';
       }
-    }
-
-    if ( false !== strpos( $permalink, '%postname%' )
-      || false !== strpos( $permalink, '%pagename%' ) ) {
-      $permalink = str_replace( array( '%pagename%','%postname%' ), $post_name, $permalink );
+      $content .= '<style>.editor-post-permalink,.pc-permalink-hidden{display:none;}</style>';
     }
 
     echo $content;
@@ -866,8 +875,9 @@ final class Permalinks_Customizer_Form {
       && false !== strpos( $replace_tag, '%&gt;' ) ) {
       preg_match_all('/&lt;%ctax_(.*?)%&gt;/s', $replace_tag, $matches);
       foreach ( $matches[1] as $row ) {
-        $ctax_name = $row;
-        $category  = '';
+        $ctax_name    = $row;
+        $category     = '';
+        $primary_term = '';
         if ( false !== strpos( $row, '??' ) ) {
           $split_ctax = explode( '??', $row );
           if ( isset( $split_ctax[0] ) && isset( $split_ctax[1] ) ) {
@@ -876,17 +886,27 @@ final class Permalinks_Customizer_Form {
           }
         }
 
-        $ctax_tag   = '&lt;%ctax_' . $row . '%&gt;';
+        $ctax_tag = '&lt;%ctax_' . $row . '%&gt;';
+
+        if ( class_exists('WPSEO_Primary_Term') ) {
+          $wpseo_primary_term = new WPSEO_Primary_Term( $ctax_name, $post_id );
+          $primary_term       = $wpseo_primary_term->get_primary_term();
+        }
+
         $categories = get_the_terms( $post_id, $ctax_name );
         if ( ! is_wp_error( $categories ) && false !== $categories ) {
           if ( count( $categories ) > 0 && is_array( $categories ) ) {
             $tid = '';
             foreach ( $categories as $cat ) {
-              if ( $cat->term_id < $tid || empty( $tid ) ) {
+              if ( $cat->term_id < $tid || empty( $tid )
+                || $cat->term_id == $primary_term ) {
                 $tid = $cat->term_id;
                 $pid = '';
                 if ( ! empty( $cat->parent ) ) {
                   $pid = $cat->parent;
+                }
+                if ( $tid == $primary_term ) {
+                  break;
                 }
               }
             }
@@ -895,6 +915,70 @@ final class Permalinks_Customizer_Form {
             if ( ! empty( $pid ) ) {
               $parent_category = get_term( $pid );
               $category        = is_object( $parent_category ) ? $parent_category->slug . '/' . $category : $category;
+            }
+          }
+        }
+        $replace_tag = str_replace( $ctax_tag, $category, $replace_tag );
+      }
+    }
+
+    // Replace <%ctaxparents_category_name%> with it's appropriate selected category
+    if ( false !== strpos( $replace_tag, '&lt;%ctaxparents_' )
+      && false !== strpos( $replace_tag, '%&gt;' ) ) {
+      preg_match_all('/&lt;%ctaxparents_(.*?)%&gt;/s', $replace_tag, $matches);
+      foreach ( $matches[1] as $row ) {
+        $ctax_name    = $row;
+        $category     = '';
+        $primary_term = '';
+        if ( false !== strpos( $row, '??' ) ) {
+          $split_ctax = explode( '??', $row );
+          if ( isset( $split_ctax[0] ) && isset( $split_ctax[1] ) ) {
+            $ctax_name = $split_ctax[0];
+            $category  = $split_ctax[1];
+          }
+        }
+
+        $ctax_tag = '&lt;%ctaxparents_' . $row . '%&gt;';
+
+        if ( class_exists('WPSEO_Primary_Term') ) {
+          $wpseo_primary_term = new WPSEO_Primary_Term( $ctax_name, $post_id );
+          $primary_term       = $wpseo_primary_term->get_primary_term();
+        }
+
+        $categories = get_the_terms( $post_id, $ctax_name );
+        if ( ! is_wp_error( $categories ) && false !== $categories ) {
+          if ( count( $categories ) > 0 && is_array( $categories ) ) {
+            $tid = '';
+            foreach ( $categories as $cat ) {
+              if ( $cat->term_id < $tid || empty( $tid )
+                || $cat->term_id == $primary_term ) {
+                $tid = $cat->term_id;
+                $pid = '';
+                if ( ! empty( $cat->parent ) ) {
+                  $pid = $cat->parent;
+                }
+                if ( $tid == $primary_term ) {
+                  break;
+                }
+              }
+            }
+            $term_category = get_term( $tid );
+            $category      = is_object( $term_category ) ? $term_category->slug : '';
+            if ( ! empty( $pid ) ) {
+              $parents      = get_ancestors( $tid, $ctax_name, 'taxonomy' );
+              $parent_slugs = '';
+              if ( $parents && ! empty( $parents ) && 1 <= count( $parents ) ) {
+                $i            = count( $parents ) - 1;
+                $parent_slugs = '';
+                for ( $i; $i >= 0; $i-- ) {
+                  $parent        = get_term( $parents[$i] );
+                  $parent_slugs .= $parent->slug . '/';
+                }
+              }
+
+              if ( ! empty( $parent_slugs ) ) {
+                $category = $parent_slugs . '/' . $category;
+              }
             }
           }
         }
@@ -1547,6 +1631,52 @@ final class Permalinks_Customizer_Form {
       );
     }
     return $redirect_to;
+  }
+
+  /**
+   * Added Custom Endpoints for refreshing the permalink
+   *
+   * @access public
+   * @since 2.4.0
+   *
+   * @return void
+   */
+  public function rest_edit_form() {
+    register_rest_route( 'permalinks-customizer/v1',
+      '/get-permalink/(?P<id>\d+)', array(
+        'methods' => 'GET',
+        'callback' => array( $this, 'refresh_meta_form' )
+      )
+    );
+  }
+
+  /**
+   * Refresh Permalink using AJAX Call
+   *
+   * @access public
+   * @since 2.4.0
+   *
+   * @param object $data
+   *   Contains post id with some default REST Values
+   *
+   * @return void
+   */
+  public function refresh_meta_form( $data ) {
+    if ( isset( $data['id'] ) && is_numeric( $data['id'] ) ) {
+      $post = get_post( $data['id'] );
+      $all_permalinks = array();
+      $all_permalinks['permalink_customizer'] = get_post_meta( $data['id'], 'permalink_customizer', true );
+      $pc_frontend = new Permalinks_Customizer_Frontend;
+      if ( 'page' == $post->post_type ) {
+        $all_permalinks['original_permalink'] = $pc_frontend->original_page_link( $data['id'] );
+      } elseif ( 'attachment' == $post->post_type ) {
+        $all_permalinks['original_permalink'] = $pc_frontend->original_attachment_link( $data['id'] );
+      } else {
+        $all_permalinks['original_permalink'] = $pc_frontend->original_post_link( $data['id'] );
+      }
+      echo json_encode( $all_permalinks );
+      exit;
+    }
   }
 
   /**

@@ -4,32 +4,25 @@ var savePost = document.getElementById("save-post");
 var getHomeURL = document.getElementById("permalinks_customizer_home_url");
 var getPermalink = document.getElementById("permalinks_customizer");
 var checkYoastSEO = document.getElementById("wpseo_meta");
+var editPost = "";
+var isSaving = "";
+var lastIsSaving = false;
 
 function regenratePermalinkOption() {
     "use strict";
 
     var confirmBox = confirm("Are you sure, you want to regenerete Permalink?");
-    var gutenberg = 0;
     if (!savePost) {
         if (document.querySelector("#editor .editor-post-save-draft")) {
             savePost = document.querySelector("#editor .editor-post-save-draft");
-            gutenberg = 1;
         } else if (document.querySelector("#editor .editor-post-publish-button")) {
             savePost = document.querySelector("#editor .editor-post-publish-button");
-            gutenberg = 1;
         }
     }
     if (savePost) {
         if (confirmBox) {
             regenerateValue.value = "true";
             savePost.click();
-            if (gutenberg === 1) {
-                setInterval( function () {
-                    if (document.querySelector(".components-notice.is-success.is-dismissible")) {
-                        location.reload();
-                    }
-                }, 1000);
-            }
         }
     } else {
         var bodyClasses = document.querySelector("body");
@@ -40,13 +33,6 @@ function regenratePermalinkOption() {
                 saveTax.click();
             }
         }
-    }
-}
-
-if ( regeneratePermalink && regenerateValue ) {
-    regeneratePermalink.addEventListener("click", regenratePermalinkOption);
-    if (!savePost) {
-        savePost = document.getElementById("publish");
     }
 }
 
@@ -66,7 +52,7 @@ function changeSEOLinkOnBlur() {
     }
 }
 
-function changeSEOLink () {
+function changeSEOLink() {
     "use strict";
 
     var snippetCiteBase = document.getElementById("snippet_citeBase");
@@ -98,9 +84,78 @@ function changeSEOLink () {
     }
 }
 
-if (checkYoastSEO) {
-    window.addEventListener("load", changeSEOLink);
+/**
+ * Update Permalink Value in View Button
+ */
+function updateMetaBox() {
+    "use strict";
+
+    if (!editPost) {
+        return;
+    }
+
+    isSaving = editPost.isSavingMetaBoxes();
+
+    if (isSaving !== lastIsSaving && !isSaving) {
+        lastIsSaving = isSaving;
+        var postId = wp.data.select("core/editor").getEditedPostAttribute("id");
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                var setPermlinks = JSON.parse(this.responseText);
+                var permalinkAdd = document.getElementById("permalinks_customizer_add");
+                getPermalink.value = setPermlinks.permalink_customizer;
+                document.getElementById("permalinks-customizer-post-slug").value = setPermlinks.permalink_customizer;
+                document.getElementById("original_permalink").value = setPermlinks.original_permalink;
+                document.querySelector("#view-post-btn a").href = getHomeURL.value + "/" + setPermlinks.permalink_customizer;
+                if (permalinkAdd && permalinkAdd.value == "add") {
+                    document.getElementById("permalinks-customizer-edit-box").style.display = "";
+                }
+                if (document.querySelector(".components-notice__content a")) {
+                    document.querySelector(".components-notice__content a").href = "/" + setPermlinks.permalink_customizer;
+                }
+            }
+        };
+        xhttp.open("GET", getHomeURL.value + "/wp-json/permalinks-customizer/v1/get-permalink/" + postId, true);
+        xhttp.setRequestHeader("Cache-Control", "private, max-age=0, no-cache");
+        xhttp.send();
+    }
+
+    lastIsSaving = isSaving;
 }
-if ( document.querySelector("#permalinks-customizer-edit-box .inside").innerHTML.trim() === "" ) {
-    document.getElementById("permalinks-customizer-edit-box").style.display = "none";
+
+function permalinkContentLoaded() {
+    "use strict";
+
+    var permalinkEdit = document.getElementById("permalinks-customizer-edit-box");
+    var defaultPerm = document.getElementsByClassName("edit-post-post-link__preview-label");
+    if (regeneratePermalink && regenerateValue) {
+        regeneratePermalink.addEventListener("click", regenratePermalinkOption);
+        if (!savePost) {
+            savePost = document.getElementById("publish");
+        }
+    }
+
+    if (checkYoastSEO) {
+        window.addEventListener("load", changeSEOLink);
+    }
+    if (document.querySelector("#permalinks-customizer-edit-box .inside").innerHTML.trim() === "") {
+        permalinkEdit.style.display = "none";
+    }
+    if (wp.data) {
+        var permalinkAdd = document.getElementById("permalinks_customizer_add");
+        if (permalinkAdd && permalinkAdd.value == "add") {
+            permalinkEdit.style.display = "none";
+        }
+        editPost = wp.data.select("core/edit-post");
+        wp.data.subscribe(updateMetaBox);
+        if (defaultPerm && defaultPerm[0]) {
+            console.log('22')
+            defaultPerm[0].parentNode.classList.add("pc-permalink-hidden");
+        }
+        if (permalinkEdit.classList.contains("closed")) {
+            permalinkEdit.classList.remove("closed")
+        }
+    }
 }
+document.addEventListener("DOMContentLoaded", permalinkContentLoaded);

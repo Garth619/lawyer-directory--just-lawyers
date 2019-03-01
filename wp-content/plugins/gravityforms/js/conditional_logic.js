@@ -2,11 +2,12 @@
 var __gf_timeout_handle;
 
 gform.addAction( 'gform_input_change', function( elem, formId, fieldId ) {
-	if( window.gf_form_conditional_logic ) {
-		var dependentFieldIds = rgars( gf_form_conditional_logic, [ formId, 'fields', gformExtractFieldId( fieldId ) ].join( '/' ) );
-		if( dependentFieldIds ) {
-			gf_apply_rules( formId, dependentFieldIds );
-		}
+	if( ! window.gf_form_conditional_logic ) {
+		return;
+	}
+	var dependentFieldIds = rgars( gf_form_conditional_logic, [ formId, 'fields', gformExtractFieldId( fieldId ) ].join( '/' ) );
+	if( dependentFieldIds ) {
+		gf_apply_rules( formId, dependentFieldIds );
 	}
 }, 10 );
 
@@ -88,7 +89,7 @@ function gf_is_match( formId, rule ) {
 	if( isInputSpecific ) {
 		$inputs = $( '#input_{0}_{1}_{2}'.format( formId, fieldId, inputIndex ) );
 	} else {
-		$inputs = $( 'input[id="input_{0}_{1}"], input[id^="input_{0}_{1}_"], input[id^="choice_{0}_{1}_"], select#input_{0}_{1}, textarea#input_{0}_{1}'.format( formId, rule.fieldId ) );
+		$inputs = $( 'input[id="input_{0}_{1}"], input[id^="input_{0}_{1}_"], input[id^="choice_{0}_{1}_"], select#input_{0}_{1}, textarea#input_{0}_{1}'.format( formId, fieldId ) );
 	}
 
 	var isCheckable = $.inArray( $inputs.attr( 'type' ), [ 'checkbox', 'radio' ] ) !== -1,
@@ -134,7 +135,7 @@ function gf_is_match_checkable( $inputs, rule, formId, fieldId ) {
 
 function gf_is_match_default( $input, rule, formId, fieldId ) {
 
-	var val        = $input.val(),
+	var val        = $input.is( 'select' ) && gformIsHidden( $input ) ? '' : $input.val(),
 		values     = ( val instanceof Array ) ? val : [ val ], // transform regular value into array to support multi-select (which returns an array of selected items)
 		matchCount = 0;
 
@@ -302,7 +303,7 @@ function gf_do_action(action, targetId, useAnimation, defaultValues, isInit, cal
 	 * designator class so these inputs are exempted below.
 	 */
 	if( ! $target.data( 'gf-disabled-assessed' ) ) {
-		$target.find( ':input:hidden:disabled' ).addClass( 'gf-default-disabled' );
+		$target.find( ':input:disabled' ).addClass( 'gf-default-disabled' );
 		$target.data( 'gf-disabled-assessed', true );
 	}
 
@@ -310,7 +311,7 @@ function gf_do_action(action, targetId, useAnimation, defaultValues, isInit, cal
 
 		// reset tabindex for selects
 		$target.find( 'select' ).each( function() {
-			$select = jQuery( this );
+			var $select = jQuery( this );
 			$select.attr( 'tabindex', $select.data( 'tabindex' ) );
 		} );
 
@@ -375,6 +376,12 @@ function gf_do_action(action, targetId, useAnimation, defaultValues, isInit, cal
 			}
 		}
 	}
+
+	var $select = $target.find( 'select' );
+	if( $select.length > 0 && $select.find( 'option[value=""]' ).length === 0 ) {
+		$select.change();
+	}
+
 }
 
 function gf_reset_to_default(targetId, defaultValue){
@@ -405,7 +412,7 @@ function gf_reset_to_default(targetId, defaultValue){
 			}
 
 			if(element.prop("tagName") == "SELECT" && val != '' )
-				val = parseInt(val);
+				val = parseInt(val, 10);
 
 
 			if(element.val() != val)
@@ -418,11 +425,20 @@ function gf_reset_to_default(targetId, defaultValue){
 		return;
 	}
 
-	//cascading down conditional logic to children to suppport nested conditions
+	//cascading down conditional logic to children to support nested conditions
 	//text fields and drop downs, filter out list field text fields name with "_shim"
 	var target = jQuery(targetId).find('select, input[type="text"]:not([id*="_shim"]), input[type="number"], textarea');
 
 	var target_index = 0;
+
+	// When a List field is hidden via conditional logic during a page submission, the markup will be reduced to a
+	// single row. Add enough rows/inputs to satisfy the default value.
+	if( defaultValue && target.parents( '.ginput_list' ).length > 0 && target.length < defaultValue.length ) {
+		while( target.length < defaultValue.length ) {
+			gformAddListItem( target.eq( 0 ), 0 );
+			target = jQuery(targetId).find( 'select, input[type="text"]:not([id*="_shim"]), input[type="number"], textarea' );
+		}
+	}
 
 	target.each(function(){
 		var val = "";
@@ -487,10 +503,7 @@ function gf_reset_to_default(targetId, defaultValue){
 				jQuery(this).trigger('click');
 			}
 			else{
-				jQuery(this).prop("checked", doCheck);
-
-				//need to set the prop again after the click is triggered
-				jQuery(this).trigger('click').prop('checked', doCheck);
+				jQuery(this).prop('checked', doCheck).change();
 			}
 
 		}
