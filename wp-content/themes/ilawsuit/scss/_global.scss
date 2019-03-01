@@ -35,15 +35,15 @@ h1,h2,h3,h4 {
 }
 
 
-.gform_wrapper ul li ::-webkit-input-placeholder {
-  color: #000; }
-.gform_wrapper ul li ::-moz-placeholder {
-  color: #000; }
- .gform_wrapper ul li :-moz-placeholder {
-   color: #000; }
- .gform_wrapper ul li :-ms-input-placeholder {
-   color: #000; }
- .gform_wrapper ul li ::-moz-placeholder {
+form ::-webkit-input-placeholder {
+  color: #fff; }
+form::-moz-placeholder {
+  color: #fff; }
+ form :-moz-placeholder {
+   color: #fff; }
+ form :-ms-input-placeholder {
+   color: #fff; }
+ form ::-moz-placeholder {
     opacity: 1; }
 
 

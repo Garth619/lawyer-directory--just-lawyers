@@ -51,10 +51,26 @@
 	
 	<header>
 		
-		<?php // wp_nav_menu( array( 'container_class' => 'menu-header', 'theme_location' => 'main_menu' ) ); ?>
+		<div class="header_left">
+			
+			<a class="" href="">
+				
+				<img src="<?php bloginfo('template_directory');?>/images/ilawuit-logo.svg"/>
+				
+			</a>
+			
+		</div><!-- header_left -->
+		
+		<div class="header_middle">
+			
+			<div class="search_wrapper"><?php get_search_form(); ?></div><!-- search_wrapper -->
+			
+		</div><!-- header_middle -->
+		
+		<div class="header_right"></div><!-- header_right -->
 		
 	</header>
 				
 
-
+<?php // wp_nav_menu( array( 'container_class' => 'menu-header', 'theme_location' => 'main_menu' ) ); ?>
 			
