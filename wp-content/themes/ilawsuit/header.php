@@ -53,7 +53,7 @@
 		
 		<div class="header_left">
 			
-			<a class="" href="">
+			<a class="" href="<?php bloginfo('url');?>">
 				
 				<img src="<?php bloginfo('template_directory');?>/images/ilawuit-logo.svg"/>
 				
