@@ -1867,7 +1867,7 @@
 			}
 		},
 	"esLintSourceType": 0,
-	"externalServerAddress": "http://att-directory.com",
+	"externalServerAddress": "https://att-directory.com",
 	"gitIgnoreBuildFolder": 1,
 	"hideConfigFile": 0,
 	"jsCheckerReservedNamesString": "",
