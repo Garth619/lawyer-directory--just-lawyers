@@ -133,3 +133,63 @@ header {
 		@include montserrat_extrabold;
 	}
 }
+
+
+@media screen and (max-width: 1175px) {
+	
+	
+	header {
+		height: 97px;
+	}
+	
+	
+	
+	.header_middle {
+		.search_wrapper {
+			display: none;
+		}
+	}
+	
+	
+} /* Media Query */
+
+
+@media screen and (max-width: 767px) {
+	
+	
+	header {
+		height: 79px;
+	}
+	
+	.header_left {
+		padding-left:40px;
+		a {
+			img {
+				width: 152px;
+				height: 27px;
+			}
+		}
+	}
+	
+	
+	
+	.header_right {
+		flex-basis: 160px;
+	}
+	
+	
+	
+} /* Media Query */
+
+
+@media screen and (max-width: 400px) {
+	
+	
+	
+	.header_left{
+		padding-left: 23px;
+	}
+	
+	
+	
+} /* Media Query */
