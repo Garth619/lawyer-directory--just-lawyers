@@ -34,6 +34,8 @@
 
 <?php the_field( 'review_css','option'); ?>
 
+@import url('https://fonts.googleapis.com/css?family=Montserrat:800|Prata|Work+Sans');
+
 </style>
 
 <?php wp_head(); ?>

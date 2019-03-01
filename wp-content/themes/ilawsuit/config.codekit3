@@ -91,6 +91,121 @@
 		"oAP": "/header.php",
 		"oF": 0
 		},
+	"/images/hero-desk.jpg": {
+		"ft": 16384,
+		"iS": 187774,
+		"jF": 0,
+		"oA": 0,
+		"oAP": "/images/hero-desk.jpg",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 1,
+		"q": 100
+		},
+	"/images/hero-mob.jpg": {
+		"ft": 16384,
+		"iS": 103393,
+		"jF": 0,
+		"oA": 0,
+		"oAP": "/images/hero-mob.jpg",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"q": 100
+		},
+	"/images/hero-tab.jpg": {
+		"ft": 16384,
+		"iS": 145787,
+		"jF": 0,
+		"oA": 0,
+		"oAP": "/images/hero-tab.jpg",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"q": 100
+		},
+	"/images/icon-bankruptcy.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "/images/icon-bankruptcy.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 3758088159,
+		"prP": 0
+		},
+	"/images/icon-business.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "/images/icon-business.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 3758088159,
+		"prP": 0
+		},
+	"/images/icon-criminal-def.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "/images/icon-criminal-def.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 3758088159,
+		"prP": 0
+		},
+	"/images/icon-family-law.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "/images/icon-family-law.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 3758088159,
+		"prP": 0
+		},
+	"/images/icon-immigration.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "/images/icon-immigration.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 3758088159,
+		"prP": 0
+		},
+	"/images/icon-personal-injury.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "/images/icon-personal-injury.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 3758088159,
+		"prP": 0
+		},
+	"/images/profile-quote-img-2.jpg": {
+		"ft": 16384,
+		"iS": 890586,
+		"jF": 0,
+		"oA": 0,
+		"oAP": "/images/profile-quote-img-2.jpg",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"q": 100
+		},
+	"/images/profile-quote-img.jpg": {
+		"ft": 16384,
+		"iS": 499124,
+		"jF": 0,
+		"oA": 0,
+		"oAP": "/images/profile-quote-img.jpg",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"q": 100
+		},
 	"/index.php": {
 		"cB": 0,
 		"ft": 8192,

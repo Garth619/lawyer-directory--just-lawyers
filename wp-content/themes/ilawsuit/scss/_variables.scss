@@ -1,2 +1,35 @@
-$themePath: '/wp-content/themes/starter/';
+$themePath: '/wp-content/themes/ilawsuit/';
+
+
+
+// fonts
+
+
+
+// https://fonts.google.com/?selection.family=Montserrat:800|Prata|Work+Sans&query=wor
+
+
+// montserrat
+
+
+@mixin montserrat_extrabold {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+	font-style: normal;
+}
+
+
+// prata
+
+
+$prata: 'Prata', serif;
+
+// reg 400
+
+
+
+// worksans
+
+$worksans: 'Work Sans', sans-serif;
+
 
