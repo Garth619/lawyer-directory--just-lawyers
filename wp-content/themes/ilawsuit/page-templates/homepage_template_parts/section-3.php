@@ -14,6 +14,48 @@
 			
 		</div><!-- sec_three_tabs -->
 		
+		<div class="sec_three_list_wrapper">
+			
+			<ul>
+				
+				<li><a href="">Bankruptcy and Debt</a></li>
+				<li><a href="">Bankruptcy and Debt</a></li>
+				<li><a href="">Bankruptcy and Debt</a></li>
+				<li><a href="">Bankruptcy and Debt</a></li>
+				<li><a href="">Bankruptcy and Debt</a></li>
+				<li><a href="">Bankruptcy and Debt</a></li>
+				<li><a href="">Bankruptcy and Debt</a></li>
+				
+				<li><a href="">Bankruptcy and Debt</a></li>
+				<li><a href="">Bankruptcy and Debt</a></li>
+				<li><a href="">Bankruptcy and Debt</a></li>
+				<li><a href="">Bankruptcy and Debt</a></li>
+				<li><a href="">Bankruptcy and Debt</a></li>
+				<li><a href="">Bankruptcy and Debt</a></li>
+				<li><a href="">Bankruptcy and Debt</a></li>
+				
+				<li><a href="">Bankruptcy and Debt</a></li>
+				<li><a href="">Bankruptcy and Debt</a></li>
+				<li><a href="">Bankruptcy and Debt</a></li>
+				<li><a href="">Bankruptcy and Debt</a></li>
+				<li><a href="">Bankruptcy and Debt</a></li>
+				<li><a href="">Bankruptcy and Debt</a></li>
+				<li><a href="">Bankruptcy and Debt</a></li>
+				
+				<li><a href="">Bankruptcy and Debt</a></li>
+				<li><a href="">Bankruptcy and Debt</a></li>
+				<li><a href="">Bankruptcy and Debt</a></li>
+				<li><a href="">Bankruptcy and Debt</a></li>
+				<li><a href="">Bankruptcy and Debt</a></li>
+				<li><a href="">Bankruptcy and Debt</a></li>
+				<li><a href="">Bankruptcy and Debt</a></li>
+
+			</ul>
+			
+		</div><!-- sec_three_list_wrapper -->
+		
+		<a class="view_all_button" href="">View All</a><!-- view_all_button -->
+		
 	</div><!-- sec_three_inner -->
 	
 </section><!-- section_three -->

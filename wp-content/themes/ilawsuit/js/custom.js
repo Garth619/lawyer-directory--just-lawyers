@@ -299,5 +299,18 @@ $('.sec_two_grid').slick({
 $("ul > li.menu-item-has-children > a[href='#']").removeAttr("href");
 
 
+
+
+$('.sec_three_tab').on('click', function(e) {
+  
+	$('.sec_three_tab').removeClass('active');
+	
+	$(this).addClass('active');
+
+});
+
+
+
+
   
 }); // document ready
