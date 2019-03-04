@@ -6,7 +6,7 @@
 		
 		<div class="sec_three_tabs">
 			
-			<div class="sec_three_tab sec_three_area_tab">Area of Law</div><!-- sec_three_tab -->
+			<div class="sec_three_tab sec_three_area_tab active">Area of Law</div><!-- sec_three_tab -->
 			
 			<div class="sec_three_tab sec_three_state_tab">State</div><!-- sec_three_tab -->
 				
@@ -16,41 +16,128 @@
 		
 		<div class="sec_three_list_wrapper">
 			
-			<ul>
+			<div class="area_of_law_list sec_three_list" style="display:block;">
+			
+				<ul>
+					
+					<li><a href="">Bankruptcy and Debt</a></li>
+					<li><a href="">Bankruptcy and Debt</a></li>
+					<li><a href="">Bankruptcy and Debt</a></li>
+					<li><a href="">Bankruptcy and Debt</a></li>
+					<li><a href="">Bankruptcy and Debt</a></li>
+					<li><a href="">Bankruptcy and Debt</a></li>
+					<li><a href="">Bankruptcy and Debt</a></li>
+					
+					<li><a href="">Bankruptcy and Debt</a></li>
+					<li><a href="">Bankruptcy and Debt</a></li>
+					<li><a href="">Bankruptcy and Debt</a></li>
+					<li><a href="">Bankruptcy and Debt</a></li>
+					<li><a href="">Bankruptcy and Debt</a></li>
+					<li><a href="">Bankruptcy and Debt</a></li>
+					<li><a href="">Bankruptcy and Debt</a></li>
+					
+					<li><a href="">Bankruptcy and Debt</a></li>
+					<li><a href="">Bankruptcy and Debt</a></li>
+					<li><a href="">Bankruptcy and Debt</a></li>
+					<li><a href="">Bankruptcy and Debt</a></li>
+					<li><a href="">Bankruptcy and Debt</a></li>
+					<li><a href="">Bankruptcy and Debt</a></li>
+					<li><a href="">Bankruptcy and Debt</a></li>
+					
+					<li><a href="">Bankruptcy and Debt</a></li>
+					<li><a href="">Bankruptcy and Debt</a></li>
+					<li><a href="">Bankruptcy and Debt</a></li>
+					<li><a href="">Bankruptcy and Debt</a></li>
+					<li><a href="">Bankruptcy and Debt</a></li>
+					<li><a href="">Bankruptcy and Debt</a></li>
+					<li><a href="">Bankruptcy and Debt</a></li>
 				
-				<li><a href="">Bankruptcy and Debt</a></li>
-				<li><a href="">Bankruptcy and Debt</a></li>
-				<li><a href="">Bankruptcy and Debt</a></li>
-				<li><a href="">Bankruptcy and Debt</a></li>
-				<li><a href="">Bankruptcy and Debt</a></li>
-				<li><a href="">Bankruptcy and Debt</a></li>
-				<li><a href="">Bankruptcy and Debt</a></li>
+				</ul>
+			
+			</div><!-- sec_three_list -->
+			
+			<div class="state_list sec_three_list">
+			
+				<ul>
+					
+					<li><a href="">California</a></li>
+					<li><a href="">California</a></li>
+					<li><a href="">California</a></li>
+					<li><a href="">California</a></li>
+					<li><a href="">California</a></li>
+					<li><a href="">California</a></li>
+					<li><a href="">California</a></li>
+					<li><a href="">California</a></li>
+					<li><a href="">California</a></li>
+					<li><a href="">California</a></li>
+					<li><a href="">California</a></li>
+					<li><a href="">California</a></li>
+					<li><a href="">California</a></li>
+					<li><a href="">California</a></li>
+					<li><a href="">California</a></li>
+					<li><a href="">California</a></li>
+					<li><a href="">California</a></li>
+					<li><a href="">California</a></li>
+					<li><a href="">California</a></li>
+					<li><a href="">California</a></li>
+					<li><a href="">California</a></li>
+					<li><a href="">California</a></li>
+					<li><a href="">California</a></li>
+					<li><a href="">California</a></li>
+					<li><a href="">California</a></li>
+					<li><a href="">California</a></li>
+					<li><a href="">California</a></li>
+					<li><a href="">California</a></li>
+					
 				
-				<li><a href="">Bankruptcy and Debt</a></li>
-				<li><a href="">Bankruptcy and Debt</a></li>
-				<li><a href="">Bankruptcy and Debt</a></li>
-				<li><a href="">Bankruptcy and Debt</a></li>
-				<li><a href="">Bankruptcy and Debt</a></li>
-				<li><a href="">Bankruptcy and Debt</a></li>
-				<li><a href="">Bankruptcy and Debt</a></li>
+				</ul>
+			
+			</div><!-- sec_three_list -->
+			
+			<div class="city_list sec_three_list">
 				
-				<li><a href="">Bankruptcy and Debt</a></li>
-				<li><a href="">Bankruptcy and Debt</a></li>
-				<li><a href="">Bankruptcy and Debt</a></li>
-				<li><a href="">Bankruptcy and Debt</a></li>
-				<li><a href="">Bankruptcy and Debt</a></li>
-				<li><a href="">Bankruptcy and Debt</a></li>
-				<li><a href="">Bankruptcy and Debt</a></li>
-				
-				<li><a href="">Bankruptcy and Debt</a></li>
-				<li><a href="">Bankruptcy and Debt</a></li>
-				<li><a href="">Bankruptcy and Debt</a></li>
-				<li><a href="">Bankruptcy and Debt</a></li>
-				<li><a href="">Bankruptcy and Debt</a></li>
-				<li><a href="">Bankruptcy and Debt</a></li>
-				<li><a href="">Bankruptcy and Debt</a></li>
-
-			</ul>
+				<ul>
+					
+					<li><a href="">Los Angeles</a></li>
+					<li><a href="">Los Angeles</a></li>
+					<li><a href="">Los Angeles</a></li>
+					<li><a href="">Los Angeles</a></li>
+					<li><a href="">Los Angeles</a></li>
+					<li><a href="">Los Angeles</a></li>
+					<li><a href="">Los Angeles</a></li>
+					<li><a href="">Los Angeles</a></li>
+					<li><a href="">Los Angeles</a></li>
+					<li><a href="">Los Angeles</a></li>
+					<li><a href="">Los Angeles</a></li>
+					<li><a href="">Los Angeles</a></li>
+					<li><a href="">Los Angeles</a></li>
+					<li><a href="">Los Angeles</a></li>
+					<li><a href="">Los Angeles</a></li>
+					<li><a href="">Los Angeles</a></li>
+					<li><a href="">Los Angeles</a></li>
+					<li><a href="">Los Angeles</a></li>
+					<li><a href="">Los Angeles</a></li>
+					<li><a href="">Los Angeles</a></li>
+					<li><a href="">Los Angeles</a></li>
+					<li><a href="">Los Angeles</a></li>
+					<li><a href="">Los Angeles</a></li>
+					<li><a href="">Los Angeles</a></li>
+					<li><a href="">Los Angeles</a></li>
+					<li><a href="">Los Angeles</a></li>
+					<li><a href="">Los Angeles</a></li>
+					<li><a href="">Los Angeles</a></li>
+					<li><a href="">Los Angeles</a></li>
+					<li><a href="">Los Angeles</a></li>
+					<li><a href="">Los Angeles</a></li>
+					<li><a href="">Los Angeles</a></li>
+					<li><a href="">Los Angeles</a></li>
+					<li><a href="">Los Angeles</a></li>
+					<li><a href="">Los Angeles</a></li>
+					
+				</ul>
+			
+			</div><!-- sec_three_list -->
+			
 			
 		</div><!-- sec_three_list_wrapper -->
 		
