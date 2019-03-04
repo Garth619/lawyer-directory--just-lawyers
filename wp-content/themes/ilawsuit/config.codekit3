@@ -395,6 +395,14 @@
 		"oAP": "/page-templates/homepage_template_parts/section-2.php",
 		"oF": 0
 		},
+	"/page-templates/homepage_template_parts/section-3.php": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 0,
+		"oAP": "/page-templates/homepage_template_parts/section-3.php",
+		"oF": 0
+		},
 	"/page-templates/template-home.php": {
 		"cB": 0,
 		"ft": 8192,
@@ -561,6 +569,19 @@
 		"ma": 0,
 		"oA": 1,
 		"oAP": "/scss/homepage/_section_one.css",
+		"oF": 0,
+		"oS": 0,
+		"uL": 1
+		},
+	"/scss/homepage/_section_three.scss": {
+		"aP": 0,
+		"bl": 0,
+		"dP": 10,
+		"dS": 0,
+		"ft": 4,
+		"ma": 0,
+		"oA": 1,
+		"oAP": "/scss/homepage/_section_three.css",
 		"oF": 0,
 		"oS": 0,
 		"uL": 1
