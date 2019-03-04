@@ -263,42 +263,31 @@ jQuery(document).ready(function($){
 --------------------------------------------------------------------------------------- */
 
 
-/*
-$('.sec_three_slider').slick({
+
+$('.sec_two_grid').slick({
   infinite: true,
-  slidesToShow: 6,
-  slidesToScroll: 6,
+  slidesToShow: 1,
+  slidesToScroll: 1,
+  mobileFirst:true,
 	arrows:true,
-	prevArrow:".arrow_left",
-	nextArrow:".arrow_right",
+	prevArrow:".sec_two_button_left",
+	nextArrow:".sec_two_button_right",
 	responsive: [
     {
-      breakpoint: 1450,
+      breakpoint: 700,
       settings: {
-      slidesToShow: 5,
-      slidesToScroll: 5,
+      slidesToShow: 2,
+      slidesToScroll: 2,
      }
    },
    {
-      breakpoint: 1100,
-      settings: {
-      slidesToShow: 3,
-      slidesToScroll: 3,
-      dots:true,
-     }
-   },
-   {
-      breakpoint: 767,
-      settings: {
-      slidesToShow: 1,
-      slidesToScroll: 1,
-      dots:true,
-     }
+      breakpoint: 1066,
+      settings: "unslick"
    }
 	]
  });
  
-*/
+
  
 
 	
