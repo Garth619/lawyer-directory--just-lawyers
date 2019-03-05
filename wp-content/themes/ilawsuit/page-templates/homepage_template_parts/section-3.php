@@ -6,17 +6,17 @@
 		
 		<div class="sec_three_tabs">
 			
-			<div class="sec_three_tab sec_three_area_tab active">Area of Law</div><!-- sec_three_tab -->
+			<div class="sec_three_tab sec_three_area_tab active" data-tab="sec-three-area-of-service">Area of Law</div><!-- sec_three_tab -->
 			
-			<div class="sec_three_tab sec_three_state_tab">State</div><!-- sec_three_tab -->
+			<div class="sec_three_tab sec_three_state_tab" data-tab="sec-three-state">State</div><!-- sec_three_tab -->
 				
-			<div class="sec_three_tab sec_three_city_tab">City</div><!-- sec_three_tab -->
+			<div class="sec_three_tab sec_three_city_tab" data-tab="sec-three-city">City</div><!-- sec_three_tab -->
 			
 		</div><!-- sec_three_tabs -->
 		
 		<div class="sec_three_list_wrapper">
 			
-			<div class="area_of_law_list sec_three_list" style="display:block;">
+			<div class="area_of_law_list sec_three_list sec-three-area-of-service" style="display:block;">
 			
 				<ul>
 					
@@ -56,7 +56,7 @@
 			
 			</div><!-- sec_three_list -->
 			
-			<div class="state_list sec_three_list">
+			<div class="state_list sec_three_list sec-three-state">
 			
 				<ul>
 					
@@ -94,7 +94,7 @@
 			
 			</div><!-- sec_three_list -->
 			
-			<div class="city_list sec_three_list">
+			<div class="city_list sec_three_list sec-three-city">
 				
 				<ul>
 					

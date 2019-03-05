@@ -312,5 +312,43 @@ $('.sec_three_tab').on('click', function(e) {
 
 
 
+/* Section Three Tabs */
+
+
+
+$('.sec_three_tab').on('click', function(e) {
+  
+	var dataTab = $(this).attr('data-tab');
+	
+/*
+	$('.sec_three_list').fadeOut(300);
+   
+  $('.'+dataTab).delay(600).fadeIn(400);
+*/
+  
+  $('.sec_three_list').fadeOut(300);
+   
+  $('.'+dataTab).delay(600).show(0);
+  
+  $('.sec_three_list_wrapper, a.view_all_button').addClass('hide');
+  
+  
+  $('.sec_three_list_wrapper, a.view_all_button').delay(600).queue(function(){
+        
+  	$(this).removeClass('hide').dequeue();
+     
+  });
+  
+  
+
+});
+
+
+
+  
+   	  
+
+
+
   
 }); // document ready
