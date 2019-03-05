@@ -2,7 +2,7 @@
 	
 	<div class="sec_three_inner">
 		
-		<h2>Refine Your Search</h2>
+		<h2><?php the_field( 'section_three_title' ); ?></h2>
 		
 		<div class="sec_three_tabs">
 			
@@ -17,131 +17,95 @@
 		<div class="sec_three_list_wrapper">
 			
 			<div class="area_of_law_list sec_three_list sec-three-area-of-service list_wrapper" style="display:block;">
-			
-				<ul>
-					
-					<li><a href="">Bankruptcy and Debt</a></li>
-					<li><a href="">Bankruptcy and Debt</a></li>
-					<li><a href="">Bankruptcy and Debt</a></li>
-					<li><a href="">Bankruptcy and Debt</a></li>
-					<li><a href="">Bankruptcy and Debt</a></li>
-					<li><a href="">Bankruptcy and Debt</a></li>
-					<li><a href="">Bankruptcy and Debt</a></li>
-					
-					<li><a href="">Bankruptcy and Debt</a></li>
-					<li><a href="">Bankruptcy and Debt</a></li>
-					<li><a href="">Bankruptcy and Debt</a></li>
-					<li><a href="">Bankruptcy and Debt</a></li>
-					<li><a href="">Bankruptcy and Debt</a></li>
-					<li><a href="">Bankruptcy and Debt</a></li>
-					<li><a href="">Bankruptcy and Debt</a></li>
-					
-					<li><a href="">Bankruptcy and Debt</a></li>
-					<li><a href="">Bankruptcy and Debt</a></li>
-					<li><a href="">Bankruptcy and Debt</a></li>
-					<li><a href="">Bankruptcy and Debt</a></li>
-					<li><a href="">Bankruptcy and Debt</a></li>
-					<li><a href="">Bankruptcy and Debt</a></li>
-					<li><a href="">Bankruptcy and Debt</a></li>
-					
-					<li><a href="">Bankruptcy and Debt</a></li>
-					<li><a href="">Bankruptcy and Debt</a></li>
-					<li><a href="">Bankruptcy and Debt</a></li>
-					<li><a href="">Bankruptcy and Debt</a></li>
-					<li><a href="">Bankruptcy and Debt</a></li>
-					<li><a href="">Bankruptcy and Debt</a></li>
-					<li><a href="">Bankruptcy and Debt</a></li>
 				
-				</ul>
+				
+				<?php $top_practice_areas_terms = get_field( 'top_practice_areas' );
+	
+					if ( $top_practice_areas_terms ) {
+				
+					echo "<ul>";
+		
+					foreach ( $top_practice_areas_terms as $top_practice_areas_term ) { ?>
+			
+						<li><a href="<?php bloginfo('url');?>/lawyers-practice/<?php echo $top_practice_areas_term->slug;?>"><?php echo $top_practice_areas_term->name;?></a></li>
+			
+				<?php } 
+					
+					echo "</ul>"; 
+				
+				} ?>
+				
+				<a class="view_all_button" href="<?php the_permalink(126);?>">View All</a><!-- view_all_button -->
+
+			</div><!-- sec_three_list -->
+			
+			<div class="state_list sec_three_list sec-three-state list_wrapper">
+				
+				<?php 
+		
+					$state_terms = get_terms( array( // change new WP_Term_Query later, its newer and faster i think
+						'taxonomy' => 'location',
+						'parent'  => 139 // add a slug to id conversion here
+	
+					) );
+		
+					if ( ! empty( $state_terms ) && ! is_wp_error( $state_terms ) ) {
+					
+						echo '<ul>';
+						
+						foreach ( $state_terms as $state_term ) {
+	     
+							$stateterm_link = get_term_link( $state_term );
+	     
+							echo '<li><a href="' . esc_url( $stateterm_link ) . '">' . $state_term->name . '</a></li>';
+        
+     				}
+		 				
+		 				echo '</ul>';
+ 				 }
+ 
+ 
+ 				 if(is_user_logged_in()) {
+	
+ 				 	echo '<a href="' . get_bloginfo('url') .  '/wp-admin/edit-tags.php?taxonomy=location&post_type=office">Edit</a><br/><br/><br/>';
+			 		
+				}
+ 
+			?>
 			
 			</div><!-- sec_three_list -->
 			
-			<div class="state_list sec_three_list sec-three-state">
-			
-				<ul>
-					
-					<li><a href="">California</a></li>
-					<li><a href="">California</a></li>
-					<li><a href="">California</a></li>
-					<li><a href="">California</a></li>
-					<li><a href="">California</a></li>
-					<li><a href="">California</a></li>
-					<li><a href="">California</a></li>
-					<li><a href="">California</a></li>
-					<li><a href="">California</a></li>
-					<li><a href="">California</a></li>
-					<li><a href="">California</a></li>
-					<li><a href="">California</a></li>
-					<li><a href="">California</a></li>
-					<li><a href="">California</a></li>
-					<li><a href="">California</a></li>
-					<li><a href="">California</a></li>
-					<li><a href="">California</a></li>
-					<li><a href="">California</a></li>
-					<li><a href="">California</a></li>
-					<li><a href="">California</a></li>
-					<li><a href="">California</a></li>
-					<li><a href="">California</a></li>
-					<li><a href="">California</a></li>
-					<li><a href="">California</a></li>
-					<li><a href="">California</a></li>
-					<li><a href="">California</a></li>
-					<li><a href="">California</a></li>
-					<li><a href="">California</a></li>
-					
+			<div class="city_list sec_three_list sec-three-city list_wrapper">
 				
-				</ul>
+				<?php 
 			
-			</div><!-- sec_three_list -->
+					if(get_field('top_cities')):
 			
-			<div class="city_list sec_three_list sec-three-city">
+						echo "<ul>";
+		 
+						while(has_sub_field('top_cities')):
+		 
+							$select_city_ids = get_sub_field( 'select_top_city' );
 				
-				<ul>
-					
-					<li><a href="">Los Angeles</a></li>
-					<li><a href="">Los Angeles</a></li>
-					<li><a href="">Los Angeles</a></li>
-					<li><a href="">Los Angeles</a></li>
-					<li><a href="">Los Angeles</a></li>
-					<li><a href="">Los Angeles</a></li>
-					<li><a href="">Los Angeles</a></li>
-					<li><a href="">Los Angeles</a></li>
-					<li><a href="">Los Angeles</a></li>
-					<li><a href="">Los Angeles</a></li>
-					<li><a href="">Los Angeles</a></li>
-					<li><a href="">Los Angeles</a></li>
-					<li><a href="">Los Angeles</a></li>
-					<li><a href="">Los Angeles</a></li>
-					<li><a href="">Los Angeles</a></li>
-					<li><a href="">Los Angeles</a></li>
-					<li><a href="">Los Angeles</a></li>
-					<li><a href="">Los Angeles</a></li>
-					<li><a href="">Los Angeles</a></li>
-					<li><a href="">Los Angeles</a></li>
-					<li><a href="">Los Angeles</a></li>
-					<li><a href="">Los Angeles</a></li>
-					<li><a href="">Los Angeles</a></li>
-					<li><a href="">Los Angeles</a></li>
-					<li><a href="">Los Angeles</a></li>
-					<li><a href="">Los Angeles</a></li>
-					<li><a href="">Los Angeles</a></li>
-					<li><a href="">Los Angeles</a></li>
-					<li><a href="">Los Angeles</a></li>
-					<li><a href="">Los Angeles</a></li>
-					<li><a href="">Los Angeles</a></li>
-					<li><a href="">Los Angeles</a></li>
-					<li><a href="">Los Angeles</a></li>
-					<li><a href="">Los Angeles</a></li>
-					<li><a href="">Los Angeles</a></li>
-					
-				</ul>
+							$select_state = $select_city_ids->parent;
+				
+							$parentid = get_term_by('id', $select_state, 'location');
+				
+							$currentparentid = $parentid->slug;
+				
+							echo '<li><a href="' . get_bloginfo('url') . '/lawyers-location/state/' . $currentparentid . '/' . $select_city_ids->slug .  '">' . $select_city_ids->name . '</a></li>';
+
+						endwhile;
 			
+						echo "</ul>";
+		 
+				 endif; ?>
+
 			</div><!-- sec_three_list -->
-			
 			
 		</div><!-- sec_three_list_wrapper -->
 		
-		<a class="view_all_button" href="">View All</a><!-- view_all_button -->
+		
 		
 	</div><!-- sec_three_inner -->
 	
