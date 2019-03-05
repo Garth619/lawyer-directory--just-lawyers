@@ -430,4 +430,82 @@ function my_wp_nav_menu_objects_sub_menu( $sorted_menu_items, $args ) {
 
 
 
+/* Permalink Rewrites
+-------------------------------------------------------------- */
 
+
+function prefix_rewrite_rule() {
+		
+		
+		add_rewrite_rule( 'lawyers-location/state/([^/]+)/([^/]+)', 'index.php?office_location_currentstate=$matches[1]&office_location_currentcity=$matches[2]', 'top' );
+	
+		add_rewrite_rule( 'lawyers-practice/([^/]+)/([^/]+)/([^/]+)', 'index.php?office_pa=$matches[1]&currentstate=$matches[2]&currentcity=$matches[3]', 'top' );
+		
+		add_rewrite_rule( 'lawyers-practice/([^/]+)/([^/]+)', 'index.php?office_pa=$matches[1]&currentstate=$matches[2]', 'top' );
+    
+    
+ }
+ 
+add_action( 'init', 'prefix_rewrite_rule' );
+
+
+// global query vars
+
+function prefix_register_query_var( $vars ) {
+    $vars[] = 'office_location_currentstate';
+    $vars[] = 'office_location_currentcity';
+    $vars[] = 'office_pa';
+    $vars[] = 'currentstate';
+    $vars[] = 'currentcity';
+ 
+    return $vars;
+}
+ 
+add_filter( 'query_vars', 'prefix_register_query_var' );
+
+
+// redirection of templates based on query vars
+
+
+function prefix_url_rewrite_templates() {
+	
+	
+	
+		if ( get_query_var( 'office_location_currentstate') && get_query_var( 'office_location_currentcity') ) { // or the other isset example  if(!isset( $wp_query->query['photos'] ))
+       
+     
+	  
+	  	add_filter( 'template_include', function() {
+            return get_template_directory() . '/page-practicearea_city.php';
+       });
+
+    }
+		
+		
+		
+ 
+    if ( get_query_var( 'currentstate') ) { // or the other isset example  if(!isset( $wp_query->query['photos'] ))
+       
+	  
+	  	add_filter( 'template_include', function() {
+            return get_template_directory() . '/page-locations_state_pa.php';
+       });
+
+    }
+    
+    
+
+    if (get_query_var( 'currentstate') && get_query_var( 'currentcity')) { 
+       
+	    
+	    
+			add_filter( 'template_include', function() {
+            return get_template_directory() . '/page-locations_city_pa.php';
+       });
+
+
+    }
+
+}
+ 
+add_action( 'template_redirect', 'prefix_url_rewrite_templates' );

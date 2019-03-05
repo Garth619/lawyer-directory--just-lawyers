@@ -379,6 +379,46 @@
 		"oAP": "/loop.php",
 		"oF": 0
 		},
+	"/page-allpracticeareas.php": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 0,
+		"oAP": "/page-allpracticeareas.php",
+		"oF": 0
+		},
+	"/page-allstates.php": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 0,
+		"oAP": "/page-allstates.php",
+		"oF": 0
+		},
+	"/page-locations_city_pa.php": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 0,
+		"oAP": "/page-locations_city_pa.php",
+		"oF": 0
+		},
+	"/page-locations_state_pa.php": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 0,
+		"oAP": "/page-locations_state_pa.php",
+		"oF": 0
+		},
+	"/page-practicearea_city.php": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 0,
+		"oAP": "/page-practicearea_city.php",
+		"oF": 0
+		},
 	"/page-templates/homepage_template_parts/section-1.php": {
 		"cB": 0,
 		"ft": 8192,
@@ -668,6 +708,22 @@
 		"hM": 0,
 		"oA": 0,
 		"oAP": "/style.css.map",
+		"oF": 0
+		},
+	"/taxonomy-location.php": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 0,
+		"oAP": "/taxonomy-location.php",
+		"oF": 0
+		},
+	"/taxonomy-practice_area.php": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 0,
+		"oAP": "/taxonomy-practice_area.php",
 		"oF": 0
 		}
 	},

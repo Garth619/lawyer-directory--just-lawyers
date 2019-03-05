@@ -9,6 +9,14 @@ header {
 }
 
 
+body:not(.page-template-template-home) {
+	header {
+		background: $blue;
+		height: 164px;
+		position: static;
+	}
+}
+
 
 .header_left {
 	padding:0 0 0 50px;
@@ -154,6 +162,24 @@ header {
 } /* Media Query */
 
 
+@media screen and (max-width: 1066px) {
+	
+	
+body:not(.page-template-template-home) {
+	header {
+		height: 97px;
+		position: fixed;
+		top:0;
+		left:0;
+	}
+}
+	
+	
+	
+	
+} /* Media Query */
+
+
 @media screen and (max-width: 767px) {
 	
 	
@@ -176,6 +202,13 @@ header {
 	.header_right {
 		flex-basis: 160px;
 	}
+	
+	
+body:not(.page-template-template-home) {
+	header {
+		height: 79px;
+	}
+}
 	
 	
 	

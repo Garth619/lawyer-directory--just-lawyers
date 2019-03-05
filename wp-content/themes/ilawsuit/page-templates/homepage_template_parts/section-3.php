@@ -16,7 +16,7 @@
 		
 		<div class="sec_three_list_wrapper">
 			
-			<div class="area_of_law_list sec_three_list sec-three-area-of-service" style="display:block;">
+			<div class="area_of_law_list sec_three_list sec-three-area-of-service list_wrapper" style="display:block;">
 			
 				<ul>
 					
