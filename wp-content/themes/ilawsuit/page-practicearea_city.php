@@ -27,35 +27,25 @@
 ?>
 
 
-<div class="section_inner">
+<div id="internal_main">
 	
-<div class="breadcrumb">
-	
-	<a href="<?php bloginfo('url');?>">Home</a>
-	
-	<a href="<?php the_permalink(133);?>">Locations</a>
-	
-	<a href="<?php bloginfo('url');?>/lawyers-location/state/<?php echo $lawfirm_location_currentstate;?>"><?php echo $statetitle;?></a>
-	
-	<a><?php echo $citytermtitle;?></a>
-	
-	<br/>
-	<br/>
-	<br/>
-	<br/>
-	
-</div><!-- breadcrumb -->
+	<div class="internal_banner">
+		
+		<h1><?php echo $citytermtitle;?></h1>
 
-<?php
+	</div><!-- internal_banner -->
 	
-	
-	
-	
-	echo '<h1>' . $citytermtitle . ' Lawyers</h1>';
+	<div class="outer_container">
+		
+		<div class="directory_wrapper">
+			
+			<h2 class="section_header">Browse by Practice Area</h2>
+			
+			<div class="list_wrapper">
+				
+				<?php
     
-
-	     
-	   		$termids = get_terms( array( 
+				$termids = get_terms( array( 
 		 			'taxonomy' => $taxpracticeareas,
 		 			'fields' => 'ids',
 		 			)
@@ -91,9 +81,7 @@
 			 		
 						}
 		 		 
-		 		}	
-		 		
-		 		echo "<br/>Browse By Practice Area<br/></br/>";	 		
+		 		}	 		
 		 		
 		 		$args = array (
 		 			'post_type' => 'lawyer',
@@ -151,9 +139,14 @@
 				}
 
 	?>
+				
+			</div><!-- list_wrapper -->
+			
+		</div><!-- directory_wrapper -->
+		
+	</div><!-- outer_container -->
 	
-</div>
-
-
+</div><!-- internal_main -->
+		
 
 <?php get_footer(); ?>

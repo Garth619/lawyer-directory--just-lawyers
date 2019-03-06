@@ -5,7 +5,7 @@
 	
 	<div class="internal_banner">
 		
-		<h1>California Lawyers</h1>
+		<h1><?php the_title();?></h1>
 
 	</div><!-- internal_banner -->
 	
@@ -15,41 +15,7 @@
 			
 			<div class="list_wrapper">
 				
-				<ul>
-					
-					<li><a href="">Bankruptcy and Debt</a></li>
-					<li><a href="">Bankruptcy and Debt</a></li>
-					<li><a href="">Bankruptcy and Debt</a></li>
-					<li><a href="">Bankruptcy and Debt</a></li>
-					<li><a href="">Bankruptcy and Debt</a></li>
-					<li><a href="">Bankruptcy and Debt</a></li>
-					<li><a href="">Bankruptcy and Debt</a></li>
-					
-					<li><a href="">Bankruptcy and Debt</a></li>
-					<li><a href="">Bankruptcy and Debt</a></li>
-					<li><a href="">Bankruptcy and Debt</a></li>
-					<li><a href="">Bankruptcy and Debt</a></li>
-					<li><a href="">Bankruptcy and Debt</a></li>
-					<li><a href="">Bankruptcy and Debt</a></li>
-					<li><a href="">Bankruptcy and Debt</a></li>
-					
-					<li><a href="">Bankruptcy and Debt</a></li>
-					<li><a href="">Bankruptcy and Debt</a></li>
-					<li><a href="">Bankruptcy and Debt</a></li>
-					<li><a href="">Bankruptcy and Debt</a></li>
-					<li><a href="">Bankruptcy and Debt</a></li>
-					<li><a href="">Bankruptcy and Debt</a></li>
-					<li><a href="">Bankruptcy and Debt</a></li>
-					
-					<li><a href="">Bankruptcy and Debt</a></li>
-					<li><a href="">Bankruptcy and Debt</a></li>
-					<li><a href="">Bankruptcy and Debt</a></li>
-					<li><a href="">Bankruptcy and Debt</a></li>
-					<li><a href="">Bankruptcy and Debt</a></li>
-					<li><a href="">Bankruptcy and Debt</a></li>
-					<li><a href="">Bankruptcy and Debt</a></li>
 				
-				</ul>
 				
 			</div><!-- list_wrapper -->
 			

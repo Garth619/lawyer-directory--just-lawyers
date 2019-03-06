@@ -13,6 +13,8 @@
 		
 		<div class="directory_wrapper">
 			
+			<h2 class='section_header'>Browse By City</h2>
+			
 			<div class="list_wrapper">
 				
 				<?php	$children = get_queried_object()->term_id;
@@ -39,9 +41,6 @@
 		 			}
 
 				}	
-
-
-				echo "<br/><br/>Browse By City";
 
 
 				$taxlocations = 'location';

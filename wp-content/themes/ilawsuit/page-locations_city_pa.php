@@ -39,102 +39,123 @@
 	
 ?>
 
-<div class="section_inner">
-	
-<div class="breadcrumb">
-	
-	<a href="<?php bloginfo('url');?>">Home</a>
-	
-	<a href="<?php the_permalink(126);?>">Practice Areas</a> 
-	
-	<a class="" href="<?php bloginfo('url');?>/lawyers-practice/<?php echo $currentpracticearea;?>"><?php echo  $patermstitle;?></a>
-	
-	<a class="" href="<?php bloginfo('url');?>/lawyers-practice/<?php echo get_query_var( 'office_pa');?>/<?php echo get_query_var( 'currentstate');?>"><?php echo $statetermtitle;?></a>
-	
-	<a><?php echo $citytermtitle;?></a>
-	
-	<br/>
-	<br/>
-	<br/>
-	<br/>
-	
-</div><!-- breadcrumb -->
 
-<h1><?php echo $citytermtitle;?> <?php echo $patermstitle;?> Lawyers</h1>
+<div id="internal_main">
+	
+	<div class="internal_banner">
+		
+		<h1><?php echo $citytermtitle;?><br/> <?php echo $patermstitle;?> Lawyer</h1>
 
-
-<?php if(get_field('pa_location_content_blocks','option')) {
-		 		 
-		 	echo "<br/><br/>";
-		 			 
-		 	while(has_sub_field('pa_location_content_blocks','option')) {
-			 			 
-			 	if(get_sub_field('current_taxonomy') == $patermsid && (get_sub_field('current_location_taxonomy_state') == $statetermid) && get_sub_field('current_location_taxonomy_city') == $citytermid ) {
-			 			 
-			 		the_sub_field('block');
-		 			 		
-		 		}
-		 			 	
-		 	}
+	</div><!-- internal_banner -->
+	
+	<div class="outer_container">
+		
+		<div class="directory_wrapper lawyer_wrapper">
 			
-			if(is_user_logged_in()) {
+			<div class="directory_description">
+			
+			<?php 
+				
+				if(get_field('pa_location_content_blocks','option')) {
+		 		 
+					while(has_sub_field('pa_location_content_blocks','option')) {
+			 			 
+			 			if(get_sub_field('current_taxonomy') == $patermsid && (get_sub_field('current_location_taxonomy_state') == $statetermid) && get_sub_field('current_location_taxonomy_city') == $citytermid ) {
+			 			 
+			 				the_sub_field('block');
+		 			 		
+		 				}
+		 			 	
+		 		}
+			
+		 		if(is_user_logged_in()) {
 	
 		 			echo '<a href="' . get_bloginfo('url') .  '/wp-admin/admin.php?page=pa-locations-content-blocks-settings">Edit</a><br/><br/><br/>';
-			 		
-				}
+			 	}
 		 		 
 		}	?>
+		
+		</div><!-- directory_description -->
+			
+			<h2 class="section_header">Browse by Lawyer</h2>
+			
+			<?php 
+	
+					$query_args = array (
+						'post_type' => 'lawyer',
+						'fields' => 'ids',
+						'posts_per_page' => -1,
+						'tax_query' => array(
+						array(
+							'taxonomy'  => $taxlocations,
+							'field'     => 'slug',
+							'terms'     => $currentcity,
+						),
+						array(
+							'taxonomy'  => $taxpracticeareas,
+							'field'     => 'slug',
+							'terms'     => $currentpracticearea,
+						)
+						),
+				);?>
+	
+			<div class="lawyer_results_wrapper">
+	
+				<?php $singlefirms = new WP_Query($query_args);
+	
+					while($singlefirms->have_posts()) : $singlefirms->the_post();?>
+	
+						
+						<div class="single_lawyer_result">
+							
+							<a class="" href="<?php the_permalink();?>">
+							
+							<div class="single_lawyer_img_wrapper">
+								
+								<div class="logo_placeholder">
+									
+									<span>Add Logo</span>
+									
+								</div><!-- logo_placeholder -->
+								
+							</div><!-- single_lawyer_img_wrapper -->
+							
+							<div class="single_lawyer_content">
+								
+								<span class="single_lawyer_title"><?php the_title();?></span><!-- single_lawyer_title -->
+								
+									<div class="single_lawyer_meta">
+									
+										<span><?php echo $citytermtitle;?>, <?php the_field('state_abbr');?> </span>
+									
+										<?php if(get_field('lawyer_phone') == ('NULL') || empty(get_field('lawyer_phone'))) {} else { ?>
+									
+											<span><?php the_field( 'lawyer_phone' ); ?></span>
+									
+										<?php }?>
+									
+									</div><!-- single_lawyer_meta -->
+									
+									<span class="visit_button">Visit Profile</span><!-- visit_button -->
+								
+								</div><!-- single_lawyer_content -->
+							
+							</a>
+							
+						</div><!-- single_lawyer_result -->
+	
 
-
-
-
-
-<br/><br/>Browse by Lawfirm
-
-<?php 
-	
-	$query_args = array (
-		'post_type' => 'lawyer',
-		'fields' => 'ids',
-		'posts_per_page' => -1,
-		'tax_query' => array(
-			 array(
-			   'taxonomy'  => $taxlocations,
-			    'field'     => 'slug',
-			    'terms'     => $currentcity,
-			),
-			array(
-			   'taxonomy'  => $taxpracticeareas,
-			    'field'     => 'slug',
-			    'terms'     => $currentpracticearea,
-			)
-		),
-	);
-	
-	echo "<ul>";
-	
-	$singlefirms = new WP_Query($query_args);
-	
-	
-	
-	while($singlefirms->have_posts()) : $singlefirms->the_post();?>
-	
-	
-	<li>
-	
-	<a href="<?php the_permalink();?>"><?php the_title(); ?></a>
-	
-	</li>
+					<?php endwhile;
+					
+					wp_reset_postdata();?>
   
   
-  <?php endwhile;
-	  
-	  
-  wp_reset_postdata();
+  		</div><!-- lawyer_results_wrapper -->
   
-  echo "</ul>";
+ 
   
-  if(is_user_logged_in()) {
+<!--
+  <?php if(is_user_logged_in()) {
 	
 					echo '<a href="' . get_bloginfo('url') .  '/wp-admin/edit.php?post_type=office">Edit</a><br/><br/><br/>';
 			 		
@@ -142,9 +163,16 @@
 
 	
 	?>
+-->
 
-</div>
-
-
+				
+			</div><!-- list_wrapper -->
+			
+		</div><!-- directory_wrapper -->
+		
+	</div><!-- outer_container -->
+	
+</div><!-- internal_main -->
+		
 
 <?php get_footer(); ?>

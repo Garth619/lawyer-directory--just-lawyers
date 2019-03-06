@@ -6,6 +6,8 @@
 		font-size: 75px;
 		font-family: $prata;
 		line-height: 79px;
+		max-width: 1030px;
+		margin:0 auto;
 	}
 }
 
@@ -16,11 +18,141 @@
 
 .directory_wrapper {
 	max-width: 1505px;
-	margin:75px auto 100px;
+	margin:100px auto 100px;
+	text-align: center;
+	h2 {
+		
+	}
+	.directory_description {
+		font-family: $worksans;
+		font-size:20px;
+		line-height: 34px;
+		max-width:1120px;
+		margin:0 auto 100px;
+		text-align: left;
+		h2 {
+			color:$bluetwo;
+			font-size: 18px;
+			letter-spacing: 0.35em;
+			text-transform: uppercase;
+			margin-bottom:5px;
+			@include montserrat_extrabold;
+		}
+		p, ul {
+			margin-bottom: 30px;
+			li {
+				list-style: none;
+				position: relative;
+				padding-left:15px;
+				&:before {
+					content:"";
+					display: block;
+					width:5px;
+					height:5px;
+					background:$bluetwo;
+					border-radius: 50%;
+					position: absolute;
+					top:15px;
+					left:0;
+				}
+			}
+		}
+	}
+}
+
+
+.lawyer_wrapper {
+	max-width: 1705px;
+}
+
+.lawyer_results_wrapper {
+	display: flex;
+	justify-content: space-between;
+	flex-wrap:wrap;
+	padding-top:45px;
+}
+
+.single_lawyer_result {
+	background: #fff;
+	box-shadow: 0px 1px 21px 0px rgba(33, 33, 33, 0.24);
+	height:340px;
+	flex-basis:47%;
+	margin-bottom:75px;
+	padding:70px;
+	position: relative;
+	a {
+		display: flex;
+		text-decoration: none;
+	}
+}
+
+
+.single_lawyer_img_wrapper {
+	flex-basis: 210px;
+	flex-shrink: 0;
+}
+
+.logo_placeholder {
+	width:210;
+	height:125px;
+	background: $offwhite;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	span {
+		text-transform: uppercase;
+		font-size:14px;
+		letter-spacing: 0.2em;
+		color:#000;
+		@include montserrat_extrabold;
+	}
 }
 
 
 
+.single_lawyer_content {
+	padding-left:25px;
+	padding-top:11px;
+	text-align: left;
+	flex-grow:1;
+	height:100%;
+	span.single_lawyer_title {
+		display: block;
+		font-size:32px;
+		line-height: 45px;
+		font-family: $prata;
+		color:#000;
+	}
+}
+
+
+.single_lawyer_meta {
+	display: flex;
+	justify-content: space-between;
+	margin-top:35px;
+	span {
+		text-transform: capitalize;
+		color:$greytext;
+		font-size: 16px;
+		letter-spacing: 0.085em;
+		@include montserrat_extrabold;
+	}
+}
+
+span.visit_button {
+	background: $bluetwo;
+	color:#fff;
+	text-transform: uppercase;
+	font-size:14px;
+	letter-spacing: 0.25em;
+	position: absolute;
+	bottom:0;
+	right:0;
+	display: block;
+	padding:25px 47px;
+	@include montserrat_extrabold;
+}
+	
 
 @media screen and (max-width: 1066px) {
 	

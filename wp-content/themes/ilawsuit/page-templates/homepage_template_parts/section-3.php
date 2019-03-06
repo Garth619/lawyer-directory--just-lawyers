@@ -2,7 +2,7 @@
 	
 	<div class="sec_three_inner">
 		
-		<h2><?php the_field( 'section_three_title' ); ?></h2>
+		<h2 class="section_header"><?php the_field( 'section_three_title' ); ?></h2>
 		
 		<div class="sec_three_tabs">
 			

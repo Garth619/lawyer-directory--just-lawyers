@@ -61,7 +61,7 @@
 	$query_args = array (
 		'post_type' => 'lawyer',
 		'fields' => 'ids',
-		'posts_per_page' => -1,
+		//'posts_per_page' => -1, why are these screwing it up?
 		'tax_query' => array(
 			 array(
 			   'taxonomy'  => $taxlocations,
@@ -83,7 +83,7 @@
 
 	$termargs = array (
 		'taxonomy' => $taxlocations,
-		'posts_per_page' => -1,
+		//'posts_per_page' => -1, why are these screwing it up?
 		'object_ids' => $myposts->posts,
 		'parent' => 139 // add a slug to id conversion here
 			

@@ -266,8 +266,8 @@ add_filter('body_class', 'add_slug_body_class');
 if( function_exists('acf_add_options_page') ) {
 
   acf_add_options_page(array(
-    'page_title' 	=> 'Theme Options',
-    'menu_title'	=> 'Theme Options',
+    'page_title' 	=> 'Page/URL Descriptions',
+    'menu_title'	=> 'Page/URL Descriptions',
     'menu_slug' 	=> 'theme-options',
     'capability'	=> 'edit_posts',
     'redirect'		=> false

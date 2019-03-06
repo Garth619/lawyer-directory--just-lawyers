@@ -47,12 +47,13 @@ form::-moz-placeholder {
     opacity: 1; }
     
     
-  h2 {
+  h2.section_header {
 		text-transform: lowercase;
 		font-size:45px;
 		color:#000;
 		font-family: $prata;
 		display: inline-block;
+		margin-bottom:55px;
 		&:after {
 			content:"";
 			display: block;
@@ -132,7 +133,7 @@ form::-moz-placeholder {
 @media screen and (max-width: 1066px) {
 	
 	
-	h2 {
+	h2.section_header {
 			font-size: 40px;
 		}
 	
@@ -171,7 +172,7 @@ img.aligncenter {
 
 
 
-		h2 {
+		h2.section_header {
 			font-size: 30px;
 			line-height: 40px;
 			&:after {
