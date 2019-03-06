@@ -2,7 +2,7 @@
 	
 		<div class="sec_one_inner">
 			
-			<h1>Find the best lawyers near you</h1>
+			<h1><?php the_field( 'section_one_title' ); ?></h1>
 			
 			<div class="sec_one_search_wrapper">
 				
