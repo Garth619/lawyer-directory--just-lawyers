@@ -93,8 +93,8 @@
 }
 
 .logo_placeholder {
-	width:210;
-	height:125px;
+	width:210px;
+	height:210px;
 	background: $offwhite;
 	display: flex;
 	justify-content: center;
@@ -111,7 +111,7 @@
 
 
 .single_lawyer_content {
-	padding-left:25px;
+	padding-left:35px;
 	padding-top:11px;
 	text-align: left;
 	flex-grow:1;
@@ -128,14 +128,16 @@
 
 .single_lawyer_meta {
 	display: flex;
-	justify-content: space-between;
-	margin-top:35px;
+	margin-top:30px;
 	span {
 		text-transform: capitalize;
 		color:$greytext;
 		font-size: 16px;
 		letter-spacing: 0.085em;
 		@include montserrat_extrabold;
+		&:first-of-type {
+			margin-right:10%;
+		}
 	}
 }
 
@@ -152,7 +154,62 @@ span.visit_button {
 	padding:25px 47px;
 	@include montserrat_extrabold;
 }
+
+
+
+@media screen and (max-width: 1735px) {
 	
+	
+	.single_lawyer_meta {
+		display: block;
+		span {
+			display: block;
+			&:first-of-type {
+				margin-bottom:8px;
+				margin-right:0;
+			}
+		}
+	}
+	
+	
+} /* Media Query */
+
+
+
+@media screen and (max-width: 1575px) {
+	
+	.lawyer_wrapper {
+		max-width: 1025px;
+	}
+	
+	
+	.single_lawyer_result {
+		height: 525px;
+		padding:60px;
+		a {
+			display: block;
+		}
+	}
+	
+	
+	.logo_placeholder {
+		margin:0 auto;
+		width:190px;
+		height:190px;
+	}
+	
+	
+	.single_lawyer_content {
+		padding-left:0;
+		text-align: center;
+		margin:25px 0 0;
+	}
+	
+	
+	
+	
+} /* Media Query */
+
 
 @media screen and (max-width: 1066px) {
 	

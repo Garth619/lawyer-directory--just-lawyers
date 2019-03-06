@@ -44,7 +44,7 @@
 	
 	<div class="internal_banner">
 		
-		<h1><?php echo $citytermtitle;?><br/> <?php echo $patermstitle;?> Lawyer</h1>
+		<h1><?php echo $citytermtitle;?><br/> <?php echo $patermstitle;?> Lawyers</h1>
 
 	</div><!-- internal_banner -->
 	
@@ -84,6 +84,8 @@
 					$query_args = array (
 						'post_type' => 'lawyer',
 						'fields' => 'ids',
+						'order' => 'ASC',
+						'orderby' => 'title', // could these slow the results down?
 						'posts_per_page' => -1,
 						'tax_query' => array(
 						array(
