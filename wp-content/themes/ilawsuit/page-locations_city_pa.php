@@ -52,7 +52,7 @@
 		
 		<div class="directory_wrapper lawyer_wrapper">
 			
-			<div class="directory_description">
+			
 			
 			<?php 
 				
@@ -60,11 +60,16 @@
 		 		 
 					while(has_sub_field('pa_location_content_blocks','option')) {
 			 			 
-			 			if(get_sub_field('current_taxonomy') == $patermsid && (get_sub_field('current_location_taxonomy_state') == $statetermid) && get_sub_field('current_location_taxonomy_city') == $citytermid ) {
+			 			if(get_sub_field('current_taxonomy') == $patermsid && (get_sub_field('current_location_taxonomy_state') == $statetermid) && get_sub_field('current_location_taxonomy_city') == $citytermid ) {?>
+			 			
+			 			
+			 			<div class="directory_description">
 			 			 
-			 				the_sub_field('block');
+			 				<?php the_sub_field('block');?>
+			 				
+			 			</div><!-- directory_description -->
 		 			 		
-		 				}
+		 				<?php }
 		 			 	
 		 		}
 			
@@ -75,7 +80,7 @@
 		 		 
 		}	?>
 		
-		</div><!-- directory_description -->
+		
 			
 			<h2 class="section_header">Browse by Lawyer</h2>
 			
@@ -138,7 +143,11 @@
 									
 									</div><!-- single_lawyer_meta -->
 									
-									<span class="visit_button">Visit Profile</span><!-- visit_button -->
+									<div class="visit_button_wrapper">
+									
+										<span class="visit_button">Visit Profile</span><!-- visit_button -->
+									
+									</div><!-- visit_button_wrapper -->
 								
 								</div><!-- single_lawyer_content -->
 							

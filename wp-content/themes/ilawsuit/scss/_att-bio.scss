@@ -1,0 +1,138 @@
+.internal_banner_meta {
+	border-top:3px solid $bluetwo;
+	display: inline-block;
+	margin:14px 0 0;
+	padding:29px 0 0;
+	span {
+		text-transform: uppercase;
+		font-size: 17px;
+		letter-spacing: 0.35em;
+		@include montserrat_extrabold;
+		&:after {
+			content:"";
+			display: inline-block;
+			width:5px;
+			height:5px;
+			background: #000;
+			border-radius: 50%;
+			vertical-align: top;
+			margin:6px 20px 0;
+		}
+		&:last-of-type {
+			&:after {
+				display: none;
+			}
+		}
+	}
+}
+
+
+.att_bio_wrapper {
+	max-width:1340px;
+	margin:110px auto;
+	display: flex;
+}
+
+
+.att_bio_sidebar {
+	background: #fff;
+	flex-basis:430px;
+	flex-shrink:0;
+	box-shadow: 0px 1px 50px 0px rgba(33, 33, 33, 0.2);
+	padding:60px 68px 82px;
+}
+
+
+.att_bio_content {
+	flex-grow:1;
+	padding-left:12%;
+	margin-top:20px;
+}
+
+
+.att_bio_profile {
+	margin-bottom: 70px;
+}
+
+
+.att_bio_placeholder {
+	width:190px;
+	height:190px;
+	background: $offwhite;
+	border-radius: 50%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin:0 auto;
+	span {
+		text-transform: uppercase;
+		font-size:15px;
+		letter-spacing: 0.35em;
+		max-width: 125px;
+		text-align: center;
+		line-height: 25px;
+		@include montserrat_extrabold;
+	}
+}
+
+
+.att_bio_address_wrapper {
+	margin-bottom:60px;
+	span {
+		display: block;
+	}
+	span.att_bio_sidebar_title {
+		text-transform: uppercase;
+		display: block;
+		font-size: 16px;
+		letter-spacing: 0.15em;
+		margin-bottom:12px;
+		@include montserrat_extrabold;
+	}
+	span.att_bio_address, a.att_bio_phone {
+		display: block;
+		font-size: 20px;
+		line-height: 28px;
+		font-family: $worksans;
+	}
+	a.att_bio_phone {
+		text-decoration: none;
+		color:#000;
+	}
+	a.get_directions {
+		color:$bluetwo;
+		text-transform: lowercase;
+		font-family: $worksans;
+		font-weight:700;
+		font-size:18px;
+		letter-spacing: 0.05em;
+		margin-top:5px;
+		display: inline-block;
+	}
+}
+
+
+
+a.visit_website_button {
+	text-transform: uppercase;
+	font-size: 16px;
+	letter-spacing: 0.25em;
+	text-decoration: none;
+	text-align: center;
+	display: block;
+	padding:31px;
+	border:3px solid $bluetwo;
+	color:$bluetwo;
+	@include montserrat_extrabold;
+	transition: all 200ms ease-in-out;
+	&:hover {
+		background: $bluetwo;
+		color:#fff;
+	}
+}
+
+
+
+.att_bio_practice_areas {
+	padding-top:53px;
+}

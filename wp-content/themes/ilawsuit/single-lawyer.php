@@ -1,253 +1,79 @@
 <?php get_header(); ?>
 
-<div class="section_inner">
-	
-	<div class="breadcrumb">
-	
-		<a href="<?php bloginfo('url');?>">Home</a>
-	
-		<a><?php the_title();?></a>
-	
-	</div><!-- breadcrumb -->
 
-		<br/><br/><br/>
+<div id="internal_main">
+	
+	<div class="internal_banner">
 		
 		<h1><?php the_title();?></h1>
 		
-		<br/><br/>
-		
-		<?php $lawyer_profile_image = get_field( 'lawyer_profile_image' ); ?>
+		<div class="internal_banner_meta">
+			
+			<span>Criminal Defense</span>
+			<span>Staten Island</span>
+			<span>NY</span>
+			
+		</div><!-- internal_banner_meta -->
+
+	</div><!-- internal_banner -->
 	
-		<?php if ( $lawyer_profile_image ) { ?>
+	<div class="outer_container">
 		
-			<img src="<?php echo $lawyer_profile_image['url']; ?>" alt="<?php echo $lawyer_profile_image['alt']; ?>" />
-
-			<?php } else { ?>
-
-			<img style="width:200px;" src="<?php bloginfo('template_directory');?>/images/default.jpg"/>
-
-		<?php }?>
+		<div class="att_bio_wrapper">
+			
+			<div class="att_bio_sidebar">
+				
+				<div class="att_bio_profile">
+					
+					<div class="att_bio_placeholder">
+						
+						<span>Add Photo</span>
+						
+					</div><!-- att_bio_placeholder -->
+					
+				</div><!-- att_bio_profile -->
+				
+				<div class="att_bio_address_wrapper">
+					
+					<span class="att_bio_sidebar_title">Address</span><!-- att_bio_sidebar_title -->
+					
+					<span class="att_bio_address">36 Richmond Terrace, Staten Island, NY 10307</span><!-- att_bio_address -->
+					
+					<a class="get_directions" href="">Directions</a><!-- get_directions -->
+					
+				</div><!-- att_bio_address_wrapper -->
+				
+				<div class="att_bio_address_wrapper">
+					
+					<span class="att_bio_sidebar_title">Phone</span><!-- att_bio_sidebar_title -->
+					
+					<a class="att_bio_phone" href="tel:7188768105">(718) 876-8105</a><!-- att_bio_phone -->
+					
+				</div><!-- att_bio_address_wrapper -->
+				
+				<a class="visit_website_button" href="" target="_blank" rel="noopener">Visit Website</a><!-- visit_website -->
+				
+			</div><!-- att_bio_sidebar -->
+			
+			<div class="att_bio_content content">
+				
+				<h2>Experience</h2>
+				
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quisque id diam vel quam elementum pulvinar. Pharetra vel turpis nunc eget lorem dolor sed viverra ipsum.</p>
+				
+				<div class="att_bio_practice_areas">
+					
+					<h2>Practice Areas</h2>
+					
+				</div><!-- att_bio_practice_areas -->
+				
+			</div><!-- att_bio_content -->
+			
+		</div><!-- att_bio_wrapper -->
 		
-		<br/><br/>
-		
-		<?php if(get_field('lawyer_phone') == ('NULL') || empty(get_field('lawyer_phone'))) {
+	</div><!-- outer_container -->
 	
-	
-			}
-	
-			else {?>
-
-			Phone: <a href="tel:<?php the_field('lawyer_phone');?>"><?php the_field('lawyer_phone');?></a>
-
-
-		<?php } ?>
-		
-		<br/><br/>
-		
-		<?php if(get_field('lawfirm_name')) {?>
-		
-		<br/><br/>
-		
-		<?php the_field('lawfirm_name');?>
-		
-		<?php }?>
-		
-		<?php if(get_field('lawyer_website') == ('NULL') || empty(get_field('lawyer_website'))) {
-		 
-		 
-		 }
-		 
-	 else { ?>
-     	
-     <a href="<?php the_field( 'lawyer_website' ); ?>" target="_blank">Visit Site</a>
-     
-     <br/>
-     <br/>
-     
-     (regex if already has http:// or https:// or http://www. or https://www. leave alone otherwise fix to have //)
-     
-     <br/><br/>
-     
-     like http://lawyerdirectory.1p21.io/office/hennigan-bennett-dorman-llp/
-     		
-     <br/>
-     <br/>
-		 
-	 <?php }?>
-		
-		<?php if(get_field('lawyer_address')):?>
-
-
-<?php $address = get_field('lawyer_address');
-	
-	
-	$addressCleaned = str_replace(' ', '%20', $address); // this works but doesnt echo in ahref below?
-	
-?>
-	
-	
-	<a href="https://www.google.com/maps/search/?api=1&query=<?php echo $addressCleaned;?>" target="_blank">
-		
-		<?php the_field('lawyer_address');?>
-		
-	</a>
-	
-	
-<!-- https://www.google.com/maps/search/?api=1&query=1200%20Pennsylvania%20Ave%20SE%2C%20Washington%2C%20District%20of%20Columbia%2C%2020003 -->
-
-
-<br/>
-<br/>
-
-<?php endif;?>
-
-		
-		<h2>Practice Areas</h2>
-
-
-		<?php $terms = get_the_terms( get_the_ID(), 'practice_area' );
-                         
-				if ( $terms && ! is_wp_error( $terms ) ) : 
- 
-				foreach ( $terms as $term ) {
-        	echo $term->name . "<br/>";
-    		}
-    
-    ?>
- 
-    
-<?php endif; ?>
-		
-		<?php if(get_field('years_licensed_for')):?>
-
-			<br/>
-			<br/>
-
-			<h2>Years Licensed For: <?php the_field( 'years_licensed_for' ); ?> </h2>
-
-			<?php endif;?>
-
-
-<?php if(get_field('lawyer_bio')):?>
-
-	<?php the_field( 'lawyer_bio' ); ?>
-
-<?php endif;?>	
-
-
-
-
-<?php if(get_field('school_one_name') == ('NULL') || empty(get_field('school_one_name'))) {
-	
-	
-}
-
-else { ?>
-
- 
-
-<br/>
-<br/>
-
-	<h2>Education</h2>
-
-	<p>School: <?php the_field( 'school_one_name' ); ?></p>
-	
-	<?php if(get_field('school_one_degree') == ('NULL') || get_field('school_one_degree') == ('N/A') || empty(get_field('school_one_degree'))) {
-		
-		
-	}
-	
-	else {?>
-
-		<p>Degree: <?php the_field( 'school_one_degree' ); ?></p>
-
-	<?php } ?>
-	
-	<?php if(get_field('school_one_major') == ('NULL') || get_field('school_one_major') == ('N/A') || empty(get_field('school_one_major'))) {
-		
-		
-	}
-	
-	else { ?>
-
-		<p>Major: <?php the_field( 'school_one_major' ); ?></p>
-
-	<?php } ?>
-	
-	<?php if(get_field('school_one_year_graduated') == ('NULL') || get_field('school_one_major') == ('N/A') || empty(get_field('school_one_year_graduated'))) {
-		
-		}
-		
-		else { ?>
-
-		<p>Year Graduated: <?php the_field( 'school_one_year_graduated' ); ?></p>
-
-	<?php } ?>
-		
-
-<?php }?>
-
-
-
-
-<?php if(get_field('school_two_name') == ('NULL') || get_field('school_two_name') == ('N/A') || empty(get_field('school_two_name'))) {
-	
-}
-
-else { ?>
-	
-	<br/>
-	
-	<hr/>
-	<br/>
-	<br/>
-	
-
-	<p>School: <?php the_field( 'school_two_name' ); ?></p>
-	
-	<?php if(get_field('school_two_degree') == ('NULL') || get_field('school_two_degree') == ('N/A') || empty(get_field('school_two_degree'))) {
-		
-		
-	}
-	
-	else { ?>
-
-		<p>Degree: <?php the_field( 'school_two_degree' ); ?></p>
-
-	<?php }?>
-	
-	<?php if(get_field('school_two_major') == ('NULL') || get_field('school_two_major') == ('N/A') || empty(get_field('school_two_major'))) {
-		
-		
-	}
-	
-	else { ?>
-
-		<p>Major: <?php the_field( 'school_two_major' ); ?></p>
-
-	<?php } ?>
-	
-	<?php if(get_field('school_two_year_graduated') == ('NULL') || get_field('school_two_year_graduated') == ('N/A') || empty(get_field('school_two_year_graduated'))) {
-		
-		
-		}
-		
-		else { ?>
-
-		<p>Year Graduated: <?php the_field( 'school_two_year_graduated' ); ?></p>
-
-	<?php }?>
-		
-
-<?php }?>
-
-	
-			<?php edit_post_link( __( 'Edit'), '', '' ); ?>
-
-
-
-</div><!-- section_inner -->
+</div><!-- internal_main -->
 
 
 <?php get_footer(); ?>

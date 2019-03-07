@@ -24,39 +24,11 @@
 		
 	}
 	.directory_description {
-		font-family: $worksans;
-		font-size:20px;
-		line-height: 34px;
+		
 		max-width:1120px;
 		margin:0 auto 100px;
 		text-align: left;
-		h2 {
-			color:$bluetwo;
-			font-size: 18px;
-			letter-spacing: 0.35em;
-			text-transform: uppercase;
-			margin-bottom:5px;
-			@include montserrat_extrabold;
-		}
-		p, ul {
-			margin-bottom: 30px;
-			li {
-				list-style: none;
-				position: relative;
-				padding-left:15px;
-				&:before {
-					content:"";
-					display: block;
-					width:5px;
-					height:5px;
-					background:$bluetwo;
-					border-radius: 50%;
-					position: absolute;
-					top:15px;
-					left:0;
-				}
-			}
-		}
+		
 	}
 }
 
@@ -141,6 +113,7 @@
 	}
 }
 
+.visit_button_wrapper {
 span.visit_button {
 	background: $bluetwo;
 	color:#fff;
@@ -153,6 +126,7 @@ span.visit_button {
 	display: block;
 	padding:25px 47px;
 	@include montserrat_extrabold;
+}
 }
 
 
@@ -185,7 +159,7 @@ span.visit_button {
 	
 	.single_lawyer_result {
 		height: 525px;
-		padding:60px;
+		padding:60px 60px 0 60px;
 		a {
 			display: block;
 		}
@@ -204,6 +178,27 @@ span.visit_button {
 		text-align: center;
 		margin:25px 0 0;
 	}
+	
+	
+	
+	.visit_button_wrapper {
+		position: absolute;
+		bottom:0;
+		left:0;
+		width:100%;
+		span.visit_button {
+			position: static;
+			max-width: 250px;
+			margin:0 auto;
+		}
+	}
+	
+	.single_lawyer_meta {
+		 margin-top: 13px;
+	}
+	
+	
+	   
 	
 	
 	
@@ -237,6 +232,23 @@ span.visit_button {
 
 
 
+@media screen and (max-width: 955px) {
+	
+	
+	
+	.lawyer_results_wrapper {
+		display: block;
+		max-width:450px;
+		margin-left:auto;
+		margin-right: auto;
+	}
+	
+	
+	
+} /* Media Query */
+
+
+
 @media screen and (max-width: 767px) {
 	
 	
@@ -261,6 +273,38 @@ span.visit_button {
 	.directory_wrapper {
    margin: 39px auto 80px;
 	}	
+	
+	
+	
+	.lawyer_results_wrapper {
+		padding-top:0;
+	}
+	
+	
+	.single_lawyer_result {
+		overflow: hidden;
+		height:auto;
+		margin-bottom: 56px;
+	}
+	
+	
+	.single_lawyer_content {
+		span.single_lawyer_title {
+			font-size: 29px;
+		}
+	}
+	
+	.single_lawyer_meta {
+		margin-bottom: 109px;
+	}
+	
+	.visit_button_wrapper {
+		span.visit_button {
+			padding: 24px;
+			font-size: 13px;
+			max-width: 200px;
+		}
+	}
 	
 	
 } /* Media Query */
