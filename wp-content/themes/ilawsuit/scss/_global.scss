@@ -117,6 +117,7 @@ form::-moz-placeholder {
 		letter-spacing: 0.35em;
 		text-transform: uppercase;
 		margin-bottom:5px;
+		line-height: 21px;
 		@include montserrat_extrabold;
 	}
 	p, ul {

@@ -29,9 +29,11 @@
 
 
 .att_bio_wrapper {
-	max-width:1340px;
+	max-width:1490px;
 	margin:110px auto;
 	display: flex;
+	padding-left:75px;
+	padding-right:75px;
 }
 
 
@@ -139,6 +141,7 @@ a.visit_website_button {
 
 .att_bio_practice_areas {
 	padding-top:53px;
+	padding-bottom: 55px;
 }
 
 .att_bio_pa_list {
@@ -158,6 +161,100 @@ a.visit_website_button {
 }
 
 
+.att_bio_selling_point {
+	height:875px;
+	width:100%;
+	position: relative;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding-left:75px;
+	padding-right:75px;
+	img {
+		width:100%;
+		height:100%;
+		object-fit:cover;
+		position: absolute;
+		top:0;
+		left:0;
+	}
+}
+
+
+.att_bio_selling_point_inner {
+	position: relative;
+	z-index: 1;
+	text-align: center;
+	span {
+		color:#fff;
+	}
+	span.selling_points_subheader {
+		text-transform: uppercase;
+		font-size: 18px;
+		letter-spacing: 0.35em;
+		border-bottom:3px solid $blue;
+		display: inline-block;
+		padding-bottom:16px;
+		line-height: 22px;
+		@include montserrat_extrabold;
+	}
+	span.selling_points_description {
+		display: block;
+		font-size: 65px;
+		font-family: $prata;
+		line-height: 85px;
+		padding:53px 0 0;
+		max-width:1130px;
+	}
+}
+
+.att_bio_middle_content_wrapper {
+	margin: 0 auto;
+	padding: 45px 0 100px;
+	background: $offwhite;
+}
+
+
+.att_bio_middle_content_inner {
+	max-width: 1490px;
+  margin: 110px auto;
+  display: flex;
+  padding-left: 75px;
+  padding-right: 75px;
+}
+
+.att_bio_middle_content {
+	flex-grow:1;
+	padding-right:10%;
+}
+
+.att_bio_middle_sidebar {
+	flex-basis:442px;
+	flex-shrink: 0;
+	.att_bio_middle_sidebar_inner {
+		border-left:1px solid #d7d7d7;
+		padding-left:22%;
+		.att_bio_sidebar_row {
+			padding-bottom:25px;
+			span.att_bio_sidebar_title {
+				color:$bluetwo;
+				text-transform: uppercase;
+				font-size: 18px;
+				letter-spacing: 0.35em;
+				display: block;
+				padding-bottom:19px;
+				@include montserrat_extrabold;
+			}
+			ul {
+				li {
+					margin-bottom:10px;
+				}
+			}
+		}
+	}
+}
+
+
 
 @media screen and (max-width: 1450px) {
 	
@@ -165,6 +262,8 @@ a.visit_website_button {
 	.att_bio_content {
 		padding-left:7%;
 	}
+	
+
 	
 	
 	
@@ -184,6 +283,10 @@ a.visit_website_button {
 	}
 	
 	
+	.att_bio_middle_sidebar {
+		flex-basis: 392px;
+	}	
+	
 	
 } /* Media Query */
 
@@ -195,6 +298,8 @@ a.visit_website_button {
 	.att_bio_wrapper {
 		display: block;
 		margin: 68px auto;
+		padding-left:60px;
+		padding-right:60px;
 		span.att_bio_address {
 			margin-left:auto;
 			margin-right:auto;
@@ -221,6 +326,50 @@ a.visit_website_button {
 		margin-right:auto;
 	}
 	
+	
+	.att_bio_selling_point {
+		height:auto;
+		display: block;
+		padding:240px 60px;
+	}
+	
+	
+	.att_bio_selling_point_inner {
+		span.selling_points_description {
+			font-size: 56px;
+			line-height: 80px;
+			max-width: 680px;
+			margin-left:auto;
+			margin-right:auto;
+		}
+	}
+	
+	
+	
+	.att_bio_middle_sidebar {
+		padding-top:10px;
+		.att_bio_middle_sidebar_inner {
+			padding-left:0;
+			border:none;
+			.att_bio_sidebar_row {
+				padding-bottom: 7px;
+				span.att_bio_sidebar_title {
+					padding-bottom: 0;
+				}
+			}
+		}
+	}
+	
+	.att_bio_middle_content_wrapper {
+    padding: 45px 0 30px;
+   }
+	
+	.att_bio_middle_content_inner {
+		display: block;
+		margin: 22px auto;
+		padding-left: 60px;
+    padding-right: 60px;
+	}
 	    
 	
 } /* Media Query */
@@ -229,7 +378,10 @@ a.visit_website_button {
 
 @media screen and (max-width: 767px) {
 	
-	
+	.att_bio_wrapper {
+		padding-left:40px;
+		padding-right:40px;
+	}
 	
 	.att_bio_sidebar {
 		
@@ -241,13 +393,36 @@ a.visit_website_button {
 	
 	.att_bio_practice_areas {
     padding-top: 23px;
+    padding-bottom: 5px;
 	}
 	
 	
 	.att_bio_pa_list {
 		ul {
 			column-count:1;
+			li {
+				
+			}
 		}
+	}
+	
+	
+	.att_bio_selling_point {
+		padding: 120px 40px;
+	}
+	
+	
+	.att_bio_selling_point_inner {
+		span.selling_points_description {
+			font-size: 43px;
+			line-height: 54px;
+			max-width: 590px;
+		}
+	}
+	
+	.att_bio_middle_content_inner {
+		padding-left:40px;
+		padding-right:40px;
 	}
 	
 	
