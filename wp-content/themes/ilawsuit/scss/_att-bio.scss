@@ -7,6 +7,7 @@
 		text-transform: uppercase;
 		font-size: 17px;
 		letter-spacing: 0.35em;
+		line-height: 21px;
 		@include montserrat_extrabold;
 		&:after {
 			content:"";
@@ -95,6 +96,9 @@
 		line-height: 28px;
 		font-family: $worksans;
 	}
+	span.att_bio_address {
+		max-width: 250px;
+	}
 	a.att_bio_phone {
 		text-decoration: none;
 		color:#000;
@@ -136,3 +140,116 @@ a.visit_website_button {
 .att_bio_practice_areas {
 	padding-top:53px;
 }
+
+.att_bio_pa_list {
+	ul {
+		column-count:2;
+		column-gap:65px;
+		li {
+			display: inline-block;
+			width:100%;
+			padding:17px 9px;
+			border-bottom:1px solid #e2e2e2;
+			&:before {
+				display: none;
+			}
+		}
+	}
+}
+
+
+
+@media screen and (max-width: 1450px) {
+	
+	
+	.att_bio_content {
+		padding-left:7%;
+	}
+	
+	
+	
+	
+} /* Media Query */
+
+
+
+@media screen and (max-width: 1230px) {
+	
+	
+	
+	
+	.att_bio_sidebar {
+		flex-basis:370px;
+		padding: 60px 47px 82px;
+	}
+	
+	
+	
+} /* Media Query */
+
+
+
+@media screen and (max-width: 1066px) {
+	
+	
+	.att_bio_wrapper {
+		display: block;
+		margin: 68px auto;
+		span.att_bio_address {
+			margin-left:auto;
+			margin-right:auto;
+		}
+	}
+	
+	
+	.att_bio_sidebar {
+		max-width:450px;
+		margin:0 auto;
+		padding: 60px 27px 57px;
+		text-align: center;
+	}
+	
+	.att_bio_content {
+		padding-left:0;
+		margin-top:90px;
+	}
+	
+	a.visit_website_button {
+		padding: 26px;
+		max-width: 300px;
+		margin-left:auto;
+		margin-right:auto;
+	}
+	
+	    
+	
+} /* Media Query */
+
+
+
+@media screen and (max-width: 767px) {
+	
+	
+	
+	.att_bio_sidebar {
+		
+	}
+	
+	.att_bio_content {
+		margin-top: 70px;
+	}
+	
+	.att_bio_practice_areas {
+    padding-top: 23px;
+	}
+	
+	
+	.att_bio_pa_list {
+		ul {
+			column-count:1;
+		}
+	}
+	
+	
+	
+} /* Media Query */

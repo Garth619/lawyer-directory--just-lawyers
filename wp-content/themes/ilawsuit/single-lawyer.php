@@ -65,6 +65,21 @@
 					
 					<h2>Practice Areas</h2>
 					
+					<div class="att_bio_pa_list">
+						
+						<ul>
+							<li>Criminal Defense</li>
+							<li>DUI + DWI</li>
+							<li>Criminal Defense</li>
+							<li>Criminal Defense</li>
+							<li>Criminal Defense</li>
+							<li>Criminal Defense</li>
+							<li>Criminal Defense</li>
+							<li>Criminal Defense</li>
+						</ul>
+						
+					</div><!-- att_bio_pa_list -->
+					
 				</div><!-- att_bio_practice_areas -->
 				
 			</div><!-- att_bio_content -->
