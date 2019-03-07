@@ -19,7 +19,7 @@
 	
 	
 		
-		<div class="att_bio_wrapper">
+		<section class="att_bio_wrapper">
 			
 			<div class="att_bio_sidebar">
 				
@@ -84,9 +84,9 @@
 				
 			</div><!-- att_bio_content -->
 			
-		</div><!-- att_bio_wrapper -->
+		</section><!-- att_bio_wrapper -->
 		
-		<div class="att_bio_selling_point">
+		<section class="att_bio_selling_point">
 			
 			<div class="att_bio_selling_point_inner">
 				
@@ -99,9 +99,9 @@
 			
 			<img src="<?php bloginfo('template_directory');?>/images/profile-quote-img-2.jpg"/>
 			
-		</div><!-- att_bio_selling_point -->
+		</section><!-- att_bio_selling_point -->
 		
-		<div class="att_bio_middle_content_wrapper">
+		<section class="att_bio_middle_content_wrapper">
 			
 			<div class="att_bio_middle_content_inner content">
 			
@@ -155,7 +155,148 @@
 			
 			</div><!-- att_bio_middle_content_inner -->
 			
-		</div><!-- att_bio_middle_content -->
+		</section><!-- att_bio_middle_content_wrapper -->
+		
+		<section class="att_bio_caseresults">
+			
+			<div class="att_bio_caseresults_inner">
+				
+				<h2 class="att_bio_cr_title">Case Results</h2><!-- att_bio_cr_title -->
+				
+				<div class="case_results_meta">
+					
+					<div class="single_case_results_meta">
+						
+						<div class="single_case_icon no_icon"></div><!-- single_case_icon -->
+						
+						<div class="single_case_content">
+							
+							<span class="cr_title">100 Cases</span><!-- cr_title -->
+							
+							<span class="cr_subtitle">Dismissed This Year</span><!-- cr_subtitle -->
+							
+						</div><!-- single_case_content -->
+						
+					</div><!-- single_case_results_meta -->
+					
+					<div class="single_case_results_meta">
+						
+						<div class="single_case_icon">
+							
+							<img src="<?php bloginfo('template_directory');?>/images/star_icon.svg" alt="star_icon"/>
+							
+						</div><!-- single_case_icon -->
+
+						
+						<div class="single_case_content">
+							
+							<span class="cr_title">50 Cases</span><!-- cr_title -->
+							
+							<span class="cr_subtitle">Reduced Charges</span><!-- cr_subtitle -->
+							
+						</div><!-- single_case_content -->
+						
+					</div><!-- single_case_results_meta -->
+					
+					<div class="single_case_results_meta">
+						
+						<div class="single_case_icon">
+							
+							<img src="<?php bloginfo('template_directory');?>/images/star_icon.svg" alt="star_icon"/>
+							
+						</div><!-- single_case_icon -->
+						
+						<div class="single_case_content">
+							
+							<span class="cr_title">200 Not Guilty</span><!-- cr_title -->
+							
+							<span class="cr_subtitle">Jury Verdicts</span><!-- cr_subtitle -->
+							
+						</div><!-- single_case_content -->
+						
+					</div><!-- single_case_results_meta -->
+					
+				
+					
+				</div><!-- case_results_meta -->
+				
+				<div class="att_bio_case_results_slider_wrapper">
+					
+					<div class="att_bio_case_results_slider">
+						
+						<div class="att_bio_case_results_slide">
+							
+							<span class="att_bio_case_results_title">Drug Felony</span><!-- att_bio_case_results_title -->
+							
+							<span class="att_bio_case_results_subtitle">Dismissed</span><!-- att_bio_case_results_subtitle -->
+							
+							<span class="att_bio_case_results_description">DEA seized 150+ pounds of marijuana and high-tech extraction machine from house at which client was found.</span><!-- att_bio_case_results_description -->
+							
+						</div><!-- att_bio_case_results_slide -->
+						
+						<div class="att_bio_case_results_slide">
+							
+							<span class="att_bio_case_results_title">Drug Felony</span><!-- att_bio_case_results_title -->
+							
+							<span class="att_bio_case_results_subtitle">Dismissed</span><!-- att_bio_case_results_subtitle -->
+							
+							<span class="att_bio_case_results_description">DEA seized 150+ pounds of marijuana and high-tech extraction machine from house at which client was found.</span><!-- att_bio_case_results_description -->
+							
+						</div><!-- att_bio_case_results_slide -->
+						
+						<div class="att_bio_case_results_slide">
+							
+							<span class="att_bio_case_results_title">Drug Felony</span><!-- att_bio_case_results_title -->
+							
+							<span class="att_bio_case_results_subtitle">Dismissed</span><!-- att_bio_case_results_subtitle -->
+							
+							<span class="att_bio_case_results_description">DEA seized 150+ pounds of marijuana and high-tech extraction machine from house at which client was found.</span><!-- att_bio_case_results_description -->
+							
+						</div><!-- att_bio_case_results_slide -->
+						
+						<div class="att_bio_case_results_slide">
+							
+							<span class="att_bio_case_results_title">Drug Felony</span><!-- att_bio_case_results_title -->
+							
+							<span class="att_bio_case_results_subtitle">Dismissed</span><!-- att_bio_case_results_subtitle -->
+							
+							<span class="att_bio_case_results_description">DEA seized 150+ pounds of marijuana and high-tech extraction machine from house at which client was found.</span><!-- att_bio_case_results_description -->
+							
+						</div><!-- att_bio_case_results_slide -->
+						
+						<div class="att_bio_case_results_slide">
+							
+							<span class="att_bio_case_results_title">Drug Felony</span><!-- att_bio_case_results_title -->
+							
+							<span class="att_bio_case_results_subtitle">Dismissed</span><!-- att_bio_case_results_subtitle -->
+							
+							<span class="att_bio_case_results_description">DEA seized 150+ pounds of marijuana and high-tech extraction machine from house at which client was found.</span><!-- att_bio_case_results_description -->
+							
+						</div><!-- att_bio_case_results_slide -->
+						
+					</div><!-- att_bio_case_results_slider -->
+					
+					<div class="cr_button_wrapper">
+						
+						<div class="cr_button_left cr_button">
+							
+							<div class="cr_arrow"></div><!-- cr_arrow -->
+							
+						</div><!-- cr_button -->
+						
+						<div class="cr_button_right cr_button">
+							
+							<div class="cr_arrow"></div><!-- cr_arrow -->
+							
+						</div><!-- cr_button -->
+						
+					</div><!-- cr_button_wrapper -->
+					
+				</div><!-- att_bio_case_results_slider_wrapper -->
+				
+			</div><!-- att_bio_caseresults_inner -->
+			
+		</section><!-- att_bio_caseresults -->
 	
 </div><!-- internal_main -->
 
