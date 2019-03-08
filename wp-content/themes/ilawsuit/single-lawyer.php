@@ -11,22 +11,18 @@
 			
 			<span>Criminal Defense</span>
 			
-			<?php if(get_field('lawyer_city') == ('NULL') || empty(get_field('lawyer_city'))) {}
-		 
-				else { ?>
+			<?php if(get_field('lawyer_city') && get_field('lawyer_city') !== 'NULL') { ?>
 			
 				<span><?php the_field( 'lawyer_city' ); ?></span>
 			
 			<?php }?>
 			
-
-			<?php if(get_field('state_abbr') == ('NULL') || empty(get_field('state_abbr'))) {}
-		 
-				else { ?>
+			<?php if(get_field('state_abbr') && get_field('state_abbr') !== 'NULL') { ?>
 			
 				<span><?php the_field( 'state_abbr' ); ?></span>
 			
 			<?php }?>
+
 
 		</div><!-- internal_banner_meta -->
 
@@ -38,33 +34,63 @@
 				
 				<div class="att_bio_profile">
 					
-					<div class="att_bio_placeholder">
+					<?php $lawyer_profile_image = get_field( 'lawyer_profile_image' ); ?>
+					
+					<?php if ( $lawyer_profile_image ) : ?>
+					
+						<img class="att_img" src="<?php echo $lawyer_profile_image['url']; ?>" alt="<?php echo $lawyer_profile_image['alt']; ?>" />
 						
-						<span>Add Photo</span>
+						<?php else:?>
 						
-					</div><!-- att_bio_placeholder -->
+						<div class="att_bio_placeholder">
+						
+							<span>Add Photo</span>
+						
+						</div><!-- att_bio_placeholder -->
+					
+					<?php endif; ?>
 					
 				</div><!-- att_bio_profile -->
 				
-				<div class="att_bio_address_wrapper">
-					
-					<span class="att_bio_sidebar_title">Address</span><!-- att_bio_sidebar_title -->
-					
-					<span class="att_bio_address">36 Richmond Terrace, Staten Island, NY 10307</span><!-- att_bio_address -->
-					
-					<a class="get_directions" href="">Directions</a><!-- get_directions -->
-					
-				</div><!-- att_bio_address_wrapper -->
+				<?php if(get_field('lawyer_address') && get_field('lawyer_address') !== 'NULL') { ?>
 				
-				<div class="att_bio_address_wrapper">
+					<div class="att_bio_address_wrapper">
 					
-					<span class="att_bio_sidebar_title">Phone</span><!-- att_bio_sidebar_title -->
+						<span class="att_bio_sidebar_title">Address</span><!-- att_bio_sidebar_title -->
 					
-					<a class="att_bio_phone" href="tel:7188768105">(718) 876-8105</a><!-- att_bio_phone -->
+						<span class="att_bio_address"><?php the_field( 'lawyer_address' ); ?></span><!-- att_bio_address -->
 					
-				</div><!-- att_bio_address_wrapper -->
+						<?php $address = get_field('lawyer_address');
+	
+							$addressCleaned = str_replace(' ', '%20', $address); // this works but doesnt echo in ahref below?
+					
+						?>
+					
+						<a class="get_directions" href="https://www.google.com/maps/search/?api=1&query=<?php echo $addressCleaned;?>" target="_blank" rel="noopener">Directions</a><!-- get_directions -->
+	
+					<!-- https://www.google.com/maps/search/?api=1&query=1200%20Pennsylvania%20Ave%20SE%2C%20Washington%2C%20District%20of%20Columbia%2C%2020003 -->
+
+					</div><!-- att_bio_address_wrapper -->
 				
-				<a class="visit_website_button" href="" target="_blank" rel="noopener">Visit Website</a><!-- visit_website -->
+				<?php } ?>
+				
+				<?php if(get_field('lawyer_phone') && get_field('lawyer_phone') !== 'NULL') { ?>
+				
+					<div class="att_bio_address_wrapper">
+					
+						<span class="att_bio_sidebar_title">Phone</span><!-- att_bio_sidebar_title -->
+					
+						<a class="att_bio_phone" href="tel:<?php echo str_replace(['-', '(', ')', ' '], '', get_field('lawyer_phone')); ?>"><?php the_field( 'lawyer_phone' ); ?></a><!-- att_bio_phone -->
+					
+					</div><!-- att_bio_address_wrapper -->
+				
+				<?php } ?>
+				
+				<?php if(get_field('lawyer_website') && get_field('lawyer_website') !== 'NULL') { ?>
+				
+					<a class="visit_website_button" href="<?php the_field( 'lawyer_website' ); ?>" target="_blank" rel="noopener">Visit Website</a><!-- visit_website -->
+				
+				<?php } ?>
 				
 			</div><!-- att_bio_sidebar -->
 			

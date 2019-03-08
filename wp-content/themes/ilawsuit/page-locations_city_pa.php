@@ -133,14 +133,24 @@
 								
 									<div class="single_lawyer_meta">
 									
-										<span><?php echo $citytermtitle;?>, <?php the_field('state_abbr');?> </span>
+										<span>
+										
+										<?php echo $citytermtitle;?> 
+										
+										<?php if(get_field('state_abbr') && get_field('state_abbr') !== 'NULL') {
+										
+											echo ", "; the_field('state_abbr');
+										
+										} ?>
+										
+										</span>
 									
-										<?php if(get_field('lawyer_phone') == ('NULL') || empty(get_field('lawyer_phone'))) {} else { ?>
+										<?php if(get_field('lawyer_phone') && get_field('lawyer_phone') !== 'NULL') { ?>
 									
 											<span><?php the_field( 'lawyer_phone' ); ?></span>
 									
 										<?php }?>
-									
+										
 									</div><!-- single_lawyer_meta -->
 									
 									<div class="visit_button_wrapper">
@@ -153,6 +163,8 @@
 							
 							</a>
 							
+							<?php edit_post_link( __( 'Edit'), '', '' ); ?>
+							
 						</div><!-- single_lawyer_result -->
 	
 
@@ -161,22 +173,8 @@
 					wp_reset_postdata();?>
   
   
-  		</div><!-- lawyer_results_wrapper -->
+  			</div><!-- lawyer_results_wrapper -->
   
- 
-  
-<!--
-  <?php if(is_user_logged_in()) {
-	
-					echo '<a href="' . get_bloginfo('url') .  '/wp-admin/edit.php?post_type=office">Edit</a><br/><br/><br/>';
-			 		
-				}
-
-	
-	?>
--->
-
-				
 			</div><!-- list_wrapper -->
 			
 		</div><!-- directory_wrapper -->

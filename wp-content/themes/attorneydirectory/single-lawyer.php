@@ -73,7 +73,7 @@
      <br/>
      <br/>
 		 
-	 <?php }?>
+	 <?php } ?>
 		
 		<?php if(get_field('lawyer_address')):?>
 
