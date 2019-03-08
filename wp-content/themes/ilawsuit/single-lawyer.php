@@ -96,11 +96,15 @@
 			
 			<div class="att_bio_content content">
 				
-				<div class="att_bio_experience">
+				<?php if(get_field('lawyer_bio')) { ?>
 				
-					<?php the_field( 'lawyer_bio' ); ?>
+					<div class="att_bio_experience">
 				
-				</div><!-- att_bio_experience -->
+						<?php the_field( 'lawyer_bio' ); ?>
+				
+					</div><!-- att_bio_experience -->
+				
+				<?php } ?>
 								
 				<?php $terms = get_the_terms( get_the_ID(), 'practice_area' );
                          
