@@ -96,26 +96,33 @@
 			
 			<div class="att_bio_content content">
 				
-				<h2>Experience</h2>
+				<div class="att_bio_experience">
 				
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quisque id diam vel quam elementum pulvinar. Pharetra vel turpis nunc eget lorem dolor sed viverra ipsum.</p>
+					<?php the_field( 'lawyer_bio' ); ?>
 				
-				<div class="att_bio_practice_areas">
+				</div><!-- att_bio_experience -->
+								
+				<?php $terms = get_the_terms( get_the_ID(), 'practice_area' );
+                         
+					if ( $terms && ! is_wp_error( $terms ) ) {?>
+								
+						<div class="att_bio_practice_areas">
 					
-					<h2>Practice Areas</h2>
+							<h2>Practice Areas</h2>
 					
-					<div class="att_bio_pa_list">
+							<div class="att_bio_pa_list">
+								
+								<ul>
+ 
+								<?php foreach ( $terms as $term ) {
+									
+									echo "<li>" . $term->name . "</li>";
+    						
+    						} ?>
+    
+    						</ul>
 						
-						<ul>
-							<li>Criminal Defense</li>
-							<li>DUI + DWI</li>
-							<li>Criminal Defense</li>
-							<li>Criminal Defense</li>
-							<li>Criminal Defense</li>
-							<li>Criminal Defense</li>
-							<li>Criminal Defense</li>
-							<li>Criminal Defense</li>
-						</ul>
+							<?php } ?>
 						
 					</div><!-- att_bio_pa_list -->
 					
