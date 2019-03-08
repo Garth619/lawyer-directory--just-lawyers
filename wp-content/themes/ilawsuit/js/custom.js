@@ -294,22 +294,24 @@ $('.sec_two_grid').slick({
   infinite: true,
   slidesToShow: 3,
   slidesToScroll: 3,
-  
- 
-	//arrows:true,
-	//prevArrow:".sec_two_button_left",
-	//nextArrow:".sec_two_button_right",
+  arrows:true,
+	prevArrow:".cr_button_left",
+	nextArrow:".cr_button_right",
 	responsive: [
     {
-      breakpoint: 700,
+      breakpoint: 1275,
       settings: {
       slidesToShow: 2,
       slidesToScroll: 2,
      }
    },
    {
-      breakpoint: 1066,
-      settings: "unslick"
+      breakpoint: 980,
+      settings: {
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      adaptiveHeight: true
+     }
    }
 	]
  });

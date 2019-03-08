@@ -167,7 +167,11 @@
 					
 					<div class="single_case_results_meta">
 						
-						<div class="single_case_icon no_icon"></div><!-- single_case_icon -->
+						<div class="single_case_icon">
+							
+							<img src="<?php bloginfo('template_directory');?>/images/star_icon.svg" alt="star_icon"/>
+							
+						</div><!-- single_case_icon -->
 						
 						<div class="single_case_content">
 							
@@ -276,7 +280,11 @@
 						
 					</div><!-- att_bio_case_results_slider -->
 					
-					<div class="cr_button_wrapper">
+				</div><!-- att_bio_case_results_slider_wrapper -->
+				
+			</div><!-- att_bio_caseresults_inner -->
+			
+			<div class="cr_button_wrapper">
 						
 						<div class="cr_button_left cr_button">
 							
@@ -291,10 +299,6 @@
 						</div><!-- cr_button -->
 						
 					</div><!-- cr_button_wrapper -->
-					
-				</div><!-- att_bio_case_results_slider_wrapper -->
-				
-			</div><!-- att_bio_caseresults_inner -->
 			
 		</section><!-- att_bio_caseresults -->
 	
