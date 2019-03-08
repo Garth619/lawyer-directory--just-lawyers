@@ -119,11 +119,22 @@
 							
 							<div class="single_lawyer_img_wrapper">
 								
-								<div class="logo_placeholder">
+								
+								<?php $lawyer_profile_image = get_field( 'lawyer_profile_image' ); ?>
+					
+								<?php if ( $lawyer_profile_image ) : ?>
+					
+									<img class="att_feed_image" src="<?php echo $lawyer_profile_image['url']; ?>" alt="<?php echo $lawyer_profile_image['alt']; ?>" />
+						
+									<?php else:?>
+						
+									<div class="logo_placeholder">
 									
-									<span>Add Logo</span>
+										<span>Add Logo</span>
 									
-								</div><!-- logo_placeholder -->
+									</div><!-- logo_placeholder -->
+					
+								<?php endif; ?>
 								
 							</div><!-- single_lawyer_img_wrapper -->
 							
