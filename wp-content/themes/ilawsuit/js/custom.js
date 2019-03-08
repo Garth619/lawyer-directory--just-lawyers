@@ -341,7 +341,7 @@ $('.sec_three_tab').on('click', function(e) {
 
 
 
-/* Section Three Tabs */
+// Section Three Tabs
 
 
 
@@ -374,7 +374,16 @@ $('.sec_three_tab').on('click', function(e) {
 
 
 
+  // faq
   
+  
+  $('.single_faq').on('click', function(e) {
+    
+    $(this).find('.faq_answer').slideToggle(300);
+    
+    $(this).find('.faq_question').toggleClass('active');
+    
+  });
    	  
 
 

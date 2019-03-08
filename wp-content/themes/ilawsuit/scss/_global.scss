@@ -120,6 +120,14 @@ form::-moz-placeholder {
 		line-height: 21px;
 		@include montserrat_extrabold;
 	}
+	a {
+		color:$bluetwo;
+		text-decoration: none;
+		transition: all 200ms ease-in-out;
+		&:hover {
+			text-decoration: underline;
+		}
+	}
 	p, ul {
 		margin-bottom: 30px;
 		li {

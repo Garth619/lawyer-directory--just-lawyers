@@ -161,7 +161,7 @@
 			
 			<div class="att_bio_caseresults_inner">
 				
-				<h2 class="att_bio_cr_title">Case Results</h2><!-- att_bio_cr_title -->
+				<h2 class="att_bio_title">Case Results</h2><!-- att_bio_title -->
 				
 				<div class="case_results_meta">
 					
@@ -301,6 +301,140 @@
 					</div><!-- cr_button_wrapper -->
 			
 		</section><!-- att_bio_caseresults -->
+		
+		<section class="faq">
+			
+			<div class="faq_inner">
+				
+				<h2 class="att_bio_title">FAQs</h2>
+				
+				<div class="faq_questions">
+					
+					<div class="faq_col">
+						
+						<div class="single_faq">
+							
+							<span class="faq_question">Do you offer free consultations?</span><!-- faq_question -->
+							
+							<div class="faq_answer content">
+								
+								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse molestie et diam eu interdum. Maecenas vel tortor maximus, pharetra libero eget, pharetra nisi. Aliquam dictum vehicula purus, in condimentum neque tempor a. Duis at ante rhoncus, porta arcu ut, sagittis diam.</p> 
+								
+								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse molestie et diam eu interdum. Maecenas vel tortor maximus, pharetra libero eget, pharetra nisi. Aliquam dictum vehicula purus, in condimentum neque tempor a. Duis at ante rhoncus, porta arcu ut, sagittis diam.</p>
+								
+								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse molestie et diam eu interdum. Maecenas vel tortor maximus, pharetra libero eget, pharetra nisi. Aliquam dictum vehicula purus, in condimentum neque tempor a. Duis at ante rhoncus, porta arcu ut, sagittis diam.</p>
+							
+							</div><!-- faq_answer -->
+							
+						</div><!-- single_faq -->
+						
+						<div class="single_faq">
+							
+							<span class="faq_question">Do you offer free consultations?</span><!-- faq_question -->
+							
+							<div class="faq_answer content">
+								
+								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse molestie et diam eu interdum. Maecenas vel tortor maximus, pharetra libero eget, pharetra nisi. Aliquam dictum vehicula purus, in condimentum neque tempor a. Duis at ante rhoncus, porta arcu ut, sagittis diam.</p> 
+								
+								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse molestie et diam eu interdum. Maecenas vel tortor maximus, pharetra libero eget, pharetra nisi. Aliquam dictum vehicula purus, in condimentum neque tempor a. Duis at ante rhoncus, porta arcu ut, sagittis diam.</p>
+								
+								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse molestie et diam eu interdum. Maecenas vel tortor maximus, pharetra libero eget, pharetra nisi. Aliquam dictum vehicula purus, in condimentum neque tempor a. Duis at ante rhoncus, porta arcu ut, sagittis diam.</p>
+							
+							</div><!-- faq_answer -->
+							
+						</div><!-- single_faq -->
+						
+						<div class="single_faq">
+							
+							<span class="faq_question">Do you offer free consultations?</span><!-- faq_question -->
+							
+							<div class="faq_answer content">
+								
+								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse molestie et diam eu interdum. Maecenas vel tortor maximus, pharetra libero eget, pharetra nisi. Aliquam dictum vehicula purus, in condimentum neque tempor a. Duis at ante rhoncus, porta arcu ut, sagittis diam.</p> 
+								
+								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse molestie et diam eu interdum. Maecenas vel tortor maximus, pharetra libero eget, pharetra nisi. Aliquam dictum vehicula purus, in condimentum neque tempor a. Duis at ante rhoncus, porta arcu ut, sagittis diam.</p>
+								
+								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse molestie et diam eu interdum. Maecenas vel tortor maximus, pharetra libero eget, pharetra nisi. Aliquam dictum vehicula purus, in condimentum neque tempor a. Duis at ante rhoncus, porta arcu ut, sagittis diam.</p>
+							
+							</div><!-- faq_answer -->
+							
+						</div><!-- single_faq -->
+						
+						<div class="single_faq">
+							
+							<span class="faq_question">Do you offer free consultations?</span><!-- faq_question -->
+							
+							<div class="faq_answer content">
+								
+								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse molestie et diam eu interdum. Maecenas vel tortor maximus, pharetra libero eget, pharetra nisi. Aliquam dictum vehicula purus, in condimentum neque tempor a. Duis at ante rhoncus, porta arcu ut, sagittis diam.</p> 
+								
+								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse molestie et diam eu interdum. Maecenas vel tortor maximus, pharetra libero eget, pharetra nisi. Aliquam dictum vehicula purus, in condimentum neque tempor a. Duis at ante rhoncus, porta arcu ut, sagittis diam.</p>
+								
+								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse molestie et diam eu interdum. Maecenas vel tortor maximus, pharetra libero eget, pharetra nisi. Aliquam dictum vehicula purus, in condimentum neque tempor a. Duis at ante rhoncus, porta arcu ut, sagittis diam.</p>
+							
+							</div><!-- faq_answer -->
+							
+						</div><!-- single_faq -->
+						
+					</div><!-- faq_col -->
+					
+					<div class="faq_col">
+						
+						<div class="single_faq">
+							
+							<span class="faq_question">Do you offer free consultations?</span><!-- faq_question -->
+							
+							<div class="faq_answer content">
+								
+								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse molestie et diam eu interdum. Maecenas vel tortor maximus, pharetra libero eget, pharetra nisi. Aliquam dictum vehicula purus, in condimentum neque tempor a. Duis at ante rhoncus, porta arcu ut, sagittis diam.</p> 
+								
+								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse molestie et diam eu interdum. Maecenas vel tortor maximus, pharetra libero eget, pharetra nisi. Aliquam dictum vehicula purus, in condimentum neque tempor a. Duis at ante rhoncus, porta arcu ut, sagittis diam.</p>
+								
+								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse molestie et diam eu interdum. Maecenas vel tortor maximus, pharetra libero eget, pharetra nisi. Aliquam dictum vehicula purus, in condimentum neque tempor a. Duis at ante rhoncus, porta arcu ut, sagittis diam.</p>
+							
+							</div><!-- faq_answer -->
+							
+						</div><!-- single_faq -->
+						
+						<div class="single_faq">
+							
+							<span class="faq_question">Do you offer free consultations?</span><!-- faq_question -->
+							
+							<div class="faq_answer content">
+								
+								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse molestie et diam eu interdum. Maecenas vel tortor maximus, pharetra libero eget, pharetra nisi. Aliquam dictum vehicula purus, in condimentum neque tempor a. Duis at ante rhoncus, porta arcu ut, sagittis diam.</p> 
+								
+								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse molestie et diam eu interdum. Maecenas vel tortor maximus, pharetra libero eget, pharetra nisi. Aliquam dictum vehicula purus, in condimentum neque tempor a. Duis at ante rhoncus, porta arcu ut, sagittis diam.</p>
+								
+								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse molestie et diam eu interdum. Maecenas vel tortor maximus, pharetra libero eget, pharetra nisi. Aliquam dictum vehicula purus, in condimentum neque tempor a. Duis at ante rhoncus, porta arcu ut, sagittis diam.</p>
+							
+							</div><!-- faq_answer -->
+							
+						</div><!-- single_faq -->
+						
+						<div class="single_faq">
+							
+							<span class="faq_question">Do you offer free consultations?</span><!-- faq_question -->
+							
+							<div class="faq_answer content">
+								
+								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse molestie et diam eu interdum. Maecenas vel tortor maximus, pharetra libero eget, pharetra nisi. Aliquam dictum vehicula purus, in condimentum neque tempor a. Duis at ante rhoncus, porta arcu ut, sagittis diam.</p> 
+								
+								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse molestie et diam eu interdum. Maecenas vel tortor maximus, pharetra libero eget, pharetra nisi. Aliquam dictum vehicula purus, in condimentum neque tempor a. Duis at ante rhoncus, porta arcu ut, sagittis diam.</p>
+								
+								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse molestie et diam eu interdum. Maecenas vel tortor maximus, pharetra libero eget, pharetra nisi. Aliquam dictum vehicula purus, in condimentum neque tempor a. Duis at ante rhoncus, porta arcu ut, sagittis diam.</p>
+							
+							</div><!-- faq_answer -->
+							
+						</div><!-- single_faq -->
+						
+					</div><!-- faq_col -->
+					
+				</div><!-- faq_questions -->
+				
+			</div><!-- faq_inner -->
+			
+		</section><!-- faq -->
 	
 </div><!-- internal_main -->
 
