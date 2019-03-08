@@ -489,7 +489,7 @@ h2.att_bio_title {
 
 .single_faq {
 	border-top:3px solid #e4e4e4;
-	padding:60px 0;
+	padding:60px 10px;
 	cursor: pointer;
 	&:last-of-type {
 		border-bottom:3px solid #e4e4e4;
@@ -502,13 +502,15 @@ h2.att_bio_title {
 		position: relative;
 		color:#000;
 		transition: all 200ms ease-in-out;
+		line-height: 20px;
+		padding-right: 31px;
 		@include montserrat_extrabold;
 		&:after {
 			content:"+";
 			font-size:27px;
 			color:$bluetwo;
 			position: absolute;
-			top:-6px;
+			top:0px;
 			right:0;
 		}
 	}
@@ -588,6 +590,25 @@ h2.att_bio_title {
 	.att_bio_middle_sidebar {
 		flex-basis: 392px;
 	}	
+	
+	
+	
+	.faq_questions {
+		display: block;
+		max-width:700px;
+		margin-left:auto;
+		margin-right:auto;
+	}
+	
+	.faq_col {
+		&:last-of-type {
+			.single_faq {
+				&:first-of-type {
+					border-top:none;
+				}
+			}
+		}
+	}
 	
 	
 } /* Media Query */
@@ -702,7 +723,18 @@ h2.att_bio_title {
 		font-size: 56px;
 		margin-bottom: 49px;
 	}
-	    
+	
+	.faq {
+		padding-left: 40px;
+		padding-right:40px;
+		padding-bottom:175px;
+	}
+	
+	
+	.faq_inner {
+		padding: 109px 0 0;
+	}
+	
 	
 } /* Media Query */
 
@@ -846,7 +878,16 @@ h2.att_bio_title {
 }
     
 
+	.faq {
+		background: #fff;
+		padding-bottom: 85px;
+	}
 	
+	
+	
+.faq_inner {
+	padding: 90px 0 0;
+}
 	
 	
 } /* Media Query */

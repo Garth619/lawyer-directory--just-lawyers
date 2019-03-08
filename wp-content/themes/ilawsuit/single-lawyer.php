@@ -10,15 +10,28 @@
 		<div class="internal_banner_meta">
 			
 			<span>Criminal Defense</span>
-			<span>Staten Island</span>
-			<span>NY</span>
 			
+			<?php if(get_field('lawyer_city') == ('NULL') || empty(get_field('lawyer_city'))) {}
+		 
+				else { ?>
+			
+				<span><?php the_field( 'lawyer_city' ); ?></span>
+			
+			<?php }?>
+			
+
+			<?php if(get_field('state_abbr') == ('NULL') || empty(get_field('state_abbr'))) {}
+		 
+				else { ?>
+			
+				<span><?php the_field( 'state_abbr' ); ?></span>
+			
+			<?php }?>
+
 		</div><!-- internal_banner_meta -->
 
 	</div><!-- internal_banner -->
 	
-	
-		
 		<section class="att_bio_wrapper">
 			
 			<div class="att_bio_sidebar">
