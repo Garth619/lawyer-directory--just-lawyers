@@ -9,7 +9,25 @@
 		
 		<div class="internal_banner_meta">
 			
-			<span>Criminal Defense</span>
+			<?php 
+				
+				if(get_field('lawyer_featured_practice_area')) { ?>
+					
+					<span><?php the_field('lawyer_featured_practice_area');?></span>
+					
+				<?php }
+					
+					else {
+				
+					$terms = get_the_terms( get_the_ID(), 'practice_area' );
+				
+					$term = reset($terms);
+				
+				?>
+			
+					<span><?php echo $term->name; ?></span>
+			
+			<?php } ?>
 			
 			<?php if(get_field('lawyer_city') && get_field('lawyer_city') !== 'NULL') { ?>
 			
@@ -106,9 +124,9 @@
 				
 				<?php } ?>
 								
-				<?php $terms = get_the_terms( get_the_ID(), 'practice_area' );
+<!-- 				<?php $terms = get_the_terms( get_the_ID(), 'practice_area' ); ?> -->
                          
-					if ( $terms && ! is_wp_error( $terms ) ) {?>
+					<?php if ( $terms && ! is_wp_error( $terms ) ) {?>
 								
 						<div class="att_bio_practice_areas">
 					
@@ -136,20 +154,51 @@
 			
 		</section><!-- att_bio_wrapper -->
 		
+		<?php if(get_field('selling_points_title') || get_field('selling_points_description')) { ?>
+		
 		<section class="att_bio_selling_point">
 			
 			<div class="att_bio_selling_point_inner">
 				
-				<span class="selling_points_subheader">over twenty years of experience</span><!-- subheader -->
+				<span class="selling_points_subheader"><?php the_field( 'selling_points_title' ); ?></span><!-- subheader -->
 				
-				<span class="selling_points_description">Over 10,000 cases successfully resolved. Lorem ispum blurb about experience </span><!-- selling_points_description -->
+				<span class="selling_points_description"><?php the_field( 'selling_points_description' ); ?></span><!-- selling_points_description -->
 				
 				
 			</div><!-- att_bio_selling_point_inner -->
 			
-			<img src="<?php bloginfo('template_directory');?>/images/profile-quote-img-2.jpg"/>
+			<?php 
+				
+				if(get_field('selling_point_banner_image_custom')) { 
+			
+					$selling_point_banner_image_custom = get_field( 'selling_point_banner_image_custom' ); ?>
+				
+					<img src="<?php echo $selling_point_banner_image_custom['url']; ?>" alt="<?php echo $selling_point_banner_image_custom['alt']; ?>" />
+			
+					<?php 
+					
+				} 
+						
+				else {
+			
+					if(get_field('selling_point_banner_options') == 'Building') { ?>
+			
+						<img src="<?php bloginfo('template_directory');?>/images/profile-quote-img-2.jpg" alt="<?php the_title();?> Selling Point" />
+			
+					<?php	}
+			
+					if(get_field('selling_point_banner_options') == 'Inside Office') { ?>
+			
+						<img src="<?php bloginfo('template_directory');?>/images/profile-quote-img.jpg" alt="<?php the_title();?> Selling Point" />
+			
+						<?php } 
+				
+				} ?>
+
 			
 		</section><!-- att_bio_selling_point -->
+		
+		<?php } ?>
 		
 		<section class="att_bio_middle_content_wrapper">
 			
@@ -157,47 +206,67 @@
 			
 				<div class="att_bio_middle_content">
 				
-					<h2>over 20 year of experience</h2>
-				
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse molestie et diam eu interdum. Maecenas vel tortor maximus, pharetra libero eget, pharetra nisi. Aliquam dictum vehicula purus, in condimentum neque tempor a. Duis at ante rhoncus, porta arcu ut, sagittis diam.</p>
-
-
-					<h2>Awards</h2>
-				
-					<ul>
-						<li>Nunc feugiat egestas elit, eu malesuada nisl feugiat at.</li>
-						<li>Cras semper augue ligula, ut posuere libero interdum ac. </li>
-						<li>Integer scelerisque vel neque eu hendrerit. </li>
-						<li> Mauris sed sapien facilisis, ullamcorper nibh s</li>
-					</ul>
+					<?php the_field( 'lawyer_bottom_content' ); ?>
 				
 				</div><!-- att_bio_middle_content -->
 			
 				<div class="att_bio_middle_sidebar">
 				
 					<div class="att_bio_middle_sidebar_inner">
+						
+						<?php if(get_field('lawyer_bar_admission')) { ?>
 					
-						<div class="att_bio_sidebar_row">
+							<div class="att_bio_sidebar_row">
 				
-							<span class="att_bio_sidebar_title">Bar Admissions</span><!-- att_bio_sidebar_title -->
+								<span class="att_bio_sidebar_title">Bar Admission</span><!-- att_bio_sidebar_title -->
 					
-							<ul>
-								<li>Licensed in NY (1989)</li>
-								<li>Licensed in NY (2001)</li>
-							</ul>
-					
-						</div><!-- att_bio_sidebar_row -->
-					
-						<div class="att_bio_sidebar_row">
-					
-							<span class="att_bio_sidebar_title">Education</span><!-- att_bio_sidebar_title -->
-					
-							<ul>
-								<li><strong>School Name 1</strong><br/>Bachelor’s of Arts&nbsp;&nbsp;|&nbsp;&nbsp;YEAR </li>
-								<li><strong>School Name 2</strong><br/>J.D.&nbsp;&nbsp;|&nbsp;&nbsp;YEAR </li>
-							</ul>
+								<ul>
+									<?php if(get_field('lawyer_bar_admission')): ?>
+									 
+										<?php while(has_sub_field('lawyer_bar_admission')): ?>
+									 
+											<li><?php the_sub_field('bar_admission_bullet');?></li>
+									    
+										<?php endwhile; ?>
+									 
+									<?php endif; ?>
+								</ul>
 					
 						</div><!-- att_bio_sidebar_row -->
+						
+						<?php } ?>
+						
+						<?php if(get_field('school_one_name')) { ?>
+						
+							<div class="att_bio_sidebar_row">
+					
+								<span class="att_bio_sidebar_title">Education</span><!-- att_bio_sidebar_title -->
+					
+								<ul>
+								
+									<li>
+									
+										<strong><?php the_field( 'school_one_name' ); ?></strong>
+									
+										<br/>
+									
+										<?php the_field( 'school_one_major' ); ?>&nbsp;&nbsp;|&nbsp;&nbsp;<?php the_field( 'school_one_year_graduated' ); ?>
+									
+									</li>
+								
+									<li>
+									
+										<strong><?php the_field( 'school_two_name' ); ?></strong>
+									
+										<br/><?php the_field( 'school_two_major' ); ?>&nbsp;&nbsp;|&nbsp;&nbsp;<?php the_field( 'school_two_year_graduated' ); ?>
+								
+									</li>
+								
+								</ul>
+												
+							</div><!-- att_bio_sidebar_row -->
+						
+						<?php } ?>
 				
 					</div><!-- att_bio_middle_sidebar_inner -->
 				
@@ -207,126 +276,63 @@
 			
 		</section><!-- att_bio_middle_content_wrapper -->
 		
+		<?php if(get_field('lawyer_case_result_slides')): ?>
+		 
 		<section class="att_bio_caseresults">
 			
 			<div class="att_bio_caseresults_inner">
 				
 				<h2 class="att_bio_title">Case Results</h2><!-- att_bio_title -->
 				
-				<div class="case_results_meta">
-					
-					<div class="single_case_results_meta">
-						
-						<div class="single_case_icon">
-							
-							<img src="<?php bloginfo('template_directory');?>/images/star_icon.svg" alt="star_icon"/>
-							
-						</div><!-- single_case_icon -->
-						
-						<div class="single_case_content">
-							
-							<span class="cr_title">100 Cases</span><!-- cr_title -->
-							
-							<span class="cr_subtitle">Dismissed This Year</span><!-- cr_subtitle -->
-							
-						</div><!-- single_case_content -->
-						
-					</div><!-- single_case_results_meta -->
-					
-					<div class="single_case_results_meta">
-						
-						<div class="single_case_icon">
-							
-							<img src="<?php bloginfo('template_directory');?>/images/star_icon.svg" alt="star_icon"/>
-							
-						</div><!-- single_case_icon -->
-
-						
-						<div class="single_case_content">
-							
-							<span class="cr_title">50 Cases</span><!-- cr_title -->
-							
-							<span class="cr_subtitle">Reduced Charges</span><!-- cr_subtitle -->
-							
-						</div><!-- single_case_content -->
-						
-					</div><!-- single_case_results_meta -->
-					
-					<div class="single_case_results_meta">
-						
-						<div class="single_case_icon">
-							
-							<img src="<?php bloginfo('template_directory');?>/images/star_icon.svg" alt="star_icon"/>
-							
-						</div><!-- single_case_icon -->
-						
-						<div class="single_case_content">
-							
-							<span class="cr_title">200 Not Guilty</span><!-- cr_title -->
-							
-							<span class="cr_subtitle">Jury Verdicts</span><!-- cr_subtitle -->
-							
-						</div><!-- single_case_content -->
-						
-					</div><!-- single_case_results_meta -->
-					
+				<?php if(get_field('lawyer_case_result_selling_points')): ?>
 				
+					<div class="case_results_meta">
+						
+							<?php while(has_sub_field('lawyer_case_result_selling_points')): ?>
+						 
+								<div class="single_case_results_meta">
+						
+									<div class="single_case_icon">
+							
+										<img src="<?php bloginfo('template_directory');?>/images/star_icon.svg" alt="star_icon"/>
+							
+									</div><!-- single_case_icon -->
+						
+									<div class="single_case_content">
+							
+										<span class="cr_title"><?php the_sub_field( 'case_result_bold_header' ); ?></span><!-- cr_title -->
+							
+										<span class="cr_subtitle"><?php the_sub_field( 'case_results_subheader' ); ?></span><!-- cr_subtitle -->
+							
+									</div><!-- single_case_content -->
+						
+								</div><!-- single_case_results_meta -->
+						    
+							<?php endwhile; ?>
+						 
+						</div><!-- case_results_meta -->
 					
-				</div><!-- case_results_meta -->
+					<?php endif; ?>
 				
 				<div class="att_bio_case_results_slider_wrapper">
 					
 					<div class="att_bio_case_results_slider">
 						
-						<div class="att_bio_case_results_slide">
+							<?php while(has_sub_field('lawyer_case_result_slides')): ?>
+		 
+								<div class="att_bio_case_results_slide">
 							
-							<span class="att_bio_case_results_title">Drug Felony</span><!-- att_bio_case_results_title -->
+									<span class="att_bio_case_results_title"><?php the_sub_field( 'lawyer_case_results_header' ); ?></span><!-- att_bio_case_results_title -->
 							
-							<span class="att_bio_case_results_subtitle">Dismissed</span><!-- att_bio_case_results_subtitle -->
+									<span class="att_bio_case_results_subtitle"><?php the_sub_field( 'lawyer_case_results_verdict' ); ?></span><!-- att_bio_case_results_subtitle -->
 							
-							<span class="att_bio_case_results_description">DEA seized 150+ pounds of marijuana and high-tech extraction machine from house at which client was found.</span><!-- att_bio_case_results_description -->
+									<span class="att_bio_case_results_description"><?php the_sub_field( 'lawyer_case_results_description' ); ?></span><!-- att_bio_case_results_description -->
 							
-						</div><!-- att_bio_case_results_slide -->
+								</div><!-- att_bio_case_results_slide -->
+		    
+							<?php endwhile; ?>
+		 
 						
-						<div class="att_bio_case_results_slide">
-							
-							<span class="att_bio_case_results_title">Drug Felony</span><!-- att_bio_case_results_title -->
-							
-							<span class="att_bio_case_results_subtitle">Dismissed</span><!-- att_bio_case_results_subtitle -->
-							
-							<span class="att_bio_case_results_description">DEA seized 150+ pounds of marijuana and high-tech extraction machine from house at which client was found.</span><!-- att_bio_case_results_description -->
-							
-						</div><!-- att_bio_case_results_slide -->
-						
-						<div class="att_bio_case_results_slide">
-							
-							<span class="att_bio_case_results_title">Drug Felony</span><!-- att_bio_case_results_title -->
-							
-							<span class="att_bio_case_results_subtitle">Dismissed</span><!-- att_bio_case_results_subtitle -->
-							
-							<span class="att_bio_case_results_description">DEA seized 150+ pounds of marijuana and high-tech extraction machine from house at which client was found.</span><!-- att_bio_case_results_description -->
-							
-						</div><!-- att_bio_case_results_slide -->
-						
-						<div class="att_bio_case_results_slide">
-							
-							<span class="att_bio_case_results_title">Drug Felony</span><!-- att_bio_case_results_title -->
-							
-							<span class="att_bio_case_results_subtitle">Dismissed</span><!-- att_bio_case_results_subtitle -->
-							
-							<span class="att_bio_case_results_description">DEA seized 150+ pounds of marijuana and high-tech extraction machine from house at which client was found.</span><!-- att_bio_case_results_description -->
-							
-						</div><!-- att_bio_case_results_slide -->
-						
-						<div class="att_bio_case_results_slide">
-							
-							<span class="att_bio_case_results_title">Drug Felony</span><!-- att_bio_case_results_title -->
-							
-							<span class="att_bio_case_results_subtitle">Dismissed</span><!-- att_bio_case_results_subtitle -->
-							
-							<span class="att_bio_case_results_description">DEA seized 150+ pounds of marijuana and high-tech extraction machine from house at which client was found.</span><!-- att_bio_case_results_description -->
-							
-						</div><!-- att_bio_case_results_slide -->
 						
 					</div><!-- att_bio_case_results_slider -->
 					
@@ -352,6 +358,8 @@
 			
 		</section><!-- att_bio_caseresults -->
 		
+		<?php endif; ?>
+		
 		<section class="faq">
 			
 			<div class="faq_inner">
@@ -362,121 +370,49 @@
 					
 					<div class="faq_col">
 						
-						<div class="single_faq">
+						<?php if(get_field('lawyer_faq')): ?>
+						 
+							<?php while(has_sub_field('lawyer_faq')): ?>
+						 
+								<div class="single_faq">
 							
-							<span class="faq_question">Do you offer free consultations?</span><!-- faq_question -->
+									<span class="faq_question"><?php the_sub_field( 'question' ); ?></span><!-- faq_question -->
 							
-							<div class="faq_answer content">
+									<div class="faq_answer content">
 								
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse molestie et diam eu interdum. Maecenas vel tortor maximus, pharetra libero eget, pharetra nisi. Aliquam dictum vehicula purus, in condimentum neque tempor a. Duis at ante rhoncus, porta arcu ut, sagittis diam.</p> 
-								
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse molestie et diam eu interdum. Maecenas vel tortor maximus, pharetra libero eget, pharetra nisi. Aliquam dictum vehicula purus, in condimentum neque tempor a. Duis at ante rhoncus, porta arcu ut, sagittis diam.</p>
-								
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse molestie et diam eu interdum. Maecenas vel tortor maximus, pharetra libero eget, pharetra nisi. Aliquam dictum vehicula purus, in condimentum neque tempor a. Duis at ante rhoncus, porta arcu ut, sagittis diam.</p>
+										<?php the_sub_field( 'answer' ); ?>
 							
-							</div><!-- faq_answer -->
+									</div><!-- faq_answer -->
 							
-						</div><!-- single_faq -->
-						
-						<div class="single_faq">
-							
-							<span class="faq_question">Do you offer free consultations?</span><!-- faq_question -->
-							
-							<div class="faq_answer content">
-								
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse molestie et diam eu interdum. Maecenas vel tortor maximus, pharetra libero eget, pharetra nisi. Aliquam dictum vehicula purus, in condimentum neque tempor a. Duis at ante rhoncus, porta arcu ut, sagittis diam.</p> 
-								
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse molestie et diam eu interdum. Maecenas vel tortor maximus, pharetra libero eget, pharetra nisi. Aliquam dictum vehicula purus, in condimentum neque tempor a. Duis at ante rhoncus, porta arcu ut, sagittis diam.</p>
-								
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse molestie et diam eu interdum. Maecenas vel tortor maximus, pharetra libero eget, pharetra nisi. Aliquam dictum vehicula purus, in condimentum neque tempor a. Duis at ante rhoncus, porta arcu ut, sagittis diam.</p>
-							
-							</div><!-- faq_answer -->
-							
-						</div><!-- single_faq -->
-						
-						<div class="single_faq">
-							
-							<span class="faq_question">Do you offer free consultations?</span><!-- faq_question -->
-							
-							<div class="faq_answer content">
-								
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse molestie et diam eu interdum. Maecenas vel tortor maximus, pharetra libero eget, pharetra nisi. Aliquam dictum vehicula purus, in condimentum neque tempor a. Duis at ante rhoncus, porta arcu ut, sagittis diam.</p> 
-								
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse molestie et diam eu interdum. Maecenas vel tortor maximus, pharetra libero eget, pharetra nisi. Aliquam dictum vehicula purus, in condimentum neque tempor a. Duis at ante rhoncus, porta arcu ut, sagittis diam.</p>
-								
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse molestie et diam eu interdum. Maecenas vel tortor maximus, pharetra libero eget, pharetra nisi. Aliquam dictum vehicula purus, in condimentum neque tempor a. Duis at ante rhoncus, porta arcu ut, sagittis diam.</p>
-							
-							</div><!-- faq_answer -->
-							
-						</div><!-- single_faq -->
-						
-						<div class="single_faq">
-							
-							<span class="faq_question">Do you offer free consultations?</span><!-- faq_question -->
-							
-							<div class="faq_answer content">
-								
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse molestie et diam eu interdum. Maecenas vel tortor maximus, pharetra libero eget, pharetra nisi. Aliquam dictum vehicula purus, in condimentum neque tempor a. Duis at ante rhoncus, porta arcu ut, sagittis diam.</p> 
-								
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse molestie et diam eu interdum. Maecenas vel tortor maximus, pharetra libero eget, pharetra nisi. Aliquam dictum vehicula purus, in condimentum neque tempor a. Duis at ante rhoncus, porta arcu ut, sagittis diam.</p>
-								
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse molestie et diam eu interdum. Maecenas vel tortor maximus, pharetra libero eget, pharetra nisi. Aliquam dictum vehicula purus, in condimentum neque tempor a. Duis at ante rhoncus, porta arcu ut, sagittis diam.</p>
-							
-							</div><!-- faq_answer -->
-							
-						</div><!-- single_faq -->
+								</div><!-- single_faq -->
+						    
+							<?php endwhile; ?>
+						 
+						<?php endif; ?>
 						
 					</div><!-- faq_col -->
 					
 					<div class="faq_col">
 						
-						<div class="single_faq">
+						<?php if(get_field('lawyer_faq_col_two')): ?>
+						 
+							<?php while(has_sub_field('lawyer_faq_col_two')): ?>
+						 
+								<div class="single_faq">
 							
-							<span class="faq_question">Do you offer free consultations?</span><!-- faq_question -->
+									<span class="faq_question"><?php the_sub_field( 'question' ); ?></span><!-- faq_question -->
 							
-							<div class="faq_answer content">
+									<div class="faq_answer content">
 								
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse molestie et diam eu interdum. Maecenas vel tortor maximus, pharetra libero eget, pharetra nisi. Aliquam dictum vehicula purus, in condimentum neque tempor a. Duis at ante rhoncus, porta arcu ut, sagittis diam.</p> 
-								
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse molestie et diam eu interdum. Maecenas vel tortor maximus, pharetra libero eget, pharetra nisi. Aliquam dictum vehicula purus, in condimentum neque tempor a. Duis at ante rhoncus, porta arcu ut, sagittis diam.</p>
-								
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse molestie et diam eu interdum. Maecenas vel tortor maximus, pharetra libero eget, pharetra nisi. Aliquam dictum vehicula purus, in condimentum neque tempor a. Duis at ante rhoncus, porta arcu ut, sagittis diam.</p>
+										<?php the_sub_field( 'answer' ); ?>
 							
-							</div><!-- faq_answer -->
+									</div><!-- faq_answer -->
 							
-						</div><!-- single_faq -->
-						
-						<div class="single_faq">
-							
-							<span class="faq_question">Do you offer free consultations?</span><!-- faq_question -->
-							
-							<div class="faq_answer content">
-								
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse molestie et diam eu interdum. Maecenas vel tortor maximus, pharetra libero eget, pharetra nisi. Aliquam dictum vehicula purus, in condimentum neque tempor a. Duis at ante rhoncus, porta arcu ut, sagittis diam.</p> 
-								
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse molestie et diam eu interdum. Maecenas vel tortor maximus, pharetra libero eget, pharetra nisi. Aliquam dictum vehicula purus, in condimentum neque tempor a. Duis at ante rhoncus, porta arcu ut, sagittis diam.</p>
-								
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse molestie et diam eu interdum. Maecenas vel tortor maximus, pharetra libero eget, pharetra nisi. Aliquam dictum vehicula purus, in condimentum neque tempor a. Duis at ante rhoncus, porta arcu ut, sagittis diam.</p>
-							
-							</div><!-- faq_answer -->
-							
-						</div><!-- single_faq -->
-						
-						<div class="single_faq">
-							
-							<span class="faq_question">Do you offer free consultations?</span><!-- faq_question -->
-							
-							<div class="faq_answer content">
-								
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse molestie et diam eu interdum. Maecenas vel tortor maximus, pharetra libero eget, pharetra nisi. Aliquam dictum vehicula purus, in condimentum neque tempor a. Duis at ante rhoncus, porta arcu ut, sagittis diam.</p> 
-								
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse molestie et diam eu interdum. Maecenas vel tortor maximus, pharetra libero eget, pharetra nisi. Aliquam dictum vehicula purus, in condimentum neque tempor a. Duis at ante rhoncus, porta arcu ut, sagittis diam.</p>
-								
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse molestie et diam eu interdum. Maecenas vel tortor maximus, pharetra libero eget, pharetra nisi. Aliquam dictum vehicula purus, in condimentum neque tempor a. Duis at ante rhoncus, porta arcu ut, sagittis diam.</p>
-							
-							</div><!-- faq_answer -->
-							
-						</div><!-- single_faq -->
+								</div><!-- single_faq -->
+						    
+							<?php endwhile; ?>
+						 
+						<?php endif; ?>
 						
 					</div><!-- faq_col -->
 					
