@@ -958,12 +958,14 @@ h2.att_bio_title {
 		margin-left:0;
 		margin-right:0;
 		height:auto;
+		.related_view_profile_wrapper {
+			position: static;
+		}
 	}
 }
 	
 	
-	
-	
+
 	
 } /* Media Query */
 
@@ -1130,6 +1132,9 @@ h2.att_bio_title {
 
 .related_att_grid {
 	margin: 40px auto 0;
+	.related_single_att {
+		
+	}
 }
 
 
