@@ -91,7 +91,7 @@
 						'fields' => 'ids',
 						'order' => 'ASC',
 						'orderby' => 'title', // could these slow the results down?
-						'posts_per_page' => -1,
+						'posts_per_page' => -1, // is this messing up total results?
 						'tax_query' => array(
 						array(
 							'taxonomy'  => $taxlocations,

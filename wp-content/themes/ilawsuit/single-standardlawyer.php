@@ -125,7 +125,7 @@
 				
 				<?php } ?>
 								
-<!-- 				<?php $terms = get_the_terms( get_the_ID(), 'practice_area' ); ?> -->
+
                          
 					<?php if ( $terms && ! is_wp_error( $terms ) ) {?>
 								
@@ -234,7 +234,47 @@
 				
 				<div class="related_att_grid">
 					
-					<?php $mymain_query = new WP_Query( array( 'post_type' => 'lawyer','posts_per_page' => '8', 'order' => 'DSC' ) ); while($mymain_query->have_posts()) : $mymain_query->the_post(); ?>
+					
+				<?php 
+					
+					// gets the deepest location term which in this case is a single term of city name
+					
+					$locationterms = wp_get_post_terms( get_queried_object_id(), 'location', array( 'orderby' => 'id', 'order' => 'DESC' ) );
+
+					$deepestTerm = false;
+					$maxDepth = -1;
+
+					foreach ($locationterms as $locationterm) {
+						$ancestors = get_ancestors( $locationterm->term_id, 'location' );
+						$locationtermDepth = count($ancestors);
+
+						if ($locationtermDepth > $maxDepth) {
+							$deepestTerm = $locationterm;
+							$maxDepth = $locationtermDepth;
+    				}
+					}
+					
+					// i like https://stackoverflow.com/questions/27789560/determine-lowest-level-taxonomy-term
+					
+					$currentcityterm = $deepestTerm->slug;
+					
+					// query args for wp query below
+					
+					$query_args = array (
+						'post_type' => 'lawyer',
+						'orderby' => 'rand',
+						'posts_per_page' => 8, // is this messing up total results?
+						'tax_query' => array(
+							array(
+								'taxonomy' => 'location',
+								'field' => 'slug',
+								'terms' => $currentcityterm // single city name
+							),
+						),
+					); 
+				
+				 
+				 $mymain_query = new WP_Query($query_args); while($mymain_query->have_posts()) : $mymain_query->the_post(); ?>
                 	
           
           	<div class="related_single_att">
@@ -249,7 +289,7 @@
 						
 							<div class="att_bio_placeholder">
 						
-								<span>Add Photo</span>
+							<span>Add Photo</span>
 						
 							</div><!-- att_bio_placeholder -->
 					
