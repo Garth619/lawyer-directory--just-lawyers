@@ -1,0 +1,213 @@
+<div id="internal_main">
+	
+	<div class="internal_banner">
+		
+		<h1><?php the_title();?></h1>
+		
+		<div class="internal_banner_meta">
+			
+			<?php 
+				
+				if(get_field('lawyer_featured_practice_area')) { ?>
+					
+					<span><?php the_field('lawyer_featured_practice_area');?></span>
+					
+				<?php }
+					
+					else {
+				
+					$terms = get_the_terms( get_the_ID(), 'practice_area' );
+				
+					$term = reset($terms);
+				
+				?>
+			
+					<span><?php echo $term->name; ?></span>
+			
+			<?php } ?>
+			
+			<?php if(get_field('lawyer_city') && get_field('lawyer_city') !== 'NULL') { ?>
+			
+				<span><?php the_field( 'lawyer_city' ); ?></span>
+			
+			<?php }?>
+			
+			<?php if(get_field('state_abbr') && get_field('state_abbr') !== 'NULL') { ?>
+			
+				<span><?php the_field( 'state_abbr' ); ?></span>
+			
+			<?php }?>
+
+
+		</div><!-- internal_banner_meta -->
+
+	</div><!-- internal_banner -->
+	
+		<section class="att_bio_wrapper">
+			
+			<div class="att_bio_sidebar">
+				
+				<div class="att_bio_sidebar_inner">
+				
+				<div class="att_bio_profile">
+					
+					<?php $lawyer_profile_image = get_field( 'lawyer_profile_image' ); ?>
+					
+					<?php if ( $lawyer_profile_image ) : ?>
+					
+						<img class="att_img" src="<?php echo $lawyer_profile_image['url']; ?>" alt="<?php echo $lawyer_profile_image['alt']; ?>" />
+						
+						<?php else:?>
+						
+						<div class="att_bio_placeholder">
+						
+							<span>Add Photo</span>
+						
+						</div><!-- att_bio_placeholder -->
+					
+					<?php endif; ?>
+					
+				</div><!-- att_bio_profile -->
+				
+				<?php if(get_field('lawyer_address') && get_field('lawyer_address') !== 'NULL') { ?>
+				
+					<div class="att_bio_address_wrapper">
+					
+						<span class="att_bio_sidebar_title">Address</span><!-- att_bio_sidebar_title -->
+					
+						<span class="att_bio_address"><?php the_field( 'lawyer_address' ); ?></span><!-- att_bio_address -->
+					
+						<?php $address = get_field('lawyer_address');
+	
+							$addressCleaned = str_replace(' ', '%20', $address); // this works but doesnt echo in ahref below?
+					
+						?>
+					
+						<a class="get_directions" href="https://www.google.com/maps/search/?api=1&query=<?php echo $addressCleaned;?>" target="_blank" rel="noopener">Directions</a><!-- get_directions -->
+	
+					<!-- https://www.google.com/maps/search/?api=1&query=1200%20Pennsylvania%20Ave%20SE%2C%20Washington%2C%20District%20of%20Columbia%2C%2020003 -->
+
+					</div><!-- att_bio_address_wrapper -->
+				
+				<?php } ?>
+				
+				<?php if(get_field('lawyer_phone') && get_field('lawyer_phone') !== 'NULL') { ?>
+				
+					<div class="att_bio_address_wrapper">
+					
+						<span class="att_bio_sidebar_title">Phone</span><!-- att_bio_sidebar_title -->
+					
+						<a class="att_bio_phone" href="tel:<?php echo str_replace(['-', '(', ')', ' '], '', get_field('lawyer_phone')); ?>"><?php the_field( 'lawyer_phone' ); ?></a><!-- att_bio_phone -->
+					
+					</div><!-- att_bio_address_wrapper -->
+				
+				<?php } ?>
+				
+				<?php if(get_field('lawyer_website') && get_field('lawyer_website') !== 'NULL') { ?>
+				
+					<a class="visit_website_button" href="<?php the_field( 'lawyer_website' ); ?>" target="_blank" rel="noopener">Visit Website</a><!-- visit_website -->
+				
+				<?php } ?>
+				
+				</div><!-- att_bio_sidebar_inner -->
+				
+			</div><!-- att_bio_sidebar -->
+			
+			<div class="att_bio_content content">
+				
+				<?php if(get_field('lawyer_bio')) { ?>
+				
+					<div class="att_bio_experience">
+				
+						<?php the_field( 'lawyer_bio' ); ?>
+				
+					</div><!-- att_bio_experience -->
+				
+				<?php } ?>
+								
+<!-- 				<?php $terms = get_the_terms( get_the_ID(), 'practice_area' ); ?> -->
+                         
+					<?php if ( $terms && ! is_wp_error( $terms ) ) {?>
+								
+						<div class="att_bio_practice_areas">
+					
+							<h2>Practice Areas</h2>
+					
+							<div class="att_bio_pa_list">
+								
+								<ul>
+ 
+								<?php foreach ( $terms as $term ) {
+									
+									echo "<li>" . $term->name . "</li>";
+    						
+    						} ?>
+    
+    						</ul>
+						
+							<?php } ?>
+						
+					</div><!-- att_bio_pa_list -->
+					
+				</div><!-- att_bio_practice_areas -->
+				
+				<div class="att_standard_education">
+					
+					
+				
+					
+					
+				
+					<?php if(get_field('school_one_name')) { ?>
+						
+							<div class="att_bio_sidebar_row">
+					
+								<span class="att_bio_sidebar_title">Education</span><!-- att_bio_sidebar_title -->
+					
+								<ul>
+								
+									<li>
+									
+										<strong><?php the_field( 'school_one_name' ); ?></strong>
+									
+										<br/>
+										
+										<?php if(get_field('school_one_major') && get_field('school_one_major') !== 'NULL') {
+									
+											the_field( 'school_one_major' ); echo "&nbsp;&nbsp;|&nbsp;&nbsp";
+										
+										} ?>
+										
+										<?php the_field( 'school_one_year_graduated' ); ?>
+									
+									</li>
+								
+									<li>
+									
+										<strong><?php the_field( 'school_two_name' ); ?></strong>
+										
+										<br/>
+										
+										<?php if(get_field('school_two_major') && get_field('school_two_major') !== 'NULL') {
+									
+											the_field( 'school_two_major' ); echo "&nbsp;&nbsp;|&nbsp;&nbsp";
+										
+										} ?>
+									
+										<?php the_field( 'school_two_year_graduated' ); ?>
+								
+									</li>
+								
+								</ul>
+												
+							</div><!-- att_bio_sidebar_row -->
+						
+						<?php } ?>
+						
+					</div><!-- att_standard_education -->
+				
+				</div><!-- att_bio_content -->
+			
+		</section><!-- att_bio_wrapper -->
+				
+</div><!-- internal_main -->

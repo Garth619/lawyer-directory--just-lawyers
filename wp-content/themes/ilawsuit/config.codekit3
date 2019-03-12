@@ -726,6 +726,22 @@
 		"oAP": "/single-lawyer.php",
 		"oF": 0
 		},
+	"/single-premiumlawyer.php": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 0,
+		"oAP": "/single-premiumlawyer.php",
+		"oF": 0
+		},
+	"/single-standardlawyer.php": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 0,
+		"oAP": "/single-standardlawyer.php",
+		"oF": 0
+		},
 	"/single.php": {
 		"cB": 0,
 		"ft": 8192,

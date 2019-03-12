@@ -38,9 +38,14 @@
 
 
 .att_bio_sidebar {
-	background: #fff;
 	flex-basis:430px;
 	flex-shrink:0;
+	
+}
+
+
+.att_bio_sidebar_inner {
+	background: #fff;
 	box-shadow: 0px 1px 50px 0px rgba(33, 33, 33, 0.2);
 	padding:60px 68px 82px;
 }
@@ -127,6 +132,8 @@
 		display: inline-block;
 	}
 }
+
+
 
 
 
@@ -248,6 +255,11 @@ a.visit_website_button {
 	.att_bio_middle_sidebar_inner {
 		border-left:1px solid #d7d7d7;
 		padding-left:22%;
+		
+	}
+}
+
+
 		.att_bio_sidebar_row {
 			padding-bottom:25px;
 			span.att_bio_sidebar_title {
@@ -265,8 +277,6 @@ a.visit_website_button {
 				}
 			}
 		}
-	}
-}
 
 
 .att_bio_caseresults {
@@ -593,9 +603,11 @@ h2.att_bio_title {
 	
 	.att_bio_sidebar {
 		flex-basis:370px;
-		padding: 60px 47px 82px;
 	}
 	
+	.att_bio_sidebar_inner {
+		padding: 60px 47px 82px;
+	}
 	
 	.att_bio_middle_sidebar {
 		flex-basis: 392px;
@@ -651,8 +663,11 @@ h2.att_bio_title {
 	.att_bio_sidebar {
 		max-width:450px;
 		margin:0 auto;
-		padding: 60px 27px 57px;
 		text-align: center;
+	}
+	
+	.att_bio_sidebar_inner {
+		padding: 60px 27px 57px;
 	}
 	
 	.att_bio_content {
@@ -692,14 +707,17 @@ h2.att_bio_title {
 		.att_bio_middle_sidebar_inner {
 			padding-left:0;
 			border:none;
-			.att_bio_sidebar_row {
+			
+		}
+	}
+	
+	
+		.att_bio_sidebar_row {
 				padding-bottom: 7px;
 				span.att_bio_sidebar_title {
 					padding-bottom: 0;
 				}
 			}
-		}
-	}
 	
 	.att_bio_middle_content_wrapper {
     padding: 60px 0 30px;
@@ -773,13 +791,25 @@ h2.att_bio_title {
 	}
 	
 	.att_bio_content {
-		margin-top: 70px;
+		margin-top: 90px;
 	}
 	
 	.att_bio_practice_areas {
     padding-top: 23px;
-    padding-bottom: 5px;
+    padding-bottom: 0px;
 	}
+	
+	.att_bio_experience {
+		margin-bottom: 44px;
+	}
+	
+	.att_standard_education {
+		padding-top: 38px;
+		.att_bio_sidebar_row {
+			padding-bottom: 50px;
+		}
+	}
+ 
 	
 	
 	.att_bio_pa_list {
