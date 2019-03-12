@@ -176,10 +176,14 @@
 									
 											the_field( 'school_one_major' ); echo "&nbsp;&nbsp;|&nbsp;&nbsp";
 										
+										} 
+										
+										if(get_field('school_one_year_graduated') && get_field('school_one_year_graduated') !== 'NULL' && get_field('school_one_year_graduated') !== 'N/A') {
+									
+											the_field( 'school_one_year_graduated' );
+										
 										} ?>
 										
-										<?php the_field( 'school_one_year_graduated' ); ?>
-									
 									</li>
 								
 									<li>
@@ -192,9 +196,13 @@
 									
 											the_field( 'school_two_major' ); echo "&nbsp;&nbsp;|&nbsp;&nbsp";
 										
-										} ?>
+										} 
+										
+										if(get_field('school_two_year_graduated') && get_field('school_two_year_graduated') !== 'NULL' && get_field('school_two_year_graduated') !== 'N/A') {
 									
-										<?php the_field( 'school_two_year_graduated' ); ?>
+											the_field( 'school_two_year_graduated' );
+										
+										} ?>
 								
 									</li>
 								
@@ -209,5 +217,125 @@
 				</div><!-- att_bio_content -->
 			
 		</section><!-- att_bio_wrapper -->
+		
+		<section class="related_att">
+			
+			<div class="related_att_inner">
+				
+				<span class="related_att_title">Attorneys in 
+				
+				<?php if(get_field('lawyer_city') && get_field('lawyer_city') !== 'NULL') {
+			
+					the_field( 'lawyer_city' );
+			
+				} ?>
+				
+				</span><!-- related_att_title -->
+				
+				<div class="related_att_grid">
+					
+					<div class="related_single_att">
+						
+						<div class="att_bio_placeholder">
+						
+							<span>Add Photo</span>
+						
+						</div><!-- att_bio_placeholder -->
+						
+						<span class="related_single_att_title">Attorney Name</span><!-- related_single_att_title -->
+						
+						<span class="related_single_att_subtitle">Practice Area</span><!-- related_single_att_subtitle -->
+						
+						<a class="related_view_profile" href="">View Profile</a><!-- related_view_profile -->
+						
+					</div><!-- related_single_att -->
+					
+					<div class="related_single_att">
+						
+						<div class="att_bio_placeholder">
+						
+							<span>Add Photo</span>
+						
+						</div><!-- att_bio_placeholder -->
+						
+						<span class="related_single_att_title">Attorney Name</span><!-- related_single_att_title -->
+						
+						<span class="related_single_att_subtitle">Practice Area</span><!-- related_single_att_subtitle -->
+						
+						<a class="related_view_profile" href="">View Profile</a><!-- related_view_profile -->
+						
+					</div><!-- related_single_att -->
+					
+					<div class="related_single_att">
+						
+						<div class="att_bio_placeholder">
+						
+							<span>Add Photo</span>
+						
+						</div><!-- att_bio_placeholder -->
+						
+						<span class="related_single_att_title">Attorney Name</span><!-- related_single_att_title -->
+						
+						<span class="related_single_att_subtitle">Practice Area</span><!-- related_single_att_subtitle -->
+						
+						<a class="related_view_profile" href="">View Profile</a><!-- related_view_profile -->
+						
+					</div><!-- related_single_att -->
+					
+					<div class="related_single_att">
+						
+						<div class="att_bio_placeholder">
+						
+							<span>Add Photo</span>
+						
+						</div><!-- att_bio_placeholder -->
+						
+						<span class="related_single_att_title">Attorney Name</span><!-- related_single_att_title -->
+						
+						<span class="related_single_att_subtitle">Practice Area</span><!-- related_single_att_subtitle -->
+						
+						<a class="related_view_profile" href="">View Profile</a><!-- related_view_profile -->
+						
+					</div><!-- related_single_att -->
+					
+					<div class="related_single_att">
+						
+						<div class="att_bio_placeholder">
+						
+							<span>Add Photo</span>
+						
+						</div><!-- att_bio_placeholder -->
+						
+						<span class="related_single_att_title">Attorney Name</span><!-- related_single_att_title -->
+						
+						<span class="related_single_att_subtitle">Practice Area</span><!-- related_single_att_subtitle -->
+						
+						<a class="related_view_profile" href="">View Profile</a><!-- related_view_profile -->
+						
+					</div><!-- related_single_att -->
+					
+					<div class="related_single_att">
+						
+						<div class="att_bio_placeholder">
+						
+							<span>Add Photo</span>
+						
+						</div><!-- att_bio_placeholder -->
+						
+						<span class="related_single_att_title">Attorney Name</span><!-- related_single_att_title -->
+						
+						<span class="related_single_att_subtitle">Practice Area</span><!-- related_single_att_subtitle -->
+						
+						<a class="related_view_profile" href="">View Profile</a><!-- related_view_profile -->
+						
+					</div><!-- related_single_att -->
+					
+					
+					
+				</div><!-- related_att_grid -->
+				
+			</div><!-- related_att_inner -->
+			
+		</section><!-- related_att -->
 				
 </div><!-- internal_main -->

@@ -253,9 +253,13 @@
 									
 											the_field( 'school_one_major' ); echo "&nbsp;&nbsp;|&nbsp;&nbsp";
 										
-										} ?>
+										} 
 										
-										<?php the_field( 'school_one_year_graduated' ); ?>
+										if(get_field('school_one_year_graduated') && get_field('school_one_year_graduated') !== 'NULL' && get_field('school_one_year_graduated') !== 'N/A') {
+									
+											the_field( 'school_one_year_graduated' );
+										
+										} ?>
 									
 									</li>
 								
@@ -269,9 +273,13 @@
 									
 											the_field( 'school_two_major' ); echo "&nbsp;&nbsp;|&nbsp;&nbsp";
 										
-										} ?>
+										} 
 									
-										<?php the_field( 'school_two_year_graduated' ); ?>
+										if(get_field('school_two_year_graduated') && get_field('school_two_year_graduated') !== 'NULL' && get_field('school_two_year_graduated') !== 'N/A') {
+									
+											the_field( 'school_two_year_graduated' );
+										
+										} ?>
 								
 									</li>
 								
