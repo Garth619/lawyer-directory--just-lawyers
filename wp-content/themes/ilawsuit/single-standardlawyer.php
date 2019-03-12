@@ -234,101 +234,61 @@
 				
 				<div class="related_att_grid">
 					
-					<div class="related_single_att">
+					<?php $mymain_query = new WP_Query( array( 'post_type' => 'lawyer','posts_per_page' => '8', 'order' => 'DSC' ) ); while($mymain_query->have_posts()) : $mymain_query->the_post(); ?>
+                	
+          
+          	<div class="related_single_att">
 						
-						<div class="att_bio_placeholder">
-						
-							<span>Add Photo</span>
-						
-						</div><!-- att_bio_placeholder -->
-						
-						<span class="related_single_att_title">Attorney Name</span><!-- related_single_att_title -->
-						
-						<span class="related_single_att_subtitle">Practice Area</span><!-- related_single_att_subtitle -->
-						
-						<a class="related_view_profile" href="">View Profile</a><!-- related_view_profile -->
-						
-					</div><!-- related_single_att -->
+						<?php $lawyer_profile_image = get_field( 'lawyer_profile_image' ); ?>
 					
-					<div class="related_single_att">
-						
-						<div class="att_bio_placeholder">
-						
-							<span>Add Photo</span>
-						
-						</div><!-- att_bio_placeholder -->
-						
-						<span class="related_single_att_title">Attorney Name</span><!-- related_single_att_title -->
-						
-						<span class="related_single_att_subtitle">Practice Area</span><!-- related_single_att_subtitle -->
-						
-						<a class="related_view_profile" href="">View Profile</a><!-- related_view_profile -->
-						
-					</div><!-- related_single_att -->
+						<?php if ( $lawyer_profile_image ) : ?>
 					
-					<div class="related_single_att">
+							<img class="att_img" src="<?php echo $lawyer_profile_image['url']; ?>" alt="<?php echo $lawyer_profile_image['alt']; ?>" />
 						
-						<div class="att_bio_placeholder">
+						<?php else:?>
 						
-							<span>Add Photo</span>
+							<div class="att_bio_placeholder">
 						
-						</div><!-- att_bio_placeholder -->
+								<span>Add Photo</span>
 						
-						<span class="related_single_att_title">Attorney Name</span><!-- related_single_att_title -->
-						
-						<span class="related_single_att_subtitle">Practice Area</span><!-- related_single_att_subtitle -->
-						
-						<a class="related_view_profile" href="">View Profile</a><!-- related_view_profile -->
-						
-					</div><!-- related_single_att -->
+							</div><!-- att_bio_placeholder -->
 					
-					<div class="related_single_att">
+					<?php endif; ?>
 						
-						<div class="att_bio_placeholder">
+						<span class="related_single_att_title"><?php the_title();?></span><!-- related_single_att_title -->
 						
-							<span>Add Photo</span>
-						
-						</div><!-- att_bio_placeholder -->
-						
-						<span class="related_single_att_title">Attorney Name</span><!-- related_single_att_title -->
-						
-						<span class="related_single_att_subtitle">Practice Area</span><!-- related_single_att_subtitle -->
-						
-						<a class="related_view_profile" href="">View Profile</a><!-- related_view_profile -->
-						
-					</div><!-- related_single_att -->
+						<?php 
+				
+							if(get_field('lawyer_featured_practice_area')) { ?>
 					
-					<div class="related_single_att">
-						
-						<div class="att_bio_placeholder">
-						
-							<span>Add Photo</span>
-						
-						</div><!-- att_bio_placeholder -->
-						
-						<span class="related_single_att_title">Attorney Name</span><!-- related_single_att_title -->
-						
-						<span class="related_single_att_subtitle">Practice Area</span><!-- related_single_att_subtitle -->
-						
-						<a class="related_view_profile" href="">View Profile</a><!-- related_view_profile -->
-						
-					</div><!-- related_single_att -->
+								<span class="related_single_att_subtitle"><?php the_field('lawyer_featured_practice_area');?></span><!-- related_single_att_subtitle -->
 					
-					<div class="related_single_att">
+							<?php }
+					
+							else {
+				
+								$terms = get_the_terms( get_the_ID(), 'practice_area' );
+				
+								$term = reset($terms);
+				
+						?>
+			
+						<span class="related_single_att_subtitle"><?php echo $term->name; ?></span><!-- related_single_att_subtitle -->
+			
+					
+					<?php } ?>
+					
+						<div class="related_view_profile_wrapper">
 						
-						<div class="att_bio_placeholder">
+							<a class="related_view_profile" href="<?php the_permalink();?>">View Profile</a><!-- related_view_profile -->
 						
-							<span>Add Photo</span>
-						
-						</div><!-- att_bio_placeholder -->
-						
-						<span class="related_single_att_title">Attorney Name</span><!-- related_single_att_title -->
-						
-						<span class="related_single_att_subtitle">Practice Area</span><!-- related_single_att_subtitle -->
-						
-						<a class="related_view_profile" href="">View Profile</a><!-- related_view_profile -->
+						</div><!-- related_view_profile_wrapper -->
 						
 					</div><!-- related_single_att -->
+          
+          
+          <?php endwhile; ?>
+					<?php wp_reset_postdata(); // reset the query ?>
 					
 					
 					

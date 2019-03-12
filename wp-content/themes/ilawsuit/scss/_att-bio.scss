@@ -578,6 +578,14 @@ h2.att_bio_title {
 		margin:0 18px 36px;
 		padding:73px 45px;
 		box-shadow: 0px 1px 21px 0px rgba(33, 33, 33, 0.24);
+		position: relative;
+		img {
+			display: block;
+			width:190px;
+			height:190px;
+			margin:0 auto;
+			border-radius: 50%;
+		}
 		span.related_single_att_title {
 			font-size: 35px;
 			line-height: 40px;
@@ -592,7 +600,15 @@ h2.att_bio_title {
 			letter-spacing: 0.25em;
 			line-height: 18px;
 			display: block;
+			max-width:250px;
+			margin:0 auto;
 			@include montserrat_extrabold;
+		}
+		.related_view_profile_wrapper {
+			position: absolute;
+			bottom:50px;
+			left:0;
+			width:100%;
 		}
 		a.related_view_profile {
 			color:$bluetwo;
@@ -616,6 +632,9 @@ h2.att_bio_title {
 		}
 	}
 }
+
+
+
 
 
 
