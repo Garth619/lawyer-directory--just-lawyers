@@ -400,46 +400,6 @@
 		"oAP": "/loop.php",
 		"oF": 0
 		},
-	"/page-allpracticeareas.php": {
-		"cB": 0,
-		"ft": 8192,
-		"hM": 0,
-		"oA": 0,
-		"oAP": "/page-allpracticeareas.php",
-		"oF": 0
-		},
-	"/page-allstates.php.og": {
-		"cB": 0,
-		"ft": 8192,
-		"hM": 0,
-		"oA": 0,
-		"oAP": "/page-allstates.php.og",
-		"oF": 0
-		},
-	"/page-locations_city_pa.php": {
-		"cB": 0,
-		"ft": 8192,
-		"hM": 0,
-		"oA": 0,
-		"oAP": "/page-locations_city_pa.php",
-		"oF": 0
-		},
-	"/page-locations_state_pa.php": {
-		"cB": 0,
-		"ft": 8192,
-		"hM": 0,
-		"oA": 0,
-		"oAP": "/page-locations_state_pa.php",
-		"oF": 0
-		},
-	"/page-practicearea_city.php": {
-		"cB": 0,
-		"ft": 8192,
-		"hM": 0,
-		"oA": 0,
-		"oAP": "/page-practicearea_city.php",
-		"oF": 0
-		},
 	"/page-templates/homepage_template_parts/section-1.php": {
 		"cB": 0,
 		"ft": 8192,
@@ -464,12 +424,52 @@
 		"oAP": "/page-templates/homepage_template_parts/section-3.php",
 		"oF": 0
 		},
+	"/page-templates/template-allpracticeareas.php": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 0,
+		"oAP": "/page-templates/template-allpracticeareas.php",
+		"oF": 0
+		},
+	"/page-templates/template-allstates.php.og": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 0,
+		"oAP": "/page-templates/template-allstates.php.og",
+		"oF": 0
+		},
 	"/page-templates/template-home.php": {
 		"cB": 0,
 		"ft": 8192,
 		"hM": 0,
 		"oA": 0,
 		"oAP": "/page-templates/template-home.php",
+		"oF": 0
+		},
+	"/page-templates/template-locations_city_pa.php": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 0,
+		"oAP": "/page-templates/template-locations_city_pa.php",
+		"oF": 0
+		},
+	"/page-templates/template-locations_state_pa.php": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 0,
+		"oAP": "/page-templates/template-locations_state_pa.php",
+		"oF": 0
+		},
+	"/page-templates/template-practicearea_city.php": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 0,
+		"oAP": "/page-templates/template-practicearea_city.php",
 		"oF": 0
 		},
 	"/page.php": {

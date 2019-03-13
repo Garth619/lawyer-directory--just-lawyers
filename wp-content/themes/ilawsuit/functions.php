@@ -476,7 +476,7 @@ function prefix_url_rewrite_templates() {
      
 	  
 	  	add_filter( 'template_include', function() {
-            return get_template_directory() . '/page-practicearea_city.php';
+            return get_template_directory() . '/page-templates/template-practicearea_city.php';
        });
 
     }
@@ -488,7 +488,7 @@ function prefix_url_rewrite_templates() {
        
 	  
 	  	add_filter( 'template_include', function() {
-            return get_template_directory() . '/page-locations_state_pa.php';
+            return get_template_directory() . '/page-templates/template-locations_state_pa.php';
        });
 
     }
@@ -500,7 +500,7 @@ function prefix_url_rewrite_templates() {
 	    
 	    
 			add_filter( 'template_include', function() {
-            return get_template_directory() . '/page-locations_city_pa.php';
+            return get_template_directory() . '/page-templates/template-locations_city_pa.php';
        });
 
 
