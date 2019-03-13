@@ -63,7 +63,7 @@
 			 			if(get_sub_field('current_taxonomy') == $patermsid && (get_sub_field('current_location_taxonomy_state') == $statetermid) && get_sub_field('current_location_taxonomy_city') == $citytermid ) {?>
 			 			
 			 			
-			 			<div class="directory_description">
+			 			<div class="directory_description content">
 			 			 
 			 				<?php the_sub_field('block');?>
 			 				

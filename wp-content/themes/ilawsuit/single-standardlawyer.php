@@ -142,10 +142,6 @@
 				<div class="att_standard_education">
 					
 					
-				
-					
-					
-				
 					<?php if(get_field('school_one_name')) { ?>
 						
 							<div class="att_bio_sidebar_row">
@@ -168,7 +164,7 @@
 									
 										<br/>
 										
-										<?php if(get_field('school_one_major') && get_field('school_one_major') !== 'NULL') {
+										<?php if(get_field('school_one_major') && get_field('school_one_major') !== 'NULL' && get_field('school_one_major') !== 'N/A' ) {
 									
 											the_field( 'school_one_major' ); echo "&nbsp;&nbsp;|&nbsp;&nbsp";
 										
@@ -182,21 +178,25 @@
 										
 									</li>
 								
-									<li>
+									
+										
+										<?php if(get_field('school_two_name') && get_field('school_two_name') !== 'NULL') { ?>
+										
+										<li>
 									
 										<strong>
-										
-										<?php if(get_field('school_two_name') && get_field('school_two_name') !== 'NULL') {
 									
-											the_field( 'school_two_name' );
-										
-										} ?>
-										
-										</strong>
+											<?php the_field( 'school_two_name' );?>
+											
+											</strong>
 										
 										<br/>
 										
-										<?php if(get_field('school_two_major') && get_field('school_two_major') !== 'NULL') {
+										
+										
+										
+										
+										<?php if(get_field('school_two_major') && get_field('school_two_major') !== 'NULL' && get_field('school_two_major') !== 'N/A') {
 									
 											the_field( 'school_two_major' ); echo "&nbsp;&nbsp;|&nbsp;&nbsp";
 										
@@ -209,6 +209,8 @@
 										} ?>
 								
 									</li>
+									
+									<?php } ?>
 								
 								</ul>
 												
