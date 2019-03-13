@@ -6,6 +6,8 @@
 		
 		<div class="internal_banner_meta">
 			
+			<?php $terms = get_the_terms( get_the_ID(), 'practice_area' ); ?>
+			
 			<?php 
 				
 				if(get_field('lawyer_featured_practice_area')) { ?>
@@ -15,8 +17,6 @@
 				<?php }
 					
 					else {
-				
-					$terms = get_the_terms( get_the_ID(), 'practice_area' );
 				
 					$term = reset($terms);
 				
@@ -115,19 +115,7 @@
 			
 			<div class="att_bio_content content">
 				
-				<?php if(get_field('lawyer_bio')) { ?>
-				
-					<div class="att_bio_experience">
-				
-						<?php the_field( 'lawyer_bio' ); ?>
-				
-					</div><!-- att_bio_experience -->
-				
-				<?php } ?>
-								
-
-                         
-					<?php if ( $terms && ! is_wp_error( $terms ) ) {?>
+				<?php if ( $terms && ! is_wp_error( $terms ) ) {?>
 								
 						<div class="att_bio_practice_areas">
 					
@@ -168,7 +156,15 @@
 								
 									<li>
 									
-										<strong><?php the_field( 'school_one_name' ); ?></strong>
+										<strong>
+										
+										<?php if(get_field('school_one_name') && get_field('school_one_name') !== 'NULL') {
+									
+											the_field( 'school_one_name' );
+										
+										} ?>
+										
+										</strong>
 									
 										<br/>
 										
@@ -188,7 +184,15 @@
 								
 									<li>
 									
-										<strong><?php the_field( 'school_two_name' ); ?></strong>
+										<strong>
+										
+										<?php if(get_field('school_two_name') && get_field('school_two_name') !== 'NULL') {
+									
+											the_field( 'school_two_name' );
+										
+										} ?>
+										
+										</strong>
 										
 										<br/>
 										
