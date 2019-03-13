@@ -31,7 +31,7 @@
 	
 	<div class="internal_banner">
 		
-		<h1><?php echo $citytermtitle;?></h1>
+		<h1><?php echo $citytermtitle . ", " .  $statetitle;?></h1>
 
 	</div><!-- internal_banner -->
 	
