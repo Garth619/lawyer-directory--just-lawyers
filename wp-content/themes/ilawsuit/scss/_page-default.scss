@@ -57,6 +57,109 @@
 }
 
 
+.internal_banner_meta {
+	border-top:3px solid $bluetwo;
+	display: inline-block;
+	margin:14px 0 0;
+	padding:29px 0 0;
+	span {
+		text-transform: uppercase;
+		font-size: 17px;
+		letter-spacing: 0.35em;
+		line-height: 21px;
+		@include montserrat_extrabold;
+		&:after {
+			content:"";
+			display: inline-block;
+			width:5px;
+			height:5px;
+			background: #000;
+			border-radius: 50%;
+			vertical-align: top;
+			margin:6px 20px 0;
+		}
+		&:last-of-type {
+			&:after {
+				display: none;
+			}
+		}
+	}
+}
+
+
+
+.breadcrumb_wrapper {
+	margin:-25px auto 0px;
+	//padding:20px 0 70px;
+	padding-bottom:30px;
+	a {
+		text-transform: uppercase;
+    color: #000;
+    font-size: 15px;
+    letter-spacing: 0.2em;
+    text-decoration: none;
+    line-height: 18px;
+    cursor: pointer;
+    transition: all 200ms ease-in-out;
+    @include montserrat_extrabold;
+    &:hover {
+	    color:$bluetwo;
+    }
+    &:after {
+	    content:"";
+	    display: inline-block;
+	    width: 0; 
+			height: 0; 
+			border-top: 5px solid transparent;
+			border-bottom: 5px solid transparent;
+			border-left: 6px solid $bluetwo;
+			vertical-align: top;
+			margin:3px 8px 0 11px;
+    }
+    &:last-of-type {
+	    &:after {
+		    display: none;
+	    }
+    }
+	}
+}
+
+
+.filter_by_search_wrapper {
+	width:603px;
+	margin:0 auto;
+	padding-bottom:70px;
+	input {
+		border:1px solid $bluetwo;
+		text-transform: uppercase;
+		font-size: 16px;
+		color:$bluetwo;
+		padding:24px 40px;
+		width:100%;
+		letter-spacing: 0.25em;
+		@include montserrat_extrabold;
+	}
+}
+
+.abc_wrapper {
+	padding-top:10px;
+	padding-bottom: 70px;
+	span {
+		font-family: $worksans;
+		color:#8a8a8a;
+		cursor: pointer;
+		
+		transition: all 200ms ease-in-out;
+		display: inline-block;
+		margin:0 1px;
+		font-size: 18px;
+		&:hover {
+			color:$bluetwo;
+		}
+	}
+}
+
+
 .single_lawyer_img_wrapper {
 	flex-basis: 210px;
 	flex-shrink: 0;

@@ -13,7 +13,23 @@
 		
 		<div class="directory_wrapper">
 			
-			<h2 class='section_header'>Browse By City</h2>
+<!-- 			<h2 class='section_header'>Browse By City</h2> -->
+			
+				<div class="breadcrumb_wrapper">
+				
+				<a href="<?php bloginfo('url');?>">Home</a> 
+	
+				<a href="<?php the_permalink(133);?>">Locations</a>
+	
+				<a><?php single_term_title();?></a>
+				
+			</div><!-- breadcrumb_wrapper -->
+			
+			<div class="filter_by_search_wrapper">
+				
+				<input id="myInput" type="text" placeholder="Search <?php single_term_title();?> Cities">
+				
+			</div><!-- filter_by_search_wrapper -->
 			
 			<div class="list_wrapper">
 				

@@ -1,31 +1,3 @@
-.internal_banner_meta {
-	border-top:3px solid $bluetwo;
-	display: inline-block;
-	margin:14px 0 0;
-	padding:29px 0 0;
-	span {
-		text-transform: uppercase;
-		font-size: 17px;
-		letter-spacing: 0.35em;
-		line-height: 21px;
-		@include montserrat_extrabold;
-		&:after {
-			content:"";
-			display: inline-block;
-			width:5px;
-			height:5px;
-			background: #000;
-			border-radius: 50%;
-			vertical-align: top;
-			margin:6px 20px 0;
-		}
-		&:last-of-type {
-			&:after {
-				display: none;
-			}
-		}
-	}
-}
 
 
 .att_bio_wrapper {
