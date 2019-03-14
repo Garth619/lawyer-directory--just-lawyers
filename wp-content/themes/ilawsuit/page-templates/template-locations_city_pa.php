@@ -90,9 +90,9 @@
 		 		
 		 		<div class="filter_by_search_wrapper">
 				
-					<input class="list_input desktop" type="text" placeholder="Search <?php echo $citytermtitle;?> Lawyers">
+					<input class="list_input desktop" type="text" placeholder="Filter<?php // echo $citytermtitle;?> Lawyers Below">
 				
-					<input class="list_input mobile" type="text" placeholder="Search">
+					<input class="list_input mobile" type="text" placeholder="Filter">
 				
 					<div class="filter_by_search_button"></div><!-- filter_by_search_button -->
 				

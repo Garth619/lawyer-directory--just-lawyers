@@ -44,33 +44,47 @@
 		
 		<div class="directory_wrapper">
 			
-			<div class="directory_description content">
-			 			 
-			 <?php if(get_field('pa_location_content_blocks','option')) {
-		 		 
-		 
-		 			 
-		 	while(has_sub_field('pa_location_content_blocks','option')) {
-			 			 
-			 	if(get_sub_field('current_taxonomy') == $patermsid && (get_sub_field('current_location_taxonomy_state') == $statetermid) && empty(get_sub_field('current_location_taxonomy_city')) ) {
-			 			 
-			 		the_sub_field('block');
-		 			 		
-		 		}
-		 			 	
-		 	}
-			
-			if(is_user_logged_in()) {
+			<div class="breadcrumb_wrapper">
+				
+				<a href="<?php bloginfo('url');?>">Home</a>
 	
-		 			echo '<a href="' . get_bloginfo('url') .  '/wp-admin/admin.php?page=pa-locations-content-blocks-settings">Edit</a><br/><br/><br/>';
-			 		
-				}
-		 		 
-		}	?>
-			 				
-			</div><!-- directory_description -->
+				<a href="<?php the_permalink(126);?>">Practice Areas</a>
+	
+				<a href="<?php bloginfo('url');?>/lawyers-practice/<?php echo $currentpracticearea;?>"><?php echo $patermstitle;?></a>
+	
+				<a><?php echo $statetermtitle;?></a>
 			
-			<h2 class="section_header">Browse by city</h2>
+			</div><!-- breadcrumb_wrapper -->
+			
+			<?php if(get_field('pa_location_content_blocks','option')) : ?>
+		 		 
+				<?php while(has_sub_field('pa_location_content_blocks','option')) :?>
+			 			 
+			 		<?php if(get_sub_field('current_taxonomy') == $patermsid && (get_sub_field('current_location_taxonomy_state') == $statetermid) && empty(get_sub_field('current_location_taxonomy_city')) ) :?>
+			 	
+				 		<div class="directory_description content">
+				 			 
+				 			<?php the_sub_field('block'); ?>
+			 		
+			 			</div><!-- directory_description -->
+			
+			 			<h2 class="section_header">Browse by city</h2>
+		 			 		
+			 		<?php endif;?>
+		 			 	
+			 <?php endwhile;?>
+			
+			 <?php endif;	?>
+			 				
+			 <div class="filter_by_search_wrapper">
+				
+					<input class="list_input desktop" type="text" placeholder="Filter<?php // echo $statetermtitle;?> Cities Below">
+				
+					<input class="list_input mobile" type="text" placeholder="Filter">
+				
+					<div class="filter_by_search_button"></div><!-- filter_by_search_button -->
+				
+			</div><!-- filter_by_search_wrapper -->
 			
 			<div class="list_wrapper">
 				

@@ -12,92 +12,105 @@
 		
 		<div class="directory_wrapper">
 			
-			<div class="directory_description content">
+			<div class="breadcrumb_wrapper">
+				
+				<a href="<?php bloginfo('url');?>">Home</a>
+	
+				<a href="<?php the_permalink(126);?>">Practice Areas</a>
+	
+				<a><?php single_term_title();?></a>
+				
+			</div><!-- breadcrumb_wrapper -->
+			
+			
 			 			 
 			 <?php $currentterm = get_queried_object()->term_id; 
 	
-				 if(get_field('pa_location_content_blocks','option')) {
+				 if(get_field('pa_location_content_blocks','option')) : 
 		 		 
-				 	while(has_sub_field('pa_location_content_blocks','option')) {
+					  while(has_sub_field('pa_location_content_blocks','option')) :
 			 			 
-				 		if(get_sub_field('current_taxonomy') == $currentterm && empty(get_sub_field('current_location_taxonomy_state')) && empty(get_sub_field('current_location_taxonomy_city')) ) {
+				 			if(get_sub_field('current_taxonomy') == $currentterm && empty(get_sub_field('current_location_taxonomy_state')) && empty(get_sub_field('current_location_taxonomy_city')) ) : ?>
+				 		
+				 			<div class="directory_description content">
 			 			 
-				 			the_sub_field('block');
+				 				<?php the_sub_field('block');?>
+				 			
+				 			</div><!-- directory_description -->
+			
+				 			<h2 class="section_header">Browse by state</h2>
 		 			 		
-		 				}
+		 				<?php endif;
 		 			 	
-		 			}
+		 			endwhile;
 			
-		 			if(is_user_logged_in()) {
-	
-		 				echo '<a href="' . get_bloginfo('url') .  '/wp-admin/admin.php?page=pa-locations-content-blocks-settings">Edit</a><br/><br/><br/>';
-			 		
-					}
-		 		 
-				}	?>
+		 		endif;	?>
+		 		
+		 		<div class="filter_by_search_wrapper">
+				
+					<input class="list_input desktop" type="text" placeholder="Filter<?php // single_term_title();?> States Below">
+				
+					<input class="list_input mobile" type="text" placeholder="Filter">
+				
+					<div class="filter_by_search_button"></div><!-- filter_by_search_button -->
+				
+				</div><!-- filter_by_search_wrapper -->
 			 				
-			</div><!-- directory_description -->
-			
-			<h2 class="section_header">Browse by state</h2>
-			
 			<div class="list_wrapper">
 				
-				<?php $taxlocations = 'location';
-	$taxpracticeareas = 'practice_area';
+			<?php
+				
+				$taxlocations = 'location';
+				$taxpracticeareas = 'practice_area';
 	
-	$query_args = array (
-		'post_type' => 'lawyer',
-		'fields' => 'ids',
-		'posts_per_page' => 100, // -1 screws up some searches with too much memory...why? cant be more than 50 states so I said 100 to be safe
-		'tax_query' => array(
-			 array(
-			   'taxonomy'  => $taxlocations,
-			    'field'     => 'ids',
-			    'terms'     => 139 // add a slug to id conversion here or is it ok to change field to slug
-			),
-			array(
-			   'taxonomy'  => $taxpracticeareas,
-			    'field'     => 'ids',
-			    'terms'     => $currentterm,
-			)
-		),
-	);
+				$query_args = array (
+					'post_type' => 'lawyer',
+					'fields' => 'ids',
+					'posts_per_page' => 100, // -1 screws up some searches with too much memory...why? cant be more than 50 states so I said 100 to be safe
+					'tax_query' => array(
+						array(
+							'taxonomy'  => $taxlocations,
+							'field'     => 'ids',
+							'terms'     => 139 // add a slug to id conversion here or is it ok to change field to slug
+						),
+						array(
+							'taxonomy'  => $taxpracticeareas,
+							'field'     => 'ids',
+							'terms'     => $currentterm,
+						)
+					),
+				);
 	
 	
-	
-	$myposts = new Wp_Query( $query_args );
+				$myposts = new Wp_Query( $query_args );
 	
 
-	$termargs = array (
-		'taxonomy' => $taxlocations,
-		'posts_per_page' => -1,
-		'object_ids' => $myposts->posts,
-		'parent' => 139 // add a slug to id conversion here
+				$termargs = array (
+					'taxonomy' => $taxlocations,
+					'posts_per_page' => -1,
+					'object_ids' => $myposts->posts,
+					'parent' => 139 // add a slug to id conversion here
 			
-	);
+				);
 	
-	$currenttermslug = get_queried_object()->slug; 
+				$currenttermslug = get_queried_object()->slug; 
 
-	$term_query = new WP_Term_Query( $termargs );
+				$term_query = new WP_Term_Query( $termargs );
 
 		
-		if ( ! empty( $term_query ) && ! is_wp_error( $term_query ) ) {
+				if ( ! empty( $term_query ) && ! is_wp_error( $term_query ) ) {
 			
-			echo "<ul>";
+					echo "<ul>";
 			
-			foreach ( $term_query ->terms as $term )
+						foreach ( $term_query ->terms as $term )
 			
-					echo '<li><a href="' . get_bloginfo('url') . '/lawyers-practice/' . $currenttermslug . '/' . $term->slug . '">' . $term->name . '</a></li>';
+							echo '<li><a href="' . get_bloginfo('url') . '/lawyers-practice/' . $currenttermslug . '/' . $term->slug . '">' . $term->name . '</a></li>';
 			
-			}
+						}
 			
-			echo "</ul>";
+					echo "</ul>"; ?>
 
-?>
-
-				
-								
-			</div><!-- list_wrapper -->
+				</div><!-- list_wrapper -->
 			
 		</div><!-- directory_wrapper -->
 		

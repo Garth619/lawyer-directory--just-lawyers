@@ -57,9 +57,9 @@
 			
 			<div class="filter_by_search_wrapper">
 				
-				<input class="list_input desktop" type="text" placeholder="Search <?php single_term_title();?> Cities">
+				<input class="list_input desktop" type="text" placeholder="Filter<?php // single_term_title();?> Cities Below">
 				
-				<input class="list_input mobile" type="text" placeholder="Search">
+				<input class="list_input mobile" type="text" placeholder="Filter">
 				
 				<div class="filter_by_search_button"></div><!-- filter_by_search_button -->
 				
