@@ -39,7 +39,26 @@
 		
 		<div class="directory_wrapper">
 			
-			<h2 class="section_header">Browse by Practice Area</h2>
+			<div class="breadcrumb_wrapper">
+				
+				<a href="<?php bloginfo('url');?>">Home</a>
+	
+				<a href="<?php the_permalink(133);?>">Locations</a>
+	
+				<a href="<?php bloginfo('url');?>/lawyers-location/state/<?php echo $lawfirm_location_currentstate;?>"><?php echo $statetitle;?></a>
+	
+				<a><?php echo $citytermtitle;?></a>
+				
+			</div><!-- breadcrumb_wrapper -->
+			
+			<div class="filter_by_search_wrapper">
+				
+				<input id="myInput" type="text" placeholder="Search <?php echo $citytermtitle;?> Practice Areas">
+				
+				<div class="filter_by_search_button"></div><!-- filter_by_search_button -->
+				
+			</div><!-- filter_by_search_wrapper -->
+
 			
 			<div class="list_wrapper">
 				

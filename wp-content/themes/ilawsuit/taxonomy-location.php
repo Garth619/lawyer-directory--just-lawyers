@@ -13,9 +13,7 @@
 		
 		<div class="directory_wrapper">
 			
-<!-- 			<h2 class='section_header'>Browse By City</h2> -->
-			
-				<div class="breadcrumb_wrapper">
+			<div class="breadcrumb_wrapper">
 				
 				<a href="<?php bloginfo('url');?>">Home</a> 
 	
