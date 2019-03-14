@@ -126,6 +126,7 @@ form::-moz-placeholder {
 		color:$bluetwo;
 		text-decoration: none;
 		transition: all 200ms ease-in-out;
+		cursor: pointer;
 		&:hover {
 			text-decoration: underline;
 		}

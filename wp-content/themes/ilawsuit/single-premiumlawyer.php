@@ -238,7 +238,7 @@
 						
 						<?php } ?>
 						
-						<?php if(get_field('school_one_name')) { ?>
+						<?php if(get_field('school_one_name') && get_field('school_one_name') !== 'NULL') { ?>
 						
 							<div class="att_bio_sidebar_row">
 					
