@@ -389,15 +389,22 @@ $('.sec_three_tab').on('click', function(e) {
   
   //on page list filter
   
-  $("#myInput").on("keyup", function() {
+  $(".list_input").on("keyup", function() {
 	  
     var value = $(this).val().toLowerCase();
     
     $(".list_wrapper ul li").filter(function() {
 	    
-      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
       
     });
+    
+    $(".single_lawyer_result").filter(function() {
+	    
+      $(this).toggle($(this).find('span.single_lawyer_title').text().toLowerCase().indexOf(value) > -1);
+      
+    });
+    
   });
    	  
 

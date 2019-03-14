@@ -44,7 +44,7 @@
 	
 	<div class="internal_banner">
 		
-		<h1><?php echo $citytermtitle;?><br/> <?php echo $patermstitle;?> Lawyers</h1>
+		<h1><?php echo $citytermtitle;?> <?php echo $patermstitle;?> Lawyers</h1>
 
 	</div><!-- internal_banner -->
 	
@@ -52,39 +52,56 @@
 		
 		<div class="directory_wrapper lawyer_wrapper">
 			
+			<div class="breadcrumb_wrapper">
 			
-			
-			<?php 
-				
-				if(get_field('pa_location_content_blocks','option')) {
-		 		 
-					while(has_sub_field('pa_location_content_blocks','option')) {
-			 			 
-			 			if(get_sub_field('current_taxonomy') == $patermsid && (get_sub_field('current_location_taxonomy_state') == $statetermid) && get_sub_field('current_location_taxonomy_city') == $citytermid ) {?>
-			 			
-			 			
-			 			<div class="directory_description content">
-			 			 
-			 				<?php the_sub_field('block');?>
-			 				
-			 			</div><!-- directory_description -->
-		 			 		
-		 				<?php }
-		 			 	
-		 		}
-			
-		 		if(is_user_logged_in()) {
+				<a href="<?php bloginfo('url');?>">Home</a>
 	
-		 			echo '<a href="' . get_bloginfo('url') .  '/wp-admin/admin.php?page=pa-locations-content-blocks-settings">Edit</a><br/><br/><br/>';
-			 	}
+				<a href="<?php the_permalink(126);?>">Practice Areas</a> 
+	
+				<a class="" href="<?php bloginfo('url');?>/lawyers-practice/<?php echo $currentpracticearea;?>"><?php echo  $patermstitle;?></a>
+	
+				<a class="" href="<?php bloginfo('url');?>/lawyers-practice/<?php echo get_query_var( 'office_pa');?>/<?php echo get_query_var( 'currentstate');?>"><?php echo $statetermtitle;?></a>
+	
+				<a><?php echo $citytermtitle;?></a>
+			
+			</div><!-- breadcrumb_wrapper -->
+			
+			
+			<?php if(get_field('pa_location_content_blocks','option')) :?>
 		 		 
-		}	?>
+					<?php while(has_sub_field('pa_location_content_blocks','option')) :
+			 			 
+			 			if(get_sub_field('current_taxonomy') == $patermsid && (get_sub_field('current_location_taxonomy_state') == $statetermid) && get_sub_field('current_location_taxonomy_city') == $citytermid ) : ?>
+			 			
+			 			
+			 				<div class="directory_description content">
+			 			 
+			 					<?php the_sub_field('block');?>
+			 				
+			 				</div><!-- directory_description -->
+			 			
+			 				<h2 class="section_header">Browse by Lawyer</h2>
+		 			 		
+		 				<?php endif;
+		 			 	
+			 			endwhile;
+			
+		 		endif; ?>
+		 		
+		 		<div class="filter_by_search_wrapper">
+				
+					<input class="list_input desktop" type="text" placeholder="Search <?php echo $citytermtitle;?> Lawyers">
+				
+					<input class="list_input mobile" type="text" placeholder="Search">
+				
+					<div class="filter_by_search_button"></div><!-- filter_by_search_button -->
+				
+				</div><!-- filter_by_search_wrapper -->
 		
 		
-			
-			<h2 class="section_header">Browse by Lawyer</h2>
-			
-			<?php 
+			<div class="lawyer_results_wrapper">
+				
+				<?php 
 	
 					$query_args = array (
 						'post_type' => 'lawyer',
@@ -104,11 +121,9 @@
 							'terms'     => $currentpracticearea,
 						)
 						),
-				);?>
+				);
 	
-			<div class="lawyer_results_wrapper">
-	
-				<?php $singlefirms = new WP_Query($query_args);
+				 $singlefirms = new WP_Query($query_args);
 	
 					while($singlefirms->have_posts()) : $singlefirms->the_post();?>
 	

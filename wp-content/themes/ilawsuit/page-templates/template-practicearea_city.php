@@ -51,17 +51,6 @@
 				
 			</div><!-- breadcrumb_wrapper -->
 			
-			<div class="filter_by_search_wrapper">
-				
-				<input id="myInput" type="text" placeholder="Search <?php echo $citytermtitle;?> Practice Areas">
-				
-				<div class="filter_by_search_button"></div><!-- filter_by_search_button -->
-				
-			</div><!-- filter_by_search_wrapper -->
-
-			
-			<div class="list_wrapper">
-				
 				<?php
     
 				$termids = get_terms( array( 
@@ -79,28 +68,44 @@
 		 		$termcityid = $currenttermid->term_id;
 		 		
 		 		
-		 	 if(get_field('content_blocks','option')) {
-		 		 
-		 			 echo "<br/><br/>";
-		 			 
-		 			 while(has_sub_field('content_blocks','option')) {
+		 		if(get_field('content_blocks','option')) : 
+		 	 
+		 	 	 while(has_sub_field('content_blocks','option')) :
 			 			 
-			 			 if(get_sub_field('current_taxonomy') == $termcityid) {
+			 	 	if(get_sub_field('current_taxonomy') == $termcityid) : ?>
 			 			 
-			 			 	the_sub_field('block');
+			 			<div class="directory_description content">
+			 			 
+			 			 	<?php the_sub_field('block');?>
+			 			 	
+			 			</div><!-- directory_description -->
+			
+		 				<h2 class="section_header">Browse by city</h2>
 		 			 		
-		 			 	}
+		 			 <?php endif;
 		 			 	
-		 			 	
-					}
+		 		 endwhile;
 					
-					if(is_user_logged_in()) {
-	
-		 			 		echo '<a href="' . get_bloginfo('url') .  '/wp-admin/admin.php?page=content-blocks-settings">Edit</a><br/><br/><br/>';
-			 		
-						}
-		 		 
-		 		}	 		
+			  endif;	?>
+			
+			
+			
+			<div class="filter_by_search_wrapper">
+				
+				<input class="list_input desktop" type="text" placeholder="Search <?php echo $citytermtitle;?> Practice Areas">
+				
+				<input class="list_input mobile" type="text" placeholder="Search">
+				
+				<div class="filter_by_search_button"></div><!-- filter_by_search_button -->
+				
+			</div><!-- filter_by_search_wrapper -->
+
+			
+			<div class="list_wrapper">
+				
+			
+		 		
+		 	<?php
 		 		
 		 		$args = array (
 		 			'post_type' => 'lawyer',

@@ -23,9 +23,43 @@
 				
 			</div><!-- breadcrumb_wrapper -->
 			
+			
+				<?php	$children = get_queried_object()->term_id;?>
+
+	
+					<?php if(get_field('content_blocks','option')) : ?>
+					
+						
+		 			 
+							<?php while(has_sub_field('content_blocks','option')) : ?>
+								
+								
+			 			 
+								<?php if(get_sub_field('current_taxonomy') == $children) :?>
+								
+									<div class="directory_description content">
+			 			 
+									<?php the_sub_field('block');?>
+										
+										</div><!-- directory_description -->
+			
+		 				<h2 class="section_header">Browse by city</h2>
+			 		
+			 					<?php endif;?>
+		 			 		
+		 					<?php endwhile; ?>
+		 		
+		 				
+
+		 			<?php endif;	 ?>
+			
+			
+			
 			<div class="filter_by_search_wrapper">
 				
-				<input id="myInput" type="text" placeholder="Search <?php single_term_title();?> Cities">
+				<input class="list_input desktop" type="text" placeholder="Search <?php single_term_title();?> Cities">
+				
+				<input class="list_input mobile" type="text" placeholder="Search">
 				
 				<div class="filter_by_search_button"></div><!-- filter_by_search_button -->
 				
@@ -33,32 +67,11 @@
 			
 			<div class="list_wrapper">
 				
-				<?php	$children = get_queried_object()->term_id;
-
-	
-					if(get_field('content_blocks','option')) {
-		 		 
-						echo "<br/><br/>";
-		 			 
-						while(has_sub_field('content_blocks','option')) {
-			 			 
-						if(get_sub_field('current_taxonomy') == $children) {
-			 			 
-							the_sub_field('block');
-			 		
-			 			}
-		 			 		
-		 			}
-		 		
-		 			if(is_user_logged_in()) {
-			 		
-			 			echo '<a href="' . get_bloginfo('url') .  '/wp-admin/admin.php?page=content-blocks-settings">Edit</a><br/><br/><br/>';
-			 		
-		 			}
-
-				}	
+				
 
 
+				<?php 
+					
 				$taxlocations = 'location';
 				$taxpracticeareas = 'practice_area';
 	
@@ -85,11 +98,7 @@
      
      }
      
-     	if(is_user_logged_in()) {
-	
-				echo '<a href="' . get_bloginfo('url') .  '/wp-admin/edit-tags.php?taxonomy=location&post_type=lawyer">Edit</a><br/><br/><br/>';
-			 		
-		 	}
+     	
     
     ?>
 

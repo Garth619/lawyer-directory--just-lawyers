@@ -6,8 +6,9 @@
 		font-size: 75px;
 		font-family: $prata;
 		line-height: 79px;
-		max-width: 1030px;
+		max-width: 940px;
 		margin:0 auto;
+		text-transform: capitalize;
 	}
 }
 
@@ -25,7 +26,7 @@
 	}
 	.directory_description {
 		max-width:1120px;
-		margin:0 auto 100px;
+		margin:80px auto 130px;
 		text-align: left;
 	}
 }
@@ -98,7 +99,7 @@
     font-size: 16px;
     letter-spacing: 0.25em;
     text-decoration: none;
-    line-height: 18px;
+    line-height: 20px;
     cursor: pointer;
     transition: all 200ms ease-in-out;
     @include montserrat_extrabold;
@@ -126,10 +127,11 @@
 
 
 .filter_by_search_wrapper {
-	width:603px;
+	max-width:603px;
 	margin:0 auto;
 	padding-bottom:80px;
 	display: flex;
+	width:100%;
 	input {
 		border:1px solid $bluetwo;
 		text-transform: uppercase;
@@ -155,6 +157,9 @@
   }
 	::-moz-placeholder {
    opacity: 1;
+  }
+  input.mobile {
+	  display: none;
   }
   .filter_by_search_button {
 	  height:69px;
@@ -446,6 +451,40 @@ span.visit_button {
 			max-width: 200px;
 		}
 	}
+	
+	
+	.directory_wrapper {
+		.directory_description {
+    	margin: 30px auto 90px;
+    }
+	} 
+	
+	
+	
+	.filter_by_search_wrapper {
+		padding-bottom: 50px;
+		input.desktop {
+			display: none;
+		}
+		input.mobile {
+			display: block;
+		}
+		input {
+			font-size: 14px;
+			padding: 0px 16px;
+			height:60px;
+		}
+		.filter_by_search_button {
+			height: 60px;
+			width: 60px;
+		}
+	}
+
+	
+	
+	
+	
+	
 	
 	
 } /* Media Query */
