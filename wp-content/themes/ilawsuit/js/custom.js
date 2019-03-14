@@ -384,6 +384,21 @@ $('.sec_three_tab').on('click', function(e) {
     $(this).find('.faq_question').toggleClass('active');
     
   });
+  
+  
+  
+  //on page list filter
+  
+  $("#myInput").on("keyup", function() {
+	  
+    var value = $(this).val().toLowerCase();
+    
+    $(".list_wrapper ul li").filter(function() {
+	    
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+      
+    });
+  });
    	  
 
 

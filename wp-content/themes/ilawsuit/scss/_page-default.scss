@@ -89,14 +89,14 @@
 
 
 .breadcrumb_wrapper {
-	margin:-25px auto 0px;
+	margin:0px auto 0px;
 	//padding:20px 0 70px;
-	padding-bottom:30px;
+	padding-bottom:40px;
 	a {
 		text-transform: uppercase;
     color: #000;
-    font-size: 15px;
-    letter-spacing: 0.2em;
+    font-size: 16px;
+    letter-spacing: 0.25em;
     text-decoration: none;
     line-height: 18px;
     cursor: pointer;
@@ -128,7 +128,8 @@
 .filter_by_search_wrapper {
 	width:603px;
 	margin:0 auto;
-	padding-bottom:70px;
+	padding-bottom:80px;
+	display: flex;
 	input {
 		border:1px solid $bluetwo;
 		text-transform: uppercase;
@@ -136,9 +137,43 @@
 		color:$bluetwo;
 		padding:24px 40px;
 		width:100%;
+		flex-grow:1;
 		letter-spacing: 0.25em;
 		@include montserrat_extrabold;
 	}
+	::-webkit-input-placeholder {
+  	color: $bluetwo;
+  }
+	::-moz-placeholder {
+  	color: $bluetwo;
+  }
+  :-moz-placeholder {
+   color: $bluetwo;
+  }
+  :-ms-input-placeholder {
+   color: $bluetwo;
+  }
+	::-moz-placeholder {
+   opacity: 1;
+  }
+  .filter_by_search_button {
+	  height:69px;
+	  width:69px;
+	  flex-shrink:0;
+	  background: $bluetwo;
+	  display: flex;
+	  justify-content: center;
+	  align-items: center;
+	  &:after {
+		  content:"";
+		  display: block;
+		  width:0;
+		  height:0;
+		  border-top: 7px solid transparent;
+			border-bottom: 7px solid transparent;
+			border-left: 7px solid #fff;
+		}
+  }
 }
 
 .abc_wrapper {
@@ -148,7 +183,6 @@
 		font-family: $worksans;
 		color:#8a8a8a;
 		cursor: pointer;
-		
 		transition: all 200ms ease-in-out;
 		display: inline-block;
 		margin:0 1px;

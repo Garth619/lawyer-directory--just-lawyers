@@ -29,6 +29,8 @@
 				
 				<input id="myInput" type="text" placeholder="Search <?php single_term_title();?> Cities">
 				
+				<div class="filter_by_search_button"></div><!-- filter_by_search_button -->
+				
 			</div><!-- filter_by_search_wrapper -->
 			
 			<div class="list_wrapper">
