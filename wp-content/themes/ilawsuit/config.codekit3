@@ -432,12 +432,12 @@
 		"oAP": "/page-templates/template-allpracticeareas.php",
 		"oF": 0
 		},
-	"/page-templates/template-allstates.php.og": {
+	"/page-templates/template-allstates.php": {
 		"cB": 0,
 		"ft": 8192,
 		"hM": 0,
 		"oA": 0,
-		"oAP": "/page-templates/template-allstates.php.og",
+		"oAP": "/page-templates/template-allstates.php",
 		"oF": 0
 		},
 	"/page-templates/template-home.php": {

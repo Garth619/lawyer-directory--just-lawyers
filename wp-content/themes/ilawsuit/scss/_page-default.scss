@@ -277,6 +277,64 @@ span.visit_button {
 
 
 
+.search_no_results_form {
+	max-width:603px;
+	margin:70px auto 0;
+	padding-bottom:80px;
+	display: flex;
+	width:100%;
+	position: relative;
+	form {
+		width:100%;
+	}
+	input[type="text"] {
+		border:1px solid $bluetwo;
+		text-transform: uppercase;
+		font-size: 16px;
+		color:$bluetwo;
+		padding:24px 40px;
+		width:100%;
+		flex-grow:1;
+		height:69px;
+		letter-spacing: 0.25em;
+		@include montserrat_extrabold;
+	}
+	::-webkit-input-placeholder {
+  	color: $bluetwo;
+  }
+	::-moz-placeholder {
+  	color: $bluetwo;
+  }
+  :-moz-placeholder {
+   color: $bluetwo;
+  }
+  :-ms-input-placeholder {
+   color: $bluetwo;
+  }
+	::-moz-placeholder {
+   opacity: 1;
+  }
+  input[type="submit"] {
+	  background: #2117dc;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 14px;
+    letter-spacing: 0.25em;
+    padding: 25px 27px;
+    font-weight: 800;
+    font-style: normal;
+    position: absolute;
+    top:0;
+    right:0;
+    height:69px;
+    cursor: pointer;
+    border:1px solid $bluetwo;
+    @include montserrat_extrabold;
+  }
+}
+
+
+
 @media screen and (max-width: 1735px) {
 	
 	
@@ -482,7 +540,24 @@ span.visit_button {
 
 	
 	
+.search_no_results_form {
 	
+	form {
+		
+	}
+	input[type="text"] {
+		font-size: 14px;
+    padding: 0px 16px;
+    height: 60px;
+
+	}
+	
+  input[type="submit"] {
+	  font-size: 14px;
+	  height: 60px;
+  }
+}
+
 	
 	
 	

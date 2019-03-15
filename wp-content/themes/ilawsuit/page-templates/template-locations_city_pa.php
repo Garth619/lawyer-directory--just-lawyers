@@ -161,9 +161,9 @@
 									
 										<span>
 										
-										<?php echo $citytermtitle;?> 
+										<?php echo $citytermtitle;
 										
-										<?php if(get_field('state_abbr') && get_field('state_abbr') !== 'NULL') {
+										 if(get_field('state_abbr') && get_field('state_abbr') !== 'NULL') {
 										
 											echo ", "; the_field('state_abbr');
 										
@@ -188,8 +188,6 @@
 								</div><!-- single_lawyer_content -->
 							
 							</a>
-							
-							<?php edit_post_link( __( 'Edit'), '', '' ); ?>
 							
 						</div><!-- single_lawyer_result -->
 	

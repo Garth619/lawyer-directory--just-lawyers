@@ -1,11 +1,11 @@
 <?php 
 	
-	/* Template Name: All Practice Areas */
+	/* Template Name: All States */
 	
 	get_header(); ?>
-	
-	
-	<div id="internal_main">
+
+
+<div id="internal_main">
 	
 	<div class="internal_banner">
 		
@@ -20,8 +20,8 @@
 			<div class="breadcrumb_wrapper">
 				
 				<a href="<?php bloginfo('url');?>">Home</a>
-	
-				<a>Practice Areas</a>
+				
+				<a>Locations</a>
 				
 			</div><!-- breadcrumb_wrapper -->
 			
@@ -33,13 +33,13 @@
 			 				
 				</div><!-- directory_description -->
 				
-				<h2 class="section_header">Browse by Practice Area</h2>
+				<h2 class="section_header">browse by states</h2>
 			
 			<?php endif;?>
 			
-			<div class="filter_by_search_wrapper">
+				<div class="filter_by_search_wrapper">
 				
-					<input class="list_input desktop" type="text" placeholder="Filter<?php // echo $citytermtitle;?> Practice Areas Below">
+					<input class="list_input desktop" type="text" placeholder="Filter<?php // echo $citytermtitle;?> States Below">
 				
 					<input class="list_input mobile" type="text" placeholder="Filter">
 				
@@ -51,33 +51,27 @@
 				
 				<?php 
 		
-					$terms = get_terms( array(
-					'taxonomy' => 'practice_area',
+					$state_terms = get_terms( array( // change new WP_Term_Query later, its newer and faster i think
+						'taxonomy' => 'location',
+						'parent'  => 139 // add a slug to id conversion here
 	
 					) );
 		
-					if ( ! empty( $terms ) && ! is_wp_error( $terms ) ){
-					
+					if ( ! empty( $state_terms ) && ! is_wp_error( $state_terms ) ) {
+						
 						echo '<ul>';
-					
-						foreach ( $terms as $term ) {
+						
+						foreach ( $state_terms as $state_term ) {
 	     
-							$term_link = get_term_link( $term );
+							$stateterm_link = get_term_link( $state_term );
 	     
-							echo '<li><a href="'. esc_url( $term_link ) . '">' . $term->name . '</a></li>';
+							echo '<li><a href="' . esc_url( $stateterm_link ) . '">' . $state_term->name . '</a></li>';
         
      				}
-    
+     
 		 				echo '</ul>';
- 					}
- 
- 					if(is_user_logged_in()) {
-	
- 						echo '<a href="' . get_bloginfo('url') .  '/wp-admin/edit-tags.php?taxonomy=practice_area&post_type=lawyer">Edit</a><br/><br/><br/>';
-			 		
-					}
-		
-	?>
+ 					
+ 					} ?>
 				
 			</div><!-- list_wrapper -->
 			
