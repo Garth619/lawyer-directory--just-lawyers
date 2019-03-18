@@ -335,6 +335,45 @@ span.visit_button {
 
 
 
+.paged_wrapper {
+	.navigation {
+		ul {
+			list-style: none;
+			li.active {
+				a {
+					color:$bluetwo;
+				}
+			}
+			li.mynext {
+				margin-left:20px;
+			}
+			li.myprev {
+				margin-right:20px;
+			}
+			li {
+				display: inline-block;
+				margin:0 6px;
+				a {
+					text-transform: uppercase;
+					color: #000;
+					font-size: 16px;
+					letter-spacing: 0.25em;
+					text-decoration: none;
+					line-height: 20px;
+					cursor: pointer;
+					transition: all 200ms ease-in-out;
+					transition: all 200ms ease-in-out;
+					@include montserrat_extrabold;
+					&:hover {
+						color:$bluetwo;
+					}
+				}
+			}
+		}
+	}
+}
+
+
 @media screen and (max-width: 1735px) {
 	
 	

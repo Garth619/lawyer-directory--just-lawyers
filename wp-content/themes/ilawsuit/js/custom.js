@@ -406,7 +406,11 @@ $('.sec_three_tab').on('click', function(e) {
     });
     
   });
-   	  
+ 
+  
+  // form styles
+  
+  $('.form_wrapper textarea').parent().parent().addClass('textarea_wrap');
 
 
 

@@ -440,6 +440,14 @@
 		"oAP": "/page-templates/template-allstates.php",
 		"oF": 0
 		},
+	"/page-templates/template-contact.php": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 0,
+		"oAP": "/page-templates/template-contact.php",
+		"oF": 0
+		},
 	"/page-templates/template-home.php": {
 		"cB": 0,
 		"ft": 8192,
@@ -526,6 +534,19 @@
 		"ma": 0,
 		"oA": 1,
 		"oAP": "/scss/_footer.css",
+		"oF": 0,
+		"oS": 0,
+		"uL": 1
+		},
+	"/scss/_form.scss": {
+		"aP": 0,
+		"bl": 0,
+		"dP": 10,
+		"dS": 0,
+		"ft": 4,
+		"ma": 0,
+		"oA": 1,
+		"oAP": "/scss/_form.css",
 		"oF": 0,
 		"oS": 0,
 		"uL": 1

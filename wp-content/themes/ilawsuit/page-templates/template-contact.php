@@ -1,4 +1,8 @@
-<?php get_header(); ?>
+<?php
+	
+	/* Template Name: Contact */
+	
+	get_header(); ?>
 
 
 <div id="internal_main">
@@ -13,11 +17,11 @@
 		
 		<div class="directory_wrapper">
 			
-			<div class="default_wrapper content">
+			<div class="form_wrapper">
 				
-				<?php get_template_part('loop','page');?>
+				<?php gravity_form(1, false, false, false, '', true, 12); ?>
 				
-			</div><!-- list_wrapper -->
+			</div><!-- form_wrapper -->
 			
 		</div><!-- directory_wrapper -->
 		

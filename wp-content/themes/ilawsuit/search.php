@@ -5,7 +5,24 @@
 	
 	<div class="internal_banner">
 		
-		<h1><?php printf( __( 'Results: %s', 'twentyten' ), '<span>' . get_search_query() . '</span>' ); ?> <?php echo  $paged;?></h1>
+		<h1>
+			
+			<?php if ( !is_paged() ) {
+				
+				echo 'Results:';
+			
+		 		}
+			
+			else {
+			
+				echo 'Results Page ' . $paged . ':';
+				
+			} ?>
+		
+			
+			<?php printf( __( '%s', 'twentyten' ), '<span>' . get_search_query() . '</span>' ); ?>
+			
+		</h1>
 
 	</div><!-- internal_banner -->
 	
@@ -67,7 +84,7 @@
 									
 										<span>
 										
-										<?php echo $citytermtitle;
+										<?php the_field('lawyer_city');
 										
 										 if(get_field('state_abbr') && get_field('state_abbr') !== 'NULL') {
 										
