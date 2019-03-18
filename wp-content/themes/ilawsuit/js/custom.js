@@ -395,7 +395,7 @@ $('.sec_three_tab').on('click', function(e) {
     
     $(".list_wrapper ul li").filter(function() {
 	    
-      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);           
       
     });
     

@@ -55,6 +55,12 @@
 					<div class="filter_by_search_button"></div><!-- filter_by_search_button -->
 				
 				</div><!-- filter_by_search_wrapper -->
+				
+				<div class="list_not_found" style="display: none;">
+					
+					not found
+					
+				</div><!-- list_not_found -->
 			 				
 			<div class="list_wrapper">
 				
