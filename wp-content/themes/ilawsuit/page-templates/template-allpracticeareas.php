@@ -70,14 +70,8 @@
     
 		 				echo '</ul>';
  					}
- 
- 					if(is_user_logged_in()) {
-	
- 						echo '<a href="' . get_bloginfo('url') .  '/wp-admin/edit-tags.php?taxonomy=practice_area&post_type=lawyer">Edit</a><br/><br/><br/>';
-			 		
-					}
 		
-	?>
+				?>
 				
 			</div><!-- list_wrapper -->
 			

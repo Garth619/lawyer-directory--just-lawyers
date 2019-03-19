@@ -13,15 +13,6 @@ to do\
 \'97\'97\'97\'97\'97\'97\'97\
 \
 \
-\
-regex the visite website addresses there are also NULL values\
-\
-<?php  global $wp_query; \
-         echo $wp_query->found_posts;?> maybe try to conditionally show the search bar? but this olny does posts not term counts i will need to look into it more\
-\
-\
-\
-\
 go through all desscriotion blocks and fix edit buttons also check edits for all the lists\
 \
 if(is_user_logged_in()) \{\
@@ -34,6 +25,16 @@ page speed on all pages esp the lawyer premium page\
 search\
 \
 \'97\'97\'97\'97\
+\
+\
+this searches phrases that are contained in the title 
+\b OR
+\b0  body: https://garretts-macbook-pro-2.local:5757/?s=Mary+garrett
+\b &sentence=1\
+
+\b0 \
+\
+\
 \
 this one:\
 https://premium.wpmudev.org/blog/build-your-own-custom-wordpress-search/\
@@ -98,18 +99,14 @@ this worked to export db\
 notes\
 \'97\'97\'97\'97\
 \
-can u lazy load wp queries?\
+\
 \
 \pard\pardeftab720\sl360\partightenfactor0
-\cf0 The not() method is the opposite of the filter() method.\
+\cf0 The not() method is the opposite of the filter() method. for not found on filters\
 \
 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 \cf0 hovers?\
-\
-if i just set up paged can i just call in the urls onclick or somehow lazy load?\
-\
-lawyer results are too long is there any way to lazy load the results in sets of 50 or paginate it?\
 \
 i dont want to have lawyers-practice hardcodedin slug needs to be rewritable\
 \
@@ -131,21 +128,15 @@ mike questions\
 \
 rebuild seo - because some of my url stcutures are kinda like virtual templates so they dont actually exist - can you show me what each page needs for seo i.e. meta tags h1s ect that yoast normally generates\
 \
-\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
-\cf0 data is kinda fucked  i want to try and rescrape it\
-\
-\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
-\cf0 downside is when updating a lawyer posts its slow bc it has to loop through all pas )i think)\
+downside is when updating a lawyer posts its slow bc it has to loop through all pas )i think)\
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
 \cf0 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
-\cf0 menu nav - what goes in it?\
+\cf0 for the lawyer directory what if we did a review system that ranks them or something where lawyers can pay to have their results at the top of a search result . that would be sick\
 \
-add footer?\
-\
-for the lawyer directory what if we did a review system that ranks them or something where lawyers can pay to have their results at the top of a search result . that would be sick \
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
-\cf0 \
+\cf0 data is kinda fucked  i want to try and rescrape it \
+\
 these cities mismatches are all over the place\
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 \cf0 {{\NeXTGraphic Screen Shot 2019-03-13 at 10.56.02 AM.png \width3040 \height2260
