@@ -5,7 +5,13 @@
 
 jQuery(document).ready(function($){
 	
-
+	
+	
+		// section one animation
+		
+		
+		$('body.page-template-template-home').addClass('ready');
+	
 	
 	 /* Modernizr - check if browser supports webp for section_one. 
      --------------------------------------------------------------------------------------- */
