@@ -113,9 +113,15 @@ img.sec_one_bg {
 		font-size: 25px;
 		letter-spacing: 0.02em;
 		font-family: $prata;
-		padding:28px 65px;
+		padding:26px 63px;
 		text-transform: lowercase;
 		cursor: pointer;
+		border:1px solid #000;
+		transition: all 200ms ease-in-out;
+		&:hover {
+			background: transparent;
+			border:1px solid #fff;
+		}
 	}
 }
 

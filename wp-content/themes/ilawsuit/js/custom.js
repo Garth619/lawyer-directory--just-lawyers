@@ -481,8 +481,33 @@ $('.sec_three_tab').on('click', function(e) {
 	 	$('nav').slideUp(450);
 	 
 	 });
-	
-	
+	 
+	 
+	 
+	 // att bio lawyer visit website validation
+	 
+	 
+	 var myUrl = $('a.visit_website_button').attr("href");
+	 
+	 if(myUrl) {
+		 
+	 	if(!myUrl.includes("//")){
+   	
+		 	console.log(myUrl + ' doesnt have "//" at all - add in to fix broken link');
+		 	
+		 	$(myUrl).prepend('//');
+		 	
+		 	$('a.visit_website_button').attr('href',function(i,v) {
+		 		
+		 		return "//" + v;
+			
+			});
+		
+		 }
+		 
+	 }
+	 
+
 
   
 }); // document ready
