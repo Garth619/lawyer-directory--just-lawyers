@@ -1,8 +1,10 @@
 {\rtf1\ansi\ansicpg1252\cocoartf1504\cocoasubrtf830
-{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fmodern\fcharset0 CourierNewPSMT;\f2\fmodern\fcharset0 CourierNewPS-BoldMT;
-}
-{\colortbl;\red255\green255\blue255;\red57\green57\blue57;\red236\green236\blue236;}
-{\*\expandedcolortbl;;\cssrgb\c29020\c29020\c29020;\cssrgb\c94118\c94118\c94118;}
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fnil\fcharset0 Menlo-Regular;\f2\fmodern\fcharset0 CourierNewPSMT;
+\f3\fmodern\fcharset0 CourierNewPS-BoldMT;}
+{\colortbl;\red255\green255\blue255;\red36\green38\blue41;\red235\green236\blue237;\red104\green26\blue29;
+\red13\green0\blue129;\red43\green39\blue19;\red57\green57\blue57;\red236\green236\blue236;}
+{\*\expandedcolortbl;;\cssrgb\c18824\c20000\c21176;\cssrgb\c93725\c94118\c94510;\cssrgb\c49020\c15294\c15294;
+\cssrgb\c6275\c6275\c58039;\cssrgb\c22353\c20000\c9412;\cssrgb\c29020\c29020\c29020;\cssrgb\c94118\c94118\c94118;}
 \margl1440\margr1440\vieww11780\viewh8400\viewkind0
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
@@ -26,6 +28,7 @@ search\
 \
 \'97\'97\'97\'97\
 \
+https://www.google.com/search?rlz=1C5CHFA_enUS779US779&q=wordpress+custom+search+query&sa=X&ved=2ahUKEwjIyfqGoI_hAhWaGTQIHUPvDXEQ1QIoAHoECAoQAQ&biw=1954&bih=1201\
 \
 this searches phrases that are contained in the title 
 \b OR
@@ -33,16 +36,45 @@ this searches phrases that are contained in the title
 \b &sentence=1\
 
 \b0 \
+looks for exact phrase in title or body\
 \
+https://garretts-macbook-pro-2.local:5757/?s=Mary+garrett
+\b &exact=1
+\b0 \
 \
+conditionals for if they only choose a pa or a location (maybe some pre search hooks to dynamically turn those values into the search query value? \
+\
+search wp_query - set up a second searchresults template where I can add my wp_query right?\
+\
+\pard\pardeftab720\sl300\partightenfactor0
+
+\f1\fs26 \cf2 \cb3 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 $search_term = $_GET[\cf4 \strokec4 'term'\cf2 \strokec2 ];\
+$search_criteria = $_GET[\cf4 \strokec4 'type'\cf2 \strokec2 ];\
+\
+$loop = \cf5 \strokec5 new\cf2 \strokec2  WP_Query( array(\
+    \cf4 \strokec4 'post_type'\cf2 \strokec2  => \cf4 \strokec4 'photo'\cf2 \strokec2 ,\
+    \cf4 \strokec4 'posts_per_page'\cf2 \strokec2  => \cf4 \strokec4 12\cf2 \strokec2 ,\
+    \cf4 \strokec4 'orderby'\cf2 \strokec2 => \cf4 \strokec4 'post_date\'92,\
+\cf2 \strokec2 	\'92\cf4 \strokec4 s\'92\cf2 \strokec2  => \cf4 \strokec4 "search keyword"\cf6 \strokec6 \
+\cf2 \strokec2 \
+));\cf6 \strokec6 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 check that paged is still honored look at search page codex that mentions this\
 \
 this one:\
 https://premium.wpmudev.org/blog/build-your-own-custom-wordpress-search/\
 \
-https://www.google.com/search?rlz=1C5CHFA_enUS779US779&ei=FQaMXJuhAYiQ0gL0gYbIDw&q=wordpress+search+tutorial&oq=wordpress+search+tu&gs_l=psy-ab.1.0.0j0i22i30l9.5494.7967..9404...0.0..0.160.472.0j3......0....1..gws-wiz.......0i71j35i39j0i67j0i20i263.2TDCdNIHTvE\
+zip will be hard bc its a meta field\
+\
+https://www.google.com/search?rlz=1C5CHFA_enUS779US779&q=wordpress+custom+search+query&sa=X&ved=2ahUKEwjIyfqGoI_hAhWaGTQIHUPvDXEQ1QIoAHoECAoQAQ&biw=1954&bih=1201\
 \
 relevan has potench to include terms, some custom meta and rebuild indexes but not sure if it can handle my db - maybe do this at the end bc reindexing makes me nervous and I think it times out, it said four hr wait\
 \
+potential problems hooking up seaech to wp_query?\
+\
+https://www.kevinleary.net/wp_query-search-tax-query-fix/\
 \
 \
 1. if its still super slow try to paginate the results and see if thats faster\
@@ -60,15 +92,15 @@ what is this? https://devblog.kommigraphics.com/wordpress/wp_query-get-count-res
 \
 \pard\pardeftab720\sl300\partightenfactor0
 
-\f1\fs26 \cf2 \cb3 \expnd0\expndtw0\kerning0
+\f2\fs26 \cf7 \cb8 \expnd0\expndtw0\kerning0
 \'a0
-\f2\b \cb1 'cache_results'\'a0 => false,
-\f1\b0 \
+\f3\b \cb1 'cache_results'\'a0 => false,
+\f2\b0 \
 
-\f2\b \'a0\'a0\'a0 'update_post_meta_cache' => false,
-\f1\b0 \
+\f3\b \'a0\'a0\'a0 'update_post_meta_cache' => false,
+\f2\b0 \
 
-\f2\b \'a0\'a0\'a0 'update_post_term_cache' => false,\
+\f3\b \'a0\'a0\'a0 'update_post_term_cache' => false,\
 \
 \
 \
@@ -133,6 +165,8 @@ downside is when updating a lawyer posts its slow bc it has to loop through all 
 \cf0 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 \cf0 for the lawyer directory what if we did a review system that ranks them or something where lawyers can pay to have their results at the top of a search result . that would be sick\
+\
+lawfirm templates? pages or cpts?\
 \
 \pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
 \cf0 data is kinda fucked  i want to try and rescrape it \

@@ -6,42 +6,49 @@
 			
 			<div class="sec_one_search_wrapper">
 				
-				<div class="sec_one_input_wrapper">
+				<form action="/" method="get">
 				
-				<div class="input_wrapper">
+					<div class="sec_one_input_wrapper">
 				
-					<input type="text" placeholder="Firm or Attorney Name" value="" />
+						<div class="input_wrapper">
 				
-				</div><!-- input_wrapper -->
-				
-				<div class="input_wrapper">
-					
-					<div class="sec_one_select_wrapper">
-						
-						<div class="sec_one_select">
+							<input type="text" name="s" id="search" placeholder="Attorney Name" value="<?php the_search_query(); ?>" />
 							
-							<span class="select_text">Type of Law</span><!-- select_text -->
-							
-						</div><!-- sec_one_select -->
+						</div><!-- input_wrapper -->
+				
+						<div class="input_wrapper">
+					
+							<div class="sec_one_select_wrapper">
 						
-					</div><!-- sec_one_select_wrapper -->
+								<div class="sec_one_select">
+							
+									<span class="select_text">Type of Law</span><!-- select_text -->
+							
+								</div><!-- sec_one_select -->
+						
+							</div><!-- sec_one_select_wrapper -->
 					
-				</div><!-- input_wrapper -->
+						</div><!-- input_wrapper -->
 				 
-				<div class="input_wrapper">
+						<div class="input_wrapper">
 					
-				 <input type="text" placeholder="City, State or Zip Code" value="" />
+							<input type="text" placeholder="City or State" value="" name="location"/>
 				
-				</div><!-- input_wrapper -->
+						</div><!-- input_wrapper -->
 				
-				</div><!-- sec_one_input_wrapper -->
+					</div><!-- sec_one_input_wrapper -->
 				 
-				<div class="sec_one_submit_wrapper">
+					<div class="sec_one_submit_wrapper">
+						
+						<input type="hidden" value="1" name="sentence" />
+							
+						<input type="hidden" value="lawyer" name="post_type" />
 				 
-				 <input type="submit" value="Click to find a lawyer">
+						<input type="submit" id="searchsubmit" value="Click to find a lawyer">
+						
+					</div><!-- sec_one_submit_wrapper -->
 				
-				</div><!-- sec_one_submit_wrapper -->
-				
+				</form>
 			
 			</div><!-- sec_one_search_wrapper -->
 			
