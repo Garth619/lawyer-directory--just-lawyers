@@ -412,7 +412,71 @@ $('.sec_three_tab').on('click', function(e) {
   
   $('.form_wrapper textarea').parent().parent().addClass('textarea_wrap');
 
-
+	
+	
+	// nav
+	
+	
+		var windowWidth = $(window).width();
+	
+	
+	
+		function navWidth() {
+	    
+	    if (windowWidth >= 1100) {
+	        
+	      
+	      $('nav').addClass('desktop');
+	      
+	      
+	      $('nav ul.menu > li.menu-item-has-children > a').on('click', function(e) {
+	        
+	      	$(".submenu_container").empty();
+	      
+					$(this).next('ul.sub-menu').clone().appendTo('.submenu_container').fadeIn();
+	      
+	      
+	      });
+	      
+	      
+	      // current page clone
+	
+				$('nav ul.menu > li.current-menu-ancestor > a').next('ul.sub-menu').clone().appendTo('.submenu_container').show();
+	    		    	   		
+	    		
+	    }
+	    
+	     if (windowWidth <= 1099) {
+		     
+		     $('nav ul.menu > li.menu-item-has-children > a').on('click', function(e) {
+			     
+			     $(this).next('ul.sub-menu').slideToggle(300);
+		       
+		     });
+		     
+	     }
+	    
+	   
+		};
+		
+	
+	 navWidth();
+	 
+	 
+	 $('.menu_wrapper').on('click', function(e) {
+	   
+	 	$('nav').slideDown(450);
+	 
+	 });
+	 
+	 
+	 $('.nav_close').on('click', function(e) {
+	   
+	 	$('nav').slideUp(450);
+	 
+	 });
+	
+	
 
   
 }); // document ready
