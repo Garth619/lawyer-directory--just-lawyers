@@ -6,7 +6,7 @@
 			
 			<div class="sec_one_search_wrapper">
 				
-				<?php //get_template_part('searchform','sectionone');?>
+				<?php get_template_part('searchform','sectionone');?>
 			
 			</div><!-- sec_one_search_wrapper -->
 			
