@@ -1,10 +1,12 @@
 {\rtf1\ansi\ansicpg1252\cocoartf1504\cocoasubrtf830
-{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fnil\fcharset0 Menlo-Regular;\f2\fmodern\fcharset0 CourierNewPSMT;
-\f3\fmodern\fcharset0 CourierNewPS-BoldMT;}
-{\colortbl;\red255\green255\blue255;\red36\green38\blue41;\red235\green236\blue237;\red104\green26\blue29;
-\red13\green0\blue129;\red43\green39\blue19;\red57\green57\blue57;\red236\green236\blue236;}
-{\*\expandedcolortbl;;\cssrgb\c18824\c20000\c21176;\cssrgb\c93725\c94118\c94510;\cssrgb\c49020\c15294\c15294;
-\cssrgb\c6275\c6275\c58039;\cssrgb\c22353\c20000\c9412;\cssrgb\c29020\c29020\c29020;\cssrgb\c94118\c94118\c94118;}
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fnil\fcharset0 Menlo-Regular;\f2\fswiss\fcharset0 ArialMT;
+\f3\fmodern\fcharset0 CourierNewPSMT;\f4\fmodern\fcharset0 CourierNewPS-BoldMT;}
+{\colortbl;\red255\green255\blue255;\red27\green29\blue31;\red235\green236\blue237;\red36\green38\blue41;
+\red104\green26\blue29;\red13\green0\blue129;\red43\green39\blue19;\red114\green121\blue129;\red255\green255\blue255;
+\red57\green57\blue57;\red236\green236\blue236;\red27\green29\blue31;\red235\green236\blue237;}
+{\*\expandedcolortbl;;\cssrgb\c14118\c15294\c16078;\cssrgb\c93725\c94118\c94510;\cssrgb\c18824\c20000\c21176;
+\cssrgb\c49020\c15294\c15294;\cssrgb\c6275\c6275\c58039;\cssrgb\c22353\c20000\c9412;\cssrgb\c52157\c54902\c57647;\cssrgb\c100000\c100000\c100000;
+\cssrgb\c29020\c29020\c29020;\cssrgb\c94118\c94118\c94118;\cssrgb\c14118\c15294\c16078;\cssrgb\c93725\c94118\c94510;}
 \margl1440\margr1440\vieww11780\viewh8400\viewkind0
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
@@ -28,6 +30,27 @@ search\
 \
 \'97\'97\'97\'97\
 \
+\
+\pard\pardeftab720\sl300\partightenfactor0
+
+\f1\fs26 \cf2 \cb3 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 pre_get_post
+\f0\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
+i think the search page is running the wp_query already? this is why, i am discarding the query already being run and then running the one I created\'85they say to use pre_get_posts to alter the query already in place\
+https://wordpress.stackexchange.com/questions/216777/wordpress-custom-search-page-pagination-returns-404   \
+\
+https://www.smashingmagazine.com/2016/03/advanced-wordpress-search-with-wp_query/#the-pre-get-posts-filter\
+\
+using a different search template? somethng is wrong with using set in pre_get_posts?\
+https://wordpress.stackexchange.com/questions/138649/using-pre-get-posts-to-rewrite-search-query-to-display-posts-from-multiple-taxon\
+\
+good example:\
+https://stackoverflow.com/questions/50934798/properly-configuring-a-wordpress-search-filter-for-custom-post-meta-using-wp-que\
+\
+https://wordpress.stackexchange.com/questions/78649/using-meta-query-meta-query-with-a-search-query-s\
+\
 https://www.google.com/search?rlz=1C5CHFA_enUS779US779&q=wordpress+custom+search+query&sa=X&ved=2ahUKEwjIyfqGoI_hAhWaGTQIHUPvDXEQ1QIoAHoECAoQAQ&biw=1954&bih=1201\
 \
 this searches phrases that are contained in the title 
@@ -48,17 +71,17 @@ search wp_query - set up a second searchresults template where I can add my wp_q
 \
 \pard\pardeftab720\sl300\partightenfactor0
 
-\f1\fs26 \cf2 \cb3 \expnd0\expndtw0\kerning0
-\outl0\strokewidth0 \strokec2 $search_term = $_GET[\cf4 \strokec4 'term'\cf2 \strokec2 ];\
-$search_criteria = $_GET[\cf4 \strokec4 'type'\cf2 \strokec2 ];\
+\f1\fs26 \cf4 \cb3 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec4 $search_term = $_GET[\cf5 \strokec5 'term'\cf4 \strokec4 ];\
+$search_criteria = $_GET[\cf5 \strokec5 'type'\cf4 \strokec4 ];\
 \
-$loop = \cf5 \strokec5 new\cf2 \strokec2  WP_Query( array(\
-    \cf4 \strokec4 'post_type'\cf2 \strokec2  => \cf4 \strokec4 'photo'\cf2 \strokec2 ,\
-    \cf4 \strokec4 'posts_per_page'\cf2 \strokec2  => \cf4 \strokec4 12\cf2 \strokec2 ,\
-    \cf4 \strokec4 'orderby'\cf2 \strokec2 => \cf4 \strokec4 'post_date\'92,\
-\cf2 \strokec2 	\'92\cf4 \strokec4 s\'92\cf2 \strokec2  => \cf4 \strokec4 "search keyword"\cf6 \strokec6 \
-\cf2 \strokec2 \
-));\cf6 \strokec6 \
+$loop = \cf6 \strokec6 new\cf4 \strokec4  WP_Query( array(\
+    \cf5 \strokec5 'post_type'\cf4 \strokec4  => \cf5 \strokec5 'photo'\cf4 \strokec4 ,\
+    \cf5 \strokec5 'posts_per_page'\cf4 \strokec4  => \cf5 \strokec5 12\cf4 \strokec4 ,\
+    \cf5 \strokec5 'orderby'\cf4 \strokec4 => \cf5 \strokec5 'post_date\'92,\
+\cf4 \strokec4 	\'92\cf5 \strokec5 s\'92\cf4 \strokec4  => \cf5 \strokec5 "search keyword"\cf7 \strokec7 \
+\cf4 \strokec4 \
+));\cf7 \strokec7 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
 \f0\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 check that paged is still honored look at search page codex that mentions this\
@@ -67,6 +90,70 @@ this one:\
 https://premium.wpmudev.org/blog/build-your-own-custom-wordpress-search/\
 \
 zip will be hard bc its a meta field\
+\
+\pard\pardeftab720\sl300\partightenfactor0
+
+\f1\fs26 \cf4 \cb3 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec4 <?php\
+  \cf6 \strokec6 if\cf4 \strokec4 ( isset( $_GET[\cf5 \strokec5 'careers_search'\cf4 \strokec4 ] ) ) \{\
+    \cf8 \strokec8 // Your code goes here...\cf4 \strokec4 \
+  \}\
+?>\cf7 \strokec7 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 \
+\
+https://stackoverflow.com/questions/32100942/wordpress-search-query-meta-queries-custom-fields\
+\
+\pard\pardeftab720\sl320\partightenfactor0
+
+\f1\fs26 \cf4 \cb3 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec4         $search_term = get_search_query();\
+        $args = array (\
+            \cf5 \strokec5 'post_type'\cf4 \strokec4  => \cf5 \strokec5 'courses'\cf4 \strokec4 ,\
+            \cf5 \strokec5 'order'\cf4 \strokec4  => \cf5 \strokec5 'ASC'\cf4 \strokec4 ,\
+            \cf5 \strokec5 'orderby'\cf4 \strokec4  => \cf5 \strokec5 'title'\cf4 \strokec4 ,\
+            \cf5 \strokec5 'posts_per_page'\cf4 \strokec4  => -\cf5 \strokec5 1\cf4 \strokec4 ,\
+            \cf5 \strokec5 'nopaging'\cf4 \strokec4  => \cf6 \strokec6 true\cf4 \strokec4 ,\
+            \cf5 \strokec5 's'\cf4 \strokec4  => $search_term\
+        );\
+        $args2 = array (\
+            \cf5 \strokec5 'post_type'\cf4 \strokec4  => \cf5 \strokec5 'courses'\cf4 \strokec4 ,\
+            \cf5 \strokec5 'posts_per_page'\cf4 \strokec4  => -\cf5 \strokec5 1\cf4 \strokec4 ,\
+            \cf5 \strokec5 'nopaging'\cf4 \strokec4  => \cf6 \strokec6 true\cf4 \strokec4 ,\
+            \cf5 \strokec5 'meta_query'\cf4 \strokec4  => array(\
+                 array(\
+                    \cf5 \strokec5 'key'\cf4 \strokec4  => \cf5 \strokec5 'course_id'\cf4 \strokec4 ,\
+                    \cf5 \strokec5 'value'\cf4 \strokec4  => $search_term,\
+                    \cf5 \strokec5 'compare'\cf4 \strokec4  => \cf5 \strokec5 'LIKE'\cf4 \strokec4 \
+                 )\
+              )\
+        );\
+\
+        $courses1 = get_posts($args);\
+        $courses2 = get_posts($args2);\
+        $merged = array_merge($courses1, $courses2);\
+        $post_ids = array();\
+        \cf6 \strokec6 foreach\cf4 \strokec4  ($merged \cf6 \strokec6 as\cf4 \strokec4  $item) \{\
+            $post_ids[] = $item->ID;\
+        \}\
+\
+        $unique = array_unique($post_ids);\
+\
+        $posts = get_posts(array(\
+            \cf5 \strokec5 'post_type'\cf4 \strokec4  => \cf5 \strokec5 'courses'\cf4 \strokec4 ,\
+            \cf5 \strokec5 'order'\cf4 \strokec4  => \cf5 \strokec5 'ASC'\cf4 \strokec4 ,\
+            \cf5 \strokec5 'orderby'\cf4 \strokec4  => \cf5 \strokec5 'title'\cf4 \strokec4 ,\
+            \cf5 \strokec5 'post__in'\cf4 \strokec4  => $unique,\
+            \cf5 \strokec5 'posts_per_page'\cf4 \strokec4  => -\cf5 \strokec5 1\cf4 \strokec4 \
+        )); ?>\cf7 \strokec7 \
+\pard\pardeftab720\sl300\partightenfactor0
+
+\f2 \cf2 \cb9 \strokec2 \
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 \
 \
 https://www.google.com/search?rlz=1C5CHFA_enUS779US779&q=wordpress+custom+search+query&sa=X&ved=2ahUKEwjIyfqGoI_hAhWaGTQIHUPvDXEQ1QIoAHoECAoQAQ&biw=1954&bih=1201\
 \
@@ -94,15 +181,15 @@ what is this? https://devblog.kommigraphics.com/wordpress/wp_query-get-count-res
 \
 \pard\pardeftab720\sl300\partightenfactor0
 
-\f2\fs26 \cf7 \cb8 \expnd0\expndtw0\kerning0
+\f3\fs26 \cf10 \cb11 \expnd0\expndtw0\kerning0
 \'a0
-\f3\b \cb1 'cache_results'\'a0 => false,
-\f2\b0 \
+\f4\b \cb1 'cache_results'\'a0 => false,
+\f3\b0 \
 
-\f3\b \'a0\'a0\'a0 'update_post_meta_cache' => false,
-\f2\b0 \
+\f4\b \'a0\'a0\'a0 'update_post_meta_cache' => false,
+\f3\b0 \
 
-\f3\b \'a0\'a0\'a0 'update_post_term_cache' => false,\
+\f4\b \'a0\'a0\'a0 'update_post_term_cache' => false,\
 \
 \
 \
@@ -133,6 +220,23 @@ this worked to export db\
 notes\
 \'97\'97\'97\'97\
 \
+\
+\
+this is good so far:\
+https://stevepolito.design/blog/create-a-custom-search-form-in-wordpress/\
+https://firstsiteguide.com/wordpress-search-features/\
+\
+\
+will 
+\f1\fs26 \cf12 \cb13 \expnd0\expndtw0\kerning0
+pre_get_post work for faster tax_queries on other pages?\
+\
+
+\f0\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0 \
+\
+apparently this makes it so it only searches through post titles and not the body:\
+\
+https://firstsiteguide.com/wordpress-search-features/\
 \
 \
 \pard\pardeftab720\sl360\partightenfactor0

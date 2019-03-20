@@ -291,6 +291,11 @@ function wpbeginner_numeric_posts_nav() {
 }
 
 
+
+
+add_filter('pre_get_posts','searchcategory');
+
+
 ///// Permalink Rewrites
 
 
@@ -318,6 +323,10 @@ function prefix_register_query_var( $vars ) {
     $vars[] = 'office_pa';
     $vars[] = 'currentstate';
     $vars[] = 'currentcity';
+    
+    // custom search paramters
+    
+    $location[] = 'location';
  
     return $vars;
 }
@@ -373,17 +382,17 @@ add_action( 'template_redirect', 'prefix_url_rewrite_templates' );
 
 
 
+// simple example of how I will dynamically set up my three part custom search on the homepage
 
-// prevent logouts
+function searchcategory($query) {
 
-/*
+	if ($query->is_search) { // needs to exclude the dashboard in this conditional 
+	
+		$query->set('cat','13613');
 
-https://wordpress.stackexchange.com/questions/114439/preventing-session-timeout
+	}
 
-
-add_filter( 'auth_cookie_expiration', 'keep_me_logged_in_for_1_year' );
-function keep_me_logged_in_for_1_year( $expirein ) {
-    return 31556926; // 1 year in seconds
+	return $query;
 }
-*/
+
 
