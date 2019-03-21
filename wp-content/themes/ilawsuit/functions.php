@@ -451,13 +451,20 @@ add_action( 'init', 'prefix_rewrite_rule' );
 // global query vars
 
 function prefix_register_query_var( $vars ) {
+    
+    // custom permalink vars
+    
     $vars[] = 'office_location_currentstate';
     $vars[] = 'office_location_currentcity';
     $vars[] = 'office_pa';
     $vars[] = 'currentstate';
     $vars[] = 'currentcity';
     
-    $vars[] = 'mykeyword';
+    // custom search vars
+    
+    $vars[] = 'customkeyword';
+    $vars[] = 'custompa';
+    $vars[] = 'customlocation';
  
     return $vars;
 }
@@ -514,16 +521,23 @@ add_action( 'template_redirect', 'prefix_url_rewrite_templates' );
 
 
 
-// simple example of how I will dynamically set up my three part custom search on the homepage
+// custom search
 
-/*
-function SearchFilter($query) {
-if ($query->is_search) {
-$query->set('post_type', 'post');
+function my_custom_search($query) {
+    
+    if ( !is_admin() && $query->is_main_query() ) {
+        
+        if ($query->is_search) {
+	        
+	        	$search_args = array(
+		        	
+	        	);
+            
+            $query->set('post_type', 'lawyer');
+        
+        }
+    }
 }
-return $query;
-}
 
-add_filter('pre_get_posts','SearchFilter');
-*/
 
+add_action( 'pre_get_posts', 'my_custom_search' );

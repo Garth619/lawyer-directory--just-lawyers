@@ -507,6 +507,42 @@ $('.sec_three_tab').on('click', function(e) {
 		 
 	 }
 	 
+	 
+	 // custom search section one
+	 
+	 
+	 $('.sec_one_select').on('click', function(e) {
+	   
+	 	$('.sec_one_select_dropdown').slideToggle(300);
+	 
+	 });
+	 
+	 
+	 $('.sec_one_select_dropdown ul li span').on('click', function(e) {
+	   
+	 	var typeoflaw = $(this).text();
+	 	
+	 	$('.sec_one_select span').replaceWith('<span class="select_text">' +typeoflaw+ '<span>');
+	 	
+	 	$('input#typeoflaw').val(typeoflaw);
+	 	
+	 		$('.sec_one_select_dropdown').slideUp(300);
+	 	
+	 });
+	 
+	 
+	 $(document).click(function (e){
+
+			var container = $(".sec_one_select_wrapper");
+
+			if (!container.is(e.target) && container.has(e.target).length === 0){
+
+				$('.sec_one_select_dropdown').slideUp(300);
+		
+			}
+
+		}); 
+	 
 
 
   
