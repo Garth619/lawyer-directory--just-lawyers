@@ -516,6 +516,7 @@ add_action( 'template_redirect', 'prefix_url_rewrite_templates' );
 
 // simple example of how I will dynamically set up my three part custom search on the homepage
 
+/*
 function SearchFilter($query) {
 if ($query->is_search) {
 $query->set('post_type', 'post');
@@ -524,4 +525,5 @@ return $query;
 }
 
 add_filter('pre_get_posts','SearchFilter');
+*/
 

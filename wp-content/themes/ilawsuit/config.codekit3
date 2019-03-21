@@ -752,22 +752,6 @@
 		"oAP": "/searchform.php",
 		"oF": 0
 		},
-	"/searchhalfwaythere.php": {
-		"cB": 0,
-		"ft": 8192,
-		"hM": 0,
-		"oA": 0,
-		"oAP": "/searchhalfwaythere.php",
-		"oF": 0
-		},
-	"/searchinfo.php": {
-		"cB": 0,
-		"ft": 8192,
-		"hM": 0,
-		"oA": 0,
-		"oAP": "/searchinfo.php",
-		"oF": 0
-		},
 	"/sidebar-blog.php": {
 		"cB": 0,
 		"ft": 8192,

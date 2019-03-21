@@ -1,4 +1,4 @@
-<form action="<?php echo esc_url( home_url( '/search/' ) ); ?>" method="get">
+<form action="<?php echo esc_url( home_url( '/results/' ) ); ?>" method="get">
 				
 	<div class="sec_one_input_wrapper">
 	
