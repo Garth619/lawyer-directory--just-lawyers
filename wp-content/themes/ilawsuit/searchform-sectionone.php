@@ -1,10 +1,10 @@
-<form action="<?php echo esc_url( home_url( '/' ) ); ?>" method="get">
+<form action="<?php echo esc_url( home_url( '/search/' ) ); ?>" method="get">
 				
 	<div class="sec_one_input_wrapper">
 	
 		<div class="input_wrapper">
 	
-			<input type="text" name="s" id="search" placeholder="Attorney Name" value="<?php the_search_query(); ?>" />
+			<input type="text" name="mykeyword" id="search" placeholder="Attorney Name" value="<?php the_search_query(); ?>" />
 			
 		</div><!-- input_wrapper -->
 	
@@ -32,9 +32,11 @@
 	
 	<div class="sec_one_submit_wrapper">
 		
+<!--
 		<input type="hidden" value="1" name="sentence" />
 			
 		<input type="hidden" value="lawyer" name="post_type" />
+-->
 	
 		<input type="submit" id="searchsubmit" value="Click to find a lawyer">
 		

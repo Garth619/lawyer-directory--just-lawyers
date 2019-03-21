@@ -456,6 +456,8 @@ function prefix_register_query_var( $vars ) {
     $vars[] = 'office_pa';
     $vars[] = 'currentstate';
     $vars[] = 'currentcity';
+    
+    $vars[] = 'mykeyword';
  
     return $vars;
 }

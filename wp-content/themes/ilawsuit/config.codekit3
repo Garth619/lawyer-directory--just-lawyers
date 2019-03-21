@@ -448,6 +448,14 @@
 		"oAP": "/page-templates/template-contact.php",
 		"oF": 0
 		},
+	"/page-templates/template-customsearch.php": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 0,
+		"oAP": "/page-templates/template-customsearch.php",
+		"oF": 0
+		},
 	"/page-templates/template-home.php": {
 		"cB": 0,
 		"ft": 8192,
@@ -478,14 +486,6 @@
 		"hM": 0,
 		"oA": 0,
 		"oAP": "/page-templates/template-practicearea_city.php",
-		"oF": 0
-		},
-	"/page-templates/template-search_sec_one.php": {
-		"cB": 0,
-		"ft": 8192,
-		"hM": 0,
-		"oA": 0,
-		"oAP": "/page-templates/template-search_sec_one.php",
 		"oF": 0
 		},
 	"/page.php": {
