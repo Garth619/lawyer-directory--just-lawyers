@@ -462,9 +462,9 @@ function prefix_register_query_var( $vars ) {
     
     // custom search vars
     
-    $vars[] = 'customkeyword';
-    $vars[] = 'custompa';
-    $vars[] = 'customlocation';
+    $vars[] = 'attorney_keyword';
+    $vars[] = 'attorney_pa';
+    $vars[] = 'attorney_location';
  
     return $vars;
 }
@@ -523,15 +523,24 @@ add_action( 'template_redirect', 'prefix_url_rewrite_templates' );
 
 // custom search
 
+/*
 function my_custom_search($query) {
     
     if ( !is_admin() && $query->is_main_query() ) {
         
         if ($query->is_search) {
 	        
-	        	$search_args = array(
-		        	
-	        	);
+	        	$attorneykeyword = get_query_var( 'attorney_keyword', FALSE );
+            $attorneypa = get_query_var( 'attorney_pa', FALSE );
+            $attorneylocation = get_query_var( 'attorney_location', FALSE );
+            
+            $tax_query_array = array('relation' => 'AND');
+            
+            $attorneylocation ? array_push($tax_query_array, array('taxonomy' => 'location', 'field' => 'term_id', 'terms' => $attorneylocation) ) : null ;
+
+						// final tax_query
+						
+						$query->set( 'tax_query', $tax_query_array);
             
             $query->set('post_type', 'lawyer');
         
@@ -541,3 +550,32 @@ function my_custom_search($query) {
 
 
 add_action( 'pre_get_posts', 'my_custom_search' );
+*/
+
+
+
+
+/*
+add_action( 'pre_get_posts', 'hotbuys_search_query' );
+function hotbuys_search_query( $query ) {
+  
+  if( $query->is_main_query() && is_search()) {
+  
+		$meta_query = array(
+				array(
+          'key' => 'client_status',
+          'value' => array('active'),
+          'compare' => 'IN' 
+        ),
+		);
+		$query->set( 'meta_query', $meta_query );
+		
+  }
+  
+}
+*/
+
+
+
+
+

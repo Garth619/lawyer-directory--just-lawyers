@@ -1,10 +1,10 @@
-<form action="<?php echo esc_url( home_url( '/results/' ) ); ?>" method="get">
+<form action="<?php bloginfo('url');?>/results/" method="get">
 				
 	<div class="sec_one_input_wrapper">
 	
 		<div class="input_wrapper">
 	
-			<input type="text" name="mykeyword" id="search" placeholder="Attorney Name" value="<?php the_search_query(); ?>" />
+			<input type="text" name="attorney_keyword" id="search" placeholder="Attorney Name" value="<?php // the_search_query(); ?>" />
 			
 		</div><!-- input_wrapper -->
 	
@@ -24,19 +24,20 @@
 						<li><span>Business</span></li>
 						<li><span>Family Law</span></li>
 						<li><span>Criminal Defense</span></li>
+						<li><span>Real Estate</span></li>
 					</ul>
 					
 				</div><!-- sec_one_select_dropdown -->
 		
 			</div><!-- sec_one_select_wrapper -->
 			
-			<input id="typeoflaw" type="hidden" value="" name="customkeyword" />
+			<input id="typeoflaw" type="hidden" value="" name="attorney_pa" />
 	
 		</div><!-- input_wrapper -->
 	
 		<div class="input_wrapper">
 	
-			<input type="text" placeholder="City or State" value="" name="custompa"/>
+			<input type="text" placeholder="City or State" value="" name="attorney_location"/>
 	
 		</div><!-- input_wrapper -->
 	
