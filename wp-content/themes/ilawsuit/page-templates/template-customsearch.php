@@ -15,22 +15,75 @@
 	
 	<div class="outer_container">
 		
-		<?php $att_keyword = get_query_var( 'attorney_keyword'); echo $att_keyword;?>
-				
-				<?php $att_pa = get_query_var( 'attorney_pa'); echo $att_pa?>
-				
-				<?php $att_location = get_query_var( 'attorney_location'); echo $att_location;?><br/><br/><br/>
+		<!-- if pa is searched add that term name to the loop so they can see it on the lawyer results box -->
 		
-		<div class="directory_wrapper">
-			
-			add filter and no results in
-			
+		<?php $att_keyword = get_query_var( 'attorney_keyword');?>
+				
+		<?php $att_pa = get_query_var( 'attorney_pa');?>
+				
+		<?php $att_location = get_query_var( 'attorney_location');?><br/><br/><br/>
 		
+		<?php if($att_keyword) {
+					
+			$args = array(
+					'post_type'   => 'lawyer',
+					'posts_per_page' => 20,
+					'orderby' => 'title',
+					'order' => 'ASC',
+					's' => $att_keyword
+				);
 				
+				echo 'just title';
 				
+		} ?>
+		
+		<?php if($att_pa) {
+					
+			$args = array(
+					'post_type'   => 'lawyer',
+					'posts_per_page' => 20,
+					'orderby' => 'title',
+					'order' => 'ASC',
+					's' => $att_keyword,
+					'tax_query' => array(
+						array(
+							'taxonomy'  => 'practice_area',
+							'field'     => 'slug',
+							'terms'     => $att_pa,
+						)
+						
+					),
+				);
 				
-				<?php 
+				echo 'just pa';
 				
+		} ?>
+		
+		<?php if($att_location) {
+			
+			$args = array(
+					'post_type'   => 'lawyer',
+					'posts_per_page' => 20,
+					'orderby' => 'title',
+					'order' => 'ASC',
+					's' => $att_keyword,
+					'tax_query' => array(
+						array(
+							'taxonomy'  => 'location',
+							'field'     => 'slug',
+							'terms'     => $att_location,
+						)
+					),
+				);  
+					
+			echo 'just location';
+				
+		} ?>
+		
+		
+		<?php if($att_keyword && $att_pa && $att_location) {
+					
+			
 				$args = array(
 					'post_type'   => 'lawyer',
 					'posts_per_page' => 20,
@@ -52,7 +105,20 @@
 					),
 				);  
 			
-				?>
+			
+				
+		} ?>
+		
+
+		
+		<div class="directory_wrapper">
+			
+			add filter and no results in
+			
+		
+								
+				
+			
 				
 			
 						
@@ -61,6 +127,12 @@
 					$wp_query = null; 
 					$wp_query = new WP_Query(); 
 					$wp_query->query($args); ?>
+					
+					<div class="pagination">
+
+						<?php wpbeginner_numeric_posts_nav(); ?>
+
+					</div><!-- pagination -->
 					
 					<div class="lawyer_results_wrapper">
 
@@ -117,6 +189,12 @@
 											<span><?php the_field( 'lawyer_phone' ); ?></span>
 									
 										<?php }?>
+										
+										<?php if($att_pa) {
+											
+											echo $att_pa;
+											
+										} ?>
 										
 									</div><!-- single_lawyer_meta -->
 									

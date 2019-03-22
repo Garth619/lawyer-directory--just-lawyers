@@ -1,6 +1,6 @@
 <form action="/" method="get">
     
-    <input type="text" name="s" id="search" placeholder="Search" value="<?php the_search_query(); ?>" />
+    <input type="text" name="s" id="search" placeholder="Search Lawyers" value="<?php the_search_query(); ?>" />
     
     <div class="search_wrapper">
     
