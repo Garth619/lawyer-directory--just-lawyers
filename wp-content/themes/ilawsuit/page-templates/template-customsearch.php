@@ -61,6 +61,8 @@
 				
 				echo 'just keyword no pa no location';
 				
+				echo "<br/><br/> 's' => $att_keyword";
+				
 		} ?>
 		
 		<?php if(!$att_keyword && $att_pa && $att_pa !=='Search All Types' && !$att_location) { // just pa
@@ -82,6 +84,8 @@
 				
 				echo 'just pa (search all types not selected) no keywords no locations';
 				
+				echo "<br/><br/> 'tax_query' => array(array('taxonomy' => 'practice_area','field' => 'slug','terms' => $att_pa,)),";
+				
 		} ?>
 		
 		<?php if(!$att_keyword && !$att_pa && $att_location) { // just location these need to remove the s in a min
@@ -101,6 +105,8 @@
 				);  
 					
 			echo 'just location no keywords no pa';
+			
+			echo "<br/><br/>'tax_query' => array(array('taxonomy' => 'location','field' => 'slug','terms' => $att_location,)),";
 				
 		} ?>
 		
@@ -123,6 +129,8 @@
 				);  
 					
 			echo 'keywords with pa (search all types not selected) no locations';
+			
+			echo "<br/><br/>''s' => $att_keyword,tax_query' => array(array('taxonomy' => 'practice_area','field' => 'slug','terms' => $att_pa,)),";
 				
 		} ?>
 		
@@ -146,6 +154,8 @@
 				);  
 					
 			echo 'keywords with location and no pa';
+			
+			echo "<br/><br/>'s' => $att_keyword,'tax_query' => array(array('taxonomy'  => 'location','field' => 'slug','terms' => $att_location,)),";
 				
 		} ?>
 		
@@ -174,6 +184,8 @@
 				);  
 					
 			echo 'location and pa (search all types not selected) with no keywords';
+			
+			echo "<br/><br/>'tax_query' => array(array('taxonomy'  => 'practice_area','field' => 'slug','terms' => $att_pa,),array('taxonomy'  => 'location',field'     => 'slug','terms'     => $att_location,)),";
 				
 		} ?>
 		
@@ -208,6 +220,8 @@
 			
 				echo "keywords with pa (search all types not selected) with locations";
 				
+				echo "<br/><br/>'s' => $att_keyword,'tax_query' => array(array('taxonomy'  => 'location','field'     => 'slug','terms'     => $att_location,),array('taxonomy'  => 'practice_area','field'     => 'slug','terms'     => $att_pa,)),";
+				
 		} ?>
 		
 		
@@ -230,12 +244,14 @@
 		
 <br/><br/>
 
- <pre><code><h3>search query test</h3><?php print_r($args);?></code></pre>
+ <pre><code><h3>search query test</h3><?php print_r($args);?></code><br/><br/><br/><br/>for pre_get_post this is just building an a simple nested array and adding to tax query wrapper like this $query->set( 'tax_query', $tax_query_array); bc on this custom wp_query, i am trying to add tax_query wrapper based on variables so it could get redundant </pre>
 		
 		
 		
 		
 		<?php // consolodate all this shit ^ ?>
+		
+		
 		
 		<div class="directory_wrapper">
 			
