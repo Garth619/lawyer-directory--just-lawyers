@@ -59,13 +59,13 @@
 					's' => $att_keyword
 				);
 				
-				echo 'just keyword no pa no location';
+				//echo 'just keyword no pa no location';
 				
 				echo "<br/><br/> 's' => $att_keyword";
 				
 		} ?>
 		
-		<?php if(!$att_keyword && $att_pa && $att_pa !=='Search All Types' && !$att_location) { // just pa
+		<?php if(!$att_keyword && $att_pa && $att_pa !== 'Search All Types' && !$att_location) { // just pa
 					
 			$args = array(
 					'post_type'   => 'lawyer',
@@ -82,7 +82,7 @@
 					),
 				);
 				
-				echo 'just pa (search all types not selected) no keywords no locations';
+				//echo 'just pa (search all types not selected) no keywords no locations';
 				
 				echo "<br/><br/> 'tax_query' => array(array('taxonomy' => 'practice_area','field' => 'slug','terms' => $att_pa,)),";
 				
@@ -104,14 +104,14 @@
 					),
 				);  
 					
-			echo 'just location no keywords no pa';
+			//echo 'just location no keywords no pa';
 			
 			echo "<br/><br/>'tax_query' => array(array('taxonomy' => 'location','field' => 'slug','terms' => $att_location,)),";
 				
 		} ?>
 		
 		
-		<?php if($att_keyword && $att_pa && $att_pa !=='Search All Types' && !$att_location) { // keyword and pa
+		<?php if($att_keyword && $att_pa && $att_pa !== 'Search All Types' && !$att_location) { // keyword and pa
 			
 			$args = array(
 					'post_type'   => 'lawyer',
@@ -128,7 +128,7 @@
 					),
 				);  
 					
-			echo 'keywords with pa (search all types not selected) no locations';
+			//echo 'keywords with pa (search all types not selected) no locations';
 			
 			echo "<br/><br/>''s' => $att_keyword,tax_query' => array(array('taxonomy' => 'practice_area','field' => 'slug','terms' => $att_pa,)),";
 				
@@ -153,7 +153,7 @@
 					),
 				);  
 					
-			echo 'keywords with location and no pa';
+			//echo 'keywords with location and no pa';
 			
 			echo "<br/><br/>'s' => $att_keyword,'tax_query' => array(array('taxonomy'  => 'location','field' => 'slug','terms' => $att_location,)),";
 				
@@ -162,7 +162,7 @@
 		
 		
 		
-			<?php if(!$att_keyword && $att_pa && $att_pa !=='Search All Types' && $att_location) { // pa and location
+			<?php if(!$att_keyword && $att_pa && $att_pa !== 'Search All Types' && $att_location) { // pa and location
 			
 			$args = array(
 					'post_type'   => 'lawyer',
@@ -183,7 +183,7 @@
 					),
 				);  
 					
-			echo 'location and pa (search all types not selected) with no keywords';
+			//echo 'location and pa (search all types not selected) with no keywords';
 			
 			echo "<br/><br/>'tax_query' => array(array('taxonomy'  => 'practice_area','field' => 'slug','terms' => $att_pa,),array('taxonomy'  => 'location',field'     => 'slug','terms'     => $att_location,)),";
 				
@@ -194,7 +194,7 @@
 
 		
 		
-		<?php if($att_keyword && $att_pa && $att_pa !=='Search All Types' && $att_location) { // all three
+		<?php if($att_keyword && $att_pa && $att_pa !== 'Search All Types' && $att_location) { // all three
 					
 			
 				$args = array(
@@ -218,7 +218,7 @@
 					),
 				);  
 			
-				echo "keywords with pa (search all types not selected) with locations";
+				//echo "keywords with pa (search all types not selected) with locations";
 				
 				echo "<br/><br/>'s' => $att_keyword,'tax_query' => array(array('taxonomy'  => 'location','field'     => 'slug','terms'     => $att_location,),array('taxonomy'  => 'practice_area','field'     => 'slug','terms'     => $att_pa,)),";
 				
@@ -229,18 +229,143 @@
 				
 		<?php if($att_pa =='Search All Types') {
 			
-			echo 'search all types';
+			
+    		$termids = get_terms( array( 
+		 			'taxonomy' => 'practice_area',
+		 			'fields' => 'slugs'
+		 			)
+		 		);
+		 		
+		 		
+		 		//echo "termids loaded";
+		 		
+		 		
+		} ?>
 		
-/*
-		array(
-                    'taxonomy' => 'category',
-                    'terms' => array( 'cat-slug' ),
-                    'field' => 'slug',
-                    'operator' => 'NOT IN',
-                )
-*/
+		
+		
+		
+				
+		<?php if(!$att_keyword && $att_pa =='Search All Types' && !$att_location) { // all pas
+			
+
+		 	$args = array(
+					'post_type'   => 'lawyer',
+					'posts_per_page' => 20,
+					'orderby' => 'title',
+					'order' => 'ASC',
+				); 
+
+			echo "<br/><br/>all posts (all pas)";
+	
 		
 		} ?>
+
+		
+		
+		
+		
+		
+		<?php if($att_keyword && $att_pa == 'Search All Types' && !$att_location) { // keywords and all pas
+			
+			
+			$args = array(
+					'post_type'   => 'lawyer',
+					'posts_per_page' => 20,
+					'orderby' => 'title',
+					'order' => 'ASC',
+					's' => $att_keyword,
+					'tax_query' => array(
+						array(
+							'taxonomy'  => 'practice_area',
+							'field'     => 'slug',
+							'terms'     => $termids,
+						)
+						
+					),
+				); 
+				
+				
+				echo "keyword with All PAs and no location";
+				
+				echo "<br/><br/>'s' => $att_keyword,'tax_query' => array(array('taxonomy'  => 'practice_area','field'     => 'slug','terms'     => $termids,)),";
+		
+		
+		} ?>
+		
+		
+		
+		<?php if(!$att_keyword && $att_pa == 'Search All Types' && $att_location) { //all pas and locations
+			
+			
+			$args = array(
+					'post_type'   => 'lawyer',
+					'posts_per_page' => 20,
+					'orderby' => 'title',
+					'order' => 'ASC',
+					'tax_query' => array(
+						array(
+							'taxonomy'  => 'practice_area',
+							'field'     => 'slug',
+							'terms'     => $termids,
+						),
+						array(
+							'taxonomy'  => 'location',
+							'field'     => 'slug',
+							'terms'     => $att_location,
+						)
+						
+					),
+				); 
+				
+				
+				echo "All PAs with location and no keywords";
+				
+				echo "<br/><br/>'tax_query' => array(array('taxonomy'  => 'practice_area','field'     => 'slug','terms'     => $termids,),array('taxonomy'  => 'location','field'     => 'slug','terms'     => $att_location,)),";
+		
+		
+		} ?>
+		
+		
+		
+		<?php if($att_keyword && $att_pa == 'Search All Types' && $att_location) { // all three (all pas)
+		
+			
+			
+			
+			$args = array(
+					'post_type'   => 'lawyer',
+					'posts_per_page' => 20,
+					'orderby' => 'title',
+					'order' => 'ASC',
+					's' => $att_keyword,
+					'tax_query' => array(
+						array(
+							'taxonomy'  => 'practice_area',
+							'field'     => 'slug',
+							'terms'     => $termids,
+						),
+						array(
+							'taxonomy'  => 'location',
+							'field'     => 'slug',
+							'terms'     => $att_location,
+						)
+						
+					),
+				); 
+			
+			
+		
+			echo "keywords with all PAs with location";
+			
+			echo "<br/><br/>'s' => $att_keyword,'tax_query' => array(array('taxonomy'  => 'practice_area','field'     => 'slug','terms'     => $termids,),array('taxonomy'  => 'location','field'     => 'slug','terms'     => $att_location,)),";
+		
+		
+		 } ?>
+		
+		
+		
+		
 		
 <br/><br/>
 
@@ -308,7 +433,7 @@
 								
 									<div class="single_lawyer_meta">
 										
-										<?php if($att_pa) {?>
+										<?php if($att_pa && $att_pa !== 'Search All Types') {?>
 											
 											<span><?php echo $att_pa; ?></span>
 											
