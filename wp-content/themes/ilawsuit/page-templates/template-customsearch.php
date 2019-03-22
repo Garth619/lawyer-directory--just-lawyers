@@ -2,43 +2,111 @@
 	
 	/* Template Name: Custom Search */
 	
-	get_header();?>
+	get_header();
+	
+	
+	$att_keyword = get_query_var( 'attorney_keyword');
+				
+	$att_pa = get_query_var( 'attorney_pa');
+				
+	$att_location = get_query_var( 'attorney_location');
+	
+	
+?>
 	
 	
 	<div id="internal_main">
 	
 	<div class="internal_banner">
 		
-		<h1><?php the_title();?></h1>
+		<h1>
+			
+			Results for:
+			
+			<?php if($att_keyword) {
+					
+				echo $att_keyword;
+				
+			} ?>
+			
+			<?php if($att_pa) {
+					
+				echo $att_pa;
+				
+			} ?>
+			
+			<?php if($att_location) {
+					
+				echo $att_location;
+				
+			} ?>
+			
+			
+		</h1>
 
 	</div><!-- internal_banner -->
 	
 	<div class="outer_container">
 		
-		<!-- if pa is searched add that term name to the loop so they can see it on the lawyer results box -->
 		
-		<?php $att_keyword = get_query_var( 'attorney_keyword');?>
+	<?php if($att_keyword && !$att_pa && !$att_location) { //just keyword
+					
+			$args = array(
+					'post_type'   => 'lawyer',
+					'posts_per_page' => 50,
+					'orderby' => 'title',
+					'order' => 'ASC',
+					's' => $att_keyword
+				);
 				
-		<?php $att_pa = get_query_var( 'attorney_pa');?>
+				echo 'just keyword no pa no location';
 				
-		<?php $att_location = get_query_var( 'attorney_location');?><br/><br/><br/>
+		} ?>
 		
-		<?php if($att_keyword) {
+		<?php if(!$att_keyword && $att_pa && !$att_location) { // just pa
 					
 			$args = array(
 					'post_type'   => 'lawyer',
 					'posts_per_page' => 20,
 					'orderby' => 'title',
 					'order' => 'ASC',
-					's' => $att_keyword
+					'tax_query' => array(
+						array(
+							'taxonomy'  => 'practice_area',
+							'field'     => 'slug',
+							'terms'     => $att_pa,
+						)
+						
+					),
 				);
 				
-				echo 'just title';
+				echo 'just pa no keywords no locations';
 				
 		} ?>
 		
-		<?php if($att_pa) {
+		<?php if(!$att_keyword && !$att_pa && $att_location) { // just location these need to remove the s in a min
+			
+			$args = array(
+					'post_type'   => 'lawyer',
+					'posts_per_page' => 20,
+					'orderby' => 'title',
+					'order' => 'ASC',
+					'tax_query' => array(
+						array(
+							'taxonomy'  => 'location',
+							'field'     => 'slug',
+							'terms'     => $att_location,
+						)
+					),
+				);  
 					
+			echo 'just location no keywords no pa';
+				
+		} ?>
+		
+		
+		<?php if($att_keyword && $att_pa && !$att_location) { // keyword and pa
+			
 			$args = array(
 					'post_type'   => 'lawyer',
 					'posts_per_page' => 20,
@@ -51,15 +119,16 @@
 							'field'     => 'slug',
 							'terms'     => $att_pa,
 						)
-						
 					),
-				);
-				
-				echo 'just pa';
+				);  
+					
+			echo 'keywords with pa no locations';
 				
 		} ?>
 		
-		<?php if($att_location) {
+		
+		
+		<?php if($att_keyword && !$att_pa && $att_location) { // keyword and location
 			
 			$args = array(
 					'post_type'   => 'lawyer',
@@ -76,12 +145,45 @@
 					),
 				);  
 					
-			echo 'just location';
+			echo 'keywords with location and no pa';
 				
 		} ?>
 		
 		
-		<?php if($att_keyword && $att_pa && $att_location) {
+		
+		
+			<?php if(!$att_keyword && $att_pa && $att_location) { // pa and location
+			
+			$args = array(
+					'post_type'   => 'lawyer',
+					'posts_per_page' => 20,
+					'orderby' => 'title',
+					'order' => 'ASC',
+					'tax_query' => array(
+						array(
+							'taxonomy'  => 'practice_area',
+							'field'     => 'slug',
+							'terms'     => $att_pa,
+						),
+						array(
+							'taxonomy'  => 'location',
+							'field'     => 'slug',
+							'terms'     => $att_location,
+						)
+					),
+				);  
+					
+			echo 'location and pa with no keywords';
+				
+		} ?>
+		
+		
+		
+		
+		
+		
+		
+		<?php if($att_keyword && $att_pa && $att_location) { // all three
 					
 			
 				$args = array(
@@ -109,19 +211,13 @@
 				
 		} ?>
 		
-
+		<?php // consolodate all this shit ^ ?>
 		
 		<div class="directory_wrapper">
 			
-			add filter and no results in
+			add three part search in (slidetoggle?) no results in
 			
 		
-								
-				
-			
-				
-			
-						
 				<?php 
 					$temp = $wp_query; 
 					$wp_query = null; 
@@ -171,6 +267,12 @@
 								<span class="single_lawyer_title"><?php the_title();?></span><!-- single_lawyer_title -->
 								
 									<div class="single_lawyer_meta">
+										
+										<?php if($att_pa) {?>
+											
+											<span><?php echo $att_pa; ?></span>
+											
+										<?php } ?>
 									
 										<span>
 										
@@ -190,11 +292,7 @@
 									
 										<?php }?>
 										
-										<?php if($att_pa) {
-											
-											echo $att_pa;
-											
-										} ?>
+										
 										
 									</div><!-- single_lawyer_meta -->
 									
@@ -220,9 +318,9 @@
 			
 				<div class="pagination">
 
-						<?php wpbeginner_numeric_posts_nav(); ?>
+					<?php wpbeginner_numeric_posts_nav(); ?>
 
-					</div><!-- pagination -->
+				</div><!-- pagination -->
 
 				<?php 
 					$wp_query = null; 

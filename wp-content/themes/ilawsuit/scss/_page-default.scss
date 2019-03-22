@@ -246,15 +246,17 @@ img.att_feed_image {
 
 .single_lawyer_meta {
 	display: flex;
-	margin-top:30px;
+	margin-top:10px;
+	flex-direction: column;
 	span {
 		text-transform: capitalize;
 		color:$greytext;
 		font-size: 16px;
 		letter-spacing: 0.085em;
+		margin-bottom:6px;
 		@include montserrat_extrabold;
-		&:first-of-type {
-			margin-right:10%;
+		&:last-of-type {
+			margin-bottom: 0;
 		}
 	}
 }
@@ -336,6 +338,7 @@ span.visit_button {
 
 
 .paged_wrapper {
+	margin-bottom:45px;
 	.navigation {
 		ul {
 			list-style: none;

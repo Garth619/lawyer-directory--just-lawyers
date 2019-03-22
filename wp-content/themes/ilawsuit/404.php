@@ -14,6 +14,8 @@
 		<div class="directory_wrapper">
 			
 			<div class="directory_description content" style="text-align:center">
+				
+					add three part search in (slidetoggle?) no results in
 			 			 
 			 	<p>The page you were looking for appears to have been moved, deleted or does not exist. You could <a class="go_back" onclick="goBack()">go back</a> to where you were or head straight to our <a href="/">home page</a>.</p>
 		

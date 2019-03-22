@@ -30,20 +30,16 @@
 		
 		<div class="directory_wrapper">
 			
-			
+				add three part search in (slidetoggle?) no results in
 			
 				
 				<?php if ( have_posts() ) : ?>
-				
-					<div class="filter_by_search_wrapper">
-				
-						<input class="list_input desktop" type="text" placeholder="Filter<?php // echo $citytermtitle;?> Results Below">
-				
-						<input class="list_input mobile" type="text" placeholder="Filter">
-				
-						<div class="filter_by_search_button"></div><!-- filter_by_search_button -->
-				
-					</div><!-- filter_by_search_wrapper -->
+					
+					<div class="pagination">
+
+					<?php wpbeginner_numeric_posts_nav(); ?>
+
+				</div><!-- pagination -->
 					
 					<div class="lawyer_results_wrapper">
 				

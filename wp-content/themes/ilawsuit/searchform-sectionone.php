@@ -25,6 +25,7 @@
 						<li><span>Family Law</span></li>
 						<li><span>Criminal Defense</span></li>
 						<li><span>Real Estate</span></li>
+						<li><span>Search All Types</span></li>
 					</ul>
 					
 				</div><!-- sec_one_select_dropdown -->
