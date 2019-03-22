@@ -21,7 +21,7 @@
 		
 		<h1>
 			
-			Results for:
+			Results for:<br/>
 			
 			<?php if($att_keyword) {
 					
@@ -63,7 +63,7 @@
 				
 		} ?>
 		
-		<?php if(!$att_keyword && $att_pa && !$att_location) { // just pa
+		<?php if(!$att_keyword && $att_pa && $att_pa !=='Search All Types' && !$att_location) { // just pa
 					
 			$args = array(
 					'post_type'   => 'lawyer',
@@ -80,7 +80,7 @@
 					),
 				);
 				
-				echo 'just pa no keywords no locations';
+				echo 'just pa (search all types not selected) no keywords no locations';
 				
 		} ?>
 		
@@ -105,7 +105,7 @@
 		} ?>
 		
 		
-		<?php if($att_keyword && $att_pa && !$att_location) { // keyword and pa
+		<?php if($att_keyword && $att_pa && $att_pa !=='Search All Types' && !$att_location) { // keyword and pa
 			
 			$args = array(
 					'post_type'   => 'lawyer',
@@ -122,7 +122,7 @@
 					),
 				);  
 					
-			echo 'keywords with pa no locations';
+			echo 'keywords with pa (search all types not selected) no locations';
 				
 		} ?>
 		
@@ -152,7 +152,7 @@
 		
 		
 		
-			<?php if(!$att_keyword && $att_pa && $att_location) { // pa and location
+			<?php if(!$att_keyword && $att_pa && $att_pa !=='Search All Types' && $att_location) { // pa and location
 			
 			$args = array(
 					'post_type'   => 'lawyer',
@@ -173,17 +173,16 @@
 					),
 				);  
 					
-			echo 'location and pa with no keywords';
+			echo 'location and pa (search all types not selected) with no keywords';
 				
 		} ?>
 		
 		
 		
+
 		
 		
-		
-		
-		<?php if($att_keyword && $att_pa && $att_location) { // all three
+		<?php if($att_keyword && $att_pa && $att_pa !=='Search All Types' && $att_location) { // all three
 					
 			
 				$args = array(
@@ -207,9 +206,34 @@
 					),
 				);  
 			
-			
+				echo "keywords with pa (search all types not selected) with locations";
 				
 		} ?>
+		
+		
+		
+				
+		<?php if($att_pa =='Search All Types') {
+			
+			echo 'search all types';
+		
+/*
+		array(
+                    'taxonomy' => 'category',
+                    'terms' => array( 'cat-slug' ),
+                    'field' => 'slug',
+                    'operator' => 'NOT IN',
+                )
+*/
+		
+		} ?>
+		
+<br/><br/>
+
+ <pre><code><h3>search query test</h3><?php print_r($args);?></code></pre>
+		
+		
+		
 		
 		<?php // consolodate all this shit ^ ?>
 		
