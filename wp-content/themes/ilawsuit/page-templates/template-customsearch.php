@@ -61,7 +61,7 @@
 				
 				//echo 'just keyword no pa no location';
 				
-				echo "<br/><br/> 's' => $att_keyword";
+				//echo "<br/><br/> 's' => $att_keyword";
 				
 		} ?>
 		
@@ -69,7 +69,7 @@
 					
 			$args = array(
 					'post_type'   => 'lawyer',
-					'posts_per_page' => 20,
+					'posts_per_page' => 50,
 					'orderby' => 'title',
 					'order' => 'ASC',
 					'tax_query' => array(
@@ -84,7 +84,7 @@
 				
 				//echo 'just pa (search all types not selected) no keywords no locations';
 				
-				echo "<br/><br/> 'tax_query' => array(array('taxonomy' => 'practice_area','field' => 'slug','terms' => $att_pa,)),";
+				//echo "<br/><br/> 'tax_query' => array(array('taxonomy' => 'practice_area','field' => 'slug','terms' => $att_pa,)),";
 				
 		} ?>
 		
@@ -92,7 +92,7 @@
 			
 			$args = array(
 					'post_type'   => 'lawyer',
-					'posts_per_page' => 20,
+					'posts_per_page' => 50,
 					'orderby' => 'title',
 					'order' => 'ASC',
 					'tax_query' => array(
@@ -106,7 +106,7 @@
 					
 			//echo 'just location no keywords no pa';
 			
-			echo "<br/><br/>'tax_query' => array(array('taxonomy' => 'location','field' => 'slug','terms' => $att_location,)),";
+			//echo "<br/><br/>'tax_query' => array(array('taxonomy' => 'location','field' => 'slug','terms' => $att_location,)),";
 				
 		} ?>
 		
@@ -115,7 +115,7 @@
 			
 			$args = array(
 					'post_type'   => 'lawyer',
-					'posts_per_page' => 20,
+					'posts_per_page' => 50,
 					'orderby' => 'title',
 					'order' => 'ASC',
 					's' => $att_keyword,
@@ -130,7 +130,7 @@
 					
 			//echo 'keywords with pa (search all types not selected) no locations';
 			
-			echo "<br/><br/>''s' => $att_keyword,tax_query' => array(array('taxonomy' => 'practice_area','field' => 'slug','terms' => $att_pa,)),";
+			//echo "<br/><br/>''s' => $att_keyword,tax_query' => array(array('taxonomy' => 'practice_area','field' => 'slug','terms' => $att_pa,)),";
 				
 		} ?>
 		
@@ -140,7 +140,7 @@
 			
 			$args = array(
 					'post_type'   => 'lawyer',
-					'posts_per_page' => 20,
+					'posts_per_page' => 50,
 					'orderby' => 'title',
 					'order' => 'ASC',
 					's' => $att_keyword,
@@ -155,7 +155,7 @@
 					
 			//echo 'keywords with location and no pa';
 			
-			echo "<br/><br/>'s' => $att_keyword,'tax_query' => array(array('taxonomy'  => 'location','field' => 'slug','terms' => $att_location,)),";
+			//echo "<br/><br/>'s' => $att_keyword,'tax_query' => array(array('taxonomy'  => 'location','field' => 'slug','terms' => $att_location,)),";
 				
 		} ?>
 		
@@ -166,7 +166,7 @@
 			
 			$args = array(
 					'post_type'   => 'lawyer',
-					'posts_per_page' => 20,
+					'posts_per_page' => 50,
 					'orderby' => 'title',
 					'order' => 'ASC',
 					'tax_query' => array(
@@ -185,7 +185,7 @@
 					
 			//echo 'location and pa (search all types not selected) with no keywords';
 			
-			echo "<br/><br/>'tax_query' => array(array('taxonomy'  => 'practice_area','field' => 'slug','terms' => $att_pa,),array('taxonomy'  => 'location',field'     => 'slug','terms'     => $att_location,)),";
+			//echo "<br/><br/>'tax_query' => array(array('taxonomy'  => 'practice_area','field' => 'slug','terms' => $att_pa,),array('taxonomy'  => 'location',field'     => 'slug','terms'     => $att_location,)),";
 				
 		} ?>
 		
@@ -199,7 +199,7 @@
 			
 				$args = array(
 					'post_type'   => 'lawyer',
-					'posts_per_page' => 20,
+					'posts_per_page' => 50,
 					'orderby' => 'title',
 					'order' => 'ASC',
 					's' => $att_keyword,
@@ -220,7 +220,7 @@
 			
 				//echo "keywords with pa (search all types not selected) with locations";
 				
-				echo "<br/><br/>'s' => $att_keyword,'tax_query' => array(array('taxonomy'  => 'location','field'     => 'slug','terms'     => $att_location,),array('taxonomy'  => 'practice_area','field'     => 'slug','terms'     => $att_pa,)),";
+				//echo "<br/><br/>'s' => $att_keyword,'tax_query' => array(array('taxonomy'  => 'location','field'     => 'slug','terms'     => $att_location,),array('taxonomy'  => 'practice_area','field'     => 'slug','terms'     => $att_pa,)),";
 				
 		} ?>
 		
@@ -251,12 +251,12 @@
 
 		 	$args = array(
 					'post_type'   => 'lawyer',
-					'posts_per_page' => 20,
+					'posts_per_page' => 50,
 					'orderby' => 'title',
 					'order' => 'ASC',
 				); 
 
-			echo "<br/><br/>all posts (all pas)";
+			//echo "<br/><br/>all posts (all pas)";
 	
 		
 		} ?>
@@ -271,7 +271,7 @@
 			
 			$args = array(
 					'post_type'   => 'lawyer',
-					'posts_per_page' => 20,
+					'posts_per_page' => 50,
 					'orderby' => 'title',
 					'order' => 'ASC',
 					's' => $att_keyword,
@@ -286,9 +286,9 @@
 				); 
 				
 				
-				echo "keyword with All PAs and no location";
+				//echo "keyword with All PAs and no location";
 				
-				echo "<br/><br/>'s' => $att_keyword,'tax_query' => array(array('taxonomy'  => 'practice_area','field'     => 'slug','terms'     => $termids,)),";
+				//echo "<br/><br/>'s' => $att_keyword,'tax_query' => array(array('taxonomy'  => 'practice_area','field'     => 'slug','terms'     => $termids,)),";
 		
 		
 		} ?>
@@ -300,7 +300,7 @@
 			
 			$args = array(
 					'post_type'   => 'lawyer',
-					'posts_per_page' => 20,
+					'posts_per_page' => 50,
 					'orderby' => 'title',
 					'order' => 'ASC',
 					'tax_query' => array(
@@ -319,9 +319,9 @@
 				); 
 				
 				
-				echo "All PAs with location and no keywords";
+				//echo "All PAs with location and no keywords";
 				
-				echo "<br/><br/>'tax_query' => array(array('taxonomy'  => 'practice_area','field'     => 'slug','terms'     => $termids,),array('taxonomy'  => 'location','field'     => 'slug','terms'     => $att_location,)),";
+				//echo "<br/><br/>'tax_query' => array(array('taxonomy'  => 'practice_area','field'     => 'slug','terms'     => $termids,),array('taxonomy'  => 'location','field'     => 'slug','terms'     => $att_location,)),";
 		
 		
 		} ?>
@@ -335,7 +335,7 @@
 			
 			$args = array(
 					'post_type'   => 'lawyer',
-					'posts_per_page' => 20,
+					'posts_per_page' => 50,
 					'orderby' => 'title',
 					'order' => 'ASC',
 					's' => $att_keyword,
@@ -356,20 +356,17 @@
 			
 			
 		
-			echo "keywords with all PAs with location";
+			//echo "keywords with all PAs with location";
 			
-			echo "<br/><br/>'s' => $att_keyword,'tax_query' => array(array('taxonomy'  => 'practice_area','field'     => 'slug','terms'     => $termids,),array('taxonomy'  => 'location','field'     => 'slug','terms'     => $att_location,)),";
+			//echo "<br/><br/>'s' => $att_keyword,'tax_query' => array(array('taxonomy'  => 'practice_area','field'     => 'slug','terms'     => $termids,),array('taxonomy'  => 'location','field'     => 'slug','terms'     => $att_location,)),";
 		
 		
 		 } ?>
 		
 		
-		
-		
-		
-<br/><br/>
 
- <pre><code><h3>search query test</h3><?php print_r($args);?></code><br/><br/><br/><br/>for pre_get_post this is just building an a simple nested array and adding to tax query wrapper like this $query->set( 'tax_query', $tax_query_array); bc on this custom wp_query, i am trying to add tax_query wrapper based on variables so it could get redundant </pre>
+
+<!--  <pre><code><br/><br/><h3>search query test</h3><?php print_r($args);?></code><br/><br/><br/><br/>for pre_get_post this is just building an a simple nested array and adding to tax query wrapper like this $query->set( 'tax_query', $tax_query_array); bc on this custom wp_query, i am trying to add tax_query wrapper based on variables so it could get redundant </pre> -->
 		
 		
 		
@@ -380,7 +377,7 @@
 		
 		<div class="directory_wrapper">
 			
-			add three part search in (slidetoggle?) no results in
+			
 			
 		
 				<?php 
@@ -389,11 +386,25 @@
 					$wp_query = new WP_Query(); 
 					$wp_query->query($args); ?>
 					
+					
+					<?php if ($wp_query->have_posts() ) {?>
+			
+				
+						make a new search
+				
+					
+					<?php }?>
+					
 					<div class="pagination">
 
 						<?php wpbeginner_numeric_posts_nav(); ?>
 
 					</div><!-- pagination -->
+					
+					
+					
+					
+					
 					
 					<div class="lawyer_results_wrapper">
 
@@ -486,6 +497,28 @@
 					<?php wpbeginner_numeric_posts_nav(); ?>
 
 				</div><!-- pagination -->
+				
+			<?php if ( !$wp_query->have_posts() ) {?>
+			
+				
+				
+				
+				<div class="not_found_description content" style="text-align:center">
+				
+				
+			 			 
+			 	<p>The page you were looking for appears to have been moved, deleted or does not exist. You could <a class="go_back" onclick="goBack()">go back</a> to where you were or head straight to our <a href="/">home page</a>.</p>
+		
+		
+			</div><!-- directory_description -->
+				
+			
+				
+				<?php get_template_part('searchform','threepart');?>
+				
+			
+			
+			<?php }?>
 
 				<?php 
 					$wp_query = null; 

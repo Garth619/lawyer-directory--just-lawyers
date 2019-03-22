@@ -13,16 +13,20 @@
 		
 		<div class="directory_wrapper">
 			
-			<div class="directory_description content" style="text-align:center">
+			<div class="not_found_description content" style="text-align:center">
 				
-					add three part search in (slidetoggle?) no results in
-			 			 
-			 	<p>The page you were looking for appears to have been moved, deleted or does not exist. You could <a class="go_back" onclick="goBack()">go back</a> to where you were or head straight to our <a href="/">home page</a>.</p>
+				<p>The page you were looking for appears to have been moved, deleted or does not exist. You could <a class="go_back" onclick="goBack()">go back</a> to where you were or head straight to our <a href="/">home page</a>.</p>
+			 	
+			 	
 		
 		
-			</div><!-- directory_description -->
+			</div><!-- not_found_description -->
+			
+			<?php get_template_part('searchform','threepart');?>
 				
 		</div><!-- directory_wrapper -->
+		
+		
 		
 	</div><!-- outer_container -->
 	

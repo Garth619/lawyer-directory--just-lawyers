@@ -4,11 +4,7 @@
 			
 			<h1><?php the_field( 'section_one_title' ); ?></h1>
 			
-			<div class="sec_one_search_wrapper">
-				
-				<?php get_template_part('searchform','sectionone');?>
-			
-			</div><!-- sec_one_search_wrapper -->
+				<?php get_template_part('searchform','threepart');?>
 			
 		</div><!-- sec_one_inner -->
 	

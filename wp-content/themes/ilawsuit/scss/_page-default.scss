@@ -377,6 +377,12 @@ span.visit_button {
 }
 
 
+.not_found_description {
+	max-width:1120px;
+	margin:0 auto;
+}
+
+
 @media screen and (max-width: 1735px) {
 	
 	
@@ -446,6 +452,19 @@ span.visit_button {
 	
 	   
 	
+	
+	
+	
+} /* Media Query */
+
+
+
+@media screen and (max-width: 1175px) {
+	
+	
+	.not_found_description {
+    max-width: 700px;
+  }
 	
 	
 	

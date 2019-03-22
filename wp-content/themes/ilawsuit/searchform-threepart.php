@@ -1,3 +1,5 @@
+<div class="three_part_search_wrapper">
+
 <form action="<?php bloginfo('url');?>/results/" method="get">
 				
 	<div class="sec_one_input_wrapper">
@@ -45,15 +47,11 @@
 	</div><!-- sec_one_input_wrapper -->
 	
 	<div class="sec_one_submit_wrapper">
-		
-<!--
-		<input type="hidden" value="1" name="sentence" />
 			
-		<input type="hidden" value="lawyer" name="post_type" />
--->
-	
-		<input type="submit" id="searchsubmit" value="Click to find a lawyer">
+			<input type="submit" id="searchsubmit" value="Click to find a lawyer">
 		
 	</div><!-- sec_one_submit_wrapper -->
 	
 </form>
+
+</div><!-- three_part_search_wrapper -->
