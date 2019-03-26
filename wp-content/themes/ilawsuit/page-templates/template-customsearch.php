@@ -21,8 +21,6 @@
 		
 		<h1>
 			
-			Results for:<br/>
-			
 			<?php if($att_keyword && !$att_pa && !$att_location) { //just keyword
 					
 				echo $att_keyword;
@@ -91,6 +89,13 @@
 			<?php if($att_keyword && $att_pa == 'Search All Types' && $att_location) { // all three (all pas)
 				
 				echo $att_keyword . ' <span>and</span> Practice Areas <span>in</span> ' . $att_location;
+			
+			} ?>
+			
+			
+			<?php if(empty($att_keyword) && empty($att_pa) && empty($att_location)) { // all three (all pas)
+				
+				echo "Try Again";
 			
 			} ?>
 			
@@ -414,6 +419,19 @@
 		
 		
 		 } ?>
+		 
+		 
+		 <?php if(empty($att_keyword) && empty($att_pa) && empty($att_location)) {
+			 
+			 $args = array(
+					'post_type'   => 'lawyer',
+					'posts_per_page' => 50,
+					'orderby' => 'title',
+					'order' => 'ASC',
+				); 
+
+			 
+		} ?>
 		
 		
 
@@ -440,9 +458,20 @@
 					
 					
 					<?php if ($wp_query->have_posts() ) {?>
-			
+					
+						
+						<?php if(empty($att_keyword) && empty($att_pa) && empty($att_location)) { ?>
 				
-						<div class="make_new_search_wrapper">
+							<div class="content" style="text-align:center">
+				
+								<p>The search result you are looking for needs to be refined. Try making a new search.</p>
+				 	
+				 			</div><!-- directory_description -->
+
+				 	 <?php } ?>
+					
+								
+				 	 	<div class="make_new_search_wrapper">
 						
 							<span class="make_new_search">make a new search</span><!-- make_new_search -->
 						
@@ -457,14 +486,13 @@
 					
 					<?php }?>
 					
+					
+					
 					<div class="pagination">
 
 						<?php wpbeginner_numeric_posts_nav(); ?>
 
 					</div><!-- pagination -->
-					
-					
-					
 					
 					
 					
