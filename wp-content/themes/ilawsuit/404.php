@@ -15,14 +15,13 @@
 			
 			<div class="not_found_description content" style="text-align:center">
 				
-				<p>The page you were looking for appears to have been moved, deleted or does not exist. You could <a class="go_back" onclick="goBack()">go back</a> to where you were or head straight to our <a href="/">home page</a>.</p>
+					<p>The page you were looking for appears to have been moved, deleted or does not exist. You could <a class="go_back" onclick="goBack()">go back</a> to where you were, head straight to our <a href="/">home page</a>, or make a new search below.</p>
+				
+					<?php get_template_part('searchform','threepart');?>
 			 	
-			 	
-		
-		
-			</div><!-- not_found_description -->
+			 </div><!-- not_found_description -->
 			
-			<?php get_template_part('searchform','threepart');?>
+		
 				
 		</div><!-- directory_wrapper -->
 		

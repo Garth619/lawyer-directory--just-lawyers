@@ -30,10 +30,20 @@
 		
 		<div class="directory_wrapper">
 			
-				add three part search in (slidetoggle?) no results in
 			
-				
-				<?php if ( have_posts() ) : ?>
+			<?php if ( have_posts() ) : ?>
+			
+					<div class="make_new_search_wrapper">
+						
+							<span class="make_new_search">make a new search</span><!-- make_new_search -->
+						
+							<div class="new_search_wrapper">
+							
+								<?php get_template_part('searchform','threepart');?>
+							
+							</div><!-- new_search_wrapper -->
+						
+						</div><!-- make_new_search_wrapper -->
 					
 					<div class="pagination">
 
@@ -119,26 +129,15 @@
 					
 					<h2 class="section_header">Nothing Found</h2>
 				
-					<div class="no_results_wrapper content">
-						
-						<p>Sorry, but nothing matched your search criteria. Please try again with some different keywords.</p>
-						
-						<div class="search_no_results_form">
-						
-							<?php // get_search_form(); ?>
-							
-							<form action="/" method="get">
-    
-								<input type="text" name="s" id="search" placeholder="" value="<?php the_search_query(); ?>" />
-    
-								<input type="submit" id="searchsubmit" value="Search">
-    	
-    	
-							</form>
-						
-						</div><!-- search_no_results_form -->
-						
-					</div><!-- no_results_wrapper -->
+					<div class="not_found_description content" style="text-align:center">
+				
+				
+			 			<p>The search result you are looking for was not found. Try making a more refined search below.</p>
+				 	
+			 			<?php get_template_part('searchform','threepart');?>
+			 	
+			 	
+				</div><!-- directory_description -->
 					
 				<?php endif; ?>
 

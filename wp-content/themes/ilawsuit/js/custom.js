@@ -543,6 +543,17 @@ $('.sec_three_tab').on('click', function(e) {
 
 		}); 
 	 
+	 
+	 // new search slidetoggle
+	 
+	 
+	 $('span.make_new_search').on('click', function(e) {
+		 
+		$(this).delay(200).fadeOut(400);
+	   
+	 	$('.new_search_wrapper .three_part_search_wrapper').delay(800).slideDown();
+	 
+	 });
 
 
   

@@ -9,6 +9,9 @@
 		max-width: 940px;
 		margin:0 auto;
 		text-transform: capitalize;
+		span {
+			text-transform: lowercase;
+		}
 	}
 }
 
@@ -377,9 +380,31 @@ span.visit_button {
 }
 
 
+span.make_new_search {
+	background: #2117dc;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 14px;
+  letter-spacing: 0.25em;
+  display: inline-block;
+  padding: 25px 47px;
+  //transition: all 200ms ease-in-out;
+  border:1px solid $bluetwo;
+  cursor: pointer;
+  margin-bottom:75px;
+  @include montserrat_extrabold;
+/*
+  &:hover {
+	  background: transparent;
+	  color:$bluetwo;
+  }
+*/
+}
+
+
 .not_found_description {
-	max-width:1120px;
-	margin:0 auto;
+	max-width:1152px;
+	margin:0 auto 300px;
 }
 
 
@@ -464,6 +489,7 @@ span.visit_button {
 	
 	.not_found_description {
     max-width: 700px;
+    margin-bottom: 100px;
   }
 	
 	

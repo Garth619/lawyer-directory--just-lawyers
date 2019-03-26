@@ -23,24 +23,76 @@
 			
 			Results for:<br/>
 			
-			<?php if($att_keyword) {
+			<?php if($att_keyword && !$att_pa && !$att_location) { //just keyword
 					
 				echo $att_keyword;
 				
 			} ?>
 			
-			<?php if($att_pa) {
-					
+			
+			<?php if(!$att_keyword && $att_pa && $att_pa !== 'Search All Types' && !$att_location) { // just pa
+			
 				echo $att_pa;
 				
 			} ?>
 			
-			<?php if($att_location) {
-					
+			
+			<?php if(!$att_keyword && !$att_pa && $att_location) { // just location 
+				
 				echo $att_location;
+								
+			} ?>
+			
+			<?php if($att_keyword && $att_pa && $att_pa !== 'Search All Types' && !$att_location) { // keyword and pa
+				
+				echo $att_keyword .' <span>and</span> ' . $att_pa;
+			
+			} ?>
+			
+			<?php if($att_keyword && !$att_pa && $att_location) { // keyword and location
+				
+				echo $att_keyword .' <span>in</span> ' . $att_location;
 				
 			} ?>
 			
+			<?php if(!$att_keyword && $att_pa && $att_pa !== 'Search All Types' && $att_location) { // pa and location
+				
+				echo $att_pa .' <span>in</span> ' . $att_location;
+			
+			} ?>
+			
+			<?php if($att_keyword && $att_pa && $att_pa !== 'Search All Types' && $att_location) { // all three
+				
+				echo $att_keyword . ' <span>and</span> ' .$att_pa .' <span>in</span> ' . $att_location;
+				
+			} ?>
+			
+			<?php if(!$att_keyword && $att_pa =='Search All Types' && !$att_location) { // all pas
+				
+				echo 'Practice Areas';
+				
+			} ?>
+			
+			
+			<?php if($att_keyword && $att_pa == 'Search All Types' && !$att_location) { // keywords and all pas
+				
+				echo $att_keyword . ' <span>and</span> Practice Areas';
+			
+			} ?>
+			
+			
+			<?php if(!$att_keyword && $att_pa == 'Search All Types' && $att_location) { //all pas and locations
+				
+				echo 'Practice Areas <span>in</span> ' . $att_location;
+				
+			} ?>
+			
+			
+			<?php if($att_keyword && $att_pa == 'Search All Types' && $att_location) { // all three (all pas)
+				
+				echo $att_keyword . ' <span>and</span> Practice Areas <span>in</span> ' . $att_location;
+			
+			} ?>
 			
 		</h1>
 
@@ -88,7 +140,7 @@
 				
 		} ?>
 		
-		<?php if(!$att_keyword && !$att_pa && $att_location) { // just location these need to remove the s in a min
+		<?php if(!$att_keyword && !$att_pa && $att_location) { // just location 
 			
 			$args = array(
 					'post_type'   => 'lawyer',
@@ -390,7 +442,17 @@
 					<?php if ($wp_query->have_posts() ) {?>
 			
 				
-						make a new search
+						<div class="make_new_search_wrapper">
+						
+							<span class="make_new_search">make a new search</span><!-- make_new_search -->
+						
+							<div class="new_search_wrapper">
+							
+								<?php get_template_part('searchform','threepart');?>
+							
+							</div><!-- new_search_wrapper -->
+						
+						</div><!-- make_new_search_wrapper -->
 				
 					
 					<?php }?>
@@ -488,9 +550,7 @@
 		
 				<?php endwhile; ?>
 
-				
-			
-			</div><!-- lawyer_results_wrapper -->
+				</div><!-- lawyer_results_wrapper -->
 			
 				<div class="pagination">
 
@@ -501,24 +561,19 @@
 			<?php if ( !$wp_query->have_posts() ) {?>
 			
 				
-				
+				<h2 class="section_header">Nothing Found</h2>
+			
 				
 				<div class="not_found_description content" style="text-align:center">
 				
-				
-			 			 
-			 	<p>The page you were looking for appears to have been moved, deleted or does not exist. You could <a class="go_back" onclick="goBack()">go back</a> to where you were or head straight to our <a href="/">home page</a>.</p>
-		
-		
-			</div><!-- directory_description -->
-				
-			
-				
-				<?php get_template_part('searchform','threepart');?>
+					<p>The search result you are looking for was not found. Try making a more refined search below.</p>
+				 	
+				 	<?php get_template_part('searchform','threepart');?>
+			 	
+			 	</div><!-- directory_description -->
 				
 			
-			
-			<?php }?>
+			<?php } ?>
 
 				<?php 
 					$wp_query = null; 
