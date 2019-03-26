@@ -594,7 +594,7 @@
 				
 				<div class="not_found_description content" style="text-align:center">
 				
-					<p>The search result you are looking for was not found. Try making a more refined search below.</p>
+					<p>The search result you are looking for is not found. Try making a more refined search below.</p>
 				 	
 				 	<?php get_template_part('searchform','threepart');?>
 			 	
