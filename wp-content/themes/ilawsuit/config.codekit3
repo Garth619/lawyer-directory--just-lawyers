@@ -101,6 +101,14 @@
 		"oAP": "/header.php",
 		"oF": 0
 		},
+	"/images/hero-att.webp": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 0,
+		"oAP": "/images/hero-att.webp",
+		"oF": 0
+		},
 	"/images/hero-desk.jpg": {
 		"ft": 16384,
 		"iS": 187774,

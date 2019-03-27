@@ -7,6 +7,9 @@
 		
 		<h1>
 			
+			<?php echo get_search_query();?>
+			
+<!--
 			<?php if ( !is_paged() ) {
 				
 				echo 'Results:';
@@ -21,6 +24,7 @@
 		
 			
 			<?php printf( __( '%s', 'twentyten' ), '<span>' . get_search_query() . '</span>' ); ?>
+-->
 			
 		</h1>
 
@@ -32,6 +36,15 @@
 			
 			
 			<?php if ( have_posts() ) : ?>
+			
+					<?php $count = $wp_query->found_posts; // do these slow it down? what about pre_get_post will something similar work??>
+					
+					<?php if($count) { ?>
+							
+						<span class="results_number">Search Results (<?php echo $count;?>)</span><!-- results_number -->
+							
+					<?php } ?>
+
 			
 					<div class="make_new_search_wrapper">
 						
@@ -50,7 +63,8 @@
 					<?php wpbeginner_numeric_posts_nav(); ?>
 
 				</div><!-- pagination -->
-					
+				
+										
 					<div class="lawyer_results_wrapper">
 				
 					<?php while ( have_posts() ) : the_post(); ?>

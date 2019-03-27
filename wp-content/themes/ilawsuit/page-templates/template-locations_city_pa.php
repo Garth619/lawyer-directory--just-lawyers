@@ -52,6 +52,8 @@
 		
 		<div class="directory_wrapper lawyer_wrapper">
 			
+			
+			
 			<div class="breadcrumb_wrapper">
 			
 				<a href="<?php bloginfo('url');?>">Home</a>
@@ -65,6 +67,8 @@
 				<a><?php echo $citytermtitle;?></a>
 			
 			</div><!-- breadcrumb_wrapper -->
+			
+						
 			
 			
 			<?php if(get_field('pa_location_content_blocks','option')) :?>
@@ -88,6 +92,7 @@
 			
 		 		endif; ?>
 		 		
+		 		
 		 		<div class="filter_by_search_wrapper">
 				
 					<input class="list_input desktop" type="text" placeholder="Filter<?php // echo $citytermtitle;?> Lawyers Below">
@@ -98,8 +103,8 @@
 				
 				</div><!-- filter_by_search_wrapper -->
 		
-		
-			<div class="lawyer_results_wrapper">
+				
+			
 				
 				<?php 
 	
@@ -123,9 +128,33 @@
 						),
 				);
 	
-				 $singlefirms = new WP_Query($query_args);
+				 $singlefirms = new WP_Query($query_args);?>
+				 
+				 
+
+				 <?php $count = $singlefirms->found_posts; // do these slow it down? what about pre_get_post will something similar work? ?>
+				 
+				 <?php if($count) { ?>
+							
+					<span class="results_number">Total Lawyers (<?php echo $count;?>)</span><!-- results_number -->
+							
+				 <?php } ?>
+				 
+				 <div class="make_new_search_wrapper lawyer_search_styles">
+						
+							<span class="make_new_search">make a new search</span><!-- make_new_search -->
+						
+							<div class="new_search_wrapper">
+							
+								<?php get_template_part('searchform','threepart');?>
+							
+							</div><!-- new_search_wrapper -->
+						
+						</div><!-- make_new_search_wrapper -->
+				 
+				 <div class="lawyer_results_wrapper">
 	
-					while($singlefirms->have_posts()) : $singlefirms->the_post();?>
+					<?php while($singlefirms->have_posts()) : $singlefirms->the_post();?>
 	
 						
 						<div class="single_lawyer_result">

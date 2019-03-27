@@ -407,6 +407,34 @@ span.make_new_search {
 	margin:0 auto 300px;
 }
 
+body.page-template-default {
+	.directory_wrapper {
+		text-align: left;
+		max-width: 1165px;
+	}
+}
+
+
+span.results_number {
+	text-transform: uppercase;
+  color: #000;
+  font-size: 16px;
+  letter-spacing: 0.25em;
+  text-decoration: none;
+  line-height: 20px;
+  display: block;
+  margin-bottom:35px;
+	@include montserrat_extrabold;
+}
+
+
+.make_new_search_wrapper.lawyer_search_styles {
+		margin-top:-20px;
+	.three_part_search_wrapper {
+		margin-bottom: 50px;
+	}
+}
+
 
 @media screen and (max-width: 1735px) {
 	

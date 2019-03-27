@@ -113,6 +113,7 @@
 					'posts_per_page' => 50,
 					'orderby' => 'title',
 					'order' => 'ASC',
+					'paged' => $paged,
 					's' => $att_keyword
 				);
 				
@@ -129,6 +130,7 @@
 					'posts_per_page' => 50,
 					'orderby' => 'title',
 					'order' => 'ASC',
+					'paged' => $paged,
 					'tax_query' => array(
 						array(
 							'taxonomy'  => 'practice_area',
@@ -151,6 +153,7 @@
 					'post_type'   => 'lawyer',
 					'posts_per_page' => 50,
 					'orderby' => 'title',
+					'paged' => $paged,
 					'order' => 'ASC',
 					'tax_query' => array(
 						array(
@@ -174,6 +177,7 @@
 					'post_type'   => 'lawyer',
 					'posts_per_page' => 50,
 					'orderby' => 'title',
+					'paged' => $paged,
 					'order' => 'ASC',
 					's' => $att_keyword,
 					'tax_query' => array(
@@ -199,6 +203,7 @@
 					'post_type'   => 'lawyer',
 					'posts_per_page' => 50,
 					'orderby' => 'title',
+					'paged' => $paged,
 					'order' => 'ASC',
 					's' => $att_keyword,
 					'tax_query' => array(
@@ -225,6 +230,7 @@
 					'post_type'   => 'lawyer',
 					'posts_per_page' => 50,
 					'orderby' => 'title',
+					'paged' => $paged,
 					'order' => 'ASC',
 					'tax_query' => array(
 						array(
@@ -257,6 +263,7 @@
 				$args = array(
 					'post_type'   => 'lawyer',
 					'posts_per_page' => 50,
+					'paged' => $paged,
 					'orderby' => 'title',
 					'order' => 'ASC',
 					's' => $att_keyword,
@@ -309,6 +316,7 @@
 		 	$args = array(
 					'post_type'   => 'lawyer',
 					'posts_per_page' => 50,
+					'paged' => $paged,
 					'orderby' => 'title',
 					'order' => 'ASC',
 				); 
@@ -331,6 +339,7 @@
 					'posts_per_page' => 50,
 					'orderby' => 'title',
 					'order' => 'ASC',
+					'paged' => $paged,
 					's' => $att_keyword,
 					'tax_query' => array(
 						array(
@@ -359,6 +368,7 @@
 					'post_type'   => 'lawyer',
 					'posts_per_page' => 50,
 					'orderby' => 'title',
+					'paged' => $paged,
 					'order' => 'ASC',
 					'tax_query' => array(
 						array(
@@ -395,6 +405,7 @@
 					'posts_per_page' => 50,
 					'orderby' => 'title',
 					'order' => 'ASC',
+					'paged' => $paged,
 					's' => $att_keyword,
 					'tax_query' => array(
 						array(
@@ -427,6 +438,7 @@
 					'post_type'   => 'lawyer',
 					'posts_per_page' => 50,
 					'orderby' => 'title',
+					'paged' => $paged,
 					'order' => 'ASC',
 				); 
 
@@ -454,13 +466,26 @@
 					$temp = $wp_query; 
 					$wp_query = null; 
 					$wp_query = new WP_Query(); 
-					$wp_query->query($args); ?>
+					$wp_query->query($args);
 					
+					$count = $wp_query->found_posts; // do these slow it down? what about pre_get_post will something similar work?
+					
+					?>
+					
+				
+				
 					
 					<?php if ($wp_query->have_posts() ) {?>
-					
 						
-						<?php if(empty($att_keyword) && empty($att_pa) && empty($att_location)) { ?>
+						
+						<?php if($count) { ?>
+							
+							<span class="results_number">Search Results (<?php echo $count;?>)</span><!-- results_number -->
+							
+						<?php } ?>
+						
+						
+					<?php if(empty($att_keyword) && empty($att_pa) && empty($att_location)) { ?>
 				
 							<div class="content" style="text-align:center">
 				
@@ -482,6 +507,8 @@
 							</div><!-- new_search_wrapper -->
 						
 						</div><!-- make_new_search_wrapper -->
+						
+					
 				
 					
 					<?php }?>

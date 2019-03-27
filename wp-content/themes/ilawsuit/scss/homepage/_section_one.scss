@@ -50,6 +50,8 @@ body:not(.page-template-template-home) {
 
 .make_new_search_wrapper {
 	min-height:141px;
+	position: relative;
+	z-index:5;
 	.three_part_search_wrapper {
 		margin-top:0;
 		margin-bottom:90px;
