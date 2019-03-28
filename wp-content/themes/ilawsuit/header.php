@@ -85,7 +85,41 @@
 			
 		</div><!-- header_right -->
 		
+	
 	</header>
+	
+	
+	<div class="mobile_sticky_header">
+		
+			<div class="mobile_refine_wrapper">
+			
+				<div class="mobile_search_icon"></div><!-- mobile_search_icon -->
+			
+				<span>Refine Your Search</span>
+			
+			</div><!-- mobile_refine_wrapper -->
+			
+			<div class="mobile_close_wrapper">
+				
+				<div class="mobile_refine_close"></div><!-- mobile_refine_close -->
+				
+				<span>Close</span>
+				
+			</div><!-- mobile_close_wrapper -->
+			
+		</div><!-- mobile_sticky_header -->
+		
+		<div class="mobile_search_overlay">
+			
+			<div class="mobile_search_overlay_inner">
+			
+				<?php get_template_part('searchform','threepart');?>
+			
+			</div><!-- mobile_search_overlay_inner -->
+			
+		</div><!-- mobile_search_overlay -->
+	
+	
 	
 	<nav>
 		

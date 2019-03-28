@@ -175,7 +175,7 @@
 			
 					$selling_point_banner_image_custom = get_field( 'selling_point_banner_image_custom' ); ?>
 				
-					<img src="<?php echo $selling_point_banner_image_custom['url']; ?>" alt="<?php echo $selling_point_banner_image_custom['alt']; ?>" />
+					<img data-src="<?php echo $selling_point_banner_image_custom['url']; ?>" alt="<?php echo $selling_point_banner_image_custom['alt']; ?>" />
 			
 					<?php 
 					
@@ -185,13 +185,13 @@
 			
 					if(get_field('selling_point_banner_options') == 'Building') { ?>
 			
-						<img src="<?php bloginfo('template_directory');?>/images/profile-quote-img-2.jpg" alt="<?php the_title();?> Selling Point" />
+						<img data-src="<?php bloginfo('template_directory');?>/images/profile-quote-img-2.jpg" alt="<?php the_title();?> Selling Point" />
 			
 					<?php	}
 			
 					if(get_field('selling_point_banner_options') == 'Inside Office') { ?>
 			
-						<img src="<?php bloginfo('template_directory');?>/images/profile-quote-img.jpg" alt="<?php the_title();?> Selling Point" />
+						<img data-src="<?php bloginfo('template_directory');?>/images/profile-quote-img.jpg" alt="<?php the_title();?> Selling Point" />
 			
 						<?php } 
 				
@@ -330,7 +330,7 @@
 						
 									<div class="single_case_icon">
 							
-										<img src="<?php bloginfo('template_directory');?>/images/star_icon.svg" alt="star_icon"/>
+										<img data-src="<?php bloginfo('template_directory');?>/images/star_icon.svg" alt="star_icon"/>
 							
 									</div><!-- single_case_icon -->
 						

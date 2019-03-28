@@ -489,7 +489,7 @@
 				
 							<div class="content" style="text-align:center">
 				
-								<p>The search result you are looking for needs to be refined. Try making a new search.</p>
+								<p>The search result you are looking for might be too broad. Try refining your search.</p>
 				 	
 				 			</div><!-- directory_description -->
 
@@ -498,7 +498,7 @@
 								
 				 	 	<div class="make_new_search_wrapper">
 						
-							<span class="make_new_search">make a new search</span><!-- make_new_search -->
+							<span class="make_new_search">refine your search</span><!-- make_new_search -->
 						
 							<div class="new_search_wrapper">
 							

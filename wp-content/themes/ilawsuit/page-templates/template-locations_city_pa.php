@@ -142,7 +142,7 @@
 				 
 				 <div class="make_new_search_wrapper lawyer_search_styles">
 						
-							<span class="make_new_search">make a new search</span><!-- make_new_search -->
+							<span class="make_new_search">refine your search</span><!-- make_new_search -->
 						
 							<div class="new_search_wrapper">
 							

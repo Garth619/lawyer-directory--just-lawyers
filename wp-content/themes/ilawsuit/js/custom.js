@@ -121,7 +121,7 @@ jQuery(document).ready(function($){
       console.log('images loaded');
     }
 
-    // createWaypoint('section_two', null, null, '100%', loadImages, false);
+    createWaypoint('internal_main', null, null, -10, loadImages, false);
 
 
 
@@ -233,7 +233,7 @@ jQuery(document).ready(function($){
 		
 		
 
-    // createWaypoint('section_one', '.sticky_header', 'visible', -300, null, true);
+    createWaypoint('internal_main', '.mobile_sticky_header', 'visible', -300, null, true);
     
    
 
@@ -554,7 +554,32 @@ $('.sec_three_tab').on('click', function(e) {
 	 	$('.new_search_wrapper .three_part_search_wrapper').delay(800).slideDown();
 	 
 	 });
+	 
+	
+	
+	// mobile search
 
-
+	
+	$('.mobile_refine_wrapper').on('click', function(e) {
+	  
+		$('.mobile_search_overlay').slideToggle();
+		
+		$(this).fadeOut(300);
+		
+		$('.mobile_close_wrapper').delay(300).css("display", "flex").hide().fadeIn(300);
+	
+	});
+	
+	
+	$('.mobile_close_wrapper').on('click', function(e) {
+	  
+		$('.mobile_search_overlay').slideToggle();
+		
+		$(this).fadeOut(300);
+		
+		$('.mobile_refine_wrapper').delay(300).css("display", "flex").hide().fadeIn(300);
+	
+	});
+	
   
 }); // document ready

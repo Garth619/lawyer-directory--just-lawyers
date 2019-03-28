@@ -383,6 +383,7 @@ span.visit_button {
 span.make_new_search {
 	background: #2117dc;
   color: #fff;
+  text-align: center;
   text-transform: uppercase;
   font-size: 14px;
   letter-spacing: 0.25em;
@@ -433,6 +434,11 @@ span.results_number {
 	.three_part_search_wrapper {
 		margin-bottom: 50px;
 	}
+}
+
+
+#internal_main {
+	margin: 164px 0 0;
 }
 
 
@@ -593,7 +599,7 @@ span.results_number {
 	}
 	
 	#internal_main {
-  	margin-top: 79px;
+  	  margin-top: 79px;
 	}
 	
 	
@@ -688,10 +694,14 @@ span.results_number {
 
 
 
+span.make_new_search {
+	padding-left:30px;
+	padding-right:30px;
+}
+
+	
 
 
-	
-	
-	
+
 	
 } /* Media Query */

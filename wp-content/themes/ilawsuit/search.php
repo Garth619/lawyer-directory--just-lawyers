@@ -48,7 +48,7 @@
 			
 					<div class="make_new_search_wrapper">
 						
-							<span class="make_new_search">make a new search</span><!-- make_new_search -->
+							<span class="make_new_search">refine your search</span><!-- make_new_search -->
 						
 							<div class="new_search_wrapper">
 							
@@ -146,7 +146,7 @@
 					<div class="not_found_description content" style="text-align:center">
 				
 				
-			 			<p>The search result you are looking for is not found. Try making a more refined search below.</p>
+			 			<p>The lawyer you are looking for "<?php echo get_search_query();?>" is not found. Try making a more refined search below.</p>
 				 	
 			 			<?php get_template_part('searchform','threepart');?>
 			 	

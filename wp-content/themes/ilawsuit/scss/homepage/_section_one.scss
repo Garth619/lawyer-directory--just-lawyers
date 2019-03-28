@@ -90,6 +90,9 @@ body:not(.page-template-template-home) {
 				padding:29px 30px;
 				color:#fff;
 			}
+			input#search {
+				
+			}
 		}
 	}
 	
@@ -385,16 +388,19 @@ body:not(.page-template-template-home) {
 	.sec_one_input_wrapper {
 		.input_wrapper {
 			input {
-				height:74px;
+				height:60px;
+				padding-left:20px;
 			}
 			
 		}
 	}
 	.sec_one_select_wrapper {
 		.sec_one_select {
-			height:74px;
+			height:60px;
+			padding: 20px 60px 0px 20px;
 			&:after {
-				top: 37px;
+				top: 29px;
+				right: 20px;
 				border-left: 6px solid transparent;
 				border-right: 6px solid transparent;
 				border-top: 6px solid $bluetwo;
@@ -405,7 +411,7 @@ body:not(.page-template-template-home) {
 		}
 	}
 	.sec_one_select_dropdown {
-		top: 74px;
+		top: 60px;
 		ul {
 			li {
 				
@@ -425,6 +431,7 @@ body:not(.page-template-template-home) {
 			}
 		}
 		input[type="submit"] {
+			padding: 14px 8px;
 			&:hover {
 				
 			}
