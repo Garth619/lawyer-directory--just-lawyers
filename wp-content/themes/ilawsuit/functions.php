@@ -49,7 +49,7 @@ function load_my_styles_scripts() {
 		    
     wp_enqueue_script( 'jquery-addon', get_template_directory_uri() . '/js/custom-min.js', 'jquery', '', true );
     
-    wp_enqueue_script( 'jquery-mygravity', get_template_directory_uri() . '/js/gravityforms-min.js', 'jquery', '', true );
+    //wp_enqueue_script( 'jquery-mygravity', get_template_directory_uri() . '/js/gravityforms-min.js', 'jquery', '', true );
     
 
  }
@@ -62,6 +62,7 @@ function load_my_styles_scripts() {
 -------------------------------------------------------------- */
  
  
+/*
 
  function add_defer_attribute($tag, $handle) {
    // add script handles to the array below
@@ -77,6 +78,7 @@ function load_my_styles_scripts() {
 
 
 add_filter('script_loader_tag', 'add_defer_attribute', 10, 2);
+*/
 
 
 
@@ -86,6 +88,7 @@ add_filter('script_loader_tag', 'add_defer_attribute', 10, 2);
 
 
 
+/*
  function my_deregister_scripts(){
   
   wp_deregister_script( 'wp-embed' );
@@ -93,6 +96,7 @@ add_filter('script_loader_tag', 'add_defer_attribute', 10, 2);
 	}
 
 	add_action( 'wp_footer', 'my_deregister_scripts' );
+*/
 
 
 
@@ -102,6 +106,7 @@ add_filter('script_loader_tag', 'add_defer_attribute', 10, 2);
 	
 	
 
+/*
 	function deregister_scripts(){
 			
   wp_deregister_script("gform_placeholder");
@@ -113,6 +118,7 @@ add_filter('script_loader_tag', 'add_defer_attribute', 10, 2);
 	
 	
 add_action("gform_enqueue_scripts", "deregister_scripts");
+*/
 
 
 
@@ -523,61 +529,80 @@ add_action( 'template_redirect', 'prefix_url_rewrite_templates' );
 
 
 
-// custom search
+
+
 
 /*
-function my_custom_search($query) {
-    
-    if ( !is_admin() && $query->is_main_query() ) {
-        
-        if ($query->is_search) {
-	        
-	        	$attorneykeyword = get_query_var( 'attorney_keyword', FALSE );
-            $attorneypa = get_query_var( 'attorney_pa', FALSE );
-            $attorneylocation = get_query_var( 'attorney_location', FALSE );
-            
-            $tax_query_array = array('relation' => 'AND');
-            
-            $attorneylocation ? array_push($tax_query_array, array('taxonomy' => 'location', 'field' => 'term_id', 'terms' => $attorneylocation) ) : null ;
+add_action( 'pre_get_posts', 'spigot_show_all_work' );
 
-						// final tax_query
-						
-						$query->set( 'tax_query', $tax_query_array);
+function spigot_show_all_work( $query ) {
+    
+    if ( ! is_admin() && $query->is_main_query() && $query->is_archive('lawyer') ) {
+    
+       
             
-            $query->set('post_type', 'lawyer');
+            $query->set('posts_per_page', 10 );
+            $query-> set('post_type' , 'lawyer');
+    
         
-        }
     }
 }
-
-
-add_action( 'pre_get_posts', 'my_custom_search' );
 */
 
 
 
 
-/*
-add_action( 'pre_get_posts', 'hotbuys_search_query' );
-function hotbuys_search_query( $query ) {
-  
-  if( $query->is_main_query() && is_search()) {
-  
-		$meta_query = array(
-				array(
-          'key' => 'client_status',
-          'value' => array('active'),
-          'compare' => 'IN' 
-        ),
-		);
-		$query->set( 'meta_query', $meta_query );
+
+function my_custom_search($query) {
 		
-  }
-  
-}
-*/
+		if ( ! is_admin() && $query->is_main_query() && $query->is_archive('lawyer') ) {
+        
+       
+	        		
+	        		// custom search query vars
+	        
+	        		$att_keyword = get_query_var( 'attorney_keyword');
+						$att_pa = get_query_var( 'attorney_pa');
+						$att_location = get_query_var( 'attorney_location');
+						
+						// custom search conditionals
+						
+						//just keyword
+						
+						$test = $att_keyword && !$att_pa && !$att_location;
+						
+						
+						if($test) {  //just keyword
+							
+							$query-> set('s' , $att_keyword);
+							
+						}
+						
+						// tax_query args
+						
+						
+						//$taxquery = array();
+						
+						
+						//array_push($taxquery, array());
+						
+						
+						//$query->set('tax_query', $taxquery); 
+						
+						// CPT args
 
-
-
-
-
+	        		
+	        		$query-> set('posts_per_page' , 50);
+	      		  $query-> set('order' , 'ASC');
+	      		  $query-> set('orderby' ,'title');
+	      		  $query-> set('post_type' , 'lawyer');
+        
+						//print_r($query);
+        
+     
+		}
+		
+	}
+	
+	
+	add_action( 'pre_get_posts', 'my_custom_search' );

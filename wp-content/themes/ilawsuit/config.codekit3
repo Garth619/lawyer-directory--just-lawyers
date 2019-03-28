@@ -61,6 +61,14 @@
 		"sC": 3,
 		"tS": 0
 		},
+	"/archive-lawyer.php": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 0,
+		"oAP": "/archive-lawyer.php",
+		"oF": 0
+		},
 	"/archive.php": {
 		"cB": 0,
 		"ft": 8192,
@@ -91,6 +99,14 @@
 		"hM": 0,
 		"oA": 0,
 		"oAP": "/functions.php",
+		"oF": 0
+		},
+	"/functions_searchsnippets.php": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 0,
+		"oAP": "/functions_searchsnippets.php",
 		"oF": 0
 		},
 	"/header.php": {
@@ -454,6 +470,14 @@
 		"hM": 0,
 		"oA": 0,
 		"oAP": "/page-templates/template-contact.php",
+		"oF": 0
+		},
+	"/page-templates/template-customsearch-pregetpost.php": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 0,
+		"oAP": "/page-templates/template-customsearch-pregetpost.php",
 		"oF": 0
 		},
 	"/page-templates/template-customsearch.php": {
