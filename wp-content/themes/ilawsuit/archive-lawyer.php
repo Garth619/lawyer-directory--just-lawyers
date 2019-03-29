@@ -32,69 +32,73 @@
 			} ?>
 			
 			
-			<?php if(!$att_keyword && !$att_pa && $att_location) { // just location 
+			<?php 
 				
-				echo $att_location;
+				if(!$att_keyword && !$att_pa && $att_location) { // just location 
+				
+					echo $att_location;
 								
-			} ?>
+				}
 			
-			<?php if($att_keyword && $att_pa && $att_pa !== 'Search All Types' && !$att_location) { // keyword and pa
+				if($att_keyword && $att_pa && $att_pa !== 'Search All Types' && !$att_location) { // keyword and pa
 				
-				echo $att_keyword .' <span>and</span> ' . $att_pa;
+					echo $att_keyword .' <span>and</span> ' . $att_pa;
 			
-			} ?>
+				}
 			
-			<?php if($att_keyword && !$att_pa && $att_location) { // keyword and location
+				if($att_keyword && !$att_pa && $att_location) { // keyword and location
 				
-				echo $att_keyword .' <span>in</span> ' . $att_location;
+					echo $att_keyword .' <span>in</span> ' . $att_location;
 				
-			} ?>
+				} 
 			
-			<?php if(!$att_keyword && $att_pa && $att_pa !== 'Search All Types' && $att_location) { // pa and location
+				if(!$att_keyword && $att_pa && $att_pa !== 'Search All Types' && $att_location) { // pa and location
 				
-				echo $att_pa .' <span>in</span> ' . $att_location;
+					echo $att_pa .' <span>in</span> ' . $att_location;
 			
-			} ?>
+				} 
 			
-			<?php if($att_keyword && $att_pa && $att_pa !== 'Search All Types' && $att_location) { // all three
+				if($att_keyword && $att_pa && $att_pa !== 'Search All Types' && $att_location) { // all three
 				
-				echo $att_keyword . ' <span>and</span> ' .$att_pa .' <span>in</span> ' . $att_location;
+					echo $att_keyword . ' <span>and</span> ' .$att_pa .' <span>in</span> ' . $att_location;
 				
-			} ?>
+				}
 			
-			<?php if(!$att_keyword && $att_pa =='Search All Types' && !$att_location) { // all pas
+				if(!$att_keyword && $att_pa =='Search All Types' && !$att_location) { // all pas
 				
-				echo 'Practice Areas';
+					echo 'Practice Areas';
 				
-			} ?>
+				} 
 			
 			
-			<?php if($att_keyword && $att_pa == 'Search All Types' && !$att_location) { // keywords and all pas
+				if($att_keyword && $att_pa == 'Search All Types' && !$att_location) { // keywords and all pas
 				
-				echo $att_keyword . ' <span>and</span> Practice Areas';
+					echo $att_keyword . ' <span>and</span> Practice Areas';
 			
-			} ?>
+				}
 			
 			
-			<?php if(!$att_keyword && $att_pa == 'Search All Types' && $att_location) { //all pas and locations
+				if(!$att_keyword && $att_pa == 'Search All Types' && $att_location) { //all pas and locations
 				
-				echo 'Practice Areas <span>in</span> ' . $att_location;
+					echo 'Practice Areas <span>in</span> ' . $att_location;
 				
-			} ?>
+				}
 			
 			
-			<?php if($att_keyword && $att_pa == 'Search All Types' && $att_location) { // all three (all pas)
+				if($att_keyword && $att_pa == 'Search All Types' && $att_location) { // all three (all pas)
 				
-				echo $att_keyword . ' <span>and</span> Practice Areas <span>in</span> ' . $att_location;
+					echo $att_keyword . ' <span>and</span> Practice Areas <span>in</span> ' . $att_location;
 			
-			} ?>
+				}
 			
 			
-			<?php if(empty($att_keyword) && empty($att_pa) && empty($att_location)) { // all three (all pas)
+				if(empty($att_keyword) && empty($att_pa) && empty($att_location)) { // all three (all pas)
 				
-				echo "Try Again";
+					echo "Try Again";
 			
-			} ?>
+				}
+			
+			?>
 			
 		</h1>
 
@@ -202,9 +206,7 @@
 									
 										<?php }?>
 										
-										
-										
-									</div><!-- single_lawyer_meta -->
+										</div><!-- single_lawyer_meta -->
 									
 									<div class="visit_button_wrapper">
 									
@@ -227,10 +229,8 @@
 			
 			<?php if (!have_posts() ) {?>
 			
-				
 				<h2 class="section_header">Nothing Found</h2>
 			
-				
 				<div class="not_found_description content" style="text-align:center">
 				
 					<p>The search result you are looking for is not found. Try making a more refined search below.</p>

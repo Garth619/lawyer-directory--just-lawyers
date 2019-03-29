@@ -474,6 +474,7 @@ add_action( 'template_redirect', 'prefix_url_rewrite_templates' );
 
 
 
+
 function my_custom_search($query) {
 		
 		if ( ! is_admin() && $query->is_main_query() && $query->is_archive('lawyer') ) {
@@ -612,7 +613,7 @@ function my_custom_search($query) {
 							
 							$query-> set('s' , $att_keyword);
 							
-							array_push($taxquery, array('taxonomy'  => 'practice_area','field'     => 'slug','terms'     => $termids));
+							array_push($taxquery, array('taxonomy'  => 'practice_area','field' => 'slug','terms' => $termids));
 							
 							$query->set('tax_query', $taxquery);
 							

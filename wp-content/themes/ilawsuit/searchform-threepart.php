@@ -1,6 +1,6 @@
 <div class="three_part_search_wrapper">
 
-<form action="<?php bloginfo('url');?>/lawyer-search-test/" method="get">
+<form action="<?php bloginfo('url');?>/results/" method="get">
 				
 	<div class="sec_one_input_wrapper">
 	
