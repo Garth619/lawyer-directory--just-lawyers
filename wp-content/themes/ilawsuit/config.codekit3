@@ -101,12 +101,12 @@
 		"oAP": "/functions.php",
 		"oF": 0
 		},
-	"/functions_searchsnippets.php": {
+	"/functions_searchsnippets.php.og": {
 		"cB": 0,
 		"ft": 8192,
 		"hM": 0,
 		"oA": 0,
-		"oAP": "/functions_searchsnippets.php",
+		"oAP": "/functions_searchsnippets.php.og",
 		"oF": 0
 		},
 	"/header.php": {
@@ -470,14 +470,6 @@
 		"hM": 0,
 		"oA": 0,
 		"oAP": "/page-templates/template-contact.php",
-		"oF": 0
-		},
-	"/page-templates/template-customsearch-pregetpost.php": {
-		"cB": 0,
-		"ft": 8192,
-		"hM": 0,
-		"oA": 0,
-		"oAP": "/page-templates/template-customsearch-pregetpost.php",
 		"oF": 0
 		},
 	"/page-templates/template-customsearch.php": {

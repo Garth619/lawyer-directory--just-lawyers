@@ -528,31 +528,6 @@ add_action( 'template_redirect', 'prefix_url_rewrite_templates' );
 
 
 
-
-
-
-
-/*
-add_action( 'pre_get_posts', 'spigot_show_all_work' );
-
-function spigot_show_all_work( $query ) {
-    
-    if ( ! is_admin() && $query->is_main_query() && $query->is_archive('lawyer') ) {
-    
-       
-            
-            $query->set('posts_per_page', 10 );
-            $query-> set('post_type' , 'lawyer');
-    
-        
-    }
-}
-*/
-
-
-
-
-
 function my_custom_search($query) {
 		
 		if ( ! is_admin() && $query->is_main_query() && $query->is_archive('lawyer') ) {
@@ -565,39 +540,176 @@ function my_custom_search($query) {
 						$att_pa = get_query_var( 'attorney_pa');
 						$att_location = get_query_var( 'attorney_location');
 						
-						// custom search conditionals
 						
-						//just keyword
+						// CPT args
 						
-						$test = $att_keyword && !$att_pa && !$att_location;
+						$query-> set('posts_per_page' , 50);
+	      		  $query-> set('order' , 'ASC');
+	      		  $query-> set('orderby' ,'title');
+	      		  $query-> set('post_type' , 'lawyer');
 						
 						
-						if($test) {  //just keyword
+						// tax_query setup
+						
+						$taxquery = array();
+						
+						// custom search arg conditionals
+						
+						
+						// just keyword
+						
+						if($att_keyword && !$att_pa && !$att_location) {
 							
 							$query-> set('s' , $att_keyword);
 							
 						}
 						
-						// tax_query args
+						// just pa
+						
+						if(!$att_keyword && $att_pa && $att_pa !== 'Search All Types' && !$att_location) {
+							
+							array_push($taxquery, array('taxonomy' => 'practice_area','field' => 'slug','terms' => $att_pa) );
+							
+							$query->set('tax_query', $taxquery);
+							
+						}
+						
+						// just location
+						
+						if(!$att_keyword && !$att_pa && $att_location) {
+							
+							array_push($taxquery, array('taxonomy' => 'location','field' => 'slug','terms' => $att_location));
+							
+							$query->set('tax_query', $taxquery);
+							
+						}
+						
+						// keyword and pa
+						
+						if($att_keyword && $att_pa && $att_pa !== 'Search All Types' && !$att_location) {
+							
+							$query-> set('s' , $att_keyword);
+							
+							array_push($taxquery, array('taxonomy' => 'practice_area','field' => 'slug','terms' => $att_pa));
+							
+							$query->set('tax_query', $taxquery);
+							
+						}
+						
+						// keyword and location
+						
+						if($att_keyword && !$att_pa && $att_location) {
+							
+							$query-> set('s' , $att_keyword);
+							
+							array_push($taxquery, array('taxonomy' => 'location','field' => 'slug','terms' => $att_location));
+							
+							$query->set('tax_query', $taxquery);
+							
+						}
+						
+						// pa and location
+						
+						if(!$att_keyword && $att_pa && $att_pa !== 'Search All Types' && $att_location) {
+							
+							array_push($taxquery, array('taxonomy'  => 'practice_area','field' => 'slug','terms' => $att_pa), array('taxonomy' => 'location','field' => 'slug','terms' => $att_location));
+							
+							$query->set('tax_query', $taxquery);
+							
+						}
+						
+						// all three
+						
+						if($att_keyword && $att_pa && $att_pa !== 'Search All Types' && $att_location) {
+							
+							$query-> set('s' , $att_keyword);
+							
+							array_push($taxquery, array('taxonomy'  => 'location','field' => 'slug','terms' => $att_location), array('taxonomy'  => 'practice_area','field' => 'slug','terms' => $att_pa));
+							
+							$query->set('tax_query', $taxquery);
+							
+						}
 						
 						
-						//$taxquery = array();
+						// "Search All Types" 
 						
 						
-						//array_push($taxquery, array());
+						
+						// get all term ids
 						
 						
-						//$query->set('tax_query', $taxquery); 
+						if($att_pa =='Search All Types') {
+							
+							$termids = get_terms( array( 
+									'taxonomy' => 'practice_area',
+									'fields' => 'slugs'
+								)
+							);
+							
+						}
 						
-						// CPT args
-
-	        		
-	        		$query-> set('posts_per_page' , 50);
-	      		  $query-> set('order' , 'ASC');
-	      		  $query-> set('orderby' ,'title');
-	      		  $query-> set('post_type' , 'lawyer');
+						
+						 // all pas
+						
+						
+						if(!$att_keyword && $att_pa =='Search All Types' && !$att_location) {
+							
+							return;
+							
+						}
+						
+						
+						 // keywords and all pas
+						
+						
+						if($att_keyword && $att_pa == 'Search All Types' && !$att_location) {
+							
+							$query-> set('s' , $att_keyword);
+							
+							array_push($taxquery, array('taxonomy'  => 'practice_area','field'     => 'slug','terms'     => $termids));
+							
+							$query->set('tax_query', $taxquery);
+							
+						}
+						
+						
+						//all pas and locations
+						
+						
+						if(!$att_keyword && $att_pa == 'Search All Types' && $att_location) {
+							
+							$query-> set('s' , $att_keyword);
+							
+							array_push($taxquery, array('taxonomy'  => 'practice_area','field' => 'slug','terms' => $termids), array('taxonomy'  => 'location','field' => 'slug','terms' => $att_location));
+							
+							$query->set('tax_query', $taxquery);
+							
+						}
+						
+						// all three (all pas)
+						
+						if($att_keyword && $att_pa == 'Search All Types' && $att_location) {
+							
+							$query-> set('s' , $att_keyword);
+							
+							array_push($taxquery, array('taxonomy' => 'practice_area','field' => 'slug','terms' => $termids), array('taxonomy'  => 'location','field' => 'slug','terms' => $att_location));
+							
+							$query->set('tax_query', $taxquery);
+							
+						}
+						
+						
+						// If all inputs are empty and a search is ran
+						
+						
+						if(empty($att_keyword) && empty($att_pa) && empty($att_location)) {
+							
+							return;
+							
+						}
+						
         
-						//print_r($query);
+						// print_r($query);
         
      
 		}
