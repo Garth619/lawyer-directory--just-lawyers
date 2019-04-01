@@ -17,7 +17,11 @@
 to do\
 \'97\'97\'97\'97\'97\'97\'97\
 \
-add operatpr AND to all tax_queries\
+$myposts = new Wp_Query( $query_args );\
+				\
+				//  ^ run the reg main_query here somehow? pluck ids from main_query so i can use pre_get_posts up to this point?\
+\
+add operatpr AND to all tax_queries only when there are two queries\
 \
 $query-> set('post_status' , 'publish'); is speeding everything up by half\
 \

@@ -71,6 +71,7 @@
 					'no_found_rows' => true,
 					'posts_per_page' => 60, // -1 screws up some searches with too much memory but since just states i can keep it around 50 states
 					'tax_query' => array(
+						'relation' => 'AND',
 						array(
 							'taxonomy'  => $taxlocations,
 							'field'     => 'ids',
