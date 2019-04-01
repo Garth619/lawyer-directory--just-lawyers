@@ -23,11 +23,23 @@
 				<div class="sec_one_select_dropdown">
 					
 					<ul>
-						<li><span>Business</span></li>
-						<li><span>Family Law</span></li>
-						<li><span>Criminal Defense</span></li>
-						<li><span>Real Estate</span></li>
+						
+						<?php $search_form_pa_dropdown_options_terms = get_field( 'search_form_pa_dropdown_options', 124);
+						
+						 if ( $search_form_pa_dropdown_options_terms ):
+						
+							foreach ( $search_form_pa_dropdown_options_terms as $search_form_pa_dropdown_options_term ): 
+							
+								echo '<li><span>' . $search_form_pa_dropdown_options_term->name . '</span></li>';
+						
+							endforeach; 
+						
+							endif;
+						
+						?>
+							
 						<li><span>Search All Types</span></li>
+						
 					</ul>
 					
 				</div><!-- sec_one_select_dropdown -->

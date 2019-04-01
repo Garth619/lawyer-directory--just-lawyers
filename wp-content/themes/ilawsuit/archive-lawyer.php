@@ -8,7 +8,6 @@
 	$att_location = get_query_var( 'attorney_location'); // get rid of these
 	
 	
-	
 ?>
 
 
