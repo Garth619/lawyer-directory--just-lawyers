@@ -59,62 +59,15 @@
 			 				
 			<div class="list_wrapper">
 				
-			<?php
+				<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
+					
+						<?php the_title();?>
 				
-				$taxlocations = 'location';
-				$taxpracticeareas = 'practice_area';
-	
-				$query_args = array (
-					'post_type' => 'lawyer',
-					'fields' => 'ids',
-					'post_status' => 'publish',
-					'no_found_rows' => true,
-					'posts_per_page' => 60, // -1 screws up some searches with too much memory but since just states i can keep it around 50 states
-					'tax_query' => array(
-						array(
-							'taxonomy'  => $taxlocations,
-							'field'     => 'ids',
-							'terms'     => 139 // add a slug to id conversion here or is it ok to change field to slug
-						),
-						array(
-							'taxonomy'  => $taxpracticeareas,
-							'field'     => 'ids',
-							'terms'     => $currentterm,
-						)
-					),
-				);
-				
-				
-				$myposts = new Wp_Query( $query_args );
-				
-				//  ^ run the reg main_query here somehow? pluck ids from main_query so i can use pre_get_posts up to this point?
-	
+					<?php endwhile; // end of loop ?>
 
-				$termargs = array (
-					'taxonomy' => $taxlocations,
-					'posts_per_page' => -1,
-					'object_ids' => $myposts->posts,
-					'parent' => 139 // add a slug to id conversion here
-				);
-	
-				$currenttermslug = get_queried_object()->slug; 
+				<?php endif; ?>
 
-				$term_query = new WP_Term_Query( $termargs );
-
-		
-				if ( ! empty( $term_query ) && ! is_wp_error( $term_query ) ) {
-			
-					echo "<ul>";
-			
-						foreach ( $term_query ->terms as $term )
-			
-							echo '<li><a href="' . get_bloginfo('url') . '/lawyers-practice/' . $currenttermslug . '/' . $term->slug . '">' . $term->name . '</a></li>';
-			
-						}
-			
-					echo "</ul>"; ?>
-
-				</div><!-- list_wrapper -->
+			</div><!-- list_wrapper -->
 			
 		</div><!-- directory_wrapper -->
 		

@@ -4,10 +4,10 @@
 }
 {\colortbl;\red255\green255\blue255;\red27\green29\blue31;\red235\green236\blue237;\red0\green0\blue233;
 \red36\green38\blue41;\red104\green26\blue29;\red13\green0\blue129;\red43\green39\blue19;\red114\green121\blue129;
-\red255\green255\blue255;\red57\green57\blue57;\red236\green236\blue236;\red0\green0\blue233;}
+\red255\green255\blue255;\red57\green57\blue57;\red236\green236\blue236;}
 {\*\expandedcolortbl;;\cssrgb\c14118\c15294\c16078;\cssrgb\c93725\c94118\c94510;\cssrgb\c0\c0\c93333;
 \cssrgb\c18824\c20000\c21176;\cssrgb\c49020\c15294\c15294;\cssrgb\c6275\c6275\c58039;\cssrgb\c22353\c20000\c9412;\cssrgb\c52157\c54902\c57647;
-\cssrgb\c100000\c100000\c100000;\cssrgb\c29020\c29020\c29020;\cssrgb\c94118\c94118\c94118;\cssrgb\c0\c0\c93333;}
+\cssrgb\c100000\c100000\c100000;\cssrgb\c29020\c29020\c29020;\cssrgb\c94118\c94118\c94118;}
 \margl1440\margr1440\vieww11780\viewh8400\viewkind0
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
@@ -17,7 +17,9 @@
 to do\
 \'97\'97\'97\'97\'97\'97\'97\
 \
+add operatpr AND to all tax_queries\
 \
+$query-> set('post_status' , 'publish'); is speeding everything up by half\
 \
 clean up messy code:\
 \
@@ -66,7 +68,7 @@ pre_get_post\
 \
 \pard\pardeftab720\sl280\partightenfactor0
 {\field{\*\fldinst{HYPERLINK "https://wordpress.stackexchange.com/questions/187444/pre-get-posts-using-tax-query-only-for-certain-post-type"}}{\fldrslt 
-\f2\fs24 \cf4 \cb1 \ul \ulc4 \outl0\strokewidth0 \strokec4 https://wordpress.stackexchange.com/questions/187444/pre-get-posts-using-tax-query-only-for-certain-post-type}}
+\f2\fs24 \cf4 \cb1 \ul \ulc4 https://wordpress.stackexchange.com/questions/187444/pre-get-posts-using-tax-query-only-for-certain-post-type}}
 \f0\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 \cf0 \
@@ -213,6 +215,8 @@ search should have results of terms as well as lawyer posts\
 \
 what is this? https://devblog.kommigraphics.com/wordpress/wp_query-get-count-results-instead-returning-fields/\
 \
+look at transients again\
+\
 \pard\pardeftab720\sl300\partightenfactor0
 
 \f4\fs26 \cf11 \cb12 \expnd0\expndtw0\kerning0
@@ -257,12 +261,12 @@ notes\
 think about index the really slow ones:\
 \pard\pardeftab720\sl280\partightenfactor0
 {\field{\*\fldinst{HYPERLINK "https://deliciousbrains.com/sql-query-optimization/"}}{\fldrslt 
-\f2 \cf13 \expnd0\expndtw0\kerning0
-\ul \ulc13 https://deliciousbrains.com/sql-query-optimization/}}
-\f2 \cf13 \expnd0\expndtw0\kerning0
-\ul \ulc13 \
+\f2 \cf4 \expnd0\expndtw0\kerning0
+\ul \ulc4 https://deliciousbrains.com/sql-query-optimization/}}
+\f2 \cf4 \expnd0\expndtw0\kerning0
+\ul \ulc4 \
 \pard\pardeftab720\sl280\partightenfactor0
-{\field{\*\fldinst{HYPERLINK "https://thomasgriffin.io/optimize-wordpress-queries/"}}{\fldrslt \cf13 https://thomasgriffin.io/optimize-wordpress-queries/}}
+{\field{\*\fldinst{HYPERLINK "https://thomasgriffin.io/optimize-wordpress-queries/"}}{\fldrslt \cf4 https://thomasgriffin.io/optimize-wordpress-queries/}}
 \f0 \cf0 \kerning1\expnd0\expndtw0 \ulnone \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 \cf0 \
@@ -313,7 +317,7 @@ mike questions\
 \
 some lwayer results get very long, but im not sure if pagination is the answer. They would have to click to through each page to find someone in the middle, so I set up a filter bar.  {\field{\*\fldinst{HYPERLINK "https://garretts-macbook-pro-2.local:5757/lawyers-practice/business/california/los-angeles/"}}{\fldrslt 
 \f2 \cf4 \expnd0\expndtw0\kerning0
-\ul \ulc4 \outl0\strokewidth0 \strokec4 https://garretts-macbook-pro-2.local:5757/lawyers-practice/business/california/los-angeles/}}\
+\ul \ulc4 https://garretts-macbook-pro-2.local:5757/lawyers-practice/business/california/los-angeles/}}\
 \
 rebuild seo - because some of my url stcutures are kinda like virtual templates so they dont actually exist - can you show me what each page needs for seo i.e. meta tags h1s ect that yoast normally generates\
 \
