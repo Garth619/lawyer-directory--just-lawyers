@@ -84,7 +84,7 @@
 			 				
 			 				</div><!-- directory_description -->
 			 			
-			 				<h2 class="section_header">Browse by Lawyer asdv</h2>
+			 				<h2 class="section_header">Browse by Lawyer</h2>
 		 			 		
 		 				<?php endif;
 		 			 	

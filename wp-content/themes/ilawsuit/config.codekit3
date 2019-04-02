@@ -866,6 +866,14 @@
 		"oAP": "/taxonomy-location.php",
 		"oF": 0
 		},
+	"/taxonomy-practice_area-newtwo.php": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 0,
+		"oAP": "/taxonomy-practice_area-newtwo.php",
+		"oF": 0
+		},
 	"/taxonomy-practice_area.php": {
 		"cB": 0,
 		"ft": 8192,

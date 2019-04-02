@@ -59,10 +59,31 @@
 			 				
 			<div class="list_wrapper">
 				
-			<?php
+				<?php 
+					
+					
+					$currenttermslug = get_queried_object()->term_id; 
+					
+					$termargs = array (
+					'taxonomy' => 'location',
+					'posts_per_page' => -1,
+					'fields' => 'ids',
+					'parent' => 139 
+				);
+	
 				
-				$taxlocations = 'location';
-				$taxpracticeareas = 'practice_area';
+
+				$term_query = new WP_Term_Query( $termargs );?>
+				
+				
+
+				<pre><code><?php var_dump($term_query->terms);?></code></pre>
+				
+<!-- 				<pre><code><?php var_dump($currenttermslug);?></code></pre> -->
+				
+				<?php
+				
+				
 	
 				$query_args = array (
 					'post_type' => 'lawyer',
@@ -72,53 +93,24 @@
 					'posts_per_page' => 2000, // -1 screws up some searches with too much memory
 					'tax_query' => array(
 						array(
-								'taxonomy'  => $taxlocations,
-								'operator' => 'IN',
+								'taxonomy'  => 'location',
 								'field'     => 'ids',
 								'include_children' => false,
-								'terms'     => 139 
+								'terms'     => $term_query->terms, 
 							),
 						array(
-								'taxonomy'  => $taxpracticeareas,
+								'taxonomy'  => 'practice_area',
 								'field'     => 'ids',
-								'operator' => 'IN',
-								'terms'     => $currentterm,
+								'terms'     => $currenttermslug,
 							)
 						),
 					);
 				
 				
 				$myposts = new Wp_Query( $query_args );?>
-				
-<!-- 				//  ^ run the reg main_query here somehow? pluck ids from main_query so i can use pre_get_posts up to this point? -->
-					
-<!-- 				<pre><code><?php print_r($myposts->posts);?></code></pre> -->
 
-				<?php $termargs = array (
-					'taxonomy' => $taxlocations,
-					'posts_per_page' => -1,
-					'object_ids' => $myposts->posts,
-					'parent' => 139 
-				);
-	
-				$currenttermslug = get_queried_object()->slug; 
 
-				$term_query = new WP_Term_Query( $termargs );
-
-		
-				if ( ! empty( $term_query ) && ! is_wp_error( $term_query ) ) {
-			
-					echo "<ul>";
-			
-						foreach ( $term_query ->terms as $term )
-			
-							echo '<li><a href="' . get_bloginfo('url') . '/lawyers-practice/' . $currenttermslug . '/' . $term->slug . '">' . $term->name . '</a></li>';
-			
-						}
-			
-					echo "</ul>"; ?>
-
-				</div><!-- list_wrapper -->
+			</div><!-- list_wrapper -->
 			
 		</div><!-- directory_wrapper -->
 		
