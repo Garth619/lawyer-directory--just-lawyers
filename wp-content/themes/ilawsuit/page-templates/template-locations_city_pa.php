@@ -84,7 +84,7 @@
 			 				
 			 				</div><!-- directory_description -->
 			 			
-			 				<h2 class="section_header">Browse by Lawyer</h2>
+			 				<h2 class="section_header">Browse by Lawyer asdv</h2>
 		 			 		
 		 				<?php endif;
 		 			 	
@@ -111,20 +111,25 @@
 					$query_args = array (
 						'post_type' => 'lawyer',
 						'fields' => 'ids',
+						'no_found_rows' => true,
 						'order' => 'ASC',
-						'orderby' => 'title', // could these slow the results down?
-						'posts_per_page' => -1, // is this messing up total results?
+						'post_status' => 'publish',
+						'orderby' => 'title',
+						'posts_per_page' => -1,
 						'tax_query' => array(
-						array(
-							'taxonomy'  => $taxlocations,
-							'field'     => 'slug',
-							'terms'     => $currentcity,
-						),
-						array(
-							'taxonomy'  => $taxpracticeareas,
-							'field'     => 'slug',
-							'terms'     => $currentpracticearea,
-						)
+							'relation' => 'AND',
+							array(
+								'taxonomy'  => $taxlocations,
+								'field'     => 'slug',
+								'terms'     => $currentcity,
+								'operator' => 'IN',
+							),
+							array(
+								'taxonomy'  => $taxpracticeareas,
+								'field'     => 'slug',
+								'terms'     => $currentpracticearea,
+								'operator' => 'IN',
+								)
 						),
 				);
 	
@@ -132,7 +137,7 @@
 				 
 				 
 
-				 <?php $count = $singlefirms->found_posts; // do these slow it down? what about pre_get_post will something similar work? ?>
+				 <?php $count = $singlefirms->found_posts; ?>
 				 
 				 <?php if($count) { ?>
 							

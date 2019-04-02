@@ -259,7 +259,7 @@
     				}
 					}
 					
-					// i like https://stackoverflow.com/questions/27789560/determine-lowest-level-taxonomy-term
+					
 					
 					$currentcityterm = $deepestTerm->slug;
 					
@@ -268,12 +268,13 @@
 					$query_args = array (
 						'post_type' => 'lawyer',
 						'orderby' => 'rand',
-						'posts_per_page' => 8, // is this messing up total results?
+						'post_staus' => 'publish',
+						'posts_per_page' => 8,
 						'tax_query' => array(
-							array(
+								array(
 								'taxonomy' => 'location',
 								'field' => 'slug',
-								'terms' => $currentcityterm // single city name
+								'terms' => $currentcityterm
 							),
 						),
 					); 

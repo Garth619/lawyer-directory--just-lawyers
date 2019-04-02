@@ -8,7 +8,7 @@
 {\*\expandedcolortbl;;\cssrgb\c14118\c15294\c16078;\cssrgb\c93725\c94118\c94510;\cssrgb\c0\c0\c93333;
 \cssrgb\c18824\c20000\c21176;\cssrgb\c49020\c15294\c15294;\cssrgb\c6275\c6275\c58039;\cssrgb\c22353\c20000\c9412;\cssrgb\c52157\c54902\c57647;
 \cssrgb\c100000\c100000\c100000;\cssrgb\c29020\c29020\c29020;\cssrgb\c94118\c94118\c94118;}
-\margl1440\margr1440\vieww11780\viewh8400\viewkind0
+\margl1440\margr1440\vieww19440\viewh8400\viewkind0
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
 \f0\fs24 \cf0 \
@@ -21,9 +21,6 @@ $myposts = new Wp_Query( $query_args );\
 				\
 				//  ^ run the reg main_query here somehow? pluck ids from main_query so i can use pre_get_posts up to this point?\
 \
-add operatpr AND to all tax_queries only when there are two queries\
-\
-$query-> set('post_status' , 'publish'); is speeding everything up by half\
 \
 clean up messy code:\
 \
@@ -203,19 +200,7 @@ potential problems hooking up seaech to wp_query?\
 \
 https://www.kevinleary.net/wp_query-search-tax-query-fix/\
 \
-ill probably need to cusomize the default search in the header too search term names as well as cpt titles\
 \
-\
-1. if its still super slow try to paginate the results and see if thats faster\
-\
-\
-2. or even paginate and lazy load the results\
-\
-3. i will lose the ability to filter tho, maybe that filter can become an actual search for that specific part of the directory???\
-\
-search results template - \
-\
-search should have results of terms as well as lawyer posts\
 \
 what is this? https://devblog.kommigraphics.com/wordpress/wp_query-get-count-results-instead-returning-fields/\
 \

@@ -94,16 +94,21 @@
 					'post_type' => 'lawyer',
 					'posts_per_page' => -1,
 					'fields' => 'ids',
+					'no_found_rows' => true,
+					'post_status' => 'publish',
 					'tax_query' => array(
+						'relation' => 'AND',
 						 array(
 						   'taxonomy'  => $taxlocations,
 						    'field'     => 'slug',
 						    'terms'     => $currentstate,
+						    'operator' => 'IN',
 						),
 						array(
 						   'taxonomy'  => $taxpracticeareas,
 						    'field'     => 'slug',
 						    'terms'     => $currentpracticearea,
+						    'operator' => 'IN',
 						)
 					),
 				);

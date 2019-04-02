@@ -10,8 +10,6 @@
 	$lawfirm_location_currentcity = get_query_var( 'office_location_currentcity');
 	
 	
-	// these are different than the pa querys on the other templates but these shoudl still go in the functions.php 
-	
 	// state url query -> state id conversion
 	
 	$statetermslug = get_term_by('slug', $lawfirm_location_currentstate, $taxlocations);
@@ -110,24 +108,27 @@
 		 		$args = array (
 		 			'post_type' => 'lawyer',
 		 			'fields' => 'ids',
+		 			'no_found_rows' => true,
+		 			'post_status' => 'publish',
 		 			'tax_query' => array(
-
-		 			array(
-		 				'taxonomy'  => $taxlocations,
-		 				'field'     => 'ids',
-		 				'terms'     => $termcityid,
+		 				'relation' => 'AND',
+		 				array(
+		 					'taxonomy'  => $taxlocations,
+		 					'field'     => 'ids',
+		 					'terms'     => $termcityid,
+		 					'operator' => 'IN',
+		 				),
+		 				array(
+		 					'taxonomy'  => $taxpracticeareas,
+		 					'field'     => 'ids',
+		 					'terms'     => $termids,
+		 					'operator' => 'IN',
+		 				)
 		 			),
-
-		 			array(
-		 				'taxonomy'  => $taxpracticeareas,
-		 				'field'     => 'ids',
-		 				'terms'     => $termids,
-		 			)
-		 		),
-		 	); 			
+		 		); 			
 
 
-			$postids = new WP_Query( $args );
+		 		$postids = new WP_Query( $args );
 
 			
 			$termargs = array (

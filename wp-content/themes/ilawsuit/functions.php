@@ -491,7 +491,7 @@ function my_custom_search($query) {
 		
 		if ( ! is_admin() && $query->is_main_query() && $query->is_archive('lawyer') && !$query->is_tax('practice_area')) {
         
-       			//echo "sup";
+       			
 	        		
 	        		// CPT args
 						
@@ -678,7 +678,7 @@ function my_custom_search($query) {
 		if ( ! is_admin() && $query->is_main_query() && $query->is_archive('lawyer') && $query->is_tax('practice_area')) {
 			
 		
-			//echo "garrett";
+			
 			
 			$taxlocations = 'location';
 			$taxpracticeareas = 'practice_area';

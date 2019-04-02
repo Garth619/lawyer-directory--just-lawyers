@@ -74,12 +74,14 @@
 						'relation' => 'AND',
 						array(
 							'taxonomy'  => $taxlocations,
+							'operator' => 'IN',
 							'field'     => 'ids',
 							'terms'     => 139 // add a slug to id conversion here or is it ok to change field to slug
 						),
 						array(
 							'taxonomy'  => $taxpracticeareas,
 							'field'     => 'ids',
+							'operator' => 'IN',
 							'terms'     => $currentterm,
 						)
 					),
@@ -95,7 +97,7 @@
 					'taxonomy' => $taxlocations,
 					'posts_per_page' => -1,
 					'object_ids' => $myposts->posts,
-					'parent' => 139 // add a slug to id conversion here
+					'parent' => 139 
 				);
 	
 				$currenttermslug = get_queried_object()->slug; 
