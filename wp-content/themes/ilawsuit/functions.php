@@ -446,7 +446,7 @@ function prefix_url_rewrite_templates() {
 		
 		
  
-    if ( get_query_var( 'currentstate') ) { // or the other isset example  if(!isset( $wp_query->query['photos'] ))
+    if ( get_query_var( 'currentstate') ) { 
        
 	  
 	  	add_filter( 'template_include', function() {
@@ -486,8 +486,20 @@ function my_custom_search($query) {
 	  $att_keyword = get_query_var( 'attorney_keyword');
 		$att_pa = get_query_var( 'attorney_pa');
 		$att_location = get_query_var( 'attorney_location');
+		
+		
+		// template query_vars
+		
+		
+		$currentcity = get_query_var( 'currentcity');
+		$currentstate = get_query_var( 'currentstate');
+		$currentpracticearea =  get_query_var( 'office_pa');
+	
+		$taxlocations = 'location';
+		$taxpracticeareas = 'practice_area';
 				
 		
+		// three part custom search template (its assigned to archive lawyer cpt)
 		
 		if ( ! is_admin() && $query->is_main_query() && $query->is_archive('lawyer') && !$query->is_tax('practice_area')) {
         
@@ -673,6 +685,8 @@ function my_custom_search($query) {
 		
 		// pas "/lawyers-practice/criminal-defense"
 		
+		// cant figure this one out
+		
 		
 		
 		if ( ! is_admin() && $query->is_main_query() && $query->is_archive('lawyer') && $query->is_tax('practice_area')) {
@@ -719,17 +733,48 @@ function my_custom_search($query) {
 		//print_r($query);
 		
 		
+		//  "template-locations_city_pa.php"  /lawyers-practice/business/california/anaheim-hills
+		
+		
+		if ( ! is_admin() && $query->is_main_query() && get_query_var( 'currentstate') && get_query_var( 'currentcity')) {
+			
+			
+			// tax query
+			
+			$taxquery = array('relation' => 'AND');
+			
+			array_push($taxquery, 
+				array(
+					'taxonomy'  => $taxlocations,
+					'field'     => 'slug',
+					'terms'     => $currentcity,
+					'operator' => 'IN',
+				),
+				array(
+					'taxonomy'  => $taxpracticeareas,
+					'field'     => 'slug',
+					'terms'     => $currentpracticearea,
+					'operator' => 'IN',
+				)
+			);
+			
+			
+			$query->set('tax_query', $taxquery);
+			$query-> set('post_type' , 'lawyer');
+			$query-> set('fields' , 'ids');
+			$query-> set('order' , 'ASC');
+			$query-> set('post_status' , 'publish');
+			$query-> set('orderby' , 'title');
+			$query-> set('posts_per_page' , -1);
+			
+		}
 		
 	}
 	
 	
 	add_action( 'pre_get_posts', 'my_custom_search' );
 	
-	
-	
 
-
-	
 	
 
 	

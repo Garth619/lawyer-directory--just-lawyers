@@ -504,6 +504,14 @@
 		"oAP": "/page-templates/template-home.php",
 		"oF": 0
 		},
+	"/page-templates/template-locations_city_pa-old.php": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 0,
+		"oAP": "/page-templates/template-locations_city_pa-old.php",
+		"oF": 0
+		},
 	"/page-templates/template-locations_city_pa.php": {
 		"cB": 0,
 		"ft": 8192,

@@ -105,14 +105,38 @@
 		
 				
 			
+				
+				<?php 
 	
+					$query_args = array (
+						'post_type' => 'lawyer',
+						'fields' => 'ids',
+						'order' => 'ASC',
+						'post_status' => 'publish',
+						'orderby' => 'title',
+						'posts_per_page' => -1,
+						'tax_query' => array(
+							'relation' => 'AND',
+							array(
+								'taxonomy'  => $taxlocations,
+								'field'     => 'slug',
+								'terms'     => $currentcity,
+								'operator' => 'IN',
+							),
+							array(
+								'taxonomy'  => $taxpracticeareas,
+								'field'     => 'slug',
+								'terms'     => $currentpracticearea,
+								'operator' => 'IN',
+								)
+						),
+				);
+	
+				 $singlefirms = new WP_Query($query_args);?>
 				 
 				 
-	
-						
-						<?php if ( have_posts() ) :?>
-						
-						 <?php $count = $wp_query->found_posts; ?>
+
+				 <?php $count = $singlefirms->found_posts; ?>
 				 
 				 <?php if($count) { ?>
 							
@@ -131,14 +155,12 @@
 							</div><!-- new_search_wrapper -->
 						
 						</div><!-- make_new_search_wrapper -->
-						
-						<div class="lawyer_results_wrapper">
-						
-						
-						<?php while ( have_posts() ) : the_post(); ?>
-
+				 
+				 <div class="lawyer_results_wrapper">
 	
-							
+					<?php while($singlefirms->have_posts()) : $singlefirms->the_post();?>
+	
+						
 						<div class="single_lawyer_result">
 							
 							<a class="" href="<?php the_permalink();?>">
@@ -202,26 +224,16 @@
 							
 						</div><!-- single_lawyer_result -->
 	
-			
-		
-						<?php endwhile; // end of loop ?>
-						
-						<div class="pagination">
 
-				<?php wpbeginner_numeric_posts_nav(); ?>
-
-			</div><!-- pagination -->
-
-						<?php endif; ?>
+					<?php endwhile;
+					
+					wp_reset_postdata();?>
   
   
-  				</div><!-- lawyer_results_wrapper -->
-  				
-  				
+  			</div><!-- lawyer_results_wrapper -->
+  			
   
 			</div><!-- list_wrapper -->
-			
-			
 			
 		</div><!-- directory_wrapper -->
 		
