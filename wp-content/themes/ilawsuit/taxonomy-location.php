@@ -75,18 +75,21 @@
 				$taxlocations = 'location';
 				$taxpracticeareas = 'practice_area';
 	
-				$terms = get_terms( array( // change to WP_Term_Query later its faster I think
-					'taxonomy' => 'location',
-					'parent' => $children,
-	
-				) );
+
+				$termargs = array (
+					'taxonomy' => $taxlocations,
+					'parent' => $children 
+				);
+				
+				
+				$terms = new WP_Term_Query( $termargs );
 	
 		
 				if ( ! empty( $terms ) && ! is_wp_error( $terms ) ) {
      
 					echo '<ul>';
      
-						foreach ( $terms as $term ) {
+						foreach ( $terms->terms as $term ) {
 	     
 							$term_link = get_term_link( $term );
 	     

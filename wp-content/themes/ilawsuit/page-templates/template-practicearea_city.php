@@ -109,6 +109,7 @@
 		 			'post_type' => 'lawyer',
 		 			'fields' => 'ids',
 		 			'no_found_rows' => true,
+		 			'posts_per_page' => -1, 
 		 			'post_status' => 'publish',
 		 			'tax_query' => array(
 		 				'relation' => 'AND',
@@ -128,7 +129,7 @@
 		 		); 			
 
 
-		 		$postids = new WP_Query( $args );
+		 	$postids = new WP_Query( $args );
 
 			
 			$termargs = array (

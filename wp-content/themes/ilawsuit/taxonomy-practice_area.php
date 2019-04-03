@@ -110,7 +110,7 @@
 			
 					echo "<ul>";
 			
-						foreach ( $term_query ->terms as $term )
+						foreach ( $term_query->terms as $term )
 			
 							echo '<li><a href="' . get_bloginfo('url') . '/lawyers-practice/' . $currenttermslug . '/' . $term->slug . '">' . $term->name . '</a></li>';
 			

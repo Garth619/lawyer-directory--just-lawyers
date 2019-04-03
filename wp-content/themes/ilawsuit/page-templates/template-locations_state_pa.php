@@ -36,7 +36,7 @@
 	
 	<div class="internal_banner">
 		
-		<h1><?php echo $statetermtitle;?> <?php echo $patermstitle;?> Lawyers</h1>
+		<h1><?php echo $statetermtitle;?> <?php echo $patermstitle;?> Lawyers sup</h1>
 
 	</div><!-- internal_banner -->
 	
@@ -125,7 +125,6 @@
 
 				$termargs = array (
 					'taxonomy' => $taxlocations,
-					'posts_per_page' => -1,
 					//'fields' => 'all_with_object_id',
 					'object_ids' => $myposts->posts,
 					'parent' => $currentparentid,

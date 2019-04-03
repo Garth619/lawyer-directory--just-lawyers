@@ -103,14 +103,7 @@
 				
 				</div><!-- filter_by_search_wrapper -->
 		
-				
-			
-	
-				 
-				 
-	
-						
-						<?php if ( have_posts() ) :?>
+				<?php if ( have_posts() ) :?>
 						
 						 <?php $count = $wp_query->found_posts; ?>
 				 

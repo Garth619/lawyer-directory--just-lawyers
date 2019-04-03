@@ -1,10 +1,17 @@
 {\rtf1\ansi\ansicpg1252\cocoartf1504\cocoasubrtf830
-{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fmodern\fcharset0 Courier;\f2\froman\fcharset0 Times-Roman;
-\f3\fmodern\fcharset0 CourierNewPSMT;\f4\fmodern\fcharset0 CourierNewPS-BoldMT;}
-{\colortbl;\red255\green255\blue255;\red48\green57\blue63;\red206\green214\blue219;\red80\green93\blue103;
-\red240\green244\blue246;\red0\green0\blue233;\red57\green57\blue57;\red236\green236\blue236;}
-{\*\expandedcolortbl;;\cssrgb\c24706\c28627\c31373;\cssrgb\c84314\c87059\c88627;\cssrgb\c38431\c43922\c47843;
-\cssrgb\c95294\c96471\c97255;\cssrgb\c0\c0\c93333;\cssrgb\c29020\c29020\c29020;\cssrgb\c94118\c94118\c94118;}
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\froman\fcharset0 Times-Roman;\f2\fnil\fcharset0 Menlo-Regular;
+\f3\fswiss\fcharset0 ArialMT;\f4\fmodern\fcharset0 Courier;\f5\fmodern\fcharset0 CourierNewPSMT;
+\f6\fmodern\fcharset0 CourierNewPS-BoldMT;}
+{\colortbl;\red255\green255\blue255;\red63\green105\blue30;\red255\green0\blue0;\red0\green0\blue233;
+\red104\green26\blue29;\red235\green236\blue237;\red36\green38\blue41;\red43\green39\blue19;\red27\green29\blue31;
+\red255\green255\blue255;\red8\green69\blue135;\red13\green0\blue129;\red16\green58\blue83;\red48\green57\blue63;
+\red206\green214\blue219;\red80\green93\blue103;\red240\green244\blue246;\red0\green0\blue233;\red57\green57\blue57;
+\red236\green236\blue236;}
+{\*\expandedcolortbl;;\csgenericrgb\c24706\c41176\c11765;\csgenericrgb\c100000\c0\c0;\cssrgb\c0\c0\c93333;
+\cssrgb\c49020\c15294\c15294;\cssrgb\c93725\c94118\c94510;\cssrgb\c18824\c20000\c21176;\cssrgb\c22353\c20000\c9412;\cssrgb\c14118\c15294\c16078;
+\cssrgb\c100000\c100000\c100000;\cssrgb\c0\c34902\c60000;\cssrgb\c6275\c6275\c58039;\cssrgb\c6275\c29412\c40000;\cssrgb\c24706\c28627\c31373;
+\cssrgb\c84314\c87059\c88627;\cssrgb\c38431\c43922\c47843;\cssrgb\c95294\c96471\c97255;\cssrgb\c0\c0\c93333;\cssrgb\c29020\c29020\c29020;
+\cssrgb\c94118\c94118\c94118;}
 \margl1440\margr1440\vieww22040\viewh16500\viewkind0
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
@@ -14,29 +21,210 @@
 to do\
 \'97\'97\'97\'97\'97\'97\'97\
 \
-ok so some links like litigation/california/losangeles time the fuck out, I need to paginate ive seen that pagination drastically speeds up search time too - fuck pagination isnt working with rewrite api\'85.. do i just delete litigation (150,000) or figure this out\
 \
-clean up all array_push so I can see them better\
+\
+\cf2 1. pre_get_post\cf0 \
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b \cf0 \'93archive-lawyer\'94  three part search
+\b0 \
+\
+	- runs a pre_get_post with all conditionals\
+\
+
+\b  "template-locations_city_pa.php" /lawyers-practice/business/california/anaheim-hills
+\b0 \
+\
+	- runs a pre_get_post - needs a rewrite rule setup to handle pagination\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf2 2. Unable to run pre_get_post at this time, each of these loops are similar with multiple wp_query calls, these also seem like I running a few things too many times\cf0 \
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\b \cf0 \'93taxonomy-practice_area.php\'94  /lawyers-practice/criminal-defense
+\b0 \
+\
+	- im unable to use pre_get_posts and there are a couple wp_query calls\'85\
+	- timeout on large ones\
+	- I get the first 2000 post ids that are in both the locations and current pa\
+	- then I return all terms found in locations that have those object_ids (post ids)\
+\
+
+\b \'93template-locations_state_pa.php\'94 /lawyers-practice/criminal-defense/colorado\
+\
+	
+\b0 \cf3 - look at this closer what is get_term_by I think this is here to show just cities tied to a current state id\cf0 \
+	- most likely won\'92t be using pre_get_post because I need to run mutiple wp_queries\
+	- I get all post ids in the current state and the current pa\
+	- then I return all terms of locations (cities) that have those object ids (post ids)\
+\
+
+\b \'93template-practicearea_city.php\'94 /lawyers-location/state/alaska/barrington-alaska/\
+\
+	
+\b0 - does this timeout on large ones?
+\b \
+	
+\b0 - get all post ids in the current location (city) with all the pas\
+	- then I return all terms found in pas with those object ids (post ids)\
+\
+\
+\
+\
+ok so some links like litigation/california/losangeles time the fuck out, I need to paginate ive seen that pagination drastically speeds up search time too - fuck pagination isnt working with rewrite api\'85.. do i just delete litigation (150,000) or figure this out, offset?\
+\
+\pard\pardeftab720\sl280\partightenfactor0
+{\field{\*\fldinst{HYPERLINK "https://www.grzegorowski.com/wordpress-rewrite-rules/"}}{\fldrslt 
+\f1 \cf4 \expnd0\expndtw0\kerning0
+\ul \ulc4 \outl0\strokewidth0 \strokec4 https://www.grzegorowski.com/wordpress-rewrite-rules/}}
+\f1 \cf4 \expnd0\expndtw0\kerning0
+\ul \ulc4 \outl0\strokewidth0 \strokec4 \
+
+\f0 \cf0 \kerning1\expnd0\expndtw0 \ulnone \outl0\strokewidth0 \
+\pard\pardeftab720\sl280\partightenfactor0
+{\field{\*\fldinst{HYPERLINK "https://wordpress.stackexchange.com/questions/163141/add-rewrite-rule-working-fine-but-broken-for-pagination"}}{\fldrslt 
+\f1 \cf4 \expnd0\expndtw0\kerning0
+\ul \ulc4 \outl0\strokewidth0 \strokec4 https://wordpress.stackexchange.com/questions/163141/add-rewrite-rule-working-fine-but-broken-for-pagination}}
+\f1 \cf4 \expnd0\expndtw0\kerning0
+\ul \ulc4 \outl0\strokewidth0 \strokec4 \
+\
+\pard\pardeftab720\sl280\partightenfactor0
+{\field{\*\fldinst{HYPERLINK "https://stackoverflow.com/questions/49580850/custom-post-type-rewrite-with-page-with-pagination"}}{\fldrslt \cf4 \ulc4 https://stackoverflow.com/questions/49580850/custom-post-type-rewrite-with-page-with-pagination}}
+\f0 \cf0 \kerning1\expnd0\expndtw0 \ulnone \outl0\strokewidth0 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
+\pard\pardeftab720\sl300\partightenfactor0
+
+\f2\fs26 \cf5 \cb6 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec5 'paged'\cf7 \strokec7              => ( get_query_var(\cf5 \strokec5 'whateverIwant'\cf7 \strokec7 ) ? get_query_var(\cf5 \strokec5 'whateverIwant'\cf7 \strokec7 ) : \cf5 \strokec5 1\cf7 \strokec7  ),\cf8 \strokec8 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 \
+\pard\pardeftab720\sl280\partightenfactor0
+{\field{\*\fldinst{HYPERLINK "https://stackoverflow.com/questions/46975182/pagination-doesnt-work-with-custom-rewrite-rules"}}{\fldrslt 
+\f1 \cf4 \expnd0\expndtw0\kerning0
+\ul \ulc4 \outl0\strokewidth0 \strokec4 https://stackoverflow.com/questions/46975182/pagination-doesnt-work-with-custom-rewrite-rules}}\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
+\pard\pardeftab720\sl340\sa300\partightenfactor0
+
+\f3\fs30 \cf9 \cb10 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec9 I finally did manage to fix this, Thanks to\'a0{\field{\*\fldinst{HYPERLINK "https://wordpress.stackexchange.com/a/18697/113633"}}{\fldrslt \cf11 \ul \ulc11 \strokec11 this answer}}\'a0, i could'nt use the keyword\'a0
+\f2\fs26 \cb6 paged
+\f3\fs30 \cb10 \'a0i don't know why, so i just changed it to\'a0
+\f2\fs26 \cb6 pageds
+\f3\fs30 \cb10 , and then adding a little bit of extra code to the\'a0
+\f2\fs26 \cb6 pre_get_posts
+\f3\fs30 \cb10 hook ( with your own coditionals ofcourse ) :\
+\pard\pardeftab720\sl300\partightenfactor0
+
+\f2\fs26 \cf7 \cb6 \strokec7 add_action(\cf5 \strokec5 'pre_get_posts'\cf7 \strokec7 , \cf12 \strokec12 function\cf7 \strokec7 ( $query )\{\
+    $paged = (\cf12 \strokec12 int\cf7 \strokec7 ) get_query_var( \cf5 \strokec5 'pageds'\cf7 \strokec7 , \cf5 \strokec5 1\cf7 \strokec7  );\
+    $query->\cf12 \strokec12 set\cf7 \strokec7 (\cf5 \strokec5 'paged'\cf7 \strokec7 , $paged);\
+\});\cf8 \strokec8 \
+\pard\pardeftab720\sl340\sa300\partightenfactor0
+
+\f3\fs30 \cf9 \cb10 \strokec9 then adding\'a0
+\f2\fs26 \cb6 pageds
+\f3\fs30 \cb10 \'a0to\'a0
+\f2\fs26 \cb6 query_vars
+\f3\fs30 \cb10 \'a0:\
+\pard\pardeftab720\sl300\partightenfactor0
+
+\f2\fs26 \cf7 \cb6 \strokec7 add_filter(\cf5 \strokec5 'query_vars'\cf7 \strokec7 , \cf12 \strokec12 function\cf7 \strokec7 ( $vars )\{\
+   $vars[] = \cf5 \strokec5 'pageds'\cf7 \strokec7 ;\
+\
+   \cf12 \strokec12 return\cf7 \strokec7  $vars;\
+\});\cf8 \strokec8 \
+\pard\pardeftab720\sl340\sa300\partightenfactor0
+
+\f3\fs30 \cf9 \cb10 \strokec9 and one more thing is we don't have to write two seperate rewrite rules, we can combine them like this :\
+\pard\pardeftab720\sl300\partightenfactor0
+
+\f2\fs26 \cf12 \cb6 \strokec12 function\cf7 \strokec7  dw_custom_rewrite_rules() \{\
+    add_rewrite_endpoint( \cf5 \strokec5 'sortby'\cf7 \strokec7 , EP_ALL_ARCHIVES );\
+    add_rewrite_rule(\cf5 \strokec5 '^shop/discounted(/page/([0-9]+)?)?/?$'\cf7 \strokec7 , \cf5 \strokec5 'index.php?post_type=product&sortby=discounts&pageds=$matches[2]'\cf7 \strokec7 , \cf5 \strokec5 'top'\cf7 \strokec7 );\
+\}\
+add_action(\cf5 \strokec5 'init'\cf7 \strokec7 , \cf5 \strokec5 'dw_custom_rewrite_rules'\cf7 \strokec7 );\cf8 \strokec8 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 \
+\pard\pardeftab720\sl280\partightenfactor0
+{\field{\*\fldinst{HYPERLINK "https://wordpress.stackexchange.com/questions/18696/add-rewrite-rule-and-pagination-issue/18697#18697"}}{\fldrslt 
+\f1 \cf4 \expnd0\expndtw0\kerning0
+\ul \ulc4 \outl0\strokewidth0 \strokec4 https://wordpress.stackexchange.com/questions/18696/add-rewrite-rule-and-pagination-issue/18697#18697}}
+\f1 \cf4 \expnd0\expndtw0\kerning0
+\ul \ulc4 \outl0\strokewidth0 \strokec4 \
+\
+\pard\pardeftab720\sl340\sa300\partightenfactor0
+
+\f3\fs30 \cf9 \cb10 \ulnone \strokec9 Your first two rewrite rules do not end with\'a0
+\f2\fs26 \cb6 $
+\f3\fs30 \cb10 , which indicates that the URL should stop there. So\'a0
+\f2\fs26 \cb6 myPage/mySuPage/param1/param2/page/3
+\f3\fs30 \cb10 \'a0would still be matched by the first pattern, because it can just ignored the\'a0
+\f2\fs26 \cb6 /page/3
+\f3\fs30 \cb10 \'a0part at the end. The next rewrite rules will then never be used.\
+With\'a0{\field{\*\fldinst{HYPERLINK "https://wordpress.stackexchange.com/questions/3606/a-tool-to-analyze-rewrite-rules/3608#3608"}}{\fldrslt \cf13 \ul \ulc13 \strokec13 my Rewrite analyzer plugin}}\'a0I was able to simplify your rewrite rules to these two: one without params and just optional paging, and one with params and optional paging. Combining these two into one did not work because the optional params woud "eat" the paging part.\
+\pard\pardeftab720\sl300\partightenfactor0
+
+\f2\fs26 \cf7 \cb6 \strokec7 add_rewrite_rule(\
+    \cf5 \strokec5 'myPage/mySuPage(/page/([0-9]+)?)?/?$'\cf7 \strokec7 ,\
+    \cf5 \strokec5 'index.php?pagename=myPage/mySuPage&pageds=$matches[2]'\cf7 \strokec7 ,\
+    \cf5 \strokec5 'top'\cf7 \strokec7 \
+);\
+\
+add_rewrite_rule(\
+    \cf5 \strokec5 'myPage/mySuPage/([^/]*)/([^/]*)(/page/([0-9]+)?)?/?$'\cf7 \strokec7 ,\
+    \cf5 \strokec5 'index.php?pagename=myPage/mySuPage&param1=$matches[1]&param2=$matches[2]&pageds=$matches[4]'\cf7 \strokec7 ,\
+    \cf5 \strokec5 'top'\cf7 \strokec7 \
+);\cf8 \strokec8 \
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f0\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 \
+\pard\pardeftab720\sl280\partightenfactor0
+{\field{\*\fldinst{HYPERLINK "https://stackoverflow.com/questions/32013645/add-rewrite-rule-working-fine-but-broken-for-pagination"}}{\fldrslt 
+\f1 \cf4 \expnd0\expndtw0\kerning0
+\ul \ulc4 \outl0\strokewidth0 \strokec4 https://stackoverflow.com/questions/32013645/add-rewrite-rule-working-fine-but-broken-for-pagination}}
+\f1 \cf4 \expnd0\expndtw0\kerning0
+\ul \ulc4 \outl0\strokewidth0 \strokec4 \
+\
+\pard\pardeftab720\sl300\partightenfactor0
+
+\f2\fs26 \cf7 \cb6 \ulnone \strokec7 add_rewrite_rule( \cf5 \strokec5 'resources/(.+?)(/page/([0-9]+))?/?$'\cf7 \strokec7 , \cf5 \strokec5 'index.php?taxonomy=res_category&term=$matches[1]&paged=$matches[3]'\cf7 \strokec7 , \cf5 \strokec5 'top'\cf7 \strokec7 );\cf8 \strokec8 \
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f0\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 \
+\
+\
+\
+\pard\pardeftab720\sl280\partightenfactor0
+{\field{\*\fldinst{HYPERLINK "https://paulund.co.uk/how-to-rewrite-urls-in-wordpress"}}{\fldrslt 
+\f1 \cf4 \expnd0\expndtw0\kerning0
+\ul \ulc4 \outl0\strokewidth0 \strokec4 https://paulund.co.uk/how-to-rewrite-urls-in-wordpress}}\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
+\
 \
 rebuild seo\
 \
-$myposts = new Wp_Query( $query_args );\
-				\
-//  ^ run the reg main_query here somehow? pluck ids from main_query so i can use pre_get_posts up to this point?\
 \
 \
 \
+\pard\pardeftab720\sl280\partightenfactor0
+{\field{\*\fldinst{HYPERLINK "https://wordpress.stackexchange.com/questions/166448/how-to-optimize-wp-site-for-millions-of-posts"}}{\fldrslt 
+\f1 \cf4 \expnd0\expndtw0\kerning0
+\ul \ulc4 \outl0\strokewidth0 \strokec4 https://wordpress.stackexchange.com/questions/166448/how-to-optimize-wp-site-for-millions-of-posts}}\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
 not found- /lawyers-practice/\
 \
 \
 clean up messy code:\
 \
 i have a lot of redundant code in my custom search query. I also need to find a way to not have to reassign the same variables to each of the get_query_vars in functions and all over my templates\
-\
-\
-test to see if I can use pre_get_post on all of my other templates instead of wp_query\
-\
-load screen\
 \
 clean up search query strings?\
 \
@@ -58,16 +246,14 @@ ditch get_terms and replace with WP_Term_Query wherever possible it has better c
 \
 \pard\pardeftab720\sl420\partightenfactor0
 
-\f1\fs36 \cf2 \cb3 \expnd0\expndtw0\kerning0
-\outl0\strokewidth0 \strokec2 'include_children' => false
-\f0 \cf4 \cb5 \strokec4 \'a0to be added to all taxonomy queries when possible.\
+\f4\fs36 \cf14 \cb15 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec14 'include_children' => false
+\f0 \cf16 \cb17 \strokec16 \'a0to be added to all taxonomy queries when possible.\
 \
 
 \fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 \cf0 \
-i dont want to have lawyers-practice hardcodedin slug needs to be rewritable\
-\
 clean up states cities at the end of dev and wacth out for how it fucked up the state list on the homepage, back up database beforehand\
 \
 go through all desscriotion blocks and fix edit buttons also check edits for all the lists\
@@ -78,7 +264,7 @@ if(is_user_logged_in()) \{\
 			 	\}\
 \
 \
-delete: functions_searchsnippets.php.og, functions copy.php.before_pre_get_posts_wp_query, taxonomy-practice_area-newtwo.php, taxonomy-practice_area.php.new\
+delete: functions_searchsnippets.php.og, functions copy.php.before_pre_get_posts_wp_query, taxonomy-practice_area-newtwo.php, taxonomy-practice_area.php.new, template-locations_city_pa-old.php\
 \
 comment on shortcomings in functions.php and how this can be imroved\
 \
@@ -95,12 +281,12 @@ for pre_get_post with multiple query calls, do i just build out all my args then
 think about index the really slow ones:\
 \pard\pardeftab720\sl280\partightenfactor0
 {\field{\*\fldinst{HYPERLINK "https://deliciousbrains.com/sql-query-optimization/"}}{\fldrslt 
-\f2 \cf6 \expnd0\expndtw0\kerning0
-\ul \ulc6 https://deliciousbrains.com/sql-query-optimization/}}
-\f2 \cf6 \expnd0\expndtw0\kerning0
-\ul \ulc6 \
+\f1 \cf18 \expnd0\expndtw0\kerning0
+\ul \ulc18 https://deliciousbrains.com/sql-query-optimization/}}
+\f1 \cf18 \expnd0\expndtw0\kerning0
+\ul \ulc18 \
 \pard\pardeftab720\sl280\partightenfactor0
-{\field{\*\fldinst{HYPERLINK "https://thomasgriffin.io/optimize-wordpress-queries/"}}{\fldrslt \cf6 https://thomasgriffin.io/optimize-wordpress-queries/}}
+{\field{\*\fldinst{HYPERLINK "https://thomasgriffin.io/optimize-wordpress-queries/"}}{\fldrslt \cf18 https://thomasgriffin.io/optimize-wordpress-queries/}}
 \f0 \cf0 \kerning1\expnd0\expndtw0 \ulnone \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 \cf0 \
@@ -115,15 +301,15 @@ look at transients again\
 \
 \pard\pardeftab720\sl300\partightenfactor0
 
-\f3\fs26 \cf7 \cb8 \expnd0\expndtw0\kerning0
+\f5\fs26 \cf19 \cb20 \expnd0\expndtw0\kerning0
 \'a0
-\f4\b \cb1 'cache_results'\'a0 => false,
-\f3\b0 \
+\f6\b \cb1 'cache_results'\'a0 => false,
+\f5\b0 \
 
-\f4\b \'a0\'a0\'a0 'update_post_meta_cache' => false,
-\f3\b0 \
+\f6\b \'a0\'a0\'a0 'update_post_meta_cache' => false,
+\f5\b0 \
 
-\f4\b \'a0\'a0\'a0 'update_post_term_cache' => false,\
+\f6\b \'a0\'a0\'a0 'update_post_term_cache' => false,\
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
 \f0\b0\fs24 \cf0 \kerning1\expnd0\expndtw0 \

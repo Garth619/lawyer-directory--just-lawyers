@@ -397,6 +397,25 @@ function prefix_rewrite_rule() {
 		add_rewrite_rule( 'lawyers-practice/([^/]+)/([^/]+)', 'index.php?office_pa=$matches[1]&currentstate=$matches[2]', 'top' );
     
     
+    // somewhere maybe something like this 
+    
+    // add_rewrite_rule('^first/second/page/([0-9]+)/?', 'index.php?page_id=50&paged=$matches[1]', 'top');
+    
+    //add_rewrite_rule('^shop/discounted/page/?([0-9]{1,})/?$', 'index.php?post_type=product&sortby=discounts&paged=$matches[1]', 'top');
+    
+    //add_rewrite_rule('myPage/mySuPage(/page/([0-9]+)?)?/?$','index.php?pagename=myPage/mySuPage&pageds=$matches[2]','top');
+
+		//add_rewrite_rule('myPage/mySuPage/([^/]*)/([^/]*)(/page/([0-9]+)?)?/?$','index.php?pagename=myPage/mySuPage&param1=$matches[1]&param2=$matches[2]&pageds=$matches[4]','top');
+		
+		//add_rewrite_rule('resources/([^/]+)/page/([0-9]{1,})/?', 'index.php?taxonomy=res_category&term=$matches[1]&post_type=resources&paged=$matches[2]', 'top');
+		
+		
+		// this looks good bc it includes other matched vars
+		
+		// add_rewrite_rule( 'resources/(.+?)(/page/([0-9]+))?/?$', 'index.php?taxonomy=res_category&term=$matches[1]&paged=$matches[3]', 'top');
+
+
+    
  }
  
 add_action( 'init', 'prefix_rewrite_rule' );
@@ -475,7 +494,7 @@ add_action( 'template_redirect', 'prefix_url_rewrite_templates' );
 
 
 
-
+// pre_get_post
 
 
 
@@ -535,7 +554,14 @@ function my_custom_search($query) {
 						
 						if(!$att_keyword && $att_pa && $att_pa !== 'Search All Types' && !$att_location) {
 							
-							array_push($taxquery, array('taxonomy' => 'practice_area','field' => 'slug','terms' => $att_pa, 'operator' => 'IN') );
+							array_push($taxquery, 
+								array(
+									'taxonomy' => 'practice_area',
+									'field' => 'slug',
+									'terms' => $att_pa, 
+									'operator' => 'IN'
+								)
+							);
 							
 							$query->set('tax_query', $taxquery);
 							
@@ -545,7 +571,14 @@ function my_custom_search($query) {
 						
 						if(!$att_keyword && !$att_pa && $att_location) {
 							
-							array_push($taxquery, array('taxonomy' => 'location','field' => 'slug','terms' => $att_location, 'operator' => 'IN'));
+							array_push($taxquery, 
+								array(
+									'taxonomy' => 'location',
+									'field' => 'slug',
+									'terms' => $att_location,
+									'operator' => 'IN'
+								)
+							);
 							
 							$query->set('tax_query', $taxquery);
 							
@@ -557,7 +590,14 @@ function my_custom_search($query) {
 							
 							$query-> set('s' , $att_keyword);
 							
-							array_push($taxquery, array('taxonomy' => 'practice_area','field' => 'slug','terms' => $att_pa, 'operator' => 'IN'));
+							array_push($taxquery, 
+								array(
+									'taxonomy' => 'practice_area',
+									'field' => 'slug',
+									'terms' => $att_pa,
+									'operator' => 'IN'
+								)
+							);
 							
 							$query->set('tax_query', $taxquery);
 							
@@ -569,7 +609,14 @@ function my_custom_search($query) {
 							
 							$query-> set('s' , $att_keyword);
 							
-							array_push($taxquery, array('taxonomy' => 'location','field' => 'slug','terms' => $att_location, 'operator' => 'IN'));
+							array_push($taxquery,
+								array(
+									'taxonomy' => 'location',
+									'field' => 'slug',
+									'terms' => $att_location,
+									'operator' => 'IN'
+								)
+							);
 							
 							$query->set('tax_query', $taxquery);
 							
@@ -579,7 +626,20 @@ function my_custom_search($query) {
 						
 						if(!$att_keyword && $att_pa && $att_pa !== 'Search All Types' && $att_location) {
 							
-							array_push($taxquery, array('taxonomy'  => 'practice_area','field' => 'slug','terms' => $att_pa, 'operator' => 'IN'), array('taxonomy' => 'location','field' => 'slug','terms' => $att_location, 'operator' => 'IN'));
+							array_push($taxquery,
+								array(
+									'taxonomy'  => 'practice_area',
+									'field' => 'slug',
+									'terms' => $att_pa,
+									'operator' => 'IN'
+								), 
+								array(
+									'taxonomy' => 'location',
+									'field' => 'slug',
+									'terms' => $att_location,
+									'operator' => 'IN'
+								)
+							);
 							
 							$query->set('tax_query', $taxquery);
 							
@@ -591,7 +651,20 @@ function my_custom_search($query) {
 							
 							$query-> set('s' , $att_keyword);
 							
-							array_push($taxquery, array('taxonomy'  => 'location','field' => 'slug','terms' => $att_location, 'operator' => 'IN'), array('taxonomy'  => 'practice_area','field' => 'slug','terms' => $att_pa, 'operator' => 'IN'));
+							array_push($taxquery, 
+								array(
+									'taxonomy'  => 'location',
+									'field' => 'slug',
+									'terms' => $att_location,
+									'operator' => 'IN'
+								), 
+								array(
+									'taxonomy'  => 'practice_area',
+									'field' => 'slug',
+									'terms' => $att_pa,
+									'operator' => 'IN'
+								)
+							);
 							
 							$query->set('tax_query', $taxquery);
 							
@@ -633,7 +706,14 @@ function my_custom_search($query) {
 							
 							$query-> set('s' , $att_keyword);
 							
-							array_push($taxquery, array('taxonomy'  => 'practice_area','field' => 'slug','terms' => $termids, 'operator' => 'IN'));
+							array_push($taxquery,
+								array(
+									'taxonomy'  => 'practice_area',
+									'field' => 'slug',
+									'terms' => $termids,
+									'operator' => 'IN'
+								)
+							);
 							
 							$query->set('tax_query', $taxquery);
 							
@@ -647,7 +727,20 @@ function my_custom_search($query) {
 							
 							$query-> set('s' , $att_keyword);
 							
-							array_push($taxquery, array('taxonomy'  => 'practice_area','field' => 'slug','terms' => $termids, 'operator' => 'IN'), array('taxonomy'  => 'location','field' => 'slug','terms' => $att_location, 'operator' => 'IN'));
+							array_push($taxquery, 
+								array(
+									'taxonomy'  => 'practice_area',
+									'field' => 'slug',
+									'terms' => $termids,
+									'operator' => 'IN'
+								),
+								array(
+									'taxonomy'  => 'location',
+									'field' => 'slug',
+									'terms' => $att_location, 
+									'operator' => 'IN'
+								)
+							);
 							
 							$query->set('tax_query', $taxquery);
 							
@@ -659,7 +752,20 @@ function my_custom_search($query) {
 							
 							$query-> set('s' , $att_keyword);
 							
-							array_push($taxquery, array('taxonomy' => 'practice_area','field' => 'slug','terms' => $termids, 'operator' => 'IN'), array('taxonomy'  => 'location','field' => 'slug','terms' => $att_location, 'operator' => 'IN'));
+							array_push($taxquery,
+								array(
+									'taxonomy' => 'practice_area',
+									'field' => 'slug',
+									'terms' => $termids,
+									'operator' => 'IN'
+								), 
+								array(
+									'taxonomy'  => 'location',
+									'field' => 'slug',
+									'terms' => $att_location,
+									'operator' => 'IN'
+								)
+							);
 							
 							$query->set('tax_query', $taxquery);
 							
@@ -693,17 +799,11 @@ function my_custom_search($query) {
 			
 		
 			
-			
-			$taxlocations = 'location';
-			$taxpracticeareas = 'practice_area';
-			
-			
 			$currentterm = get_queried_object()->term_id;
 			
 			// tax_query setup
 						
 			$taxquery = array('relation' => 'AND');
-			
 			
 			array_push($taxquery, 
 				array(
@@ -720,7 +820,7 @@ function my_custom_search($query) {
 			
 			// cpt
 			
-			$query->set('tax_query', $taxquery);
+			$query-> set('tax_query', $taxquery);
 			$query-> set('post_type' , 'lawyer');
 			$query-> set('fields' , 'ids');
 			$query-> set('post_status' , 'publish');
@@ -734,6 +834,9 @@ function my_custom_search($query) {
 		
 		
 		//  "template-locations_city_pa.php"  /lawyers-practice/business/california/anaheim-hills
+		
+		
+		// this template need pagination "litigation" returns too many posts
 		
 		
 		if ( ! is_admin() && $query->is_main_query() && get_query_var( 'currentstate') && get_query_var( 'currentcity')) {
@@ -759,7 +862,7 @@ function my_custom_search($query) {
 			);
 			
 			
-			$query->set('tax_query', $taxquery);
+			$query-> set('tax_query', $taxquery);
 			$query-> set('post_type' , 'lawyer');
 			$query-> set('fields' , 'ids');
 			$query-> set('order' , 'ASC');
@@ -767,7 +870,7 @@ function my_custom_search($query) {
 			$query-> set('orderby' , 'title');
 			$query-> set('posts_per_page' , -1);
 			
-		}
+		}		
 		
 	}
 	
