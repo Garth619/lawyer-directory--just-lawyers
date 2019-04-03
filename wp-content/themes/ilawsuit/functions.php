@@ -791,52 +791,19 @@ function my_custom_search($query) {
 		
 		// pas "/lawyers-practice/criminal-defense"
 		
-		// cant figure this one out
 		
-		
-		
-		if ( ! is_admin() && $query->is_main_query() && $query->is_archive('lawyer') && $query->is_tax('practice_area')) {
+		// if ( ! is_admin() && $query->is_main_query() && $query->is_archive('lawyer') && $query->is_tax('practice_area')) {
 			
 		
-			
-			$currentterm = get_queried_object()->term_id;
-			
-			// tax_query setup
-						
-			$taxquery = array('relation' => 'AND');
-			
-			array_push($taxquery, 
-				array(
-					'taxonomy' => $taxlocations,
-					'field' => 'ids', 
-					'terms' => 139), 
-				array(
-					'taxonomy' => $taxpracticeareas,
-					'field' => 'ids',
-					'terms' => $currentterm)
-			);
-							
-			 
-			
-			// cpt
-			
-			$query-> set('tax_query', $taxquery);
-			$query-> set('post_type' , 'lawyer');
-			$query-> set('fields' , 'ids');
-			$query-> set('post_status' , 'publish');
-			$query-> set('no_found_rows' , false);
-			$query-> set('posts_per_page' , 6);
-			
-			
-		}
+		// }
 		
-		//print_r($query);
+		
 		
 		
 		//  "template-locations_city_pa.php"  /lawyers-practice/business/california/anaheim-hills
 		
 		
-		// this template need pagination "litigation" returns too many posts
+		// this template need pagination "litigation" returns too many posts. set up rewrite rule up above
 		
 		
 		if ( ! is_admin() && $query->is_main_query() && get_query_var( 'currentstate') && get_query_var( 'currentcity')) {
