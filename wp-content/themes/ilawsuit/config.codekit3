@@ -800,6 +800,14 @@
 		"oAP": "/searchform.php",
 		"oF": 0
 		},
+	"/seo-ref.html": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 0,
+		"oAP": "/seo-ref.html",
+		"oF": 0
+		},
 	"/sidebar-blog.php": {
 		"cB": 0,
 		"ft": 8192,
