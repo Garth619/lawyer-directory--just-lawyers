@@ -36,7 +36,7 @@
 	
 	<div class="internal_banner">
 		
-		<h1><?php echo $statetermtitle;?> <?php echo $patermstitle;?> Lawyers sup</h1>
+		<h1><?php echo $statetermtitle;?> <?php echo $patermstitle;?> Lawyers</h1>
 
 	</div><!-- internal_banner -->
 	

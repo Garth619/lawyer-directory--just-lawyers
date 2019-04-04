@@ -389,33 +389,22 @@ function wpbeginner_numeric_posts_nav() {
 
 function prefix_rewrite_rule() {
 		
+		// "/lawyers-location/state/alaska"
 		
 		add_rewrite_rule( 'lawyers-location/state/([^/]+)/([^/]+)', 'index.php?office_location_currentstate=$matches[1]&office_location_currentcity=$matches[2]', 'top' );
-	
+		
+		// pagination "/lawyers-practice/business/california/los-angeles/page/2"
+		
+		add_rewrite_rule( 'lawyers-practice/([^/]+)/([^/]+)/([^/]+)/page/([0-9]+)', 'index.php?office_pa=$matches[1]&currentstate=$matches[2]&currentcity=$matches[3]&paged=$matches[4]', 'top' );
+		
+		// "/lawyers-practice/business/california/los-angeles"
+		
 		add_rewrite_rule( 'lawyers-practice/([^/]+)/([^/]+)/([^/]+)', 'index.php?office_pa=$matches[1]&currentstate=$matches[2]&currentcity=$matches[3]', 'top' );
 		
+		// "/lawyers-practice/business/california"
+		
 		add_rewrite_rule( 'lawyers-practice/([^/]+)/([^/]+)', 'index.php?office_pa=$matches[1]&currentstate=$matches[2]', 'top' );
-    
-    
-    // somewhere maybe something like this 
-    
-    // add_rewrite_rule('^first/second/page/([0-9]+)/?', 'index.php?page_id=50&paged=$matches[1]', 'top');
-    
-    //add_rewrite_rule('^shop/discounted/page/?([0-9]{1,})/?$', 'index.php?post_type=product&sortby=discounts&paged=$matches[1]', 'top');
-    
-    //add_rewrite_rule('myPage/mySuPage(/page/([0-9]+)?)?/?$','index.php?pagename=myPage/mySuPage&pageds=$matches[2]','top');
-
-		//add_rewrite_rule('myPage/mySuPage/([^/]*)/([^/]*)(/page/([0-9]+)?)?/?$','index.php?pagename=myPage/mySuPage&param1=$matches[1]&param2=$matches[2]&pageds=$matches[4]','top');
-		
-		//add_rewrite_rule('resources/([^/]+)/page/([0-9]{1,})/?', 'index.php?taxonomy=res_category&term=$matches[1]&post_type=resources&paged=$matches[2]', 'top');
-		
-		
-		// this looks good bc it includes other matched vars
-		
-		// add_rewrite_rule( 'resources/(.+?)(/page/([0-9]+))?/?$', 'index.php?taxonomy=res_category&term=$matches[1]&paged=$matches[3]', 'top');
-
-
-    
+ 
  }
  
 add_action( 'init', 'prefix_rewrite_rule' );
@@ -445,51 +434,42 @@ function prefix_register_query_var( $vars ) {
 add_filter( 'query_vars', 'prefix_register_query_var' );
 
 
-// redirection of templates based on query vars
+// templates assignment based on query vars
 
 
 function prefix_url_rewrite_templates() {
 	
 	
-	
-		if ( get_query_var( 'office_location_currentstate') && get_query_var( 'office_location_currentcity') ) { // or the other isset example  if(!isset( $wp_query->query['photos'] ))
+	if ( get_query_var( 'office_location_currentstate') && get_query_var( 'office_location_currentcity') ) { 
        
-     
-	  
-	  	add_filter( 'template_include', function() {
+     	add_filter( 'template_include', function() {
             return get_template_directory() . '/page-templates/template-practicearea_city.php';
        });
 
     }
 		
 		
-		
- 
-    if ( get_query_var( 'currentstate') ) { 
+		if ( get_query_var( 'currentstate') ) { 
        
-	  
-	  	add_filter( 'template_include', function() {
-            return get_template_directory() . '/page-templates/template-locations_state_pa.php';
-       });
+			add_filter( 'template_include', function() {
+       return get_template_directory() . '/page-templates/template-locations_state_pa.php';
+     	});
 
     }
     
     
-
-    if (get_query_var( 'currentstate') && get_query_var( 'currentcity')) { 
+		if (get_query_var( 'currentstate') && get_query_var( 'currentcity')) { 
        
-	    
-	    
-			add_filter( 'template_include', function() {
+	    add_filter( 'template_include', function() {
             return get_template_directory() . '/page-templates/template-locations_city_pa.php';
        });
 
-
-    }
+		}
 
 }
  
 add_action( 'template_redirect', 'prefix_url_rewrite_templates' );
+
 
 
 
@@ -802,10 +782,7 @@ function my_custom_search($query) {
 		
 		//  "template-locations_city_pa.php"  /lawyers-practice/business/california/anaheim-hills
 		
-		
-		// this template need pagination "litigation" returns too many posts. set up rewrite rule up above
-		
-		
+	
 		if ( ! is_admin() && $query->is_main_query() && get_query_var( 'currentstate') && get_query_var( 'currentcity')) {
 			
 			
@@ -835,7 +812,7 @@ function my_custom_search($query) {
 			$query-> set('order' , 'ASC');
 			$query-> set('post_status' , 'publish');
 			$query-> set('orderby' , 'title');
-			$query-> set('posts_per_page' , -1);
+			$query-> set('posts_per_page' , 100);
 			
 		}		
 		
@@ -845,7 +822,5 @@ function my_custom_search($query) {
 	add_action( 'pre_get_posts', 'my_custom_search' );
 	
 
-	
 
-	
 	

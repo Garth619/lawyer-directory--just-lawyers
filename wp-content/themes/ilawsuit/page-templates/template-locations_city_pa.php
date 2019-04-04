@@ -105,13 +105,13 @@
 		
 				<?php if ( have_posts() ) :?>
 						
-						 <?php $count = $wp_query->found_posts; ?>
+					<?php $count = $wp_query->found_posts; ?>
 				 
-				 <?php if($count) { ?>
+						<?php if($count) { ?>
 							
-					<span class="results_number">Total Lawyers (<?php echo $count;?>)</span><!-- results_number -->
+							<span class="results_number">Total Lawyers (<?php echo $count;?>)</span><!-- results_number -->
 							
-				 <?php } ?>
+						<?php } ?>
 				 
 				 <div class="make_new_search_wrapper lawyer_search_styles">
 						
@@ -124,6 +124,12 @@
 							</div><!-- new_search_wrapper -->
 						
 						</div><!-- make_new_search_wrapper -->
+						
+						<div class="pagination">
+
+							<?php wpbeginner_numeric_posts_nav(); ?>
+
+						</div><!-- pagination -->
 						
 						<div class="lawyer_results_wrapper">
 						
@@ -199,18 +205,15 @@
 		
 						<?php endwhile; // end of loop ?>
 						
-						<div class="pagination">
-
-				<?php wpbeginner_numeric_posts_nav(); ?>
-
-			</div><!-- pagination -->
-
-						<?php endif; ?>
+						</div><!-- lawyer_results_wrapper -->
+						
+					<?php endif; ?>
   
-  
-  				</div><!-- lawyer_results_wrapper -->
-  				
-  				
+					<div class="pagination">
+
+						<?php wpbeginner_numeric_posts_nav(); ?>
+
+					</div><!-- pagination -->
   
 			</div><!-- list_wrapper -->
 			
