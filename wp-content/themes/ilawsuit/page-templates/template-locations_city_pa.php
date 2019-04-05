@@ -93,23 +93,31 @@
 		 		endif; ?>
 		 		
 		 		
-		 		<div class="filter_by_search_wrapper">
-				
-					<input class="list_input desktop" type="text" placeholder="Filter<?php // echo $citytermtitle;?> Lawyers Below">
-				
-					<input class="list_input mobile" type="text" placeholder="Filter">
-				
-					<div class="filter_by_search_button"></div><!-- filter_by_search_button -->
-				
-				</div><!-- filter_by_search_wrapper -->
+		 	
 		
 				<?php if ( have_posts() ) :?>
 						
 					<?php $count = $wp_query->found_posts; ?>
-				 
-						<?php if($count) { ?>
+					
+						<?php if($count <= '99') { ?>
+						
+							<div class="filter_by_search_wrapper">
+				
+								<input class="list_input desktop" type="text" placeholder="Filter<?php // echo $citytermtitle;?> Lawyers Below">
+				
+								<input class="list_input mobile" type="text" placeholder="Filter">
+				
+								<div class="filter_by_search_button"></div><!-- filter_by_search_button -->
+								
+							</div><!-- filter_by_search_wrapper -->
 							
 							<span class="results_number">Total Lawyers (<?php echo $count;?>)</span><!-- results_number -->
+						
+						<?php } ?>
+				 
+						<?php if($count >= '100') { ?>
+						
+							<span class="results_number no_filter_space">Total Lawyers (<?php echo $count;?>)</span><!-- results_number -->
 							
 						<?php } ?>
 				 
