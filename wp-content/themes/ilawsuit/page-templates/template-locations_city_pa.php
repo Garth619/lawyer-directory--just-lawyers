@@ -177,6 +177,7 @@
 								
 									<div class="single_lawyer_meta">
 									
+<!--
 										<span>
 										
 										<?php echo $citytermtitle;
@@ -188,6 +189,9 @@
 										} ?>
 										
 										</span>
+-->
+										
+										<span class="results_address"><?php the_field( 'lawyer_address' ); ?></span><!-- results_address -->
 									
 										<?php if(get_field('lawyer_phone') && get_field('lawyer_phone') !== 'NULL') { ?>
 									
