@@ -48,6 +48,8 @@
 
 	</div><!-- internal_banner -->
 	
+	<div id="map"></div><!-- map -->
+	
 	<div class="outer_container">
 		
 		<div class="directory_wrapper lawyer_wrapper">

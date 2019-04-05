@@ -2,13 +2,13 @@
 {\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\froman\fcharset0 Times-Roman;\f2\fmodern\fcharset0 CourierNewPSMT;
 \f3\fmodern\fcharset0 CourierNewPS-BoldMT;\f4\fnil\fcharset0 Menlo-Regular;\f5\fswiss\fcharset0 ArialMT;
 }
-{\colortbl;\red255\green255\blue255;\red0\green0\blue233;\red63\green105\blue30;\red255\green0\blue0;
-\red0\green0\blue233;\red57\green57\blue57;\red236\green236\blue236;\red104\green26\blue29;\red235\green236\blue237;
+{\colortbl;\red255\green255\blue255;\red0\green0\blue233;\red0\green0\blue233;\red63\green105\blue30;
+\red255\green0\blue0;\red57\green57\blue57;\red236\green236\blue236;\red104\green26\blue29;\red235\green236\blue237;
 \red43\green39\blue19;\red104\green26\blue29;\red235\green236\blue237;\red36\green38\blue41;\red43\green39\blue19;
 \red27\green29\blue31;\red255\green255\blue255;\red8\green69\blue135;\red13\green0\blue129;\red16\green58\blue83;
 }
-{\*\expandedcolortbl;;\cssrgb\c0\c0\c93333;\csgenericrgb\c24706\c41176\c11765;\csgenericrgb\c100000\c0\c0;
-\cssrgb\c0\c0\c93333;\cssrgb\c29020\c29020\c29020;\cssrgb\c94118\c94118\c94118;\cssrgb\c49020\c15294\c15294;\cssrgb\c93725\c94118\c94510;
+{\*\expandedcolortbl;;\cssrgb\c0\c0\c93333;\cssrgb\c0\c0\c93333;\csgenericrgb\c24706\c41176\c11765;
+\csgenericrgb\c100000\c0\c0;\cssrgb\c29020\c29020\c29020;\cssrgb\c94118\c94118\c94118;\cssrgb\c49020\c15294\c15294;\cssrgb\c93725\c94118\c94510;
 \cssrgb\c22353\c20000\c9412;\cssrgb\c49020\c15294\c15294;\cssrgb\c93725\c94118\c94510;\cssrgb\c18824\c20000\c21176;\cssrgb\c22353\c20000\c9412;
 \cssrgb\c14118\c15294\c16078;\cssrgb\c100000\c100000\c100000;\cssrgb\c0\c34902\c60000;\cssrgb\c6275\c6275\c58039;\cssrgb\c6275\c29412\c40000;
 }
@@ -21,6 +21,7 @@
 to do\
 \'97\'97\'97\'97\'97\'97\'97\
 \
+need a page two h1 results for lawyer results\
 \
 rebuild seo - also get someone to crawl site with that spider seo - this part will take some trial and error - make acfs? will have to be acfs\'85. but build most by hand if I can\'85..\
 \pard\pardeftab720\sl280\partightenfactor0
@@ -40,9 +41,56 @@ for titles and even those search conditionals in the h1s, write a function then 
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 \cf0 \
 \
-lazyload paged results, popup on map, get geocode compare to lat acfs and list from closest to furthest,  there needs to be some relevance on this page. ho w slow is meta query to order by number with pagination. I could at least do a featured option for meta, will that be slow?\
+lazyload paged results, popup on map, get geocode compare to lat acfs and list from closest to furthest,  there needs to be some relevance on this page. ho w slow is meta query to order by number with pagination. I could at least do a featured option for meta, will that be slow? featured could be mapped to map as well with a different featured pin\
 \
+try to\'85.. create a custom dynamic rest endpoint for each 100 posts with pagination to plot on the map\
+then meta_query but order just the returned 100 posts (not all of them i dunnno) - this might be incredibly slow\
+\
+so far this is working:\
+\pard\pardeftab720\sl280\partightenfactor0
+{\field{\*\fldinst{HYPERLINK "https://www.tychesoftwares.com/creating-custom-api-endpoints-in-the-wordpress-rest-api/"}}{\fldrslt 
+\f1 \cf3 \expnd0\expndtw0\kerning0
+\ul \ulc3 \outl0\strokewidth0 \strokec3 https://www.tychesoftwares.com/creating-custom-api-endpoints-in-the-wordpress-rest-api/}}\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
+\pard\pardeftab720\sl280\partightenfactor0
+{\field{\*\fldinst{HYPERLINK "http://biostall.com/performing-a-radial-search-with-wp_query-in-wordpress/"}}{\fldrslt 
+\f1 \cf3 \expnd0\expndtw0\kerning0
+\ul \ulc3 \outl0\strokewidth0 \strokec3 http://biostall.com/performing-a-radial-search-with-wp_query-in-wordpress/}}\
+\pard\pardeftab720\sl280\partightenfactor0
+{\field{\*\fldinst{HYPERLINK "https://www.w3schools.com/html/html5_geolocation.asp"}}{\fldrslt 
+\f1 \cf3 \expnd0\expndtw0\kerning0
+\ul \ulc3 \outl0\strokewidth0 \strokec3 https://www.w3schools.com/html/html5_geolocation.asp}}\
+\pard\pardeftab720\sl280\partightenfactor0
+{\field{\*\fldinst{HYPERLINK "https://stackoverflow.com/questions/19984205/filtering-wordpress-posts-by-closest-locations"}}{\fldrslt 
+\f1 \cf3 \expnd0\expndtw0\kerning0
+\ul \ulc3 \outl0\strokewidth0 \strokec3 https://stackoverflow.com/questions/19984205/filtering-wordpress-posts-by-closest-locations}}
+\f1 \cf3 \expnd0\expndtw0\kerning0
+\ul \ulc3 \outl0\strokewidth0 \strokec3 \
+\pard\pardeftab720\sl280\partightenfactor0
+{\field{\*\fldinst{HYPERLINK "https://gschoppe.com/wordpress/location-searches/"}}{\fldrslt \cf3 \ulc3 https://gschoppe.com/wordpress/location-searches/}}\
+\pard\pardeftab720\sl280\partightenfactor0
+{\field{\*\fldinst{HYPERLINK "https://en.wikipedia.org/wiki/Haversine_formula"}}{\fldrslt \cf3 \ulc3 https://en.wikipedia.org/wiki/Haversine_formula}}\
+\pard\pardeftab720\sl280\partightenfactor0
+{\field{\*\fldinst{HYPERLINK "https://webdevstudios.com/2015/07/09/creating-simple-json-endpoint-wordpress/"}}{\fldrslt \cf3 \ulc3 https://webdevstudios.com/2015/07/09/creating-simple-json-endpoint-wordpress/}}\
+\pard\pardeftab720\sl280\partightenfactor0
+{\field{\*\fldinst{HYPERLINK "https://www.sitepoint.com/wordpress-rest-api-adding-custom-routes/"}}{\fldrslt \cf3 \ulc3 https://www.sitepoint.com/wordpress-rest-api-adding-custom-routes/}}\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0 \cf0 \kerning1\expnd0\expndtw0 \ulnone \outl0\strokewidth0 rest api with pre_get_posts\
+\
+\pard\pardeftab720\sl280\partightenfactor0
+{\field{\*\fldinst{HYPERLINK "https://wordpress.stackexchange.com/questions/331758/does-pre-get-posts-affect-rest-api-responses"}}{\fldrslt 
+\f1 \cf3 \expnd0\expndtw0\kerning0
+\ul \ulc3 \outl0\strokewidth0 \strokec3 https://wordpress.stackexchange.com/questions/331758/does-pre-get-posts-affect-rest-api-responses}}\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
 im losing page hooks with rewrite rules and template_include might be a big problem - how could I live edit stuff? setup a live edit that links to an acf option box somehow for seo and content blocks\
+\
+\
+\
+maybe a (1-100) per page for lawyer results\
 \
 regex rules can probably be improved upon, they need ? at the end i think\
 \pard\pardeftab720\sl280\partightenfactor0
@@ -53,7 +101,7 @@ regex rules can probably be improved upon, they need ? at the end i think\
 \cf0 \
 upload new db\
 \
-\cf3 1. pre_get_post\cf0 \
+\cf4 1. pre_get_post\cf0 \
 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
@@ -69,7 +117,7 @@ upload new db\
 	- runs a pre_get_post - needs a rewrite rule setup to handle pagination\
 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
-\cf3 2. Unable to run pre_get_post at this time, each of these loops are similar with multiple wp_query calls, these also seem like I\'92m running a few things too many times\cf0 \
+\cf4 2. Unable to run pre_get_post at this time, each of these loops are similar with multiple wp_query calls, these also seem like I\'92m running a few things too many times\cf0 \
 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
@@ -78,14 +126,14 @@ upload new db\
 \
 	- im unable to use pre_get_posts and there are a couple wp_query calls\'85\
 	- timeout on large ones\
-	- I get the first 2000 post ids that are in both the locations and current pa - \cf4 this needs to be improved upon\cf0 \
+	- I get the first 2000 post ids that are in both the locations and current pa - \cf5 this needs to be improved upon\cf0 \
 	- then I return all terms found in locations that have those object_ids (post ids)\
 \
 
 \b \'93template-locations_state_pa.php\'94 /lawyers-practice/criminal-defense/colorado\
 \
 	
-\b0 \cf4 - look at this closer what is get_term_by I think this is here to show just cities tied to a current state id\cf0 \
+\b0 \cf5 - look at this closer what is get_term_by I think this is here to show just cities tied to a current state id\cf0 \
 	- most likely won\'92t be using pre_get_post because I need to run mutiple wp_queries\
 	- I get all post ids in the current state and the current pa\
 	- then I return all terms of locations (cities) that have those object ids (post ids)\
@@ -107,8 +155,8 @@ upload new db\
 \cf0 \
 \pard\pardeftab720\sl280\partightenfactor0
 {\field{\*\fldinst{HYPERLINK "https://paulund.co.uk/how-to-rewrite-urls-in-wordpress"}}{\fldrslt 
-\f1 \cf5 \expnd0\expndtw0\kerning0
-\ul \ulc5 \outl0\strokewidth0 \strokec5 https://paulund.co.uk/how-to-rewrite-urls-in-wordpress}}\
+\f1 \cf3 \expnd0\expndtw0\kerning0
+\ul \ulc3 \outl0\strokewidth0 \strokec3 https://paulund.co.uk/how-to-rewrite-urls-in-wordpress}}\
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 \cf0 \
 \
@@ -118,8 +166,8 @@ upload new db\
 \
 \pard\pardeftab720\sl280\partightenfactor0
 {\field{\*\fldinst{HYPERLINK "https://wordpress.stackexchange.com/questions/166448/how-to-optimize-wp-site-for-millions-of-posts"}}{\fldrslt 
-\f1 \cf5 \expnd0\expndtw0\kerning0
-\ul \ulc5 \outl0\strokewidth0 \strokec5 https://wordpress.stackexchange.com/questions/166448/how-to-optimize-wp-site-for-millions-of-posts}}\
+\f1 \cf3 \expnd0\expndtw0\kerning0
+\ul \ulc3 \outl0\strokewidth0 \strokec3 https://wordpress.stackexchange.com/questions/166448/how-to-optimize-wp-site-for-millions-of-posts}}\
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 \cf0 \
 not found- /lawyers-practice/\
@@ -257,7 +305,7 @@ regex rules can probably be improved upon, they need ? at the end i think\
 \outl0\strokewidth0 \strokec8 /?$\cf10 \strokec10 \
 \pard\pardeftab720\sl280\partightenfactor0
 {\field{\*\fldinst{HYPERLINK "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp"}}{\fldrslt 
-\f1\fs24 \cf5 \cb1 \ul \ulc5 \strokec5 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp}}
+\f1\fs24 \cf3 \cb1 \ul \ulc3 \strokec3 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp}}
 \f0\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 \cf0 \

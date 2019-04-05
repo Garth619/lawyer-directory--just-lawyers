@@ -236,11 +236,33 @@
 		"plM": 3758088159,
 		"prP": 0
 		},
+	"/images/large-circle.png": {
+		"ft": 32768,
+		"iS": 598,
+		"oA": 0,
+		"oAP": "/images/large-circle.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
 	"/images/logo.png": {
 		"ft": 32768,
 		"iS": 6920,
 		"oA": 0,
 		"oAP": "/images/logo.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"/images/medium-circle.png": {
+		"ft": 32768,
+		"iS": 356,
+		"oA": 0,
+		"oAP": "/images/medium-circle.png",
 		"oF": 0,
 		"oIPL": 0,
 		"opt": 0,
@@ -269,6 +291,17 @@
 		"opt": 1,
 		"q": 100
 		},
+	"/images/small-circle.png": {
+		"ft": 32768,
+		"iS": 249,
+		"oA": 0,
+		"oAP": "/images/small-circle.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
 	"/images/star_icon.svg": {
 		"ft": 2097152,
 		"miP": 0,
@@ -278,17 +311,6 @@
 		"opt": 0,
 		"plM": 3758088159,
 		"prP": 0
-		},
-	"/images/Untitled-1.jpg": {
-		"ft": 16384,
-		"iS": 76046,
-		"jF": 0,
-		"oA": 0,
-		"oAP": "/images/Untitled-1.jpg",
-		"oF": 0,
-		"oIPL": 0,
-		"opt": 0,
-		"q": 100
 		},
 	"/index.php": {
 		"cB": 0,
@@ -316,6 +338,28 @@
 		"mi": 1,
 		"oA": 0,
 		"oAP": "/js/custom-min.js",
+		"oF": 0,
+		"sC": 0,
+		"tS": 0
+		},
+	"/js/data.js": {
+		"bF": 0,
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "/js/data-min.js",
+		"oF": 0,
+		"sC": 0,
+		"tS": 0
+		},
+	"/js/googlemap.js": {
+		"bF": 0,
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "/js/googlemap-min.js",
 		"oF": 0,
 		"sC": 0,
 		"tS": 0
