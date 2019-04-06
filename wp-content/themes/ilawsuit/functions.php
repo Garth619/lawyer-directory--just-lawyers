@@ -831,40 +831,116 @@ function my_custom_search($query) {
 
 	function my_register_route() {
     
-		register_rest_route( 'my-route', 'my-posts', array(
-			'methods' => 'GET',
-			'callback' => 'my_posts',)
+		register_rest_route( 'my-route', 'my-posts', 
+			array(
+				'methods' => 'GET',
+				'callback' => 'my_posts',
+			)
 		);
 		
 	}
 	
-	//function custom_phrase() {
-		
-		//return rest_ensure_response( 'Hello World! This is my first REST API' );
-	
-	//}
-	
-	
 	function my_posts() {
             
-    // default the author list to all
-    $post_author = 'all';
-    // get the posts
-    $posts_list = get_posts( array( 'type' => 'post', 'author' => $post_author ) );
+   // get the posts
+    
+    $posts_list = get_posts(
+    		array(
+    			'post_type' => 'lawyer',
+    			'posts_per_page' => 100,
+    			'orderby' => 'title',
+    			'order' => 'ASC'
+    		)
+    	);
+    	
     $post_data = array();
+    
     foreach( $posts_list as $posts) {
         $post_id = $posts->ID;
-        $post_author = $posts->post_author;
         $post_title = $posts->post_title;
-        $post_content = $posts->post_content;
-        $post_data[ $post_id ][ 'author' ] = $post_author;
         $post_data[ $post_id ][ 'title' ] = $post_title;
-        $post_data[ $post_id ][ 'content' ] = $post_content;
+        $post_data[ $post_id ][ 'garrett' ] = 'garrett';
     }
+    
     wp_reset_postdata();
+    
+    
     return rest_ensure_response( $post_data );
 }
 	
+
+// test
+
+
+
+add_action( 'rest_api_init', 'garrett_test' );
+
+	function garrett_test() {
+    
+		register_rest_route( 'new-route', 'new-posts', 
+			array(
+				'methods' => 'GET',
+				'callback' => 'new_posts',
+			)
+		);
+		
+	}
 	
+	
+	function new_posts() {
+            
+   	$testargs = array(
+	  		'post_type' => 'lawyer',
+			'posts_per_page' => 100,
+    		'orderby' => 'title',
+    		'post_status' => 'publish',
+			'order' => 'ASC',
+			'tax_query' => array(
+				'relation' => 'AND',
+				array(
+					'taxonomy'  => 'location',
+					'field' => 'slug',
+					'terms' => 'los-angeles',
+					'operator' => 'IN',
+					),
+				array(
+					'taxonomy'  => 'practice_area',
+					'field'     => 'slug',
+					'terms'     => 'business',
+					'operator' => 'IN',
+				)
+			),
+		);
+		
+		
+		$post_data = array();
+		
+		$test_query = new WP_Query($testargs); 
+		
+		
+		
+		foreach( $test_query->posts as $posts) {
+			
+		
+        
+      $post_data[ $posts->ID ][ 'Title' ] = $posts->post_title;
+      $post_data[ $posts->ID ][ 'Lat' ] = '';
+      $post_data[ $posts->ID ][ 'Lng' ] = '';
+      
+      // https://stackoverflow.com/questions/43986513/how-do-you-add-custom-fields-defined-in-posts-to-the-rest-api-responses-in-wordp
+
+        
+    }
+    
+    
+    
+    wp_reset_postdata();
+    
+    
+    return rest_ensure_response( $post_data );
+		
+   
+	}
+
 	
 	
