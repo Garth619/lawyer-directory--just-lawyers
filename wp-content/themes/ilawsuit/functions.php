@@ -873,7 +873,7 @@ function my_custom_search($query) {
 
 
 
-add_action( 'rest_api_init', 'garrett_test' );
+add_action( 'rest_api_init', 'garrett_test' ); 
 
 	function garrett_test() {
     
@@ -882,6 +882,8 @@ add_action( 'rest_api_init', 'garrett_test' );
 				'methods' => 'GET',
 				'callback' => 'new_posts',
 			)
+			// third argument will be regex rules, need pagination somehow https://www.tychesoftwares.com/creating-custom-api-endpoints-in-the-wordpress-rest-api/
+			//custom routing for my query_vars below
 		);
 		
 	}
@@ -900,13 +902,13 @@ add_action( 'rest_api_init', 'garrett_test' );
 				array(
 					'taxonomy'  => 'location',
 					'field' => 'slug',
-					'terms' => 'los-angeles',
+					'terms' => 'los-angeles', // query_var
 					'operator' => 'IN',
 					),
 				array(
 					'taxonomy'  => 'practice_area',
 					'field'     => 'slug',
-					'terms'     => 'business',
+					'terms'     => 'business', // query_var
 					'operator' => 'IN',
 				)
 			),
@@ -921,11 +923,11 @@ add_action( 'rest_api_init', 'garrett_test' );
 		
 		foreach( $test_query->posts as $posts) {
 			
-		
-        
+			//build json array to mimic data.js - learn syntax
+      
       $post_data[ $posts->ID ][ 'Title' ] = $posts->post_title;
       $post_data[ $posts->ID ][ 'Lat' ] = '';
-      $post_data[ $posts->ID ][ 'Lng' ] = '';
+      $post_data[ $posts->ID ][ 'Lng' ] = '';// register these acf fields
       
       // https://stackoverflow.com/questions/43986513/how-do-you-add-custom-fields-defined-in-posts-to-the-rest-api-responses-in-wordp
 
