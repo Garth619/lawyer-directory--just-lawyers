@@ -101,6 +101,86 @@
 		"oAP": "/functions copy.php.before_pre_get_posts_wp_query",
 		"oF": 0
 		},
+	"/functions-inc/rest-custom-fields-1.php": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 0,
+		"oAP": "/functions-inc/rest-custom-fields-1.php",
+		"oF": 0
+		},
+	"/functions-inc/rest-custom-fields-10.php": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 0,
+		"oAP": "/functions-inc/rest-custom-fields-10.php",
+		"oF": 0
+		},
+	"/functions-inc/rest-custom-fields-2.php": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 0,
+		"oAP": "/functions-inc/rest-custom-fields-2.php",
+		"oF": 0
+		},
+	"/functions-inc/rest-custom-fields-3.php": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 0,
+		"oAP": "/functions-inc/rest-custom-fields-3.php",
+		"oF": 0
+		},
+	"/functions-inc/rest-custom-fields-4.php": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 0,
+		"oAP": "/functions-inc/rest-custom-fields-4.php",
+		"oF": 0
+		},
+	"/functions-inc/rest-custom-fields-5.php": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 0,
+		"oAP": "/functions-inc/rest-custom-fields-5.php",
+		"oF": 0
+		},
+	"/functions-inc/rest-custom-fields-6.php": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 0,
+		"oAP": "/functions-inc/rest-custom-fields-6.php",
+		"oF": 0
+		},
+	"/functions-inc/rest-custom-fields-7.php": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 0,
+		"oAP": "/functions-inc/rest-custom-fields-7.php",
+		"oF": 0
+		},
+	"/functions-inc/rest-custom-fields-8.php": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 0,
+		"oAP": "/functions-inc/rest-custom-fields-8.php",
+		"oF": 0
+		},
+	"/functions-inc/rest-custom-fields-9.php": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 0,
+		"oAP": "/functions-inc/rest-custom-fields-9.php",
+		"oF": 0
+		},
 	"/functions.php": {
 		"cB": 0,
 		"ft": 8192,
@@ -351,6 +431,17 @@
 		"oAP": "/js/data-min.js",
 		"oF": 0,
 		"sC": 0,
+		"tS": 0
+		},
+	"/js/googlemap-min.js": {
+		"bF": 0,
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "/js/googlemap-min-min.js",
+		"oF": 0,
+		"sC": 3,
 		"tS": 0
 		},
 	"/js/googlemap.js": {

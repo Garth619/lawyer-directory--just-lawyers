@@ -541,7 +541,7 @@ function my_custom_search($query) {
 									'taxonomy' => 'practice_area',
 									'field' => 'slug',
 									'terms' => $att_pa, 
-									'operator' => 'IN'
+									'operator' => 'IN',
 								)
 							);
 							
@@ -558,7 +558,7 @@ function my_custom_search($query) {
 									'taxonomy' => 'location',
 									'field' => 'slug',
 									'terms' => $att_location,
-									'operator' => 'IN'
+									'operator' => 'IN',
 								)
 							);
 							
@@ -577,7 +577,7 @@ function my_custom_search($query) {
 									'taxonomy' => 'practice_area',
 									'field' => 'slug',
 									'terms' => $att_pa,
-									'operator' => 'IN'
+									'operator' => 'IN',
 								)
 							);
 							
@@ -596,7 +596,7 @@ function my_custom_search($query) {
 									'taxonomy' => 'location',
 									'field' => 'slug',
 									'terms' => $att_location,
-									'operator' => 'IN'
+									'operator' => 'IN',
 								)
 							);
 							
@@ -613,13 +613,13 @@ function my_custom_search($query) {
 									'taxonomy'  => 'practice_area',
 									'field' => 'slug',
 									'terms' => $att_pa,
-									'operator' => 'IN'
+									'operator' => 'IN',
 								), 
 								array(
 									'taxonomy' => 'location',
 									'field' => 'slug',
 									'terms' => $att_location,
-									'operator' => 'IN'
+									'operator' => 'IN',
 								)
 							);
 							
@@ -638,13 +638,13 @@ function my_custom_search($query) {
 									'taxonomy'  => 'location',
 									'field' => 'slug',
 									'terms' => $att_location,
-									'operator' => 'IN'
+									'operator' => 'IN',
 								), 
 								array(
 									'taxonomy'  => 'practice_area',
 									'field' => 'slug',
 									'terms' => $att_pa,
-									'operator' => 'IN'
+									'operator' => 'IN',
 								)
 							);
 							
@@ -664,7 +664,7 @@ function my_custom_search($query) {
 							
 							$termids = get_terms( array( 
 									'taxonomy' => 'practice_area',
-									'fields' => 'slugs'
+									'fields' => 'slugs',
 								)
 							);
 							
@@ -693,7 +693,7 @@ function my_custom_search($query) {
 									'taxonomy'  => 'practice_area',
 									'field' => 'slug',
 									'terms' => $termids,
-									'operator' => 'IN'
+									'operator' => 'IN',
 								)
 							);
 							
@@ -714,13 +714,13 @@ function my_custom_search($query) {
 									'taxonomy'  => 'practice_area',
 									'field' => 'slug',
 									'terms' => $termids,
-									'operator' => 'IN'
+									'operator' => 'IN',
 								),
 								array(
 									'taxonomy'  => 'location',
 									'field' => 'slug',
 									'terms' => $att_location, 
-									'operator' => 'IN'
+									'operator' => 'IN',
 								)
 							);
 							
@@ -739,13 +739,13 @@ function my_custom_search($query) {
 									'taxonomy' => 'practice_area',
 									'field' => 'slug',
 									'terms' => $termids,
-									'operator' => 'IN'
+									'operator' => 'IN',
 								), 
 								array(
 									'taxonomy'  => 'location',
 									'field' => 'slug',
 									'terms' => $att_location,
-									'operator' => 'IN'
+									'operator' => 'IN',
 								)
 							);
 							
@@ -823,126 +823,21 @@ function my_custom_search($query) {
 	
 	add_action( 'pre_get_posts', 'my_custom_search' );
 	
+
+	// rest api
+
+	//require get_theme_file_path('/functions-inc/rest-custom-fields-1.php');
+	//require get_theme_file_path('/functions-inc/rest-custom-fields-2.php');
+	//require get_theme_file_path('/functions-inc/rest-custom-fields-3.php');
+	//require get_theme_file_path('/functions-inc/rest-custom-fields-4.php');
+	//require get_theme_file_path('/functions-inc/rest-custom-fields-5.php');
+	//require get_theme_file_path('/functions-inc/rest-custom-fields-6.php');
+	//require get_theme_file_path('/functions-inc/rest-custom-fields-7.php');
+	//require get_theme_file_path('/functions-inc/rest-custom-fields-8.php');
+	require get_theme_file_path('/functions-inc/rest-custom-fields-10.php');
 	
 	
-	// rest api to plot query results to the maps https://www.tychesoftwares.com/creating-custom-api-endpoints-in-the-wordpress-rest-api/
 	
-	add_action( 'rest_api_init', 'my_register_route' );
-
-	function my_register_route() {
-    
-		register_rest_route( 'my-route', 'my-posts', 
-			array(
-				'methods' => 'GET',
-				'callback' => 'my_posts',
-			)
-		);
-		
-	}
-	
-	function my_posts() {
-            
-   // get the posts
-    
-    $posts_list = get_posts(
-    		array(
-    			'post_type' => 'lawyer',
-    			'posts_per_page' => 100,
-    			'orderby' => 'title',
-    			'order' => 'ASC'
-    		)
-    	);
-    	
-    $post_data = array();
-    
-    foreach( $posts_list as $posts) {
-        $post_id = $posts->ID;
-        $post_title = $posts->post_title;
-        $post_data[ $post_id ][ 'title' ] = $post_title;
-        $post_data[ $post_id ][ 'garrett' ] = 'garrett';
-    }
-    
-    wp_reset_postdata();
-    
-    
-    return rest_ensure_response( $post_data );
-}
-	
-
-// test
-
-
-
-add_action( 'rest_api_init', 'garrett_test' ); 
-
-	function garrett_test() {
-    
-		register_rest_route( 'new-route', 'new-posts', 
-			array(
-				'methods' => 'GET',
-				'callback' => 'new_posts',
-			)
-			// third argument will be regex rules, need pagination somehow https://www.tychesoftwares.com/creating-custom-api-endpoints-in-the-wordpress-rest-api/
-			//custom routing for my query_vars below
-		);
-		
-	}
-	
-	
-	function new_posts() {
-            
-   	$testargs = array(
-	  		'post_type' => 'lawyer',
-			'posts_per_page' => 100,
-    		'orderby' => 'title',
-    		'post_status' => 'publish',
-			'order' => 'ASC',
-			'tax_query' => array(
-				'relation' => 'AND',
-				array(
-					'taxonomy'  => 'location',
-					'field' => 'slug',
-					'terms' => 'los-angeles', // query_var
-					'operator' => 'IN',
-					),
-				array(
-					'taxonomy'  => 'practice_area',
-					'field'     => 'slug',
-					'terms'     => 'business', // query_var
-					'operator' => 'IN',
-				)
-			),
-		);
-		
-		
-		$post_data = array();
-		
-		$test_query = new WP_Query($testargs); 
-		
-		
-		
-		foreach( $test_query->posts as $posts) {
-			
-			//build json array to mimic data.js - learn syntax
-      
-      $post_data[ $posts->ID ][ 'Title' ] = $posts->post_title;
-      $post_data[ $posts->ID ][ 'Lat' ] = '';
-      $post_data[ $posts->ID ][ 'Lng' ] = '';// register these acf fields
-      
-      // https://stackoverflow.com/questions/43986513/how-do-you-add-custom-fields-defined-in-posts-to-the-rest-api-responses-in-wordp
-
-        
-    }
-    
-    
-    
-    wp_reset_postdata();
-    
-    
-    return rest_ensure_response( $post_data );
-		
-   
-	}
 
 	
 	
