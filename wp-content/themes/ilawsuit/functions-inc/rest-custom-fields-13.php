@@ -16,8 +16,6 @@ add_action( 'rest_api_init', 'garrett_test' );
 		
 	}
 	
-	
-	// need regex rules, need pagination somehow https://www.tychesoftwares.com/creating-custom-api-endpoints-in-the-wordpress-rest-api/
 	//custom routing for my query_vars below
 	
 	
@@ -28,7 +26,8 @@ add_action( 'rest_api_init', 'garrett_test' );
 	  		'post_type' => 'lawyer',
 			'posts_per_page' => 100,
     		'orderby' => 'title',
-    		//'offset' => 100,
+    		'offset' => 100,
+    		'no_found_rows' => true, // does this break offest?
     		'post_status' => 'publish',
 			'order' => 'ASC',
 			'tax_query' => array(
@@ -56,12 +55,26 @@ add_action( 'rest_api_init', 'garrett_test' );
 		
 		while($test_query->have_posts()) : $test_query->the_post();
 		
+		$mytitle = get_the_title();
+		$mypermalink = get_the_permalink();
+		
+		$lat = get_field('latitude');
+		$lattwo = round($lat, 6);
+		
+				
+		$lgn = get_field('longitude');
+		$lgntwo = round($lgn, 6);
+		
+		$phone = get_field('lawyer_phone');
+		$address = get_field('lawyer_address');
+		
 		$post_data[] = array(
-		    '"Title"' => get_the_title(),
-		    '"Permalink"' => get_the_permalink(),
-		    '"Lat"' => get_field('latitude'),
-		    '"Lng"' =>  get_field('longitude'),
-		    '"Address"' => get_field('lawyer_address'),
+		    '"Title"' => $mytitle,
+		    '"Permalink"' => $mypermalink,
+		    '"Lat"' => $lattwo,
+		    '"Lng"' =>  $lgntwo,
+		    '"Address"' => $address,
+		    '"Phone"' => $phone,
 		    //'"ACF"' => get_fields($post->ID)
 		    
 	    );
@@ -77,7 +90,7 @@ add_action( 'rest_api_init', 'garrett_test' );
    
 	}
 	
-	
+
 	
 	
 

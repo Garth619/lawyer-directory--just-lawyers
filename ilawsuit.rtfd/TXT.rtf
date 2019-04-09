@@ -1,15 +1,17 @@
 {\rtf1\ansi\ansicpg1252\cocoartf1504\cocoasubrtf830
-{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\froman\fcharset0 Times-Roman;\f2\fnil\fcharset0 Menlo-Regular;
-\f3\fmodern\fcharset0 CourierNewPSMT;\f4\fmodern\fcharset0 CourierNewPS-BoldMT;\f5\fswiss\fcharset0 ArialMT;
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\froman\fcharset0 Times-Roman;\f2\fswiss\fcharset0 ArialMT;
+\f3\fnil\fcharset0 Menlo-Regular;\f4\fmodern\fcharset0 CourierNewPSMT;\f5\fmodern\fcharset0 CourierNewPS-BoldMT;
 }
-{\colortbl;\red255\green255\blue255;\red0\green0\blue233;\red0\green0\blue233;\red36\green38\blue41;
-\red235\green236\blue237;\red104\green26\blue29;\red43\green39\blue19;\red63\green105\blue30;\red255\green0\blue0;
-\red57\green57\blue57;\red236\green236\blue236;\red27\green29\blue31;\red255\green255\blue255;\red8\green69\blue135;
-\red13\green0\blue129;\red16\green58\blue83;}
-{\*\expandedcolortbl;;\cssrgb\c0\c0\c93333;\cssrgb\c0\c0\c93333;\cssrgb\c18824\c20000\c21176;
-\cssrgb\c93725\c94118\c94510;\cssrgb\c49020\c15294\c15294;\cssrgb\c22353\c20000\c9412;\csgenericrgb\c24706\c41176\c11765;\csgenericrgb\c100000\c0\c0;
-\cssrgb\c29020\c29020\c29020;\cssrgb\c94118\c94118\c94118;\cssrgb\c14118\c15294\c16078;\cssrgb\c100000\c100000\c100000;\cssrgb\c0\c34902\c60000;
-\cssrgb\c6275\c6275\c58039;\cssrgb\c6275\c29412\c40000;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue233;\red0\green0\blue233;\red27\green29\blue31;
+\red255\green255\blue255;\red8\green69\blue135;\red36\green38\blue41;\red235\green236\blue237;\red104\green26\blue29;
+\red43\green39\blue19;\red63\green105\blue30;\red255\green0\blue0;\red57\green57\blue57;\red236\green236\blue236;
+\red27\green29\blue31;\red255\green255\blue255;\red8\green69\blue135;\red13\green0\blue129;\red16\green58\blue83;
+}
+{\*\expandedcolortbl;;\cssrgb\c0\c0\c93333;\cssrgb\c0\c0\c93333;\cssrgb\c14118\c15294\c16078;
+\cssrgb\c100000\c100000\c100000;\cssrgb\c0\c34902\c60000;\cssrgb\c18824\c20000\c21176;\cssrgb\c93725\c94118\c94510;\cssrgb\c49020\c15294\c15294;
+\cssrgb\c22353\c20000\c9412;\csgenericrgb\c24706\c41176\c11765;\csgenericrgb\c100000\c0\c0;\cssrgb\c29020\c29020\c29020;\cssrgb\c94118\c94118\c94118;
+\cssrgb\c14118\c15294\c16078;\cssrgb\c100000\c100000\c100000;\cssrgb\c0\c34902\c60000;\cssrgb\c6275\c6275\c58039;\cssrgb\c6275\c29412\c40000;
+}
 \margl1440\margr1440\vieww16740\viewh14140\viewkind0
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
@@ -19,9 +21,23 @@
 to do\
 \'97\'97\'97\'97\'97\'97\'97\
 \
-try the filter plugin with tax query and pagination also. add acf rest plugin\
 \
-add api key back in\
+\pard\pardeftab720\sl340\partightenfactor0
+\cf0 \
+\pard\pardeftab720\sl340\partightenfactor0
+\cf0 geocoding - addresses to lat and long (I think posts have bad data)\
+\pard\pardeftab720\sl280\partightenfactor0
+{\field{\*\fldinst{HYPERLINK "https://stackoverflow.com/questions/15925980/using-address-instead-of-longitude-and-latitude-with-google-maps-api"}}{\fldrslt 
+\f1 \cf2 \expnd0\expndtw0\kerning0
+\ul \ulc2 \outl0\strokewidth0 \strokec2 https://stackoverflow.com/questions/15925980/using-address-instead-of-longitude-and-latitude-with-google-maps-api}}
+\f1 \cf2 \expnd0\expndtw0\kerning0
+\ul \ulc2 \outl0\strokewidth0 \strokec2 \
+\
+also try and cache the results of data to map
+\f0 \cf0 \kerning1\expnd0\expndtw0 \ulnone \outl0\strokewidth0 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
+\
 \
 \pard\pardeftab720\sl280\partightenfactor0
 {\field{\*\fldinst{HYPERLINK "https://teslathemes.com/blog/how-to-optimize-your-wordpress-site-without-any-seo-plugins/"}}{\fldrslt 
@@ -52,6 +68,21 @@ for titles and even those search conditionals in the h1s, write a function then 
 \cf0 \
 \
 \
+\
+\pard\pardeftab720\sl340\sa300\partightenfactor0
+
+\f2\fs30 \cf4 \cb5 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec4 The "weird" value is actually serialized PHP - you can deserialize it serverside using\'a0{\field{\*\fldinst{HYPERLINK "http://php.net/manual/en/function.unserialize.php"}}{\fldrslt \cf6 \ul \ulc6 \strokec6 unserialize}}before you\'a0{\field{\*\fldinst{HYPERLINK "http://php.net/manual/en/function.json-encode.php"}}{\fldrslt \cf6 \ul \ulc6 \strokec6 json_encode}}, and you should be fine.\
+Wordpress serializes metadata in this way, so that any object can be saved as strings. The trick is to use PHP deserialization to get a valid PHP object before creating the valid JSON object.\
+Hope this helps.\
+\pard\pardeftab720\sl280\partightenfactor0
+{\field{\*\fldinst{HYPERLINK "https://stackoverflow.com/questions/32652536/wordpress-rest-api-with-advanced-custom-fields-google-map-field-returns-weird-st"}}{\fldrslt 
+\f1\fs24 \cf2 \cb1 \ul \ulc2 \strokec2 https://stackoverflow.com/questions/32652536/wordpress-rest-api-with-advanced-custom-fields-google-map-field-returns-weird-st}}
+\f0\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
+\
+\
 lazyload paged results, popup on map, get geocode compare to lat acfs and list from closest to furthest,  there needs to be some relevance on this page. ho w slow is meta query to order by number with pagination. I could at least do a featured option for meta, will that be slow? featured could be mapped to map as well with a different featured pin\
 \
 try to\'85.. create a custom dynamic rest endpoint for each 100 posts with pagination to plot on the map\
@@ -61,6 +92,7 @@ wp_json_encode\
 \
 so far this is working:\
 \
+rescrape and do my own address to lat and long converter \
 \
 get_post_meta\
 register_rest_field\
@@ -148,24 +180,24 @@ do i need to extend the controller class to use a custom field?\
 \
 \pard\pardeftab720\sl300\partightenfactor0
 
-\f2\fs26 \cf4 \cb5 \ulnone <?php\
+\f3\fs26 \cf7 \cb8 \ulnone <?php\
 $arr = array(\
     array(\
-        \cf6 "region"\cf4  => \cf6 "valore"\cf4 ,\
-        \cf6 "price"\cf4  => \cf6 "valore2"\cf4 \
+        \cf9 "region"\cf7  => \cf9 "valore"\cf7 ,\
+        \cf9 "price"\cf7  => \cf9 "valore2"\cf7 \
     ),\
     array(\
-        \cf6 "region"\cf4  => \cf6 "valore"\cf4 ,\
-        \cf6 "price"\cf4  => \cf6 "valore2"\cf4 \
+        \cf9 "region"\cf7  => \cf9 "valore"\cf7 ,\
+        \cf9 "price"\cf7  => \cf9 "valore2"\cf7 \
     ),\
     array(\
-        \cf6 "region"\cf4  => \cf6 "valore"\cf4 ,\
-        \cf6 "price"\cf4  => \cf6 "valore2"\cf4 \
+        \cf9 "region"\cf7  => \cf9 "valore"\cf7 ,\
+        \cf9 "price"\cf7  => \cf9 "valore2"\cf7 \
     )\
 );\
 \
 echo json_encode($arr);\
-?>\cf7 \
+?>\cf10 \
 \pard\pardeftab720\sl280\partightenfactor0
 
 \f1\fs24 \cf3 \cb1 \ul \
@@ -196,7 +228,7 @@ regex rules can probably be improved upon, they need ? at the end i think\
 upload new db\
 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
-\cf8 1. pre_get_post\cf0 \
+\cf11 1. pre_get_post\cf0 \
 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
@@ -212,7 +244,7 @@ upload new db\
 	- runs a pre_get_post - needs a rewrite rule setup to handle pagination\
 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
-\cf8 2. Unable to run pre_get_post at this time, each of these loops are similar with multiple wp_query calls, these also seem like I\'92m running a few things too many times\cf0 \
+\cf11 2. Unable to run pre_get_post at this time, each of these loops are similar with multiple wp_query calls, these also seem like I\'92m running a few things too many times\cf0 \
 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
@@ -221,14 +253,14 @@ upload new db\
 \
 	- im unable to use pre_get_posts and there are a couple wp_query calls\'85\
 	- timeout on large ones\
-	- I get the first 2000 post ids that are in both the locations and current pa - \cf9 this needs to be improved upon\cf0 \
+	- I get the first 2000 post ids that are in both the locations and current pa - \cf12 this needs to be improved upon\cf0 \
 	- then I return all terms found in locations that have those object_ids (post ids)\
 \
 
 \b \'93template-locations_state_pa.php\'94 /lawyers-practice/criminal-defense/colorado\
 \
 	
-\b0 \cf9 - look at this closer what is get_term_by I think this is here to show just cities tied to a current state id\cf0 \
+\b0 \cf12 - look at this closer what is get_term_by I think this is here to show just cities tied to a current state id\cf0 \
 	- most likely won\'92t be using pre_get_post because I need to run mutiple wp_queries\
 	- I get all post ids in the current state and the current pa\
 	- then I return all terms of locations (cities) that have those object ids (post ids)\
@@ -337,15 +369,15 @@ look at transients again\
 \
 \pard\pardeftab720\sl300\partightenfactor0
 
-\f3\fs26 \cf10 \cb11 \expnd0\expndtw0\kerning0
+\f4\fs26 \cf13 \cb14 \expnd0\expndtw0\kerning0
 \'a0
-\f4\b \cb1 'cache_results'\'a0 => false,
-\f3\b0 \
+\f5\b \cb1 'cache_results'\'a0 => false,
+\f4\b0 \
 
-\f4\b \'a0\'a0\'a0 'update_post_meta_cache' => false,
-\f3\b0 \
+\f5\b \'a0\'a0\'a0 'update_post_meta_cache' => false,
+\f4\b0 \
 
-\f4\b \'a0\'a0\'a0 'update_post_term_cache' => false,\
+\f5\b \'a0\'a0\'a0 'update_post_term_cache' => false,\
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
 \f0\b0\fs24 \cf0 \kerning1\expnd0\expndtw0 \
@@ -394,8 +426,8 @@ rewrite pagination examples if it breaks stuff\
 regex rules can probably be improved upon, they need ? at the end i think\
 \pard\pardeftab720\sl300\partightenfactor0
 
-\f2\fs26 \cf6 \cb5 \expnd0\expndtw0\kerning0
-/?$\cf7 \cb5 \
+\f3\fs26 \cf9 \cb8 \expnd0\expndtw0\kerning0
+/?$\cf10 \cb8 \
 \pard\pardeftab720\sl280\partightenfactor0
 {\field{\*\fldinst{HYPERLINK "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp"}}{\fldrslt 
 \f1\fs24 \cf3 \cb1 \ul https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp}}
@@ -428,8 +460,8 @@ ok so some links like litigation/california/losangeles time the fuck out, I need
 \cf0 \
 \pard\pardeftab720\sl300\partightenfactor0
 
-\f2\fs26 \cf6 \cb5 \expnd0\expndtw0\kerning0
-'paged'\cf4              => ( get_query_var(\cf6 'whateverIwant'\cf4 ) ? get_query_var(\cf6 'whateverIwant'\cf4 ) : \cf6 1\cf4  ),\cf7 \cb5 \
+\f3\fs26 \cf9 \cb8 \expnd0\expndtw0\kerning0
+'paged'\cf7              => ( get_query_var(\cf9 'whateverIwant'\cf7 ) ? get_query_var(\cf9 'whateverIwant'\cf7 ) : \cf9 1\cf7  ),\cf10 \cb8 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
 \f0\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0 \
@@ -441,44 +473,44 @@ ok so some links like litigation/california/losangeles time the fuck out, I need
 \cf0 \
 \pard\pardeftab720\sl340\sa300\partightenfactor0
 
-\f5\fs30 \cf12 \cb13 \expnd0\expndtw0\kerning0
-I finally did manage to fix this, Thanks to\'a0{\field{\*\fldinst{HYPERLINK "https://wordpress.stackexchange.com/a/18697/113633"}}{\fldrslt \cf14 \ul \ulc14 this answer}}\'a0, i could'nt use the keyword\'a0
-\f2\fs26 \cb5 paged
-\f5\fs30 \cb13 \'a0i don't know why, so i just changed it to\'a0
-\f2\fs26 \cb5 pageds
-\f5\fs30 \cb13 , and then adding a little bit of extra code to the\'a0
-\f2\fs26 \cb5 pre_get_posts
-\f5\fs30 \cb13 hook ( with your own coditionals ofcourse ) :\
+\f2\fs30 \cf15 \cb16 \expnd0\expndtw0\kerning0
+I finally did manage to fix this, Thanks to\'a0{\field{\*\fldinst{HYPERLINK "https://wordpress.stackexchange.com/a/18697/113633"}}{\fldrslt \cf17 \ul \ulc17 this answer}}\'a0, i could'nt use the keyword\'a0
+\f3\fs26 \cb8 paged
+\f2\fs30 \cb16 \'a0i don't know why, so i just changed it to\'a0
+\f3\fs26 \cb8 pageds
+\f2\fs30 \cb16 , and then adding a little bit of extra code to the\'a0
+\f3\fs26 \cb8 pre_get_posts
+\f2\fs30 \cb16 hook ( with your own coditionals ofcourse ) :\
 \pard\pardeftab720\sl300\partightenfactor0
 
-\f2\fs26 \cf4 \cb5 add_action(\cf6 'pre_get_posts'\cf4 , \cf15 function\cf4 ( $query )\{\
-    $paged = (\cf15 int\cf4 ) get_query_var( \cf6 'pageds'\cf4 , \cf6 1\cf4  );\
-    $query->\cf15 set\cf4 (\cf6 'paged'\cf4 , $paged);\
-\});\cf7 \cb5 \
+\f3\fs26 \cf7 \cb8 add_action(\cf9 'pre_get_posts'\cf7 , \cf18 function\cf7 ( $query )\{\
+    $paged = (\cf18 int\cf7 ) get_query_var( \cf9 'pageds'\cf7 , \cf9 1\cf7  );\
+    $query->\cf18 set\cf7 (\cf9 'paged'\cf7 , $paged);\
+\});\cf10 \cb8 \
 \pard\pardeftab720\sl340\sa300\partightenfactor0
 
-\f5\fs30 \cf12 \cb13 then adding\'a0
-\f2\fs26 \cb5 pageds
-\f5\fs30 \cb13 \'a0to\'a0
-\f2\fs26 \cb5 query_vars
-\f5\fs30 \cb13 \'a0:\
+\f2\fs30 \cf15 \cb16 then adding\'a0
+\f3\fs26 \cb8 pageds
+\f2\fs30 \cb16 \'a0to\'a0
+\f3\fs26 \cb8 query_vars
+\f2\fs30 \cb16 \'a0:\
 \pard\pardeftab720\sl300\partightenfactor0
 
-\f2\fs26 \cf4 \cb5 add_filter(\cf6 'query_vars'\cf4 , \cf15 function\cf4 ( $vars )\{\
-   $vars[] = \cf6 'pageds'\cf4 ;\
+\f3\fs26 \cf7 \cb8 add_filter(\cf9 'query_vars'\cf7 , \cf18 function\cf7 ( $vars )\{\
+   $vars[] = \cf9 'pageds'\cf7 ;\
 \
-   \cf15 return\cf4  $vars;\
-\});\cf7 \cb5 \
+   \cf18 return\cf7  $vars;\
+\});\cf10 \cb8 \
 \pard\pardeftab720\sl340\sa300\partightenfactor0
 
-\f5\fs30 \cf12 \cb13 and one more thing is we don't have to write two seperate rewrite rules, we can combine them like this :\
+\f2\fs30 \cf15 \cb16 and one more thing is we don't have to write two seperate rewrite rules, we can combine them like this :\
 \pard\pardeftab720\sl300\partightenfactor0
 
-\f2\fs26 \cf15 \cb5 function\cf4  dw_custom_rewrite_rules() \{\
-    add_rewrite_endpoint( \cf6 'sortby'\cf4 , EP_ALL_ARCHIVES );\
-    add_rewrite_rule(\cf6 '^shop/discounted(/page/([0-9]+)?)?/?$'\cf4 , \cf6 'index.php?post_type=product&sortby=discounts&pageds=$matches[2]'\cf4 , \cf6 'top'\cf4 );\
+\f3\fs26 \cf18 \cb8 function\cf7  dw_custom_rewrite_rules() \{\
+    add_rewrite_endpoint( \cf9 'sortby'\cf7 , EP_ALL_ARCHIVES );\
+    add_rewrite_rule(\cf9 '^shop/discounted(/page/([0-9]+)?)?/?$'\cf7 , \cf9 'index.php?post_type=product&sortby=discounts&pageds=$matches[2]'\cf7 , \cf9 'top'\cf7 );\
 \}\
-add_action(\cf6 'init'\cf4 , \cf6 'dw_custom_rewrite_rules'\cf4 );\cf7 \cb5 \
+add_action(\cf9 'init'\cf7 , \cf9 'dw_custom_rewrite_rules'\cf7 );\cf10 \cb8 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
 \f0\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0 \
@@ -491,27 +523,27 @@ add_action(\cf6 'init'\cf4 , \cf6 'dw_custom_rewrite_rules'\cf4 );\cf7 \cb5 \
 \
 \pard\pardeftab720\sl340\sa300\partightenfactor0
 
-\f5\fs30 \cf12 \cb13 \ulnone Your first two rewrite rules do not end with\'a0
-\f2\fs26 \cb5 $
-\f5\fs30 \cb13 , which indicates that the URL should stop there. So\'a0
-\f2\fs26 \cb5 myPage/mySuPage/param1/param2/page/3
-\f5\fs30 \cb13 \'a0would still be matched by the first pattern, because it can just ignored the\'a0
-\f2\fs26 \cb5 /page/3
-\f5\fs30 \cb13 \'a0part at the end. The next rewrite rules will then never be used.\
-With\'a0{\field{\*\fldinst{HYPERLINK "https://wordpress.stackexchange.com/questions/3606/a-tool-to-analyze-rewrite-rules/3608#3608"}}{\fldrslt \cf16 \ul \ulc16 my Rewrite analyzer plugin}}\'a0I was able to simplify your rewrite rules to these two: one without params and just optional paging, and one with params and optional paging. Combining these two into one did not work because the optional params woud "eat" the paging part.\
+\f2\fs30 \cf15 \cb16 \ulnone Your first two rewrite rules do not end with\'a0
+\f3\fs26 \cb8 $
+\f2\fs30 \cb16 , which indicates that the URL should stop there. So\'a0
+\f3\fs26 \cb8 myPage/mySuPage/param1/param2/page/3
+\f2\fs30 \cb16 \'a0would still be matched by the first pattern, because it can just ignored the\'a0
+\f3\fs26 \cb8 /page/3
+\f2\fs30 \cb16 \'a0part at the end. The next rewrite rules will then never be used.\
+With\'a0{\field{\*\fldinst{HYPERLINK "https://wordpress.stackexchange.com/questions/3606/a-tool-to-analyze-rewrite-rules/3608#3608"}}{\fldrslt \cf19 \ul \ulc19 my Rewrite analyzer plugin}}\'a0I was able to simplify your rewrite rules to these two: one without params and just optional paging, and one with params and optional paging. Combining these two into one did not work because the optional params woud "eat" the paging part.\
 \pard\pardeftab720\sl300\partightenfactor0
 
-\f2\fs26 \cf4 \cb5 add_rewrite_rule(\
-    \cf6 'myPage/mySuPage(/page/([0-9]+)?)?/?$'\cf4 ,\
-    \cf6 'index.php?pagename=myPage/mySuPage&pageds=$matches[2]'\cf4 ,\
-    \cf6 'top'\cf4 \
+\f3\fs26 \cf7 \cb8 add_rewrite_rule(\
+    \cf9 'myPage/mySuPage(/page/([0-9]+)?)?/?$'\cf7 ,\
+    \cf9 'index.php?pagename=myPage/mySuPage&pageds=$matches[2]'\cf7 ,\
+    \cf9 'top'\cf7 \
 );\
 \
 add_rewrite_rule(\
-    \cf6 'myPage/mySuPage/([^/]*)/([^/]*)(/page/([0-9]+)?)?/?$'\cf4 ,\
-    \cf6 'index.php?pagename=myPage/mySuPage&param1=$matches[1]&param2=$matches[2]&pageds=$matches[4]'\cf4 ,\
-    \cf6 'top'\cf4 \
-);\cf7 \cb5 \
+    \cf9 'myPage/mySuPage/([^/]*)/([^/]*)(/page/([0-9]+)?)?/?$'\cf7 ,\
+    \cf9 'index.php?pagename=myPage/mySuPage&param1=$matches[1]&param2=$matches[2]&pageds=$matches[4]'\cf7 ,\
+    \cf9 'top'\cf7 \
+);\cf10 \cb8 \
 \pard\pardeftab720\sl280\partightenfactor0
 
 \f0\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0 \
@@ -524,7 +556,7 @@ add_rewrite_rule(\
 \
 \pard\pardeftab720\sl300\partightenfactor0
 
-\f2\fs26 \cf4 \cb5 \ulnone add_rewrite_rule( \cf6 'resources/(.+?)(/page/([0-9]+))?/?$'\cf4 , \cf6 'index.php?taxonomy=res_category&term=$matches[1]&paged=$matches[3]'\cf4 , \cf6 'top'\cf4 );\cf7 \cb5 \
+\f3\fs26 \cf7 \cb8 \ulnone add_rewrite_rule( \cf9 'resources/(.+?)(/page/([0-9]+))?/?$'\cf7 , \cf9 'index.php?taxonomy=res_category&term=$matches[1]&paged=$matches[3]'\cf7 , \cf9 'top'\cf7 );\cf10 \cb8 \
 \pard\pardeftab720\sl280\partightenfactor0
 
 \f0\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0 \
