@@ -834,11 +834,31 @@ function my_custom_search($query) {
 	//require get_theme_file_path('/functions-inc/rest-custom-fields-6.php');
 	//require get_theme_file_path('/functions-inc/rest-custom-fields-7.php');
 	//require get_theme_file_path('/functions-inc/rest-custom-fields-8.php');
-	//require get_theme_file_path('/functions-inc/rest-custom-fields-10.php'); // *******
+	//require get_theme_file_path('/functions-inc/rest-custom-fields-10.php'); 
 	require get_theme_file_path('/functions-inc/rest-custom-fields-13.php');
 	
 	
 	
+	// get current city and state lat and long
+	
+	//https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&key=AIzaSyDPAds-G8zjbtCxCC19dH2o_voVQIEjg7o
+	
+	//https://maps.googleapis.com/maps/api/geocode/json?address=Los+Angeles,+CA&key=AIzaSyDPAds-G8zjbtCxCC19dH2o_voVQIEjg7o
+
+     // Get lat and long by address         
+        $address = 'San Diego, CA'; // Google HQ
+        $prepAddr = str_replace(' ','+',$address);
+        
+        
+        $geocode=file_get_contents('https://maps.google.com/maps/api/geocode/json?address='.$prepAddr.'&key=AIzaSyDPAds-G8zjbtCxCC19dH2o_voVQIEjg7o');
+
+				$output= json_decode($geocode);
+        $latitude = $output->results[0]->geometry->location->lat;
+        $longitude = $output->results[0]->geometry->location->lng;
+        
+        //echo $latitude . $longitude;
+
+
 
 	
 	

@@ -108,15 +108,14 @@ function initMap() {
         });
 
     map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 9,
+        zoom: 10,
         center: new google.maps.LatLng(33.786594,-118.298662),
         mapTypeId: 'roadmap'
     });
 
 
     var script = document.createElement('script');
-    //script.src = 'https://att-directory.com/wp-content/themes/ilawsuit/js/data.js';
-    script.src = 'https://att-directory.com/wp-json/new-route/new-posts?_jsonp=eqfeed_callback';
+    script.src = 'https://att-directory.com/wp-json/mapping/v1/location?_jsonp=eqfeed_callback';
     document.getElementsByTagName('head')[0].appendChild(script);
 
     //Associate the styled map with the MapTypeId and set it to display.

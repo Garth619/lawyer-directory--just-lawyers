@@ -2,14 +2,14 @@
 	
 
 	
-add_action( 'rest_api_init', 'garrett_test' ); 
+add_action( 'rest_api_init', 'map_route' ); 
 
-	function garrett_test() {
+	function map_route() {
     
-		register_rest_route( 'new-route', 'new-posts', 
+		register_rest_route( 'mapping/v1', 'location', 
 			array(
 				'methods' => 'GET',
-				'callback' => 'new_posts',
+				'callback' => 'map_query',
 			)
 			
 		);
@@ -19,14 +19,14 @@ add_action( 'rest_api_init', 'garrett_test' );
 	//custom routing for my query_vars below
 	
 	
-	function new_posts() {
+	function map_query() {
 		
             
    	$testargs = array(
 	  		'post_type' => 'lawyer',
 			'posts_per_page' => 100,
     		'orderby' => 'title',
-    		'offset' => 100,
+    		//'offset' => 100,
     		'no_found_rows' => true, // does this break offest?
     		'post_status' => 'publish',
 			'order' => 'ASC',
@@ -35,7 +35,7 @@ add_action( 'rest_api_init', 'garrett_test' );
 				array(
 					'taxonomy'  => 'location',
 					'field' => 'slug',
-					'terms' => 'boston', // query_var
+					'terms' => 'los-angeles', // query_var
 					'operator' => 'IN',
 					),
 				array(
