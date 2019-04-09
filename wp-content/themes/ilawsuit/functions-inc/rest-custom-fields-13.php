@@ -35,7 +35,7 @@ add_action( 'rest_api_init', 'garrett_test' );
 				array(
 					'taxonomy'  => 'location',
 					'field' => 'slug',
-					'terms' => 'los-angeles', // query_var
+					'terms' => 'boston', // query_var
 					'operator' => 'IN',
 					),
 				array(
@@ -69,15 +69,20 @@ add_action( 'rest_api_init', 'garrett_test' );
 		$address = get_field('lawyer_address');
 		
 		$post_data[] = array(
-		    '"Title"' => $mytitle,
-		    '"Permalink"' => $mypermalink,
-		    '"Lat"' => $lattwo,
-		    '"Lng"' =>  $lgntwo,
-		    '"Address"' => $address,
-		    '"Phone"' => $phone,
+		    'Title' => $mytitle,
+		    'Permalink' => $mypermalink,
+		    'Lat' => $lattwo,
+		    'Lng' =>  $lgntwo,
+		    'Address' => $address,
+		    'Phone' => $phone
 		    //'"ACF"' => get_fields($post->ID)
 		    
 	    );
+	    
+	    
+			    
+	    
+	    
                
 		endwhile; 
 		

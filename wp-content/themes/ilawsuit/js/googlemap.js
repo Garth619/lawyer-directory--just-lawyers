@@ -115,6 +115,7 @@ function initMap() {
 
 
     var script = document.createElement('script');
+    //script.src = 'https://att-directory.com/wp-content/themes/ilawsuit/js/data.js';
     script.src = 'https://att-directory.com/wp-json/new-route/new-posts?_jsonp=eqfeed_callback';
     document.getElementsByTagName('head')[0].appendChild(script);
 
