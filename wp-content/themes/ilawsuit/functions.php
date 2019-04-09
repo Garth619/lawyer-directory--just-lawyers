@@ -841,6 +841,8 @@ function my_custom_search($query) {
 	
 	// get current city and state lat and long
 	
+	//https://stackoverflow.com/questions/3807963/how-to-get-longitude-and-latitude-of-any-address
+	
 	//https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&key=AIzaSyDPAds-G8zjbtCxCC19dH2o_voVQIEjg7o
 	
 	//https://maps.googleapis.com/maps/api/geocode/json?address=Los+Angeles,+CA&key=AIzaSyDPAds-G8zjbtCxCC19dH2o_voVQIEjg7o
