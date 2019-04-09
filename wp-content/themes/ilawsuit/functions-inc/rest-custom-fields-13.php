@@ -61,6 +61,7 @@ add_action( 'rest_api_init', 'garrett_test' );
 		    '"Permalink"' => get_the_permalink(),
 		    '"Lat"' => get_field('latitude'),
 		    '"Lng"' =>  get_field('longitude'),
+		    '"Address"' => get_field('lawyer_address'),
 		    //'"ACF"' => get_fields($post->ID)
 		    
 	    );
@@ -68,14 +69,10 @@ add_action( 'rest_api_init', 'garrett_test' );
 		endwhile; 
 		
 
-    
-        
-    
-    
     wp_reset_postdata();
     
     
-    return rest_ensure_response( $post_data );
+    return rest_ensure_response($post_data);
 		
    
 	}
