@@ -834,7 +834,8 @@ function my_custom_search($query) {
 	//require get_theme_file_path('/functions-inc/rest-custom-fields-6.php');
 	//require get_theme_file_path('/functions-inc/rest-custom-fields-7.php');
 	//require get_theme_file_path('/functions-inc/rest-custom-fields-8.php');
-	require get_theme_file_path('/functions-inc/rest-custom-fields-10.php');
+	//require get_theme_file_path('/functions-inc/rest-custom-fields-10.php'); // *******
+	require get_theme_file_path('/functions-inc/rest-custom-fields-13.php');
 	
 	
 	

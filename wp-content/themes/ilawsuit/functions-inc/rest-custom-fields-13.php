@@ -1,5 +1,7 @@
 <?php
 	
+
+	
 add_action( 'rest_api_init', 'garrett_test' ); 
 
 	function garrett_test() {
@@ -52,30 +54,22 @@ add_action( 'rest_api_init', 'garrett_test' );
 		$test_query = new WP_Query($testargs); 
 		
 		
+		while($test_query->have_posts()) : $test_query->the_post();
 		
-		 //$plugins = new \WP_Query( $query_args );
-
-    
-    foreach( $test_query->posts as $posts) {// try to change this back to if and while
-	    
-	    //$posts[$key]->acf = get_fields($post->ID);
-	    
-	    // https://stackoverflow.com/questions/35924138/adding-acf-to-custom-wp-api-endpoints
-	    
-
-	    $post_data[] = array(
-		    '"Title"' => $posts->post_title,
-		    '"Lat"' => $posts->ID,
-		    '"Lng"' => 'what',
+		$post_data[] = array(
+		    '"Title"' => get_the_title(),
+		    '"Permalink"' => get_the_permalink(),
+		    '"Lat"' => get_field('latitude'),
+		    '"Lng"' =>  get_field('longitude'),
+		    //'"ACF"' => get_fields($post->ID)
 		    
 	    );
+               
+		endwhile; 
+		
 
-			
-			// https://json-schema.org/understanding-json-schema/index.html
-	   
-        
-    }
     
+        
     
     
     wp_reset_postdata();
@@ -89,8 +83,8 @@ add_action( 'rest_api_init', 'garrett_test' );
 	
 	
 	
-	
-	
+
+                
 	
 	
 	

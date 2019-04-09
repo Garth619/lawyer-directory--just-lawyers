@@ -68,6 +68,7 @@ register_rest_route\
 get_post_meta()\
 rest_ensure_response (after loop)\
 add_action('rest_api_init', $function_name);\
+add_action(\'91rest_query_vars\'92,\'92\'92);\
 \
 \pard\pardeftab720\sl280\partightenfactor0
 {\field{\*\fldinst{HYPERLINK "https://www.tychesoftwares.com/creating-custom-api-endpoints-in-the-wordpress-rest-api/"}}{\fldrslt 
@@ -80,8 +81,13 @@ this worked\
 \pard\pardeftab720\sl280\partightenfactor0
 {\field{\*\fldinst{HYPERLINK "https://clarencepearson.com/advanced-custom-fields-rest-api/"}}{\fldrslt \cf2 \ulc2 \outl0\strokewidth0 \strokec2 https://clarencepearson.com/advanced-custom-fields-rest-api/}}\cf2 \ulc2 \outl0\strokewidth0 \strokec2 \
 \
+do i need to extend the controller class to use a custom field?\
 \pard\pardeftab720\sl280\partightenfactor0
-{\field{\*\fldinst{HYPERLINK "https://themehybrid.com/weblog/creating-an-add-on-page-with-the-rest-api-part-1"}}{\fldrslt \cf2 \ulc2 https://themehybrid.com/weblog/creating-an-add-on-page-with-the-rest-api-part-1}}\cf3 \ulc3 \outl0\strokewidth0 \
+{\field{\*\fldinst{HYPERLINK "https://github.com/WP-API/WP-API/issues/2533"}}{\fldrslt \cf2 \ulc2 https://github.com/WP-API/WP-API/issues/2533}}\
+\
+\pard\pardeftab720\sl280\partightenfactor0
+{\field{\*\fldinst{HYPERLINK "https://themehybrid.com/weblog/creating-an-add-on-page-with-the-rest-api-part-1"}}{\fldrslt \cf2 \ulc2 https://themehybrid.com/weblog/creating-an-add-on-page-with-the-rest-api-part-1}}\
+^ goes over wp_query and possibly transients for my endpoint\cf3 \ulc3 \outl0\strokewidth0 \
 \pard\pardeftab720\sl280\partightenfactor0
 \cf3 \
 \pard\pardeftab720\sl280\partightenfactor0
@@ -91,6 +97,8 @@ this worked\
 \pard\pardeftab720\sl280\partightenfactor0
 {\field{\*\fldinst{HYPERLINK "https://css-tricks.com/using-the-wp-api-to-fetch-posts/"}}{\fldrslt \cf3 \ulc3 https://css-tricks.com/using-the-wp-api-to-fetch-posts/}}\cf3 \ulc3 \
 ^ this is good for building custum arrays and how I will link to the map js\
+\pard\pardeftab720\sl280\partightenfactor0
+{\field{\*\fldinst{HYPERLINK "https://stackoverflow.com/questions/43057797/setting-up-acf-with-wp-rest-api"}}{\fldrslt \cf2 \ulc2 \outl0\strokewidth0 \strokec2 https://stackoverflow.com/questions/43057797/setting-up-acf-with-wp-rest-api}}\
 \pard\pardeftab720\sl280\partightenfactor0
 {\field{\*\fldinst{HYPERLINK "https://wordpress.stackexchange.com/questions/236249/wp-api-v2-custom-endpoint-response-formatting"}}{\fldrslt \cf3 https://wordpress.stackexchange.com/questions/236249/wp-api-v2-custom-endpoint-response-formatting}}\
 \pard\pardeftab720\sl280\partightenfactor0
