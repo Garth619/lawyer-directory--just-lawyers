@@ -94,7 +94,13 @@ function load_my_styles_scripts() {
         
        }
        
+       // current domian used for the rest api url call
+       
        $currentdomain = get_bloginfo('url');
+       
+       
+       
+    
 		
 			// Localize the script with new data array 
 						

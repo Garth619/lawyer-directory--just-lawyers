@@ -21,8 +21,6 @@ add_action( 'rest_api_init', 'map_route' );
 	
 	function map_query($request_data) {
 		
-		
-		
 		$parameters = $request_data->get_params();
     
     $map_city = $parameters['map_city'];
@@ -33,7 +31,7 @@ add_action( 'rest_api_init', 'map_route' );
 	  		'post_type' => 'lawyer',
 			'posts_per_page' => 100,
     		'orderby' => 'title',
-    		//'offset' => 100,
+    		'offset' => 100,
     		'no_found_rows' => true, // does this break offest?
     		'post_status' => 'publish',
 			'order' => 'ASC',

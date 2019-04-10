@@ -3,6 +3,8 @@
 
 <?php 	
 	
+	
+	
 	$currentcity = get_query_var( 'currentcity');
 	$currentstate = get_query_var( 'currentstate');
 	$currentpracticearea =  get_query_var( 'office_pa');
@@ -44,7 +46,7 @@
 	
 	<div class="internal_banner">
 		
-		<h1><?php echo $citytermtitle;?> <?php echo $patermstitle;?> Lawyers</h1>
+		<h1><?php echo $citytermtitle;?> <?php echo $patermstitle;?> Lawyers </h1>
 
 	</div><!-- internal_banner -->
 	
