@@ -6,7 +6,7 @@ add_action( 'rest_api_init', 'map_route' );
 
 	function map_route() {
     
-		register_rest_route( 'mapping/v1', 'location', //(?P<page>[1-9]{1,2})
+		register_rest_route( 'mapping/v1', 'location', 
 			array(
 				'methods' => 'GET',
 				'callback' => 'map_query',
@@ -27,15 +27,15 @@ add_action( 'rest_api_init', 'map_route' );
      
     $map_pa = $parameters['map_pa'];
     
-    $map_offset = $parameters['map_offset'];	
-    
-    //echo $map_offset;
+    	$map_offset = $parameters['map_offset'];
+    	
+    //	echo $map_offset;
 		
     $testargs = array(
 	  		'post_type' => 'lawyer',
 			'posts_per_page' => 100,
     		'orderby' => 'title',
-    		'offset' => 100,
+    		//'offset' => 100,
     		'no_found_rows' => true, // does this break offest?
     		'post_status' => 'publish',
 			'order' => 'ASC',
@@ -89,6 +89,10 @@ add_action( 'rest_api_init', 'map_route' );
 	    );
 	    
 	    
+			    
+	    
+	    
+               
 		endwhile; 
 		
 
