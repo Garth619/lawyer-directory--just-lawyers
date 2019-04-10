@@ -35,7 +35,7 @@ add_action( 'rest_api_init', 'map_route' );
 				array(
 					'taxonomy'  => 'location',
 					'field' => 'slug',
-					'terms' => 'los-angeles', // query_var
+					'terms' => 'boston', // query_var
 					'operator' => 'IN',
 					),
 				array(

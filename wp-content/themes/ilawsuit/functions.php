@@ -2,7 +2,7 @@
 
 
 
-/* Enqueued Scripts
+/* Enqueued Scripts and passing php data into js files
 -------------------------------------------------------------- */
 
 
@@ -23,22 +23,75 @@ function load_my_styles_scripts() {
 		// custom js to fall uner jquery in footer
 		    
     wp_register_script( 'jquery-addon', get_template_directory_uri() . '/js/custom-min.js','', 1);
-
-		
-		// Localized PHP Data that needs to be passed onto my custom-min.js file, this grabs the live chat script acf and applies to my lazyload "getScript" function
-
+    
+		// Localized PHP Data that needs to be passed onto my custom-min.js file
 			
-		$livechat = get_field('live_chat_script','option');
-		
-		
+		if (get_query_var( 'currentstate') && get_query_var( 'currentcity')) { 
+			
+				
+				$currentcity = get_query_var( 'currentcity'); // figure out how to decale these outside of a function one time on this file and call them into where needed
+				$currentstate = get_query_var( 'currentstate');
+			
+				// get current city and state lat and long
+	
+				//https://stackoverflow.com/questions/3807963/how-to-get-longitude-and-latitude-of-any-address
+	
+				//https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&key=AIzaSyDPAds-G8zjbtCxCC19dH2o_voVQIEjg7o
+	
+				//https://maps.googleapis.com/maps/api/geocode/json?address=Los+Angeles,+CA&key=AIzaSyDPAds-G8zjbtCxCC19dH2o_voVQIEjg7o
+
+				// Get lat and long by address 
+     
+     		$google_map_api = 'AIzaSyDPAds-G8zjbtCxCC19dH2o_voVQIEjg7o';
+     		
+     		
+     		// Get Current City and State as Titles
+     		
+     		$currentcity = get_query_var( 'currentcity');
+		 		$currentstate = get_query_var( 'currentstate');
+		 		
+		 		$taxlocations = 'location';
+		 		
+		 		// state url query -> state id conversion
+	
+		 		$statetermslug = get_term_by('slug', $currentstate, $taxlocations);
+	
+		 		$statetermid = $statetermslug->term_taxonomy_id;
+	
+		 		$statetermtitle = $statetermslug->name;
+	
+		 		// city url query -> city id conversion
+	
+		 		$citytermslug = get_term_by('slug', $currentcity, $taxlocations);
+	
+		 		$citytermid = $citytermslug->term_taxonomy_id;
+	
+		 		$citytermtitle = $citytermslug->name;
+     		
+     		// build gecode url to retrieve the current city coordinates so the map can recenter
+     		
+     		$mapaddress = $citytermtitle . ',' . $statetermtitle; 
+		 		$prepAddr = str_replace(' ','+',$mapaddress);
+        
+        
+		 		$geocode = file_get_contents('https://maps.google.com/maps/api/geocode/json?address='.$prepAddr.'&key=' . $google_map_api .'');
+     
+
+		 		$output= json_decode($geocode);
+		 		$city_latitude = $output->results[0]->geometry->location->lat;
+		 		$city_longitude = $output->results[0]->geometry->location->lng;
+        
+       }
 		
 			// Localize the script with new data array 
-		
-			$translation_array = array(
-    		'live_chat' => $livechat
+						
+			
+			$map_array = array(
+    			'map_current_city_latitude' => $city_latitude,
+				'map_current_city_longitude' => $city_longitude,
 			);
 
-			wp_localize_script( 'jquery-addon', 'my_data', $translation_array );
+			wp_localize_script( 'jquery-addon', 'my_mapdata', $map_array );
 		
 		
 		
@@ -46,10 +99,35 @@ function load_my_styles_scripts() {
 		
 
 		// Enqueue Script
+		
+		wp_enqueue_script( 'jquery-addon', get_template_directory_uri() . '/js/custom-min.js', 'jquery', '', true );
+		
+		//wp_enqueue_script( 'jquery-mygravity', get_template_directory_uri() . '/js/gravityforms-min.js', 'jquery', '', true );
+		
+		
+		if (get_query_var( 'currentstate') && get_query_var( 'currentcity')) { 
+			
+			// https://giogadesign.com/how-to-add-defer-async-attributes-to-wordpress-scripts/
+		
+			//<script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDPAds-G8zjbtCxCC19dH2o_voVQIEjg7o&callback=initMap"></script>
+		
+			
+
+			wp_enqueue_script('googleapis', esc_url( add_query_arg( 'key', $google_map_api .'&callback=initMap', '//maps.googleapis.com/maps/api/js' )), array(), null, true );
+		
+		
+		
+			
+
+		
+		
+		
+		
+		
+		
+		}
 		    
-    wp_enqueue_script( 'jquery-addon', get_template_directory_uri() . '/js/custom-min.js', 'jquery', '', true );
-    
-    //wp_enqueue_script( 'jquery-mygravity', get_template_directory_uri() . '/js/gravityforms-min.js', 'jquery', '', true );
+   
     
 
  }
@@ -62,11 +140,9 @@ function load_my_styles_scripts() {
 -------------------------------------------------------------- */
  
  
-/*
-
- function add_defer_attribute($tag, $handle) {
+function add_defer_attribute($tag, $handle) {
    // add script handles to the array below
-   $scripts_to_defer = array('jquery', 'jquery-addon', 'jquery-mygravity');
+   $scripts_to_defer = array('jquery', 'jquery-addon', 'jquery-mygravity','googleapis');
    
    foreach($scripts_to_defer as $defer_script) {
       if ($defer_script === $handle) {
@@ -78,7 +154,7 @@ function load_my_styles_scripts() {
 
 
 add_filter('script_loader_tag', 'add_defer_attribute', 10, 2);
-*/
+
 
 
 
@@ -492,7 +568,7 @@ function my_custom_search($query) {
 		// template query_vars
 		
 		
-		$currentcity = get_query_var( 'currentcity');
+		$currentcity = get_query_var( 'currentcity'); // figure out how to decale these outside of a function one time on this file and call them into where needed
 		$currentstate = get_query_var( 'currentstate');
 		$currentpracticearea =  get_query_var( 'office_pa');
 	
@@ -839,28 +915,6 @@ function my_custom_search($query) {
 	
 	
 	
-	// get current city and state lat and long
 	
-	//https://stackoverflow.com/questions/3807963/how-to-get-longitude-and-latitude-of-any-address
-	
-	//https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&key=AIzaSyDPAds-G8zjbtCxCC19dH2o_voVQIEjg7o
-	
-	//https://maps.googleapis.com/maps/api/geocode/json?address=Los+Angeles,+CA&key=AIzaSyDPAds-G8zjbtCxCC19dH2o_voVQIEjg7o
-
-     // Get lat and long by address         
-        $address = 'San Diego, CA'; // Google HQ
-        $prepAddr = str_replace(' ','+',$address);
-        
-        
-        $geocode=file_get_contents('https://maps.google.com/maps/api/geocode/json?address='.$prepAddr.'&key=AIzaSyDPAds-G8zjbtCxCC19dH2o_voVQIEjg7o');
-
-				$output= json_decode($geocode);
-        $latitude = $output->results[0]->geometry->location->lat;
-        $longitude = $output->results[0]->geometry->location->lng;
-        
-        //echo $latitude . $longitude;
-
-
-
 	
 	

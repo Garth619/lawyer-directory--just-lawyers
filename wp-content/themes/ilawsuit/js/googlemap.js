@@ -106,13 +106,26 @@ function initMap() {
         }], {
             name: 'Styled Map'
         });
+        
+        
+
+   
+  
+    
+    var lat_number = parseFloat(my_mapdata.map_current_city_latitude);
+    var long_number = parseFloat(my_mapdata.map_current_city_longitude);
+	
 
     map = new google.maps.Map(document.getElementById('map'), {
         zoom: 10,
-        center: new google.maps.LatLng(33.786594,-118.298662),
+        center: new google.maps.LatLng(lat_number,long_number),
         mapTypeId: 'roadmap'
     });
-
+	
+		
+		
+	
+		
 
     var script = document.createElement('script');
     script.src = 'https://att-directory.com/wp-json/mapping/v1/location?_jsonp=eqfeed_callback';

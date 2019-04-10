@@ -1,3 +1,4 @@
+// @codekit-prepend 'googlemap.js'
 // @codekit-prepend 'waypoints.js'
 // @codekit-prepend 'slick.js'
 // @codekit-prepend 'lity.js'
