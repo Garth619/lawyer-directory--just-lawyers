@@ -6,7 +6,7 @@ add_action( 'rest_api_init', 'map_route' );
 
 	function map_route() {
     
-		register_rest_route( 'mapping/v1', 'location', 
+		register_rest_route( 'mapping/v1', 'location', //(?P<page>[1-9]{1,2})
 			array(
 				'methods' => 'GET',
 				'callback' => 'map_query',
@@ -25,7 +25,11 @@ add_action( 'rest_api_init', 'map_route' );
     
     $map_city = $parameters['map_city'];
      
-    $map_pa = $parameters['map_pa'];		
+    $map_pa = $parameters['map_pa'];
+    
+    $map_offset = $parameters['map_offset'];	
+    
+    //echo $map_offset;
 		
     $testargs = array(
 	  		'post_type' => 'lawyer',
@@ -85,10 +89,6 @@ add_action( 'rest_api_init', 'map_route' );
 	    );
 	    
 	    
-			    
-	    
-	    
-               
 		endwhile; 
 		
 
