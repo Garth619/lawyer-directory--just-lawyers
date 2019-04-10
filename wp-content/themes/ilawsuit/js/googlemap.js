@@ -108,11 +108,7 @@ function initMap() {
         });
         
         
-
-   
-  
-    
-    var lat_number = parseFloat(my_mapdata.map_current_city_latitude);
+		var lat_number = parseFloat(my_mapdata.map_current_city_latitude);
     var long_number = parseFloat(my_mapdata.map_current_city_longitude);
 	
 
@@ -123,12 +119,9 @@ function initMap() {
     });
 	
 		
-		
-	
-		
-
-    var script = document.createElement('script');
-    script.src = 'https://att-directory.com/wp-json/mapping/v1/location?_jsonp=eqfeed_callback';
+		var script = document.createElement('script');
+    
+    script.src = '' +my_mapdata.current_domain+ '/wp-json/mapping/v1/location?map_city='+my_mapdata.map_current_city+'&map_pa='+my_mapdata.map_current_pa+'&_jsonp=eqfeed_callback'; // this will need to pass through my php array as well
     document.getElementsByTagName('head')[0].appendChild(script);
 
     //Associate the styled map with the MapTypeId and set it to display.

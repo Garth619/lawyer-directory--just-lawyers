@@ -29,12 +29,21 @@ function load_my_styles_scripts() {
 		if (get_query_var( 'currentstate') && get_query_var( 'currentcity')) { 
 			
 				
-				$currentcity = get_query_var( 'currentcity'); // figure out how to decale these outside of a function one time on this file and call them into where needed
+				$currentpracticearea =  get_query_var( 'office_pa'); // figure out how to decale these outside of a function one time on this file and call them into where needed
+
+				$currentcity = get_query_var( 'currentcity');
+				
 				$currentstate = get_query_var( 'currentstate');
+				
+				$taxlocations = 'location';
+				
+		 		$taxpracticeareas = 'practice_area';
 			
 				// get current city and state lat and long
 	
 				//https://stackoverflow.com/questions/3807963/how-to-get-longitude-and-latitude-of-any-address
+				
+				//https://stackoverflow.com/questions/15925980/using-address-instead-of-longitude-and-latitude-with-google-maps-api
 	
 				//https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&key=AIzaSyDPAds-G8zjbtCxCC19dH2o_voVQIEjg7o
 	
@@ -44,15 +53,17 @@ function load_my_styles_scripts() {
      
      		$google_map_api = 'AIzaSyDPAds-G8zjbtCxCC19dH2o_voVQIEjg7o';
      		
+     	
      		
-     		// Get Current City and State as Titles
+     		// pa url query -> pa id conversion
+	
+		 		$patermslug = get_term_by('slug', $currentpracticearea, $taxpracticeareas);
+		 		
+		 		$patermslug_map = $patermslug->slug;
+		 		
+		 		// Get Current City and State as Titles
      		
-     		$currentcity = get_query_var( 'currentcity');
-		 		$currentstate = get_query_var( 'currentstate');
-		 		
-		 		$taxlocations = 'location';
-		 		
-		 		// state url query -> state id conversion
+     		// state url query -> state id conversion
 	
 		 		$statetermslug = get_term_by('slug', $currentstate, $taxlocations);
 	
@@ -82,6 +93,8 @@ function load_my_styles_scripts() {
 		 		$city_longitude = $output->results[0]->geometry->location->lng;
         
        }
+       
+       $currentdomain = get_bloginfo('url');
 		
 			// Localize the script with new data array 
 						
@@ -89,6 +102,9 @@ function load_my_styles_scripts() {
 			$map_array = array(
     			'map_current_city_latitude' => $city_latitude,
 				'map_current_city_longitude' => $city_longitude,
+				'map_current_city' => $currentcity,
+				'map_current_pa' => $patermslug_map,
+				'current_domain' => $currentdomain,
 			);
 
 			wp_localize_script( 'jquery-addon', 'my_mapdata', $map_array );

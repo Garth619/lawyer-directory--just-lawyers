@@ -19,10 +19,17 @@ add_action( 'rest_api_init', 'map_route' );
 	//custom routing for my query_vars below
 	
 	
-	function map_query() {
+	function map_query($request_data) {
 		
-            
-   	$testargs = array(
+		
+		
+		$parameters = $request_data->get_params();
+    
+    $map_city = $parameters['map_city'];
+     
+    $map_pa = $parameters['map_pa'];		
+		
+    $testargs = array(
 	  		'post_type' => 'lawyer',
 			'posts_per_page' => 100,
     		'orderby' => 'title',
@@ -35,13 +42,13 @@ add_action( 'rest_api_init', 'map_route' );
 				array(
 					'taxonomy'  => 'location',
 					'field' => 'slug',
-					'terms' => 'boston', // query_var
+					'terms' => $map_city, // query_var
 					'operator' => 'IN',
 					),
 				array(
 					'taxonomy'  => 'practice_area',
 					'field'     => 'slug',
-					'terms'     => 'business', // query_var
+					'terms'     =>  $map_pa, // query_var
 					'operator' => 'IN',
 				)
 			),
