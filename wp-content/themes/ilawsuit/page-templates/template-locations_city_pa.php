@@ -8,7 +8,7 @@
 	$currentcity = get_query_var( 'currentcity');
 	$currentstate = get_query_var( 'currentstate');
 	$currentpracticearea =  get_query_var( 'office_pa');
-	
+	$mypaged = get_query_var('mypaged');
 	
 	$taxlocations = 'location';
 	$taxpracticeareas = 'practice_area';

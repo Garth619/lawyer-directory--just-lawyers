@@ -35,6 +35,19 @@ function load_my_styles_scripts() {
 				
 				$currentstate = get_query_var( 'currentstate');
 				
+				if(empty(get_query_var('mypaged'))) {
+					
+					$mypaged = 1;
+					
+				}
+				
+				else {
+					
+					$mypaged = get_query_var('mypaged');
+					
+				}
+
+				
 				$taxlocations = 'location';
 				
 		 		$taxpracticeareas = 'practice_area';
@@ -97,12 +110,9 @@ function load_my_styles_scripts() {
        // current domian used for the rest api url call
        
        $currentdomain = get_bloginfo('url');
+       $lawyer_title = get_the_title();
        
-       
-       
-    
-		
-			// Localize the script with new data array 
+       // Localize the script with new data array 
 						
 			
 			$map_array = array(
@@ -110,6 +120,7 @@ function load_my_styles_scripts() {
 				'map_current_city_longitude' => $city_longitude,
 				'map_current_city' => $currentcity,
 				'map_current_pa' => $patermslug_map,
+				'map_paged' => $mypaged,
 				'current_domain' => $currentdomain,
 			);
 
@@ -495,7 +506,7 @@ function prefix_rewrite_rule() {
 		
 		// pagination "/lawyers-practice/business/california/los-angeles/page/2"
 		
-		add_rewrite_rule( 'lawyers-practice/([^/]+)/([^/]+)/([^/]+)/page/([0-9]+)', 'index.php?office_pa=$matches[1]&currentstate=$matches[2]&currentcity=$matches[3]&paged=$matches[4]', 'top' );
+		add_rewrite_rule( 'lawyers-practice/([^/]+)/([^/]+)/([^/]+)/page/([0-9]+)', 'index.php?office_pa=$matches[1]&currentstate=$matches[2]&currentcity=$matches[3]&mypaged=$matches[4]', 'top' );
 		
 		// "/lawyers-practice/business/california/los-angeles"
 		
@@ -521,6 +532,7 @@ function prefix_register_query_var( $vars ) {
     $vars[] = 'office_pa';
     $vars[] = 'currentstate';
     $vars[] = 'currentcity';
+    $vars[] = 'mypaged';
     
     // custom search vars
     
@@ -585,6 +597,7 @@ function my_custom_search($query) {
 	  $att_keyword = get_query_var( 'attorney_keyword');
 		$att_pa = get_query_var( 'attorney_pa');
 		$att_location = get_query_var( 'attorney_location');
+		$mypaged = get_query_var('mypaged');
 		
 		
 		// template query_vars
@@ -908,6 +921,7 @@ function my_custom_search($query) {
 			
 			$query-> set('tax_query', $taxquery);
 			$query-> set('post_type' , 'lawyer');
+			$query-> set('paged' , $mypaged);
 			$query-> set('fields' , 'ids');
 			$query-> set('order' , 'ASC');
 			$query-> set('post_status' , 'publish');

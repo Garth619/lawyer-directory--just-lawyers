@@ -113,15 +113,18 @@ function initMap() {
 	
 
     map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 10,
+        zoom: 13,
         center: new google.maps.LatLng(lat_number,long_number),
         mapTypeId: 'roadmap'
     });
 	
 		
 		var script = document.createElement('script');
+		
+		script.src = '' +my_mapdata.current_domain+ '/wp-json/mapping/v1/location/'+my_mapdata.map_current_city+'/'+my_mapdata.map_current_pa+'/'+my_mapdata.map_paged+'?_jsonp=eqfeed_callback';
     
-    script.src = '' +my_mapdata.current_domain+ '/wp-json/mapping/v1/location?map_city='+my_mapdata.map_current_city+'&map_pa='+my_mapdata.map_current_pa+'&_jsonp=eqfeed_callback'; // this will need to pass through my php array as well
+		//console.log(script.src);
+    
     document.getElementsByTagName('head')[0].appendChild(script);
 
     //Associate the styled map with the MapTypeId and set it to display.
@@ -142,43 +145,23 @@ window.eqfeed_callback = function(myJsonFile) {
 
         var latLng = new google.maps.LatLng(lat, long);
         
-        var crashes = myJsonFile[i].Crashes;
+      
 
-        var threeOrLess = crashes <= 3;
-        var fourToSix = crashes > 3 && crashes <= 6;
-        var greaterThanSix = crashes > 6;
-
-				//console.log(fourToSix);
-
-        var smallCircleImg = 'https://att-directory.com/wp-content/themes/ilawsuit/images/small-circle.png';
-        var mediumCircleImg = 'https://att-directory.com/wp-content/themes/ilawsuit/images/medium-circle.png';
-        var largeCircleImg = 'https://att-directory.com/wp-content/themes/ilawsuit/images/large-circle.png';
-
-        var displayImg =
-            threeOrLess ? smallCircleImg :
-            fourToSix ? mediumCircleImg :
-            largeCircleImg;
-
-        var streetOne = myJsonFile[i].Street1;
-        var streetTwo;
         
-        if ( myJsonFile[i].Street2 === "" ) {
-        	streetTwo = "NA"
-        } else {
-        	streetTwo = myJsonFile[i].Street2
-        }
+
+       
+        var circleImg = ''+my_mapdata.current_domain+'/wp-content/themes/ilawsuit/images/red-circle.svg';
+        var lawyerTitle = myJsonFile[i].Title;
         
-        var crashes = myJsonFile[i].Crashes;
-        var pedestrianCount = myJsonFile[i].PedestrianCount;
-        var pedestrianDeaths = myJsonFile[i].PedestrianDeaths;
+        
 
         var marker = new google.maps.Marker({
             position: latLng,
             map: map,
-            icon: displayImg
+            icon: circleImg
         });
 
-        var contentString = "<div class='inner-content'><h3>Street 1</h3><p>"+streetOne+"</p><h3>Street 2</h3><p>"+streetTwo+"</p><h3>Crashes</h3><p>"+crashes+"</p><h3>Pedestrian Major Injuries</h3><p>"+pedestrianCount+"</p><h3>Pedestrian Deaths</h3><p>"+pedestrianDeaths+"</p></div>";
+        var contentString = "<div class='inner-content'><h3>Street 1</h3><p>"+lawyerTitle+"</p><h3>Street 2</h3><p>"+streetTwo+"</p><h3>Crashes</h3><p>"+crashes+"</p><h3>Pedestrian Major Injuries</h3><p>"+pedestrianCount+"</p><h3>Pedestrian Deaths</h3><p>"+pedestrianDeaths+"</p></div>";
 
         var infoWindow = new google.maps.InfoWindow();
         google.maps.event.addListener(marker, 'click', (function(marker) {
@@ -200,42 +183,6 @@ window.eqfeed_callback = function(myJsonFile) {
 
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

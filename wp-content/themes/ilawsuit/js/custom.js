@@ -119,7 +119,7 @@ jQuery(document).ready(function($){
       
       });
 
-      console.log('images loaded');
+     
     }
 
     createWaypoint('internal_main', null, null, -10, loadImages, false);
