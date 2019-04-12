@@ -113,7 +113,7 @@ function initMap() {
 	
 
     map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 13,
+        zoom: 10,
         center: new google.maps.LatLng(lat_number,long_number),
         mapTypeId: 'roadmap'
     });
