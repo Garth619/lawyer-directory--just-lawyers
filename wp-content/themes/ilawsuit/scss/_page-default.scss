@@ -457,6 +457,41 @@ span.results_number.no_filter_space {
 }
 
 
+.map_tooltip {
+	padding:10px 10px;
+	max-width:600px;
+	h3 {
+		font-size:14px;
+		display: block;
+		margin-bottom:10px;
+		letter-spacing: 0.15em;
+		text-transform: uppercase;
+		@include montserrat_extrabold;
+	}
+	p {
+		font-size: 14px;
+		font-family: $worksans;
+		margin-bottom:5px;
+		a {
+			color:#000;
+			text-decoration: none;
+			transition: all 200ms ease-in-out;
+			&:hover {
+				color:$bluetwo;
+			}
+		}
+		a.map_view_profile {
+			color:$bluetwo;
+			padding-top:5px;
+			display: inline-block;
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+	}
+}
+
+
 @media screen and (max-width: 1735px) {
 	
 	

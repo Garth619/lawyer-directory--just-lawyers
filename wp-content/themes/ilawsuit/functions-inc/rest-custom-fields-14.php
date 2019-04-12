@@ -75,8 +75,12 @@ add_action( 'rest_api_init', 'map_route' );
 			$lgn = get_field('longitude');
 			$lgntwo = round($lgn, 6);
 		
-			$phone = get_field('lawyer_phone');
+			
 			$address = get_field('lawyer_address');
+			
+			$phone = get_field('lawyer_phone');
+			$tel_href = str_replace(['-', '(', ')', ' '], '', $phone);
+			
 		
 			$post_data[] = array(
 		    'Title' => $mytitle,
@@ -84,7 +88,8 @@ add_action( 'rest_api_init', 'map_route' );
 		    'Lat' => $lattwo,
 		    'Lng' =>  $lgntwo,
 		    'Address' => $address,
-		    'Phone' => $phone
+		    'Phone' => $phone,
+		    'Tel_href' => $tel_href,
 		    //'"ACF"' => get_fields($post->ID)
 		    
 	    );

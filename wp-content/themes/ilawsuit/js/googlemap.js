@@ -152,8 +152,10 @@ window.eqfeed_callback = function(myJsonFile) {
        
         var circleImg = ''+my_mapdata.current_domain+'/wp-content/themes/ilawsuit/images/red-circle.svg';
         var lawyerTitle = myJsonFile[i].Title;
-        
-        
+        var address = myJsonFile[i].Address;
+        var phone = myJsonFile[i].Phone;
+        var tel_href = myJsonFile[i].Tel_href;
+        var viewprofile = myJsonFile[i].Permalink;
 
         var marker = new google.maps.Marker({
             position: latLng,
@@ -161,7 +163,7 @@ window.eqfeed_callback = function(myJsonFile) {
             icon: circleImg
         });
 
-        var contentString = "<div class='inner-content'><h3>Street 1</h3><p>"+lawyerTitle+"</p><h3>Street 2</h3><p>"+streetTwo+"</p><h3>Crashes</h3><p>"+crashes+"</p><h3>Pedestrian Major Injuries</h3><p>"+pedestrianCount+"</p><h3>Pedestrian Deaths</h3><p>"+pedestrianDeaths+"</p></div>";
+        var contentString = "<div class='map_tooltip'><h3>"+lawyerTitle+"</h3><p><a href=''>"+address+"</a></p><p><a href='tel:"+tel_href+"'>"+phone+"</a></p><p><a class='map_view_profile' href='"+viewprofile+"'>View Profile</a></div>";
 
         var infoWindow = new google.maps.InfoWindow();
         google.maps.event.addListener(marker, 'click', (function(marker) {
