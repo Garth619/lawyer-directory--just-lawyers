@@ -62,8 +62,6 @@
 		
 		<div class="directory_wrapper lawyer_wrapper">
 			
-			
-			
 			<div class="breadcrumb_wrapper">
 			
 				<a href="<?php bloginfo('url');?>">Home</a>
