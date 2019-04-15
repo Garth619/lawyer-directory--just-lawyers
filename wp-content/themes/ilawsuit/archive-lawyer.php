@@ -96,6 +96,14 @@
 					echo "Try Again";
 			
 				}
+				
+				if($paged >= 2) {
+			
+					$lawyer_page_number = ' Page&nbsp;'. $paged;
+					
+					echo $lawyer_page_number;
+			
+				} 
 			
 			?>
 			

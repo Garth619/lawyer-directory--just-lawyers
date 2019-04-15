@@ -46,7 +46,13 @@
 	
 	<div class="internal_banner">
 		
-		<h1><?php echo $citytermtitle;?> <?php echo $patermstitle;?> Lawyers </h1>
+		<?php if($paged >= 2) {
+			
+			$lawyer_page_number = 'Page '. $paged;
+			
+		} ?>
+		
+		<h1><?php echo $citytermtitle;?> <?php echo $patermstitle;?> Lawyers <?php echo $lawyer_page_number;?></h1>
 
 	</div><!-- internal_banner -->
 	

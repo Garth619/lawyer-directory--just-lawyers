@@ -5,28 +5,13 @@
 	
 	<div class="internal_banner">
 		
-		<h1>
+		<?php if($paged >= 2) {
 			
-			<?php echo get_search_query();?>
+			$lawyer_page_number = ' Page&nbsp;'. $paged;
 			
-<!--
-			<?php if ( !is_paged() ) {
-				
-				echo 'Results:';
-			
-		 		}
-			
-			else {
-			
-				echo 'Results Page ' . $paged . ':';
-				
-			} ?>
+		} ?>
 		
-			
-			<?php printf( __( '%s', 'twentyten' ), '<span>' . get_search_query() . '</span>' ); ?>
--->
-			
-		</h1>
+		<h1><?php echo get_search_query() . $lawyer_page_number;?></h1>
 
 	</div><!-- internal_banner -->
 	

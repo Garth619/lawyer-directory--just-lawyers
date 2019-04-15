@@ -11,7 +11,7 @@
 function load_my_styles_scripts() {
   
     
-    wp_enqueue_style( 'styles', get_template_directory_uri() . '/style.css', '', 5, 'all' ); 
+    //wp_enqueue_style( 'styles', get_template_directory_uri() . '/style.css', '', 5, 'all' ); 
     
 
     // disables jquery then registers it again to go into footer
@@ -52,23 +52,12 @@ function load_my_styles_scripts() {
 				
 		 		$taxpracticeareas = 'practice_area';
 			
-				// get current city and state lat and long
-	
-				//https://stackoverflow.com/questions/3807963/how-to-get-longitude-and-latitude-of-any-address
 				
-				//https://stackoverflow.com/questions/15925980/using-address-instead-of-longitude-and-latitude-with-google-maps-api
-	
-				//https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&key=AIzaSyDPAds-G8zjbtCxCC19dH2o_voVQIEjg7o
-	
-				//https://maps.googleapis.com/maps/api/geocode/json?address=Los+Angeles,+CA&key=AIzaSyDPAds-G8zjbtCxCC19dH2o_voVQIEjg7o
-
 				// Get lat and long by address 
      
      		$google_map_api = 'AIzaSyDPAds-G8zjbtCxCC19dH2o_voVQIEjg7o';
      		
-     	
-     		
-     		// pa url query -> pa id conversion
+		 		// pa url query -> pa id conversion
 	
 		 		$patermslug = get_term_by('slug', $currentpracticearea, $taxpracticeareas);
 		 		
@@ -149,15 +138,6 @@ function load_my_styles_scripts() {
 			wp_enqueue_script('googleapis', esc_url( add_query_arg( 'key', $google_map_api .'&callback=initMap', '//maps.googleapis.com/maps/api/js' )), array(), null, true );
 		
 		
-		
-			
-
-		
-		
-		
-		
-		
-		
 		}
 		    
    
@@ -197,7 +177,7 @@ add_filter('script_loader_tag', 'add_defer_attribute', 10, 2);
 
 
 
-/*
+
  function my_deregister_scripts(){
   
   wp_deregister_script( 'wp-embed' );
@@ -205,7 +185,7 @@ add_filter('script_loader_tag', 'add_defer_attribute', 10, 2);
 	}
 
 	add_action( 'wp_footer', 'my_deregister_scripts' );
-*/
+
 
 
 
@@ -215,7 +195,7 @@ add_filter('script_loader_tag', 'add_defer_attribute', 10, 2);
 	
 	
 
-/*
+
 	function deregister_scripts(){
 			
   wp_deregister_script("gform_placeholder");
@@ -227,7 +207,7 @@ add_filter('script_loader_tag', 'add_defer_attribute', 10, 2);
 	
 	
 add_action("gform_enqueue_scripts", "deregister_scripts");
-*/
+
 
 
 
@@ -238,7 +218,7 @@ add_action("gform_enqueue_scripts", "deregister_scripts");
  
 
 
-/*
+
 function internal_css_print() {
    echo '<style>';
    
@@ -249,7 +229,7 @@ function internal_css_print() {
 
 
 add_action( 'wp_head', 'internal_css_print' );
-*/
+
 
 
 
@@ -936,19 +916,9 @@ function my_custom_search($query) {
 	add_action( 'pre_get_posts', 'my_custom_search' );
 	
 
-	// rest api
+	// rest map endpoint
 
-	//require get_theme_file_path('/functions-inc/rest-custom-fields-1.php');
-	//require get_theme_file_path('/functions-inc/rest-custom-fields-2.php');
-	//require get_theme_file_path('/functions-inc/rest-custom-fields-3.php');
-	//require get_theme_file_path('/functions-inc/rest-custom-fields-4.php');
-	//require get_theme_file_path('/functions-inc/rest-custom-fields-5.php');
-	//require get_theme_file_path('/functions-inc/rest-custom-fields-6.php');
-	//require get_theme_file_path('/functions-inc/rest-custom-fields-7.php');
-	//require get_theme_file_path('/functions-inc/rest-custom-fields-8.php');
-	//require get_theme_file_path('/functions-inc/rest-custom-fields-10.php'); 
-	//require get_theme_file_path('/functions-inc/rest-custom-fields-13.php');
-	require get_theme_file_path('/functions-inc/rest-custom-fields-14.php');
+	require get_theme_file_path('/functions-inc/rest-map-endpoint.php');
 	
 	
 	
