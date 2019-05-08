@@ -35,7 +35,7 @@ img.sec_one_bg {
 
 .three_part_search_wrapper {
 	width:100%;
-	max-width:1160px;
+	max-width:960px;
 	margin:47px auto 0;
 }
 
@@ -64,8 +64,11 @@ body:not(.page-template-template-home) {
 .sec_one_input_wrapper {
 		display: flex;
 		justify-content: space-between;
+		.att_name_input {
+			display: none;
+		}
 		.input_wrapper {
-			flex-basis:32.6%;
+			flex-basis:48%;
 			::-webkit-input-placeholder {
 				color: #fff;
 			}

@@ -1,7 +1,7 @@
-{\rtf1\ansi\ansicpg1252\cocoartf1504\cocoasubrtf830
-{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\froman\fcharset0 Times-Roman;\f2\fmodern\fcharset0 CourierNewPSMT;
-\f3\fmodern\fcharset0 CourierNewPS-BoldMT;\f4\fmodern\fcharset0 Courier;\f5\fnil\fcharset0 Monaco;
-}
+{\rtf1\ansi\ansicpg1252\cocoartf1671\cocoasubrtf400
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\froman\fcharset0 Times-Roman;\f2\fswiss\fcharset0 Helvetica-Bold;
+\f3\fmodern\fcharset0 CourierNewPSMT;\f4\fmodern\fcharset0 CourierNewPS-BoldMT;\f5\fmodern\fcharset0 Courier;
+\f6\fnil\fcharset0 Monaco;}
 {\colortbl;\red255\green255\blue255;\red0\green0\blue233;\red63\green105\blue30;\red255\green0\blue0;
 \red57\green57\blue57;\red236\green236\blue236;\red0\green0\blue0;\red255\green255\blue255;\red240\green240\blue245;
 }
@@ -27,21 +27,30 @@ lock up siteground, delete att-d.1p21\
 \
 lose the attorney name on the search\
 \
+Refine search on mobile but also an easy way to filter better on the page that you are on\
+\
+Pagination looks weird on mobile when its long\
+\
+Featured images and website favicon\
+\
+Try again isnt working\
+\
+\
 commas on search results\
 \
 contact page snazzy maps\
-\
-d | m doesn\'92t work well when the case results filter fires\
 \
 cdn check it out\
 \
 whats cool too is we can purge cache on just urls we update, so as the site builds and cahces, we can leave long-time cached urls alone\
 \
-claim profile, prepopulate the form with info\
+claim profile, prepopulate the form with info, and maybe prepopulate the refine search with the answers they already had so they see them and make adjustments \
+\
+subfilter on search results: Somehow store all post ids when the default alphbetical results come back, then do the meta query shit through just those\
 \
 blue underlined by default for the pa directory\
 \
-search all types required to select city or state\
+search all types required to select city or state is try again not working anymore?\
 \
 seo page titles in the urls\
 \
@@ -69,7 +78,7 @@ get geocode compare to lat acfs and list from closest to furthest,  there needs 
 \ul \ulc2 \
 \
 \pard\pardeftab720\sl280\partightenfactor0
-{\field{\*\fldinst{HYPERLINK "https://teslathemes.com/blog/how-to-optimize-your-wordpress-site-without-any-seo-plugins/"}}{\fldrslt \cf2 \ulc2 https://teslathemes.com/blog/how-to-optimize-your-wordpress-site-without-any-seo-plugins/}}
+{\field{\*\fldinst{HYPERLINK "https://teslathemes.com/blog/how-to-optimize-your-wordpress-site-without-any-seo-plugins/"}}{\fldrslt \cf2 https://teslathemes.com/blog/how-to-optimize-your-wordpress-site-without-any-seo-plugins/}}
 \f0 \cf0 \kerning1\expnd0\expndtw0 \ulnone \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 \cf0 \
@@ -83,7 +92,7 @@ theres just bad data\
 \pard\pardeftab720\sl280\partightenfactor0
 
 \f1 \cf2 \expnd0\expndtw0\kerning0
-\ul \ulc2 for titles and even those search conditionals in the h1s, write a function then echo function to keep templates clean
+\ul for titles and even those search conditionals in the h1s, write a function then echo function to keep templates clean
 \f0 \cf0 \kerning1\expnd0\expndtw0 \ulnone \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 \cf0 \
@@ -137,14 +146,14 @@ templates\
 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
-\b \cf0 \'93archive-lawyer\'94  three part search
-\b0 \
+\f2\b \cf0 \'93archive-lawyer\'94  three part search
+\f0\b0 \
 \
 	- runs a pre_get_post with all conditionals\
 \
 
-\b  "template-locations_city_pa.php" /lawyers-practice/business/california/anaheim-hills
-\b0 \
+\f2\b  "template-locations_city_pa.php" /lawyers-practice/business/california/anaheim-hills
+\f0\b0 \
 \
 	- runs a pre_get_post - needs a rewrite rule setup to handle pagination\
 \
@@ -153,8 +162,8 @@ templates\
 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
-\b \cf0 \'93taxonomy-practice_area.php\'94  /lawyers-practice/criminal-defense
-\b0 \
+\f2\b \cf0 \'93taxonomy-practice_area.php\'94  /lawyers-practice/criminal-defense
+\f0\b0 \
 \
 	- im unable to use pre_get_posts and there are a couple wp_query calls\'85\
 	- timeout on large ones\
@@ -162,22 +171,22 @@ templates\
 	- then I return all terms found in locations that have those object_ids (post ids)\
 \
 
-\b \'93template-locations_state_pa.php\'94 /lawyers-practice/criminal-defense/colorado\
+\f2\b \'93template-locations_state_pa.php\'94 /lawyers-practice/criminal-defense/colorado\
 \
 	
-\b0 \cf4 - look at this closer what is get_term_by I think this is here to show just cities tied to a current state id\cf0 \
+\f0\b0 \cf4 - look at this closer what is get_term_by I think this is here to show just cities tied to a current state id\cf0 \
 	- most likely won\'92t be using pre_get_post because I need to run mutiple wp_queries\
 	- I get all post ids in the current state and the current pa\
 	- then I return all terms of locations (cities) that have those object ids (post ids)\
 \
 
-\b \'93template-practicearea_city.php\'94 /lawyers-location/state/alaska/barrington-alaska/\
+\f2\b \'93template-practicearea_city.php\'94 /lawyers-location/state/alaska/barrington-alaska/\
 \
 	
-\b0 - does this timeout on large ones?
-\b \
+\f0\b0 - does this timeout on large ones?
+\f2\b \
 	
-\b0 - get all post ids in the current location (city) with all the pas\
+\f0\b0 - get all post ids in the current location (city) with all the pas\
 	- then I return all terms found in pas with those object ids (post ids)\
 \
 \
@@ -211,15 +220,15 @@ look at transients again\
 \
 \pard\pardeftab720\sl300\partightenfactor0
 
-\f2\fs26 \cf5 \cb6 \expnd0\expndtw0\kerning0
+\f3\fs26 \cf5 \cb6 \expnd0\expndtw0\kerning0
 \'a0
-\f3\b \cb1 'cache_results'\'a0 => false,
-\f2\b0 \
+\f4\b \cb1 'cache_results'\'a0 => false,
+\f3\b0 \
 
-\f3\b \'a0\'a0\'a0 'update_post_meta_cache' => false,
-\f2\b0 \
+\f4\b \'a0\'a0\'a0 'update_post_meta_cache' => false,
+\f3\b0 \
 
-\f3\b \'a0\'a0\'a0 'update_post_term_cache' => false,\
+\f4\b \'a0\'a0\'a0 'update_post_term_cache' => false,\
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
 \f0\b0\fs24 \cf0 \kerning1\expnd0\expndtw0 \
@@ -249,23 +258,23 @@ this worked to export db\
 \
 \pard\pardeftab720\sl300\sa440\partightenfactor0
 
-\b\fs26 \cf7 \cb8 \expnd0\expndtw0\kerning0
-\outl0\strokewidth0 \strokec7 Nested Taxonomy Handling:
-\b0 \
+\f2\b\fs26 \cf7 \cb8 \expnd0\expndtw0\kerning0
+Nested Taxonomy Handling:
+\f0\b0 \
 The\'a0
-\f4 'tax_query'
+\f5 'tax_query'
 \f0 \'a0clauses can be nested, to create more complex queries. Example: Display\'a0
-\b posts
-\b0 \'a0that are in the\'a0
-\b quotes
-\b0 \'a0category OR both have the\'a0
-\b quote
-\b0 \'a0post format AND are in the\'a0
-\b wisdom
-\b0 \'a0category:\
+\f2\b posts
+\f0\b0 \'a0that are in the\'a0
+\f2\b quotes
+\f0\b0 \'a0category OR both have the\'a0
+\f2\b quote
+\f0\b0 \'a0post format AND are in the\'a0
+\f2\b wisdom
+\f0\b0 \'a0category:\
 \pard\pardeftab720\sl312\partightenfactor0
 
-\f5\fs24 \cf7 \cb9 $args = array(\
+\f6\fs24 \cf7 \cb9 $args = array(\
 	'post_type' => 'post',\
 	'tax_query' => array(\
 		'relation' => 'OR',\
@@ -292,7 +301,7 @@ The\'a0
 $query = new WP_Query( $args );\
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
-\f0 \cf0 \cb1 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 \
+\f0 \cf0 \cb1 \kerning1\expnd0\expndtw0 \
 \
 \
 }

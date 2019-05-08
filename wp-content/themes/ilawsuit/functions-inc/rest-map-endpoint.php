@@ -34,7 +34,7 @@ add_action( 'rest_api_init', 'map_route' );
     $page = $parameters['page'];
 		
     $testargs = array(
-	  		'post_type' => 'lawyer',
+	  	'post_type' => 'lawyer',
 			'posts_per_page' => 100,
 			'paged' => $page,
     		'orderby' => 'title',

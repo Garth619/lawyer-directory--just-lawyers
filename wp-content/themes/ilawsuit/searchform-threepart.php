@@ -4,13 +4,13 @@
 				
 	<div class="sec_one_input_wrapper">
 	
-		<div class="input_wrapper">
+		<div class="input_wrapper att_name_input">
 	
 			<input type="text" name="attorney_keyword" id="search" placeholder="Attorney Name" value="<?php // the_search_query(); ?>" />
 			
 		</div><!-- input_wrapper -->
 	
-		<div class="input_wrapper">
+		<div class="input_wrapper type_of_Law_input">
 	
 			<div class="sec_one_select_wrapper">
 		
@@ -50,9 +50,9 @@
 	
 		</div><!-- input_wrapper -->
 	
-		<div class="input_wrapper">
+		<div class="input_wrapper city_state_input">
 	
-			<input type="text" placeholder="City or State" value="" name="attorney_location"/>
+			<input type="text" placeholder="City or State" value="" name="attorney_location" required />
 	
 		</div><!-- input_wrapper -->
 	
