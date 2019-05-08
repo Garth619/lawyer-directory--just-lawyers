@@ -126,9 +126,15 @@
  
 								<?php foreach ( $terms as $term ) { ?>
 									
-									<li><a href="<?php bloginfo('url');?>/lawyers-practice/<?php echo $term->slug;?>"><?php echo $term->name;?></a></li>
+									<?php $featured_cat = 13613;
+								
+									if($featured_cat !== $term->term_id) { ?>
+									
+										<li><a href="<?php bloginfo('url');?>/lawyers-practice/<?php echo $term->slug;?>"><?php echo $term->name;?></a></li>
+									
+									<?php } 
     						
-    						<?php } ?>
+    					 } ?>
     
     						</ul>
 						

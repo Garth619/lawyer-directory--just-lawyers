@@ -11,7 +11,7 @@
 function load_my_styles_scripts() {
   
     
-    wp_enqueue_style( 'styles', get_template_directory_uri() . '/style.css', '', 5, 'all' ); 
+    // wp_enqueue_style( 'styles', get_template_directory_uri() . '/style.css', '', 5, 'all' ); 
     
 
     // disables jquery then registers it again to go into footer
@@ -105,7 +105,7 @@ function load_my_styles_scripts() {
 						
 			
 			$map_array = array(
-    			'map_current_city_latitude' => $city_latitude,
+    		'map_current_city_latitude' => $city_latitude,
 				'map_current_city_longitude' => $city_longitude,
 				'map_current_city' => $currentcity,
 				'map_current_pa' => $patermslug_map,
@@ -131,10 +131,6 @@ function load_my_styles_scripts() {
 			
 			// https://giogadesign.com/how-to-add-defer-async-attributes-to-wordpress-scripts/
 		
-			//<script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDPAds-G8zjbtCxCC19dH2o_voVQIEjg7o&callback=initMap"></script>
-		
-			
-
 			wp_enqueue_script('googleapis', esc_url( add_query_arg( 'key', $google_map_api .'&callback=initMap', '//maps.googleapis.com/maps/api/js' )), array(), null, true );
 		
 		
@@ -218,7 +214,7 @@ add_action("gform_enqueue_scripts", "deregister_scripts");
  
 
 
-/*
+
 
 function internal_css_print() {
    echo '<style>';
@@ -230,7 +226,7 @@ function internal_css_print() {
 
 
 add_action( 'wp_head', 'internal_css_print' );
-*/
+
 
 
 

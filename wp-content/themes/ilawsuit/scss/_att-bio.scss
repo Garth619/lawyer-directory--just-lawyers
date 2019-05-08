@@ -149,6 +149,14 @@ a.visit_website_button {
 			&:before {
 				display: none;
 			}
+			a {
+				text-decoration: underline;
+				border:none;
+				&:hover {
+					text-decoration: none;
+					border:none;
+				}
+			}
 		}
 	}
 }

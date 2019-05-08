@@ -139,10 +139,16 @@
 								<ul>
  
 								<?php foreach ( $terms as $term ) { ?>
+								
+									<?php $featured_cat = 13613;
+								
+									if($featured_cat !== $term->term_id) { ?>
 									
-									<li><a href="<?php bloginfo('url');?>/lawyers-practice/<?php echo $term->slug;?>"><?php echo $term->name;?></a></li>
+										<li><a href="<?php bloginfo('url');?>/lawyers-practice/<?php echo $term->slug;?>"><?php echo $term->name;?></a></li>
+									
+									<?php } 
     						
-    						<?php } ?>
+										} ?>
     
     						</ul>
 						
