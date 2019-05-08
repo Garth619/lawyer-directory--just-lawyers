@@ -97,14 +97,16 @@ form ::-moz-placeholder {
 			text-transform: capitalize;
 			//height:100px;
 			a {
-				width:100%;
+				//width:100%;
 				display: block;
 				text-align: left;
-				color:#000;
+				color:$blue;
 				text-decoration: none;
-				transition: all 200ms ease-in-out;
+				transition: all 150ms ease-in-out;
+				border-bottom:1px solid $blue;
 				&:hover {
-					color:$bluetwo;
+					//color:#000;
+					border-bottom:1px solid transparent;
 				}
 			}
 		}
@@ -129,10 +131,11 @@ form ::-moz-placeholder {
 	a {
 		color:$bluetwo;
 		text-decoration: none;
-		transition: all 200ms ease-in-out;
+		transition: all 150ms ease-in-out;
+		border-bottom:1px solid $blue;
 		cursor: pointer;
 		&:hover {
-			text-decoration: underline;
+			border-bottom:1px solid transparent;
 		}
 	}
 	p, ul {

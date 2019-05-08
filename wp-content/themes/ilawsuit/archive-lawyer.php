@@ -119,10 +119,12 @@
 			<?php if(have_posts()) : ?>
 			
 				<?php $count = $wp_query->found_posts;
+					
+					$count_with_commas = number_format($count);
 			
 					if($count) { ?>
 							
-						<span class="results_number">Search Results (<?php echo $count;?>)</span><!-- results_number -->
+						<span class="results_number">Search Results (<?php echo $count_with_commas;?>)</span><!-- results_number -->
 							
 				<?php } ?>
 				

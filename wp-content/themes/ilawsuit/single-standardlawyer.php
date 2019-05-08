@@ -124,11 +124,11 @@
 								
 								<ul>
  
-								<?php foreach ( $terms as $term ) {
+								<?php foreach ( $terms as $term ) { ?>
 									
-									echo "<li>" . $term->name . "</li>";
+									<li><a href="<?php bloginfo('url');?>/lawyers-practice/<?php echo $term->slug;?>"><?php echo $term->name;?></a></li>
     						
-    						} ?>
+    						<?php } ?>
     
     						</ul>
 						
