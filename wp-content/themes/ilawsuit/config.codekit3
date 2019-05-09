@@ -93,12 +93,12 @@
 		"oAP": "/footer.php",
 		"oF": 0
 		},
-	"/functions copy.php.before_pre_get_posts_wp_query": {
+	"/functions copy.php": {
 		"cB": 0,
 		"ft": 8192,
 		"hM": 0,
 		"oA": 0,
-		"oAP": "/functions copy.php.before_pre_get_posts_wp_query",
+		"oAP": "/functions copy.php",
 		"oF": 0
 		},
 	"/functions-inc/rest-map-endpoint.php": {
@@ -115,14 +115,6 @@
 		"hM": 0,
 		"oA": 0,
 		"oAP": "/functions.php",
-		"oF": 0
-		},
-	"/functions_searchsnippets.php.og": {
-		"cB": 0,
-		"ft": 8192,
-		"hM": 0,
-		"oA": 0,
-		"oAP": "/functions_searchsnippets.php.og",
 		"oF": 0
 		},
 	"/header.php": {
@@ -588,12 +580,12 @@
 		"oAP": "/page-templates/template-home.php",
 		"oF": 0
 		},
-	"/page-templates/template-locations_city_pa-old.php": {
+	"/page-templates/template-locations_city_pa copy.php": {
 		"cB": 0,
 		"ft": 8192,
 		"hM": 0,
 		"oA": 0,
-		"oAP": "/page-templates/template-locations_city_pa-old.php",
+		"oAP": "/page-templates/template-locations_city_pa copy.php",
 		"oF": 0
 		},
 	"/page-templates/template-locations_city_pa.php": {

@@ -2,7 +2,7 @@
 
 
 
-/* Enqueued Scripts
+/* Enqueued Scripts and passing php data into js files
 -------------------------------------------------------------- */
 
 
@@ -23,22 +23,97 @@ function load_my_styles_scripts() {
 		// custom js to fall uner jquery in footer
 		    
     wp_register_script( 'jquery-addon', get_template_directory_uri() . '/js/custom-min.js','', 1);
-
-		
-		// Localized PHP Data that needs to be passed onto my custom-min.js file, this grabs the live chat script acf and applies to my lazyload "getScript" function
-
+    
+		// Localized PHP Data that needs to be passed onto my custom-min.js file
 			
-		$livechat = get_field('live_chat_script','option');
-		
-		
-		
-			// Localize the script with new data array 
-		
-			$translation_array = array(
-    		'live_chat' => $livechat
+		if (get_query_var( 'currentstate') && get_query_var( 'currentcity')) { 
+			
+				
+				$currentpracticearea =  get_query_var( 'office_pa'); // figure out how to decale these outside of a function one time on this file and call them into where needed
+
+				$currentcity = get_query_var( 'currentcity');
+				
+				$currentstate = get_query_var( 'currentstate');
+				
+				if(empty(get_query_var('mypaged'))) {
+					
+					$mypaged = 1;
+					
+				}
+				
+				else {
+					
+					$mypaged = get_query_var('mypaged');
+					
+				}
+
+				
+				$taxlocations = 'location';
+				
+		 		$taxpracticeareas = 'practice_area';
+			
+				
+				// Get lat and long by address 
+     
+     		$google_map_api = 'AIzaSyDPAds-G8zjbtCxCC19dH2o_voVQIEjg7o';
+     		
+		 		// pa url query -> pa id conversion
+	
+		 		$patermslug = get_term_by('slug', $currentpracticearea, $taxpracticeareas);
+		 		
+		 		$patermslug_map = $patermslug->slug;
+		 		
+		 		// Get Current City and State as Titles
+     		
+     		// state url query -> state id conversion
+	
+		 		$statetermslug = get_term_by('slug', $currentstate, $taxlocations);
+	
+		 		$statetermid = $statetermslug->term_taxonomy_id;
+	
+		 		$statetermtitle = $statetermslug->name;
+	
+		 		// city url query -> city id conversion
+	
+		 		$citytermslug = get_term_by('slug', $currentcity, $taxlocations);
+	
+		 		$citytermid = $citytermslug->term_taxonomy_id;
+	
+		 		$citytermtitle = $citytermslug->name;
+     		
+     		// build gecode url to retrieve the current city coordinates so the map can recenter
+     		
+     		$mapaddress = $citytermtitle . ',' . $statetermtitle; 
+		 		$prepAddr = str_replace(' ','+',$mapaddress);
+        
+        
+		 		$geocode = file_get_contents('https://maps.google.com/maps/api/geocode/json?address='.$prepAddr.'&key=' . $google_map_api .'');
+     
+
+		 		$output= json_decode($geocode);
+		 		$city_latitude = $output->results[0]->geometry->location->lat;
+		 		$city_longitude = $output->results[0]->geometry->location->lng;
+        
+       }
+       
+       // current domian used for the rest api url call
+       
+       $currentdomain = get_bloginfo('url');
+       $lawyer_title = get_the_title();
+       
+       // Localize the script with new data array 
+						
+			
+			$map_array = array(
+    		'map_current_city_latitude' => $city_latitude,
+				'map_current_city_longitude' => $city_longitude,
+				'map_current_city' => $currentcity,
+				'map_current_pa' => $patermslug_map,
+				'map_paged' => $mypaged,
+				'current_domain' => $currentdomain,
 			);
 
-			wp_localize_script( 'jquery-addon', 'my_data', $translation_array );
+			wp_localize_script( 'jquery-addon', 'my_mapdata', $map_array );
 		
 		
 		
@@ -46,10 +121,22 @@ function load_my_styles_scripts() {
 		
 
 		// Enqueue Script
+		
+		wp_enqueue_script( 'jquery-addon', get_template_directory_uri() . '/js/custom-min.js', 'jquery', '', true );
+		
+		//wp_enqueue_script( 'jquery-mygravity', get_template_directory_uri() . '/js/gravityforms-min.js', 'jquery', '', true );
+		
+		
+		if (get_query_var( 'currentstate') && get_query_var( 'currentcity')) { 
+			
+			// https://giogadesign.com/how-to-add-defer-async-attributes-to-wordpress-scripts/
+		
+			wp_enqueue_script('googleapis', esc_url( add_query_arg( 'key', $google_map_api .'&callback=initMap', '//maps.googleapis.com/maps/api/js' )), array(), null, true );
+		
+		
+		}
 		    
-    wp_enqueue_script( 'jquery-addon', get_template_directory_uri() . '/js/custom-min.js', 'jquery', '', true );
-    
-    //wp_enqueue_script( 'jquery-mygravity', get_template_directory_uri() . '/js/gravityforms-min.js', 'jquery', '', true );
+   
     
 
  }
@@ -62,11 +149,9 @@ function load_my_styles_scripts() {
 -------------------------------------------------------------- */
  
  
-/*
-
- function add_defer_attribute($tag, $handle) {
+function add_defer_attribute($tag, $handle) {
    // add script handles to the array below
-   $scripts_to_defer = array('jquery', 'jquery-addon', 'jquery-mygravity');
+   $scripts_to_defer = array('jquery', 'jquery-addon', 'jquery-mygravity','googleapis');
    
    foreach($scripts_to_defer as $defer_script) {
       if ($defer_script === $handle) {
@@ -78,7 +163,7 @@ function load_my_styles_scripts() {
 
 
 add_filter('script_loader_tag', 'add_defer_attribute', 10, 2);
-*/
+
 
 
 
@@ -88,7 +173,7 @@ add_filter('script_loader_tag', 'add_defer_attribute', 10, 2);
 
 
 
-/*
+
  function my_deregister_scripts(){
   
   wp_deregister_script( 'wp-embed' );
@@ -96,7 +181,7 @@ add_filter('script_loader_tag', 'add_defer_attribute', 10, 2);
 	}
 
 	add_action( 'wp_footer', 'my_deregister_scripts' );
-*/
+
 
 
 
@@ -106,7 +191,7 @@ add_filter('script_loader_tag', 'add_defer_attribute', 10, 2);
 	
 	
 
-/*
+
 	function deregister_scripts(){
 			
   wp_deregister_script("gform_placeholder");
@@ -118,7 +203,7 @@ add_filter('script_loader_tag', 'add_defer_attribute', 10, 2);
 	
 	
 add_action("gform_enqueue_scripts", "deregister_scripts");
-*/
+
 
 
 
@@ -127,6 +212,8 @@ add_action("gform_enqueue_scripts", "deregister_scripts");
 -------------------------------------------------------------- */
  
  
+
+
 
 
 function internal_css_print() {
@@ -139,6 +226,8 @@ function internal_css_print() {
 
 
 add_action( 'wp_head', 'internal_css_print' );
+
+
 
 
 
@@ -389,14 +478,22 @@ function wpbeginner_numeric_posts_nav() {
 
 function prefix_rewrite_rule() {
 		
+		// "/lawyers-location/state/alaska"
 		
 		add_rewrite_rule( 'lawyers-location/state/([^/]+)/([^/]+)', 'index.php?office_location_currentstate=$matches[1]&office_location_currentcity=$matches[2]', 'top' );
-	
+		
+		// pagination "/lawyers-practice/business/california/los-angeles/page/2"
+		
+		add_rewrite_rule( 'lawyers-practice/([^/]+)/([^/]+)/([^/]+)/page/([0-9]+)', 'index.php?office_pa=$matches[1]&currentstate=$matches[2]&currentcity=$matches[3]&mypaged=$matches[4]', 'top' );
+		
+		// "/lawyers-practice/business/california/los-angeles"
+		
 		add_rewrite_rule( 'lawyers-practice/([^/]+)/([^/]+)/([^/]+)', 'index.php?office_pa=$matches[1]&currentstate=$matches[2]&currentcity=$matches[3]', 'top' );
 		
+		// "/lawyers-practice/business/california"
+		
 		add_rewrite_rule( 'lawyers-practice/([^/]+)/([^/]+)', 'index.php?office_pa=$matches[1]&currentstate=$matches[2]', 'top' );
-    
-    
+ 
  }
  
 add_action( 'init', 'prefix_rewrite_rule' );
@@ -413,6 +510,7 @@ function prefix_register_query_var( $vars ) {
     $vars[] = 'office_pa';
     $vars[] = 'currentstate';
     $vars[] = 'currentcity';
+    $vars[] = 'mypaged';
     
     // custom search vars
     
@@ -426,47 +524,37 @@ function prefix_register_query_var( $vars ) {
 add_filter( 'query_vars', 'prefix_register_query_var' );
 
 
-// redirection of templates based on query vars
+// templates assignment based on query vars
 
 
 function prefix_url_rewrite_templates() {
 	
 	
-	
-		if ( get_query_var( 'office_location_currentstate') && get_query_var( 'office_location_currentcity') ) { // or the other isset example  if(!isset( $wp_query->query['photos'] ))
+	if ( get_query_var( 'office_location_currentstate') && get_query_var( 'office_location_currentcity') ) { 
        
-     
-	  
-	  	add_filter( 'template_include', function() {
+     	add_filter( 'template_include', function() {
             return get_template_directory() . '/page-templates/template-practicearea_city.php';
        });
 
     }
 		
 		
-		
- 
-    if ( get_query_var( 'currentstate') ) { // or the other isset example  if(!isset( $wp_query->query['photos'] ))
+		if ( get_query_var( 'currentstate') ) { 
        
-	  
-	  	add_filter( 'template_include', function() {
-            return get_template_directory() . '/page-templates/template-locations_state_pa.php';
-       });
+			add_filter( 'template_include', function() {
+       return get_template_directory() . '/page-templates/template-locations_state_pa.php';
+     	});
 
     }
     
     
-
-    if (get_query_var( 'currentstate') && get_query_var( 'currentcity')) { 
+		if (get_query_var( 'currentstate') && get_query_var( 'currentcity')) { 
        
-	    
-	    
-			add_filter( 'template_include', function() {
+	    add_filter( 'template_include', function() {
             return get_template_directory() . '/page-templates/template-locations_city_pa.php';
        });
 
-
-    }
+		}
 
 }
  
@@ -476,34 +564,45 @@ add_action( 'template_redirect', 'prefix_url_rewrite_templates' );
 
 
 
+// pre_get_post
 
 
 
 function my_custom_search($query) {
 	
+		// custom search query vars
+	        
+	  $att_keyword = get_query_var( 'attorney_keyword');
+		$att_pa = get_query_var( 'attorney_pa');
+		$att_location = get_query_var( 'attorney_location');
+		$mypaged = get_query_var('mypaged');
 		
+		
+		// template query_vars
+		
+		
+		$currentcity = get_query_var( 'currentcity'); // figure out how to decale these outside of a function one time on this file and call them into where needed
+		$currentstate = get_query_var( 'currentstate');
+		$currentpracticearea =  get_query_var( 'office_pa');
+	
+		$taxlocations = 'location';
+		$taxpracticeareas = 'practice_area';
 				
 		
+		// three part custom search template (its assigned to archive lawyer cpt)
 		
 		if ( ! is_admin() && $query->is_main_query() && $query->is_archive('lawyer') && !$query->is_tax('practice_area')) {
         
-       			echo "sup";
+       			
 	        		
-	        		// custom search query vars
-	        
-	        		$att_keyword = get_query_var( 'attorney_keyword');
-						$att_pa = get_query_var( 'attorney_pa');
-						$att_location = get_query_var( 'attorney_location');
-						
-						
-						// CPT args
+	        	// CPT args
 						
 						$query-> set('posts_per_page' , 50);
-	      		  $query-> set('order' , 'ASC');
-	      		  $query-> set('orderby' ,'title');
-	      		  $query-> set('post_status' , 'publish');
-	      		  $query-> set('ignore_sticky_posts' , true);
-	      		  $query-> set('post_type' , 'lawyer');
+	      		$query-> set('order' , 'ASC');
+	      		$query-> set('orderby' ,'title');
+	      		$query-> set('post_status' , 'publish');
+	      		$query-> set('ignore_sticky_posts' , true);
+	      		$query-> set('post_type' , 'lawyer');
 	      		  
 						
 						
@@ -526,7 +625,14 @@ function my_custom_search($query) {
 						
 						if(!$att_keyword && $att_pa && $att_pa !== 'Search All Types' && !$att_location) {
 							
-							array_push($taxquery, array('taxonomy' => 'practice_area','field' => 'slug','terms' => $att_pa, 'operator' => 'IN') );
+							array_push($taxquery, 
+								array(
+									'taxonomy' => 'practice_area',
+									'field' => 'slug',
+									'terms' => $att_pa, 
+									'operator' => 'IN',
+								)
+							);
 							
 							$query->set('tax_query', $taxquery);
 							
@@ -536,7 +642,14 @@ function my_custom_search($query) {
 						
 						if(!$att_keyword && !$att_pa && $att_location) {
 							
-							array_push($taxquery, array('taxonomy' => 'location','field' => 'slug','terms' => $att_location, 'operator' => 'IN'));
+							array_push($taxquery, 
+								array(
+									'taxonomy' => 'location',
+									'field' => 'slug',
+									'terms' => $att_location,
+									'operator' => 'IN',
+								)
+							);
 							
 							$query->set('tax_query', $taxquery);
 							
@@ -548,7 +661,14 @@ function my_custom_search($query) {
 							
 							$query-> set('s' , $att_keyword);
 							
-							array_push($taxquery, array('taxonomy' => 'practice_area','field' => 'slug','terms' => $att_pa, 'operator' => 'IN'));
+							array_push($taxquery, 
+								array(
+									'taxonomy' => 'practice_area',
+									'field' => 'slug',
+									'terms' => $att_pa,
+									'operator' => 'IN',
+								)
+							);
 							
 							$query->set('tax_query', $taxquery);
 							
@@ -560,7 +680,14 @@ function my_custom_search($query) {
 							
 							$query-> set('s' , $att_keyword);
 							
-							array_push($taxquery, array('taxonomy' => 'location','field' => 'slug','terms' => $att_location, 'operator' => 'IN'));
+							array_push($taxquery,
+								array(
+									'taxonomy' => 'location',
+									'field' => 'slug',
+									'terms' => $att_location,
+									'operator' => 'IN',
+								)
+							);
 							
 							$query->set('tax_query', $taxquery);
 							
@@ -570,7 +697,20 @@ function my_custom_search($query) {
 						
 						if(!$att_keyword && $att_pa && $att_pa !== 'Search All Types' && $att_location) {
 							
-							array_push($taxquery, array('taxonomy'  => 'practice_area','field' => 'slug','terms' => $att_pa, 'operator' => 'IN'), array('taxonomy' => 'location','field' => 'slug','terms' => $att_location, 'operator' => 'IN'));
+							array_push($taxquery,
+								array(
+									'taxonomy'  => 'practice_area',
+									'field' => 'slug',
+									'terms' => $att_pa,
+									'operator' => 'IN',
+								), 
+								array(
+									'taxonomy' => 'location',
+									'field' => 'slug',
+									'terms' => $att_location,
+									'operator' => 'IN',
+								)
+							);
 							
 							$query->set('tax_query', $taxquery);
 							
@@ -582,7 +722,20 @@ function my_custom_search($query) {
 							
 							$query-> set('s' , $att_keyword);
 							
-							array_push($taxquery, array('taxonomy'  => 'location','field' => 'slug','terms' => $att_location, 'operator' => 'IN'), array('taxonomy'  => 'practice_area','field' => 'slug','terms' => $att_pa, 'operator' => 'IN'));
+							array_push($taxquery, 
+								array(
+									'taxonomy'  => 'location',
+									'field' => 'slug',
+									'terms' => $att_location,
+									'operator' => 'IN',
+								), 
+								array(
+									'taxonomy'  => 'practice_area',
+									'field' => 'slug',
+									'terms' => $att_pa,
+									'operator' => 'IN',
+								)
+							);
 							
 							$query->set('tax_query', $taxquery);
 							
@@ -600,7 +753,7 @@ function my_custom_search($query) {
 							
 							$termids = get_terms( array( 
 									'taxonomy' => 'practice_area',
-									'fields' => 'slugs'
+									'fields' => 'slugs',
 								)
 							);
 							
@@ -624,7 +777,14 @@ function my_custom_search($query) {
 							
 							$query-> set('s' , $att_keyword);
 							
-							array_push($taxquery, array('taxonomy'  => 'practice_area','field' => 'slug','terms' => $termids, 'operator' => 'IN'));
+							array_push($taxquery,
+								array(
+									'taxonomy'  => 'practice_area',
+									'field' => 'slug',
+									'terms' => $termids,
+									'operator' => 'IN',
+								)
+							);
 							
 							$query->set('tax_query', $taxquery);
 							
@@ -638,7 +798,20 @@ function my_custom_search($query) {
 							
 							$query-> set('s' , $att_keyword);
 							
-							array_push($taxquery, array('taxonomy'  => 'practice_area','field' => 'slug','terms' => $termids, 'operator' => 'IN'), array('taxonomy'  => 'location','field' => 'slug','terms' => $att_location, 'operator' => 'IN'));
+							array_push($taxquery, 
+								array(
+									'taxonomy'  => 'practice_area',
+									'field' => 'slug',
+									'terms' => $termids,
+									'operator' => 'IN',
+								),
+								array(
+									'taxonomy'  => 'location',
+									'field' => 'slug',
+									'terms' => $att_location, 
+									'operator' => 'IN',
+								)
+							);
 							
 							$query->set('tax_query', $taxquery);
 							
@@ -650,7 +823,20 @@ function my_custom_search($query) {
 							
 							$query-> set('s' , $att_keyword);
 							
-							array_push($taxquery, array('taxonomy' => 'practice_area','field' => 'slug','terms' => $termids, 'operator' => 'IN'), array('taxonomy'  => 'location','field' => 'slug','terms' => $att_location, 'operator' => 'IN'));
+							array_push($taxquery,
+								array(
+									'taxonomy' => 'practice_area',
+									'field' => 'slug',
+									'terms' => $termids,
+									'operator' => 'IN',
+								), 
+								array(
+									'taxonomy'  => 'location',
+									'field' => 'slug',
+									'terms' => $att_location,
+									'operator' => 'IN',
+								)
+							);
 							
 							$query->set('tax_query', $taxquery);
 							
@@ -677,31 +863,63 @@ function my_custom_search($query) {
 		// pas "/lawyers-practice/criminal-defense"
 		
 		
-		
-		if ( ! is_admin() && $query->is_main_query() && $query->is_archive('lawyer') && $query->is_tax('practice_area')) {
+		// if ( ! is_admin() && $query->is_main_query() && $query->is_archive('lawyer') && $query->is_tax('practice_area')) {
 			
 		
-			echo "garrett";
-			
-			
-			
-			
-			
-		}
+		// }
 		
 		
+		
+		
+		//  "template-locations_city_pa.php"  /lawyers-practice/business/california/anaheim-hills
+		
+	
+		if ( ! is_admin() && $query->is_main_query() && get_query_var( 'currentstate') && get_query_var( 'currentcity')) {
+			
+			
+			// tax query
+			
+			$taxquery = array('relation' => 'AND');
+			
+			array_push($taxquery, 
+				array(
+					'taxonomy'  => $taxlocations,
+					'field'     => 'slug',
+					'terms'     => $currentcity,
+					'operator' => 'IN',
+				),
+				array(
+					'taxonomy'  => $taxpracticeareas,
+					'field'     => 'slug',
+					'terms'     => $currentpracticearea,
+					'operator' => 'IN',
+				)
+			);
+			
+			
+			$query-> set('tax_query', $taxquery);
+			$query-> set('post_type' , 'lawyer');
+			$query-> set('paged' , $mypaged);
+			$query-> set('fields' , 'ids');
+			$query-> set('order' , 'ASC');
+			$query-> set('post_status' , 'publish');
+			$query-> set('orderby' , 'title');
+			$query-> set('posts_per_page' , 100);
+			
+		}		
 		
 	}
 	
 	
 	add_action( 'pre_get_posts', 'my_custom_search' );
 	
-	
-	
 
+	// rest map endpoint
 
+	require get_theme_file_path('/functions-inc/rest-map-endpoint.php');
 	
 	
-
+	
+	
 	
 	

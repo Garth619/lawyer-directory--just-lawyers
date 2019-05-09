@@ -3,10 +3,12 @@
 
 <?php 	
 	
+	
+	
 	$currentcity = get_query_var( 'currentcity');
 	$currentstate = get_query_var( 'currentstate');
 	$currentpracticearea =  get_query_var( 'office_pa');
-	
+	$mypaged = get_query_var('mypaged');
 	
 	$taxlocations = 'location';
 	$taxpracticeareas = 'practice_area';
@@ -44,15 +46,21 @@
 	
 	<div class="internal_banner">
 		
-		<h1><?php echo $citytermtitle;?> <?php echo $patermstitle;?> Lawyers</h1>
+		<?php if($paged >= 2) {
+			
+			$lawyer_page_number = 'Page '. $paged;
+			
+		} ?>
+		
+		<h1><?php echo $citytermtitle;?> <?php echo $patermstitle;?> Lawyers <?php echo $lawyer_page_number;?></h1>
 
 	</div><!-- internal_banner -->
+	
+	<div id="map"></div><!-- map -->
 	
 	<div class="outer_container">
 		
 		<div class="directory_wrapper lawyer_wrapper">
-			
-			
 			
 			<div class="breadcrumb_wrapper">
 			
@@ -93,56 +101,33 @@
 		 		endif; ?>
 		 		
 		 		
-		 		<div class="filter_by_search_wrapper">
-				
-					<input class="list_input desktop" type="text" placeholder="Filter<?php // echo $citytermtitle;?> Lawyers Below">
-				
-					<input class="list_input mobile" type="text" placeholder="Filter">
-				
-					<div class="filter_by_search_button"></div><!-- filter_by_search_button -->
-				
-				</div><!-- filter_by_search_wrapper -->
+		 	
 		
+				<?php if ( have_posts() ) :?>
+						
+					<?php $count = $wp_query->found_posts; ?>
+					
+						<?php if($count <= '99') { ?>
+						
+							<div class="filter_by_search_wrapper">
 				
-			
+								<input class="list_input desktop" type="text" placeholder="Filter<?php // echo $citytermtitle;?> Lawyers Below">
 				
-				<?php 
-	
-					$query_args = array (
-						'post_type' => 'lawyer',
-						'fields' => 'ids',
-						'order' => 'ASC',
-						'post_status' => 'publish',
-						'orderby' => 'title',
-						'posts_per_page' => -1,
-						'tax_query' => array(
-							'relation' => 'AND',
-							array(
-								'taxonomy'  => $taxlocations,
-								'field'     => 'slug',
-								'terms'     => $currentcity,
-								'operator' => 'IN',
-							),
-							array(
-								'taxonomy'  => $taxpracticeareas,
-								'field'     => 'slug',
-								'terms'     => $currentpracticearea,
-								'operator' => 'IN',
-								)
-						),
-				);
-	
-				 $singlefirms = new WP_Query($query_args);?>
-				 
-				 
-
-				 <?php $count = $singlefirms->found_posts; ?>
-				 
-				 <?php if($count) { ?>
+								<input class="list_input mobile" type="text" placeholder="Filter">
+				
+								<div class="filter_by_search_button"></div><!-- filter_by_search_button -->
+								
+							</div><!-- filter_by_search_wrapper -->
 							
-					<span class="results_number">Total Lawyers (<?php echo $count;?>)</span><!-- results_number -->
+							<span class="results_number">Total Lawyers (<?php echo $count;?>)</span><!-- results_number -->
+						
+						<?php } ?>
+				 
+						<?php if($count >= '100') { ?>
+						
+							<span class="results_number no_filter_space">Total Lawyers (<?php echo $count;?>)</span><!-- results_number -->
 							
-				 <?php } ?>
+						<?php } ?>
 				 
 				 <div class="make_new_search_wrapper lawyer_search_styles">
 						
@@ -155,12 +140,20 @@
 							</div><!-- new_search_wrapper -->
 						
 						</div><!-- make_new_search_wrapper -->
-				 
-				 <div class="lawyer_results_wrapper">
-	
-					<?php while($singlefirms->have_posts()) : $singlefirms->the_post();?>
-	
 						
+						<div class="pagination">
+
+							<?php wpbeginner_numeric_posts_nav(); ?>
+
+						</div><!-- pagination -->
+						
+						<div class="lawyer_results_wrapper">
+						
+						
+						<?php while ( have_posts() ) : the_post(); ?>
+
+	
+							
 						<div class="single_lawyer_result">
 							
 							<a class="" href="<?php the_permalink();?>">
@@ -192,6 +185,7 @@
 								
 									<div class="single_lawyer_meta">
 									
+<!--
 										<span>
 										
 										<?php echo $citytermtitle;
@@ -203,6 +197,9 @@
 										} ?>
 										
 										</span>
+-->
+										
+										<span class="results_address"><?php the_field( 'lawyer_address' ); ?></span><!-- results_address -->
 									
 										<?php if(get_field('lawyer_phone') && get_field('lawyer_phone') !== 'NULL') { ?>
 									
@@ -224,16 +221,23 @@
 							
 						</div><!-- single_lawyer_result -->
 	
+			
+		
+						<?php endwhile; // end of loop ?>
+						
+						</div><!-- lawyer_results_wrapper -->
+						
+					<?php endif; ?>
+  
+					<div class="pagination">
 
-					<?php endwhile;
-					
-					wp_reset_postdata();?>
-  
-  
-  			</div><!-- lawyer_results_wrapper -->
-  			
+						<?php wpbeginner_numeric_posts_nav(); ?>
+
+					</div><!-- pagination -->
   
 			</div><!-- list_wrapper -->
+			
+			
 			
 		</div><!-- directory_wrapper -->
 		

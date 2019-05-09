@@ -151,9 +151,7 @@
 						
 						
 						<?php while ( have_posts() ) : the_post(); ?>
-
-	
-							
+						
 						<div class="single_lawyer_result">
 							
 							<a class="" href="<?php the_permalink();?>">
@@ -221,9 +219,22 @@
 							
 						</div><!-- single_lawyer_result -->
 	
-			
+						<?php $garrett = get_the_ID();?>
 		
 						<?php endwhile; // end of loop ?>
+						
+						
+						<?php // start the rest of the posts below, will post__not_in make it slow? ?>
+						
+						<?php 
+							
+							$reg_lawyer_list = array(
+								'post_type' => 'lawyer',
+								
+							);
+							
+						?>
+						
 						
 						</div><!-- lawyer_results_wrapper -->
 						

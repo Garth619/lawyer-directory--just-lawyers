@@ -877,7 +877,7 @@ function my_custom_search($query) {
 		if ( ! is_admin() && $query->is_main_query() && get_query_var( 'currentstate') && get_query_var( 'currentcity')) {
 			
 			
-			// tax query
+			// tax query for featured lawyers, these will sit up top of the regular results 
 			
 			$taxquery = array('relation' => 'AND');
 			
@@ -891,7 +891,13 @@ function my_custom_search($query) {
 				array(
 					'taxonomy'  => $taxpracticeareas,
 					'field'     => 'slug',
-					'terms'     => $currentpracticearea,
+					'terms'     =>	$currentpracticearea,
+					'operator' => 'IN',
+				),
+				array(
+					'taxonomy'  => 'featured_lawyers',
+					'field'     => 'slug',
+					'terms'     =>'featured-lawyer',
 					'operator' => 'IN',
 				)
 			);
@@ -899,12 +905,12 @@ function my_custom_search($query) {
 			
 			$query-> set('tax_query', $taxquery);
 			$query-> set('post_type' , 'lawyer');
-			$query-> set('paged' , $mypaged);
+			//$query-> set('paged' , $mypaged); // this is now unlimited
 			$query-> set('fields' , 'ids');
 			$query-> set('order' , 'ASC');
 			$query-> set('post_status' , 'publish');
 			$query-> set('orderby' , 'title');
-			$query-> set('posts_per_page' , 100);
+			$query-> set('posts_per_page' , -1); // this could potentially timeout if there becomes a ton of featured posts for a pa, but unlikely 
 			
 		}		
 		
