@@ -107,6 +107,8 @@
 						
 					<?php $count = $wp_query->found_posts; ?>
 					
+					<?php $garrettone = array();?>
+					
 						<?php if($count <= '99') { ?>
 						
 							<div class="filter_by_search_wrapper">
@@ -219,12 +221,19 @@
 							
 						</div><!-- single_lawyer_result -->
 	
-						<?php $garrett = get_the_ID();?>
+						<?php $garretttwo[] = get_the_ID();?>
 		
 						<?php endwhile; // end of loop ?>
 						
 						
 						<?php // start the rest of the posts below, will post__not_in make it slow? ?>
+						
+						<?php $done= array_merge($garrettone,$garretttwo);
+							
+							print_r($done);
+							
+							
+						?>
 						
 						<?php 
 							
