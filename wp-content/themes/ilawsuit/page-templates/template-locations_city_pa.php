@@ -46,9 +46,9 @@
 	
 	<div class="internal_banner">
 		
-		<?php if($paged >= 2) {
+		<?php if($mypaged >= 2) {
 			
-			$lawyer_page_number = 'Page '. $paged;
+			$lawyer_page_number = 'Page '. $mypaged;
 			
 		} ?>
 		
@@ -101,37 +101,8 @@
 		 		endif; ?>
 		 		
 		 		
-		 	
-		
-				<?php if ( have_posts() ) :?>
-						
-					<?php $count = $wp_query->found_posts; ?>
-					
-					<?php $garrettone = array();?>
-					
-						<?php if($count <= '99') { ?>
-						
-							<div class="filter_by_search_wrapper">
-				
-								<input class="list_input desktop" type="text" placeholder="Filter<?php // echo $citytermtitle;?> Lawyers Below">
-				
-								<input class="list_input mobile" type="text" placeholder="Filter">
-				
-								<div class="filter_by_search_button"></div><!-- filter_by_search_button -->
-								
-							</div><!-- filter_by_search_wrapper -->
-							
-							<span class="results_number">Total Lawyers (<?php echo $count;?>)</span><!-- results_number -->
-						
-						<?php } ?>
-				 
-						<?php if($count >= '100') { ?>
-						
-							<span class="results_number no_filter_space">Total Lawyers (<?php echo $count;?>)</span><!-- results_number -->
-							
-						<?php } ?>
-				 
-				 <div class="make_new_search_wrapper lawyer_search_styles">
+		 		
+		 		<div class="make_new_search_wrapper lawyer_search_styles">
 						
 							<span class="make_new_search">refine your search</span><!-- make_new_search -->
 						
@@ -150,11 +121,53 @@
 						</div><!-- pagination -->
 						
 						<div class="lawyer_results_wrapper">
+		 		
+		 		
+		 		
+		 		<?php if($mypaged < 2) :?>
+		 	
+		
+				<?php if ( have_posts() ) :?>
+				
+				<?php $featured_array = array();?>
+				
+						
+<!--
+					<?php $count = $wp_query->found_posts; ?>
+					
+					
+					
+						<?php if($count <= '99') { ?>
+						
+							<div class="filter_by_search_wrapper">
+				
+								<input class="list_input desktop" type="text" placeholder="Filter<?php // echo $citytermtitle;?> Lawyers Below">
+				
+								<input class="list_input mobile" type="text" placeholder="Filter">
+				
+								<div class="filter_by_search_button"></div>
+								
+							</div>
+							
+							<span class="results_number">Total Lawyers (<?php echo $count;?>)</span>
+						
+						<?php } ?>
+				 
+						<?php if($count >= '100') { ?>
+						
+							<span class="results_number no_filter_space">Total Lawyers (<?php echo $count;?>)</span>
+							
+						<?php } ?>
+-->
+				 
+				 
 						
 						
 						<?php while ( have_posts() ) : the_post(); ?>
 						
 						<div class="single_lawyer_result">
+							
+							<img class="featured_icon" src="<?php bloginfo('template_directory');?>/images/star_icon.svg"/>
 							
 							<a class="" href="<?php the_permalink();?>">
 							
@@ -221,43 +234,148 @@
 							
 						</div><!-- single_lawyer_result -->
 	
-						<?php $garretttwo[] = get_the_ID();?>
+						<?php $featured_id[] = get_the_ID();
 		
-						<?php endwhile; // end of loop ?>
+						endwhile;
 						
+						endif;
 						
-						<?php // start the rest of the posts below, will post__not_in make it slow? ?>
-						
-						<?php $done= array_merge($garrettone,$garretttwo);
+					endif; ?>
+					
+					
+					<?php $featured_lawyers= array_merge($featured_array,$featured_id);
 							
-							print_r($done);
+						// second loop excluding featured posts
 							
+							$reg_lawyer_list = array(
+								'post_type' => 'lawyer',
+								'fields' => 'ids',
+								'order' => 'ASC',
+								'orderby' => 'title',
+								'post_status' => 'publish',
+								'posts_per_page' => 40,
+								'paged' => $mypaged,
+								'post__not_in' => $featured_lawyers,
+								'tax_query' => array(
+									array(
+										'taxonomy'  => $taxlocations,
+										'field'     => 'slug',
+										'terms'     => $currentcity,
+										'operator' => 'IN',
+									),
+									array(
+										'taxonomy'  => $taxpracticeareas,
+										'field'     => 'slug',
+										'terms'     =>	$currentpracticearea,
+										'operator' => 'IN',
+									)
+								),
+							);
+							
+							//print_r($reg_lawyer_list);
 							
 						?>
 						
 						<?php 
+							$temp = $wp_query; 
+							$wp_query = null; 
+							$wp_query = new WP_Query(); 
+							$wp_query->query($reg_lawyer_list); 
+
+							while ($wp_query->have_posts()) : $wp_query->the_post(); 
+?>
+
+				  <div class="single_lawyer_result">
 							
-							$reg_lawyer_list = array(
-								'post_type' => 'lawyer',
+							<a class="" href="<?php the_permalink();?>">
+							
+							<div class="single_lawyer_img_wrapper">
 								
-							);
+								
+								<?php $lawyer_profile_image = get_field( 'lawyer_profile_image' ); ?>
+					
+								<?php if ( $lawyer_profile_image ) : ?>
+					
+									<img class="att_feed_image" src="<?php echo $lawyer_profile_image['url']; ?>" alt="<?php echo $lawyer_profile_image['alt']; ?>" />
+						
+									<?php else:?>
+						
+									<div class="logo_placeholder">
+									
+										<span>Add Logo</span>
+									
+									</div><!-- logo_placeholder -->
+					
+								<?php endif; ?>
+								
+							</div><!-- single_lawyer_img_wrapper -->
 							
-						?>
-						
-						
-						</div><!-- lawyer_results_wrapper -->
-						
-					<?php endif; ?>
+							<div class="single_lawyer_content">
+								
+								<span class="single_lawyer_title"><?php the_title();?></span><!-- single_lawyer_title -->
+								
+									<div class="single_lawyer_meta">
+									
+<!--
+										<span>
+										
+										<?php echo $citytermtitle;
+										
+										 if(get_field('state_abbr') && get_field('state_abbr') !== 'NULL') {
+										
+											echo ", "; the_field('state_abbr');
+										
+										} ?>
+										
+										</span>
+-->
+										
+										<span class="results_address"><?php the_field( 'lawyer_address' ); ?></span><!-- results_address -->
+									
+										<?php if(get_field('lawyer_phone') && get_field('lawyer_phone') !== 'NULL') { ?>
+									
+											<span><?php the_field( 'lawyer_phone' ); ?></span>
+									
+										<?php }?>
+										
+									</div><!-- single_lawyer_meta -->
+									
+									<div class="visit_button_wrapper">
+									
+										<span class="visit_button">Visit Profile</span><!-- visit_button -->
+									
+									</div><!-- visit_button_wrapper -->
+								
+								</div><!-- single_lawyer_content -->
+							
+							</a>
+							
+						</div><!-- single_lawyer_result -->
+
+
+						<?php endwhile; ?>
+
+
+</div><!-- lawyer_results_wrapper -->
   
 					<div class="pagination">
 
 						<?php wpbeginner_numeric_posts_nav(); ?>
 
 					</div><!-- pagination -->
+
+
+
+<?php 
+  $wp_query = null; 
+  $wp_query = $temp;  // Reset
+?>
+
+					
+					
+						
   
 			</div><!-- list_wrapper -->
-			
-			
 			
 		</div><!-- directory_wrapper -->
 		
