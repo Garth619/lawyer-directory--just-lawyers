@@ -64,7 +64,7 @@
 img.featured_icon {
 	position: absolute;
 	top:0;
-	right:35px;
+	right:30px;
 }
 
 
@@ -496,6 +496,11 @@ span.results_number.no_filter_space {
 			}
 		}
 	}
+}
+
+
+span.overall_count {
+	display: none;
 }
 
 

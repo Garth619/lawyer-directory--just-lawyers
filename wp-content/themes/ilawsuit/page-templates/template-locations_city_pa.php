@@ -100,70 +100,42 @@
 			
 		 		endif; ?>
 		 		
-		 		
+		 		<span class="results_number no_filter_space">Total Lawyers (<?php echo $count;?>)</span>
 		 		
 		 		<div class="make_new_search_wrapper lawyer_search_styles">
 						
-							<span class="make_new_search">refine your search</span><!-- make_new_search -->
+					<span class="make_new_search">refine your search</span><!-- make_new_search -->
 						
-							<div class="new_search_wrapper">
+					<div class="new_search_wrapper">
 							
-								<?php get_template_part('searchform','threepart');?>
+						<?php get_template_part('searchform','threepart');?>
 							
-							</div><!-- new_search_wrapper -->
+					</div><!-- new_search_wrapper -->
 						
-						</div><!-- make_new_search_wrapper -->
+					</div><!-- make_new_search_wrapper -->
 						
-						<div class="pagination">
+					<div class="pagination">
 
-							<?php wpbeginner_numeric_posts_nav(); ?>
+						<?php wpbeginner_numeric_posts_nav(); ?>
 
-						</div><!-- pagination -->
+					</div><!-- pagination -->
 						
-						<div class="lawyer_results_wrapper">
+					<div class="lawyer_results_wrapper">
 		 		
 		 		
 		 		
-		 		<?php if($mypaged < 2) :?>
+		 		<?php 
+			 		
+			 		if($mypaged < 2) :
 		 	
 		
-				<?php if ( have_posts() ) :?>
+			 			if ( have_posts() ) :
 				
-				<?php $featured_array = array();?>
-				
-						
-<!--
-					<?php $count = $wp_query->found_posts; ?>
+			 				$featured_total_count = $wp_query->found_posts;
 					
-					
-					
-						<?php if($count <= '99') { ?>
-						
-							<div class="filter_by_search_wrapper">
-				
-								<input class="list_input desktop" type="text" placeholder="Filter<?php // echo $citytermtitle;?> Lawyers Below">
-				
-								<input class="list_input mobile" type="text" placeholder="Filter">
-				
-								<div class="filter_by_search_button"></div>
-								
-							</div>
-							
-							<span class="results_number">Total Lawyers (<?php echo $count;?>)</span>
-						
-						<?php } ?>
-				 
-						<?php if($count >= '100') { ?>
-						
-							<span class="results_number no_filter_space">Total Lawyers (<?php echo $count;?>)</span>
-							
-						<?php } ?>
--->
-				 
-				 
-						
-						
-						<?php while ( have_posts() ) : the_post(); ?>
+			 				$featured_array = array(); 
+			 			 
+			 			 while ( have_posts() ) : the_post(); ?>
 						
 						<div class="single_lawyer_result">
 							
@@ -272,49 +244,52 @@
 								),
 							);
 							
-							//print_r($reg_lawyer_list);
-							
-						?>
-						
-						<?php 
 							$temp = $wp_query; 
 							$wp_query = null; 
 							$wp_query = new WP_Query(); 
 							$wp_query->query($reg_lawyer_list); 
+							
+							
+							if($wp_query->have_posts()) {
+								
+								$count = $wp_query->found_posts;
+								
+							}
+							
 
 							while ($wp_query->have_posts()) : $wp_query->the_post(); 
-?>
+						?>
 
-				  <div class="single_lawyer_result">
+							<div class="single_lawyer_result">
 							
-							<a class="" href="<?php the_permalink();?>">
+								<a class="" href="<?php the_permalink();?>">
 							
-							<div class="single_lawyer_img_wrapper">
+									<div class="single_lawyer_img_wrapper">
 								
 								
-								<?php $lawyer_profile_image = get_field( 'lawyer_profile_image' ); ?>
+										<?php $lawyer_profile_image = get_field( 'lawyer_profile_image' ); ?>
 					
-								<?php if ( $lawyer_profile_image ) : ?>
+										<?php if ( $lawyer_profile_image ) : ?>
 					
-									<img class="att_feed_image" src="<?php echo $lawyer_profile_image['url']; ?>" alt="<?php echo $lawyer_profile_image['alt']; ?>" />
+											<img class="att_feed_image" src="<?php echo $lawyer_profile_image['url']; ?>" alt="<?php echo $lawyer_profile_image['alt']; ?>" />
 						
-									<?php else:?>
+										<?php else:?>
 						
-									<div class="logo_placeholder">
+											<div class="logo_placeholder">
 									
-										<span>Add Logo</span>
+												<span>Add Logo</span>
 									
-									</div><!-- logo_placeholder -->
+											</div><!-- logo_placeholder -->
 					
-								<?php endif; ?>
+										 <?php endif; ?>
 								
-							</div><!-- single_lawyer_img_wrapper -->
+									</div><!-- single_lawyer_img_wrapper -->
 							
-							<div class="single_lawyer_content">
+									<div class="single_lawyer_content">
 								
-								<span class="single_lawyer_title"><?php the_title();?></span><!-- single_lawyer_title -->
+										<span class="single_lawyer_title"><?php the_title();?></span><!-- single_lawyer_title -->
 								
-									<div class="single_lawyer_meta">
+											<div class="single_lawyer_meta">
 									
 <!--
 										<span>
@@ -355,8 +330,7 @@
 
 						<?php endwhile; ?>
 
-
-</div><!-- lawyer_results_wrapper -->
+						</div><!-- lawyer_results_wrapper -->
   
 					<div class="pagination">
 
@@ -364,18 +338,23 @@
 
 					</div><!-- pagination -->
 
+				
+				<?php 
+				
+					$wp_query = null; 
+					$wp_query = $temp;  // Reset
+				
+				?>
 
-
-<?php 
-  $wp_query = null; 
-  $wp_query = $temp;  // Reset
-?>
-
-					
-					
-						
-  
 			</div><!-- list_wrapper -->
+			
+			<?php 
+				
+				$total_count = $featured_total_count + $count;
+				
+				echo '<span class="overall_count">' . $total_count . "</span>";
+			
+			?>
 			
 		</div><!-- directory_wrapper -->
 		

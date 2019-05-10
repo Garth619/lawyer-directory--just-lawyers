@@ -582,5 +582,13 @@ $('.sec_three_tab').on('click', function(e) {
 	
 	});
 	
+	// total count reorder position on lawyer results
+	
+	
+	//var textUpdate = $('span.overall_count').text();
+		
+	//$('span.results_number').replaceWith('<span.results_number>' + textUpdate + '</span>');
+	
+
   
 }); // document ready
