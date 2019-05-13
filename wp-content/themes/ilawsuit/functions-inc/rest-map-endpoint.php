@@ -73,10 +73,17 @@ add_action( 'rest_api_init', 'map_route' );
 		
 		
 		while($featured_query->have_posts()) : $featured_query->the_post();
-		
+			
+			
+/*
+			$terms = get_the_terms($post->ID, 'featured_lawyers');
+			
+			$term = array_pop($terms);
+*/
 			
 			$post_data[] = array(
 		    'Title' => get_the_title(),
+		    'Featured_lawyer' => true,
 		    'Permalink' => get_the_permalink(),
 		    'Lat' => round(get_field('latitude'), 6),
 		    'Lng' =>  round(get_field('longitude'), 6),
