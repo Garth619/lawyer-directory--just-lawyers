@@ -114,15 +114,9 @@
 						
 					</div><!-- make_new_search_wrapper -->
 						
-					<div class="pagination">
-
-						<?php wpbeginner_numeric_posts_nav(); ?>
-
-					</div><!-- pagination -->
+					<div class="top_pagination"></div><!-- top_pagination -->
 						
 					<div class="lawyer_results_wrapper">
-		 		
-		 		
 		 		
 		 		<?php 
 			 		
@@ -332,7 +326,7 @@
 
 						</div><!-- lawyer_results_wrapper -->
   
-					<div class="pagination">
+					<div class="pagination bottom_pagination">
 
 						<?php wpbeginner_numeric_posts_nav(); ?>
 
@@ -348,11 +342,13 @@
 
 			</div><!-- list_wrapper -->
 			
-			<?php 
+			<?php // copying this and adding to the top of the page (i need it outside of the loop)
 				
 				$total_count = $featured_total_count + $count;
 				
-				echo '<span class="overall_count">' . $total_count . "</span>";
+				$withcommas = number_format($total_count);
+				
+				echo '<span class="overall_count">' . $withcommas . "</span>";
 			
 			?>
 			

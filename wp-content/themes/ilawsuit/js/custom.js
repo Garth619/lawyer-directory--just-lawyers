@@ -582,13 +582,14 @@ $('.sec_three_tab').on('click', function(e) {
 	
 	});
 	
-	// total count reorder position on lawyer results
+	// total count to top of page, it has to process after the loop but needs to be placed above it visually
 	
-	
-	//var textUpdate = $('span.overall_count').text();
+	var textUpdate = $('span.overall_count').text();
 		
-	//$('span.results_number').replaceWith('<span.results_number>' + textUpdate + '</span>');
+	$('span.results_number').replaceWith('<span class="no_filter_space results_number">Total Lawyers (' + textUpdate + ')</span>');
 	
-
+	// pagination to top of page, it has to process after the loop but needs to be placed above it visually
+	
+	$('.bottom_pagination').clone().appendTo('.top_pagination');
   
 }); // document ready

@@ -101,6 +101,14 @@
 		"oAP": "/functions copy.php",
 		"oF": 0
 		},
+	"/functions-inc/rest-map-endpoint copy.php": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 0,
+		"oAP": "/functions-inc/rest-map-endpoint copy.php",
+		"oF": 0
+		},
 	"/functions-inc/rest-map-endpoint.php": {
 		"cB": 0,
 		"ft": 8192,
