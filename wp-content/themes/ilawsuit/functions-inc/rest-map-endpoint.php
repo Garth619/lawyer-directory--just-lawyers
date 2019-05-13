@@ -69,33 +69,36 @@ add_action( 'rest_api_init', 'map_route' );
 		
 		if($page == 1) {
 		
-		$featured_query = new WP_Query($featured_args); 
+			$featured_query = new WP_Query($featured_args); 
 		
 		
-		while($featured_query->have_posts()) : $featured_query->the_post();
+			while($featured_query->have_posts()) : $featured_query->the_post();
 			
 			
 /*
 			$terms = get_the_terms($post->ID, 'featured_lawyers');
 			
 			$term = array_pop($terms);
-*/
+*/			
+				
+				$lawyer_profile_image = get_field( 'lawyer_profile_image' );
 			
-			$post_data[] = array(
-		    'Title' => get_the_title(),
-		    'Featured_lawyer' => true,
-		    'Permalink' => get_the_permalink(),
-		    'Lat' => round(get_field('latitude'), 6),
-		    'Lng' =>  round(get_field('longitude'), 6),
-		    'Address' => get_field('lawyer_address'),
-		    'Phone' => get_field('lawyer_phone'),
-		    'Tel_href' => str_replace(['-', '(', ')', ' '], '', get_field('lawyer_phone')),
-		    //'"ACF"' => get_fields($post->ID)
-		  );
+				$post_data[] = array(
+		    	'Title' => get_the_title(),
+					'Featured_lawyer' => true,
+					'Featured_post_image' => $lawyer_profile_image['url'],
+					'Permalink' => get_the_permalink(),
+					'Lat' => round(get_field('latitude'), 6),
+					'Lng' =>  round(get_field('longitude'), 6),
+					'Address' => get_field('lawyer_address'),
+					'Phone' => get_field('lawyer_phone'),
+					'Tel_href' => str_replace(['-', '(', ')', ' '], '', get_field('lawyer_phone')),
+					//'"ACF"' => get_fields($post->ID)
+					);
 	    
-	  endwhile; 
+			endwhile; 
 		
-		wp_reset_postdata();
+			wp_reset_postdata();
 		
 		
 		}
@@ -135,6 +138,8 @@ add_action( 'rest_api_init', 'map_route' );
 			$post_data_two[] = array(
 		    'Title' => get_the_title(),
 		    'Permalink' => get_the_permalink(),
+		    'Featured_lawyer' => false,
+		    'Featured_post_image' => false,
 		    'Lat' => round(get_field('latitude'), 6),
 		    'Lng' =>  round(get_field('longitude'), 6),
 		    'Address' => get_field('lawyer_address'),
