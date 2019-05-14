@@ -364,8 +364,8 @@ add_filter('body_class', 'add_slug_body_class');
 if( function_exists('acf_add_options_page') ) {
 
   acf_add_options_page(array(
-    'page_title' 	=> 'Page/URL Descriptions',
-    'menu_title'	=> 'Page/URL Descriptions',
+    'page_title' 	=> 'Descriptions and Featured Cities',
+    'menu_title'	=> 'Descriptions and Featured Cities',
     'menu_slug' 	=> 'theme-options',
     'capability'	=> 'edit_posts',
     'redirect'		=> false

@@ -68,6 +68,28 @@ form ::-moz-placeholder {
 	}
 	
 	
+	
+	h2.featured_city {
+		padding-top:55px;
+	}
+	
+	h2.featured_city.decription_exists {
+		padding-top:15px;
+	}
+	
+	h2.browse_city {
+		padding-top:135px;
+	}
+	
+	h2.browse_city.no_featured_header {
+		padding-top:55px;
+	}
+	
+	h2.browse_city.no_featured_header.no_featured_header_with_description {
+		padding-top:0;
+	}
+	
+	
 .list_wrapper {
 	ul {
 		list-style: none;
@@ -113,6 +135,11 @@ form ::-moz-placeholder {
 			}
 		}
 	}
+}
+
+
+.list_wrapper {
+	//margin-bottom:190px;
 }
 	
 	

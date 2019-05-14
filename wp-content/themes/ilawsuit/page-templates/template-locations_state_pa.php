@@ -67,14 +67,67 @@
 				 			<?php the_sub_field('block'); ?>
 			 		
 			 			</div><!-- directory_description -->
-			
-			 			<h2 class="section_header">Browse by city</h2>
+			 			
 		 			 		
 			 		<?php endif;?>
 		 			 	
 			 <?php endwhile;?>
 			
 			 <?php endif;	?>
+			 
+			 
+			 <?php if(get_field('featured_cities_blocks','option')): ?>
+			  
+			 	<?php while(has_sub_field('featured_cities_blocks','option')): ?>
+			  
+			 		<?php if(get_sub_field( 'practice_area_featured_city' ) == $patermsid && (get_sub_field( 'location_featured_city' ) == $statetermid) && empty(get_sub_field('current_location_taxonomy_city')) ) :?>
+			 		
+			 			<?php if(get_sub_field('featured_city_internal')): ?>
+			 			 
+			 				<?php while(has_sub_field('featured_city_internal')): ?>
+			 			 
+			 					<?php $featured_city_term = get_sub_field( 'featured_city' ); ?>
+			 					
+			 					<?php if ( $featured_city_term ): ?>
+			 					
+			 						<?php echo $featured_city_term->name; ?>
+			 					
+			 					<?php endif; ?>
+			 			    
+			 				<?php endwhile; ?>
+			 			 
+			 			<?php endif; ?>
+			 		
+			 		<?php endif;?>
+			     
+			 	<?php endwhile; ?>
+			  
+			 <?php endif; ?>
+			 
+			 	<h2 class="section_header featured_city">Featured Cities</h2><!-- featured_title -->
+			 			
+			 			
+			 			<div class="list_wrapper featured_cities">
+				 			
+				 			<ul>
+					 			<li><a href="">Test</a></li>
+					 			<li><a href="">Test</a></li>
+					 			<li><a href="">Test</a></li>
+					 			<li><a href="">Test</a></li>
+					 			<li><a href="">Test</a></li>
+					 			<li><a href="">Test</a></li>
+					 			<li><a href="">Test</a></li>
+					 			<li><a href="">Test</a></li>
+					 			<li><a href="">Test</a></li>
+					 			<li><a href="">Test</a></li>
+					 			<li><a href="">Test</a></li>
+					 			<li><a href="">Test</a></li>
+				 			</ul>
+				 			
+			 			</div><!-- list_wrapper -->
+
+			 
+			 <h2 class="section_header browse_city">Browse by city</h2><!-- section_header -->
 			 				
 			 <div class="filter_by_search_wrapper">
 				

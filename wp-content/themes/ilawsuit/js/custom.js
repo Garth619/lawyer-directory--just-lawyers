@@ -591,5 +591,30 @@ $('.sec_three_tab').on('click', function(e) {
 	// pagination to top of page, it has to process after the loop but needs to be placed above it visually
 	
 	$('.bottom_pagination').clone().appendTo('.top_pagination');
+	
+	// adds class for proper spacing to headers if page descriptions are there or not 
+	
+	
+	if ($(".directory_description")[0]){
+    
+		$('h2.browse_city, h2.featured_city').addClass('decription_exists');
+	
+	}
+	
+	
+	if (!$("h2.featured_city")[0]){
+    
+		$('h2.browse_city').addClass('no_featured_header');
+	
+	} 	
+	
+	
+	if ($(".directory_description")[0] && !$("h2.featured_city")[0] ) { 
+	
+		$('h2.browse_city').addClass('no_featured_header_with_description');
+	
+	}
+	
+	
   
 }); // document ready
