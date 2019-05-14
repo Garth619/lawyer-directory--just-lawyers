@@ -266,6 +266,16 @@
 		"oT": 1,
 		"q": 100
 		},
+	"/images/map_icon.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "/images/map_icon.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 3758088159,
+		"prP": 0
+		},
 	"/images/medium-circle.png": {
 		"ft": 32768,
 		"iS": 356,
@@ -304,6 +314,16 @@
 		"miP": 0,
 		"oA": 2,
 		"oAP": "/images/red-circle.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 3758088159,
+		"prP": 0
+		},
+	"/images/red-map-icon.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "/images/red-map-icon.svg",
 		"oF": 0,
 		"opt": 0,
 		"plM": 3758088159,

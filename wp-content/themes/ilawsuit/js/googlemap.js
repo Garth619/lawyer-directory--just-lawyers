@@ -151,7 +151,10 @@ window.eqfeed_callback = function(myJsonFile) {
 
        
         var circleImg = ''+my_mapdata.current_domain+'/wp-content/themes/ilawsuit/images/red-circle.svg';
-        var featuredImg = myJsonFile[i].Featured_post_image;
+        var featuredImg = ''+my_mapdata.current_domain+'/wp-content/themes/ilawsuit/images/map_icon.svg';
+				
+				
+				var featuredProfileimg = myJsonFile[i].Featured_post_image;
         
         var displayImg = featuredPost === true ? featuredImg : circleImg;
 	        		
@@ -166,7 +169,7 @@ window.eqfeed_callback = function(myJsonFile) {
         var marker = new google.maps.Marker({
             position: latLng,
             map: map,
-            icon: {url:displayImg, scaledSize: new google.maps.Size(45, 45)}
+            icon: {url:displayImg, scaledSize: new google.maps.Size(35, 35)}
         });
 
         var contentString = "<div class='map_tooltip'><h3>"+lawyerTitle+"</h3><p><a href=''>"+address+"</a></p><p><a href='tel:"+tel_href+"'>"+phone+"</a></p><p><a class='map_view_profile' href='"+viewprofile+"'>View Profile</a></div>";
