@@ -145,9 +145,8 @@ window.eqfeed_callback = function(myJsonFile) {
 
         var latLng = new google.maps.LatLng(lat, long);
         
-      
-
-        var featuredPost = myJsonFile[i].Featured_lawyer;
+				
+				var featuredPost = myJsonFile[i].Featured_lawyer;
 
        
         var circleImg = ''+my_mapdata.current_domain+'/wp-content/themes/ilawsuit/images/red-circle.svg';
@@ -172,11 +171,18 @@ window.eqfeed_callback = function(myJsonFile) {
             icon: {url:displayImg, scaledSize: new google.maps.Size(35, 35)}
         });
 
-        var contentString = "<div class='map_tooltip'><h3>"+lawyerTitle+"</h3><p><a href=''>"+address+"</a></p><p><a href='tel:"+tel_href+"'>"+phone+"</a></p><p><a class='map_view_profile' href='"+viewprofile+"'>View Profile</a></div>";
+        
+        var contentStringfeatured = "<div class='map_tooltip featured'><div class='map_tooltip_left'><img src='"+featuredProfileimg+"' /></div><div class='map_tooltip_right'><h3>"+lawyerTitle+"</h3><p><a href='"+viewprofile+"'>"+address+"</a></p><p><a href='tel:"+tel_href+"'>"+phone+"</a></p><p><a class='map_view_profile' href='"+viewprofile+"'>View Profile</a></div></div>";
+        
+        
+        var contentString = "<div class='map_tooltip regular'><h3>"+lawyerTitle+"</h3><p><a href='"+viewprofile+"'>"+address+"</a></p><p><a href='tel:"+tel_href+"'>"+phone+"</a></p><p><a class='map_view_profile' href='"+viewprofile+"'>View Profile</a></div>";
+        
+        
+        var customTooltip = featuredPost === true ? contentStringfeatured : contentString;
 
         var infoWindow = new google.maps.InfoWindow();
         google.maps.event.addListener(marker, 'click', (function(marker) {
-            var content = contentString;
+            var content = customTooltip;
             return function() {
                 infoWindow.setContent(content);
                 infoWindow.open(map, marker);

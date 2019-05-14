@@ -329,6 +329,17 @@
 		"plM": 3758088159,
 		"prP": 0
 		},
+	"/images/rhan.jpg": {
+		"ft": 16384,
+		"iS": 36047,
+		"jF": 0,
+		"oA": 0,
+		"oAP": "/images/rhan.jpg",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"q": 100
+		},
 	"/images/small-circle.png": {
 		"ft": 32768,
 		"iS": 249,
