@@ -56,11 +56,13 @@
 			
 			</div><!-- breadcrumb_wrapper -->
 			
-			<?php if(get_field('pa_location_content_blocks','option')) : ?>
+			<?php 
+				
+				if(get_field('pa_location_content_blocks','option')) : 
 		 		 
-				<?php while(has_sub_field('pa_location_content_blocks','option')) :?>
+					while(has_sub_field('pa_location_content_blocks','option')) :
 			 			 
-			 		<?php if(get_sub_field('current_taxonomy') == $patermsid && (get_sub_field('current_location_taxonomy_state') == $statetermid) && empty(get_sub_field('current_location_taxonomy_city')) ) :?>
+			 			if(get_sub_field('current_taxonomy') == $patermsid && (get_sub_field('current_location_taxonomy_state') == $statetermid) && empty(get_sub_field('current_location_taxonomy_city')) ) :?>
 			 	
 				 		<div class="directory_description content">
 				 			 
@@ -69,64 +71,52 @@
 			 			</div><!-- directory_description -->
 			 			
 		 			 		
-			 		<?php endif;?>
+			 		<?php endif;
 		 			 	
-			 <?php endwhile;?>
+			 endwhile;
 			
-			 <?php endif;	?>
+			 endif;	
 			 
 			 
-			 <?php if(get_field('featured_cities_blocks','option')): ?>
+			if(get_field('featured_cities_blocks','option')):
 			  
-			 	<?php while(has_sub_field('featured_cities_blocks','option')): ?>
+			 	while(has_sub_field('featured_cities_blocks','option')):
 			  
-			 		<?php if(get_sub_field( 'practice_area_featured_city' ) == $patermsid && (get_sub_field( 'location_featured_city' ) == $statetermid) && empty(get_sub_field('current_location_taxonomy_city')) ) :?>
+			 		if(get_sub_field( 'practice_area_featured_city' ) == $patermsid && (get_sub_field( 'location_featured_city' ) == $statetermid) && empty(get_sub_field('current_location_taxonomy_city')) ) :
 			 		
-			 			<?php if(get_sub_field('featured_city_internal')): ?>
+			 			if(get_sub_field('featured_city_internal')): ?>
+			 				
+			 				<h2 class="section_header featured_city">Featured Cities</h2><!-- featured_title -->
+			 				
+			 				<div class="list_wrapper featured_cities">
+				 			
+				 				<ul>
 			 			 
-			 				<?php while(has_sub_field('featured_city_internal')): ?>
+				 				<?php while(has_sub_field('featured_city_internal')): 
 			 			 
-			 					<?php $featured_city_term = get_sub_field( 'featured_city' ); ?>
+			 						$featured_city_term = get_sub_field( 'featured_city' );
 			 					
-			 					<?php if ( $featured_city_term ): ?>
+			 						if ( $featured_city_term ): 
 			 					
-			 						<?php echo $featured_city_term->name; ?>
+			 						echo '<li><a href="' . get_bloginfo('url') . '/lawyers-practice/' . $currentpracticearea . '/' . $currentstate . '/' . $featured_city_term->slug . '">' . $featured_city_term->name . '</a></li>';
 			 					
-			 					<?php endif; ?>
+			 						endif;
 			 			    
-			 				<?php endwhile; ?>
+			 					endwhile; ?>
+			 				
+				 				</ul><!-- list_wrapper -->
+				 			
+			 				</div>
 			 			 
-			 			<?php endif; ?>
+			 			<?php endif;
 			 		
-			 		<?php endif;?>
+				 			endif;
 			     
-			 	<?php endwhile; ?>
+				 		endwhile;
 			  
-			 <?php endif; ?>
+				 	endif; ?>
 			 
-			 	<h2 class="section_header featured_city">Featured Cities</h2><!-- featured_title -->
-			 			
-			 			
-			 			<div class="list_wrapper featured_cities">
-				 			
-				 			<ul>
-					 			<li><a href="">Test</a></li>
-					 			<li><a href="">Test</a></li>
-					 			<li><a href="">Test</a></li>
-					 			<li><a href="">Test</a></li>
-					 			<li><a href="">Test</a></li>
-					 			<li><a href="">Test</a></li>
-					 			<li><a href="">Test</a></li>
-					 			<li><a href="">Test</a></li>
-					 			<li><a href="">Test</a></li>
-					 			<li><a href="">Test</a></li>
-					 			<li><a href="">Test</a></li>
-					 			<li><a href="">Test</a></li>
-				 			</ul>
-				 			
-			 			</div><!-- list_wrapper -->
-
-			 
+			 			 
 			 <h2 class="section_header browse_city">Browse by city</h2><!-- section_header -->
 			 				
 			 <div class="filter_by_search_wrapper">
