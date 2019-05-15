@@ -36,7 +36,7 @@
 	
 	<div class="internal_banner">
 		
-		<h1><?php echo $statetermtitle;?> <?php echo $patermstitle;?> Lawyers</h1>
+		<h1><?php echo $statetermtitle;?> <?php echo $patermstitle;?> Lawyers template-locations_state_pa.php<br/>/lawyers-practice/colorado/criminal-defense-lawyers</h1>
 
 	</div><!-- internal_banner -->
 	
@@ -183,7 +183,7 @@
 			
 				foreach ( $term_query ->terms as $term )
 			
-					echo '<li><a href="' . get_bloginfo('url') . '/lawyers-practice/' . $currentpracticearea . '/' . $currentstate . '/'  . $term->slug . '">' . $term->name . '</a></li>';
+					echo '<li><a href="' . get_bloginfo('url') . '/lawyers-practice/' . $currentstate . '/' . $term->slug . '/' . $currentpracticearea . '-lawyers">' . $term->name . '</a></li>';
 			
 			}
 			

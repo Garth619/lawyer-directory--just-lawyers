@@ -29,6 +29,8 @@ pagination prev is not working look into or at least do a hacky onclick back\
 \
 practice/state/city in that order sitewide\
 \
+no follow the pa and location archives now that im not using them \
+\
 featured city loops on top\
 \pard\pardeftab720\sl280\partightenfactor0
 \cf0 \
@@ -180,7 +182,7 @@ templates\
 	- runs a pre_get_post with all conditionals\
 \
 
-\f2\b  "template-locations_city_pa.php" /lawyers-practice/business/california/anaheim-hills
+\f2\b  "template-locations_city_pa.php" /lawyers-practice/california/anaheim-hills/business-lawyers/
 \f0\b0 \
 \
 	- runs a pre_get_post - needs a rewrite rule setup to handle pagination\
@@ -190,7 +192,7 @@ templates\
 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
-\f2\b \cf0 \'93taxonomy-practice_area.php\'94  /lawyers-practice/criminal-defense
+\f2\b \cf0 \'93taxonomy-practice_area.php\'94  /lawyers-practice/criminal-defense-lawyers
 \f0\b0 \
 \
 	- im unable to use pre_get_posts and there are a couple wp_query calls\'85\
@@ -199,7 +201,7 @@ templates\
 	- then I return all terms found in locations that have those object_ids (post ids)\
 \
 
-\f2\b \'93template-locations_state_pa.php\'94 /lawyers-practice/criminal-defense/colorado\
+\f2\b \'93template-locations_state_pa.php\'94 /lawyers-practice/colorado/criminal-defense-lawyers/\
 \
 	
 \f0\b0 \cf4 - look at this closer what is get_term_by I think this is here to show just cities tied to a current state id\cf0 \
@@ -208,7 +210,7 @@ templates\
 	- then I return all terms of locations (cities) that have those object ids (post ids)\
 \
 
-\f2\b \'93template-practicearea_city.php\'94 /lawyers-location/state/alaska/barrington-alaska/\
+\f2\b \'93template-practicearea_city.php\'94 /lawyers-location/state/alaska/barrington-alaska-lawyers/\
 \
 	
 \f0\b0 - does this timeout on large ones?

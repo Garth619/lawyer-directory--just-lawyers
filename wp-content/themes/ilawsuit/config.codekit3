@@ -627,12 +627,12 @@
 		"oAP": "/page-templates/template-home.php",
 		"oF": 0
 		},
-	"/page-templates/template-locations_city_pa copy.php": {
+	"/page-templates/template-location.php": {
 		"cB": 0,
 		"ft": 8192,
 		"hM": 0,
 		"oA": 0,
-		"oAP": "/page-templates/template-locations_city_pa copy.php",
+		"oAP": "/page-templates/template-location.php",
 		"oF": 0
 		},
 	"/page-templates/template-locations_city_pa.php": {
@@ -649,6 +649,14 @@
 		"hM": 0,
 		"oA": 0,
 		"oAP": "/page-templates/template-locations_state_pa.php",
+		"oF": 0
+		},
+	"/page-templates/template-practice_area.php": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 0,
+		"oAP": "/page-templates/template-practice_area.php",
 		"oF": 0
 		},
 	"/page-templates/template-practicearea_city.php": {
@@ -997,36 +1005,20 @@
 		"oAP": "/style.css.map",
 		"oF": 0
 		},
-	"/taxonomy-location.php": {
+	"/taxonomy-location.php.og": {
 		"cB": 0,
 		"ft": 8192,
 		"hM": 0,
 		"oA": 0,
-		"oAP": "/taxonomy-location.php",
+		"oAP": "/taxonomy-location.php.og",
 		"oF": 0
 		},
-	"/taxonomy-practice_area-newtwo.php": {
+	"/taxonomy-practice_area.php.og": {
 		"cB": 0,
 		"ft": 8192,
 		"hM": 0,
 		"oA": 0,
-		"oAP": "/taxonomy-practice_area-newtwo.php",
-		"oF": 0
-		},
-	"/taxonomy-practice_area.php": {
-		"cB": 0,
-		"ft": 8192,
-		"hM": 0,
-		"oA": 0,
-		"oAP": "/taxonomy-practice_area.php",
-		"oF": 0
-		},
-	"/taxonomy-practice_area.php.new": {
-		"cB": 0,
-		"ft": 8192,
-		"hM": 0,
-		"oA": 0,
-		"oAP": "/taxonomy-practice_area.php.new",
+		"oAP": "/taxonomy-practice_area.php.og",
 		"oF": 0
 		}
 	},

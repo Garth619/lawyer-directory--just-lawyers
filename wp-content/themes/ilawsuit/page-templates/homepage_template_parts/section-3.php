@@ -26,16 +26,17 @@
 					echo "<ul>";
 		
 					foreach ( $top_practice_areas_terms as $top_practice_areas_term ) { ?>
+					
+						<?php echo '<li><a href="' . get_bloginfo('url') . '/lawyers-practice/' . $top_practice_areas_term->slug . '-lawyers">' . $top_practice_areas_term->name . '</a></li>';?>
 			
-						<li><a href="<?php bloginfo('url');?>/lawyers-practice/<?php echo $top_practice_areas_term->slug;?>"><?php echo $top_practice_areas_term->name;?></a></li>
-			
+									
 				<?php } 
 					
 					echo "</ul>"; 
 				
 				} ?>
 				
-				<a class="view_all_button" href="<?php the_permalink(126);?>">View All</a><!-- view_all_button -->
+				<a class="view_all_button" href="<?php the_field( 'practice_area_view_more_button' ); ?>">View All</a><!-- view_all_button -->
 
 			</div><!-- sec_three_list -->
 			
@@ -93,7 +94,7 @@
 				
 							$currentparentid = $parentid->slug;
 				
-							echo '<li><a href="' . get_bloginfo('url') . '/lawyers-location/state/' . $currentparentid . '/' . $select_city_ids->slug .  '">' . $select_city_ids->name . '</a></li>';
+							echo '<li><a href="' . get_bloginfo('url') . '/lawyers-location/state/' . $currentparentid . '/' . $select_city_ids->slug .  '-lawyers">' . $select_city_ids->name . '</a></li>';
 
 						endwhile;
 			

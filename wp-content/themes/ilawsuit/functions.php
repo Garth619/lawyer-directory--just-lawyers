@@ -479,23 +479,41 @@ function wpbeginner_numeric_posts_nav() {
 
 
 function prefix_rewrite_rule() {
+	
 		
-		// "/lawyers-location/state/alaska"
+		// location urls
+		
+		
+		// "/lawyers-location/state/alaska/anchorage-lawyers"
 		
 		add_rewrite_rule( 'lawyers-location/state/([^/]+)/([^/]+)-lawyers', 'index.php?office_location_currentstate=$matches[1]&office_location_currentcity=$matches[2]', 'top' );
 		
-		// pagination "/lawyers-practice/business/california/los-angeles/page/2"
+		
+		// "/lawyers-location/state/alaska-lawyers"
+		
+		add_rewrite_rule( 'lawyers-location/state/([^/]+)-lawyers', 'index.php?office_location_currentstate=$matches[1]', 'top' );
+		
+		
+		// practice area urls
+		
+		
+		// pagination "/lawyers-practice/california/los-angeles/business/page/2"
 		
 		add_rewrite_rule( 'lawyers-practice/([^/]+)/([^/]+)/([^/]+)-lawyers/page/([0-9]+)', 'index.php?currentstate=$matches[1]&currentcity=$matches[2]&office_pa=$matches[3]&mypaged=$matches[4]', 'top' );
 		
-		// "/lawyers-practice/business/california/los-angeles"
+		// "/lawyers-practice/california/los-angeles/business-lawyers"
 		
-		add_rewrite_rule( 'lawyers-practice/([^/]+)/([^/]+)/([^/]+)-lawyers', 'index.php?currentstate=$matches[1]&currentcity=$matches[2]&office_pa=$matches[3]', 'toZ');
+		add_rewrite_rule( 'lawyers-practice/([^/]+)/([^/]+)/([^/]+)-lawyers', 'index.php?currentstate=$matches[1]&currentcity=$matches[2]&office_pa=$matches[3]', 'top');
 		
 		
-		// "/lawyers-practice/business/california"
+		// "/lawyers-practice/california/business-lawyers"
 		
 		add_rewrite_rule( 'lawyers-practice/([^/]+)/([^/]+)-lawyers', 'index.php?currentstate=$matches[1]&office_pa=$matches[2]', 'top' );
+		
+		
+		// "/lawyers-practice/business-lawyers"
+		
+		add_rewrite_rule( 'lawyers-practice/([^/]+)-lawyers', 'index.php?office_pa=$matches[1]', 'top' );
  
  }
  
@@ -533,22 +551,28 @@ add_filter( 'query_vars', 'prefix_register_query_var' );
 function prefix_url_rewrite_templates() {
 	
 	
-	if ( get_query_var( 'office_location_currentstate') && get_query_var( 'office_location_currentcity') ) { 
+		// "/lawyers-location/state/california/los-angeles-lawyers"
+	
+		if ( get_query_var( 'office_location_currentstate') && get_query_var( 'office_location_currentcity') ) { 
        
      	add_filter( 'template_include', function() {
             return get_template_directory() . '/page-templates/template-practicearea_city.php';
        });
 
     }
-		
-		
-		if ( get_query_var( 'currentstate') ) { 
-       
-			add_filter( 'template_include', function() {
-       return get_template_directory() . '/page-templates/template-locations_state_pa.php';
-     	});
+    
+    // /lawyers-location/state/california-lawyers
+    
+    if ( get_query_var( 'office_location_currentstate') && !get_query_var( 'office_location_currentcity') ) { 
+	    
+	    add_filter( 'template_include', function() {
+        return get_template_directory() . '/page-templates/template-location.php';
+      });
 
     }
+    
+		
+		// "/lawyers-practice/california/los-angeles/business-lawyers"
     
     
 		if (get_query_var( 'currentstate') && get_query_var( 'currentcity')) { 
@@ -558,6 +582,31 @@ function prefix_url_rewrite_templates() {
        });
 
 		}
+		
+		// "/lawyers-practice/colorado/criminal-defense-lawyers"
+		
+		
+		if ( get_query_var( 'currentstate') && !get_query_var( 'currentcity') ) { 
+       
+			add_filter( 'template_include', function() {
+       return get_template_directory() . '/page-templates/template-locations_state_pa.php';
+     	});
+
+    }
+		
+		
+		// "/lawyers-practice/business-lawyers"
+		
+		
+		if ( get_query_var( 'office_pa') && !get_query_var( 'currentstate') && !get_query_var( 'currentcity') ) { 
+			
+			
+       
+			add_filter( 'template_include', function() {
+       return get_template_directory() . '/page-templates/template-practice_area.php';
+     	});
+
+    }
 
 }
  

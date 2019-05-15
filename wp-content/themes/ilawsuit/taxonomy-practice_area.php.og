@@ -21,8 +21,6 @@
 				<a><?php single_term_title();?></a>
 				
 			</div><!-- breadcrumb_wrapper -->
-			
-			
 			 			 
 			 <?php $currentterm = get_queried_object()->term_id; 
 	
@@ -59,31 +57,10 @@
 			 				
 			<div class="list_wrapper">
 				
-				<?php 
-					
-					
-					$currenttermslug = get_queried_object()->term_id; 
-					
-					$termargs = array (
-					'taxonomy' => 'location',
-					'posts_per_page' => -1,
-					'fields' => 'ids',
-					'parent' => 139 
-				);
-	
+			<?php
 				
-
-				$term_query = new WP_Term_Query( $termargs );?>
-				
-				
-
-				<pre><code><?php var_dump($term_query->terms);?></code></pre>
-				
-<!-- 				<pre><code><?php var_dump($currenttermslug);?></code></pre> -->
-				
-				<?php
-				
-				
+				$taxlocations = 'location';
+				$taxpracticeareas = 'practice_area';
 	
 				$query_args = array (
 					'post_type' => 'lawyer',
@@ -93,24 +70,53 @@
 					'posts_per_page' => 2000, // -1 screws up some searches with too much memory
 					'tax_query' => array(
 						array(
-								'taxonomy'  => 'location',
+								'taxonomy'  => $taxlocations,
+								'operator' => 'IN',
 								'field'     => 'ids',
 								'include_children' => false,
-								'terms'     => $term_query->terms, 
+								'terms'     => 139 
 							),
 						array(
-								'taxonomy'  => 'practice_area',
+								'taxonomy'  => $taxpracticeareas,
 								'field'     => 'ids',
-								'terms'     => $currenttermslug,
+								'operator' => 'IN',
+								'terms'     => $currentterm,
 							)
 						),
 					);
 				
 				
 				$myposts = new Wp_Query( $query_args );?>
+				
+<!-- 				//  ^ run the reg main_query here somehow? pluck ids from main_query so i can use pre_get_posts up to this point? -->
+					
+<!-- 				<pre><code><?php print_r($myposts->posts);?></code></pre> -->
 
+				<?php $termargs = array (
+					'taxonomy' => $taxlocations,
+					'posts_per_page' => -1,
+					'object_ids' => $myposts->posts,
+					'parent' => 139 
+				);
+	
+				$currenttermslug = get_queried_object()->slug; 
 
-			</div><!-- list_wrapper -->
+				$term_query = new WP_Term_Query( $termargs );
+
+		
+				if ( ! empty( $term_query ) && ! is_wp_error( $term_query ) ) {
+			
+					echo "<ul>";
+			
+						foreach ( $term_query->terms as $term )
+			
+							echo '<li><a href="' . get_bloginfo('url') . '/lawyers-practice/' . $term->slug . '/' . $currenttermslug . '-lawyers">' . $term->name . '</a></li>';
+			
+						}
+			
+					echo "</ul>"; ?>
+
+				</div><!-- list_wrapper -->
 			
 		</div><!-- directory_wrapper -->
 		

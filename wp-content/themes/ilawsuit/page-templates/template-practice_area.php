@@ -4,7 +4,7 @@
 	
 	<div class="internal_banner">
 		
-		<h1><?php single_term_title();?> Lawyers</h1>
+		<h1><?php single_term_title();?> Lawyers template-practice_area.php <br/> /lawyers-practice/business-lawyers</h1>
 
 	</div><!-- internal_banner -->
 	
@@ -110,7 +110,7 @@
 			
 						foreach ( $term_query->terms as $term )
 			
-							echo '<li><a href="' . get_bloginfo('url') . '/lawyers-practice/' . $currenttermslug . '/' . $term->slug . '">' . $term->name . '</a></li>';
+							echo '<li><a href="' . get_bloginfo('url') . '/lawyers-practice/' . $term->slug . '/' . $currenttermslug . '-lawyers">' . $term->name . '</a></li>';
 			
 						}
 			

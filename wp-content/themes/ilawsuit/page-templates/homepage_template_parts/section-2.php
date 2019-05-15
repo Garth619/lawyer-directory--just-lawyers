@@ -16,7 +16,7 @@
 							
 						<div class="sec_two_single">
 				
-							<a href="<?php bloginfo('url');?>/lawyers-practice/<?php echo $recent_practice_areas_terms->slug; ?>">
+							<a href="<?php bloginfo('url');?>/lawyers-practice/<?php echo $recent_practice_areas_terms->slug; ?>-lawyers">
 				
 								<div class="sec_two_svg">
 									

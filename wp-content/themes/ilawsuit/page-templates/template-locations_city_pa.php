@@ -52,7 +52,7 @@
 			
 		} ?>
 		
-		<h1><?php echo $citytermtitle;?> <?php echo $patermstitle;?> Lawyers <?php echo $lawyer_page_number;?></h1>
+		<h1><?php echo $citytermtitle;?> <?php echo $patermstitle;?> Lawyers <?php echo $lawyer_page_number;?> template-locations_city_pa.php <br/> /lawyers-practice/california/los-angeles/business-lawyers</h1>
 
 	</div><!-- internal_banner -->
 	

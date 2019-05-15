@@ -29,7 +29,7 @@
 	
 	<div class="internal_banner">
 		
-		<h1><?php echo $citytermtitle . ", " .  $statetitle;?></h1>
+		<h1><?php echo $citytermtitle . ", " .  $statetitle;?> template-practicearea_city.php<br/>/lawyers-location/state/alaska/barrington-alaska-lawyers/</h1>
 
 	</div><!-- internal_banner -->
 	
