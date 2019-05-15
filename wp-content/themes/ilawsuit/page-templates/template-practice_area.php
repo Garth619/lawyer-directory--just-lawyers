@@ -15,11 +15,13 @@
 			
 			// pa url query -> pa id/title conversion
 	
-			$patermslug = get_term_by('slug', $currentpracticearea, $taxpracticeareas);
+			$patermobject = get_term_by('slug', $currentpracticearea, $taxpracticeareas);
 	
-			$patermsid = $patermslug->term_taxonomy_id;
+			$patermsid = $patermobject->term_taxonomy_id;
 	
-			$patermstitle = $patermslug->name;
+			$patermstitle = $patermobject->name;
+			
+			$patermslug = $patermobject->slug;
 			
 		?>
 		
@@ -126,7 +128,7 @@
 			
 						foreach ( $term_query->terms as $term )
 			
-							echo '<li><a href="' . get_bloginfo('url') . '/lawyers-practice/' . $term->slug . '/' . $currenttermslug . '-lawyers">' . $term->name . '</a></li>';
+							echo '<li><a href="' . get_bloginfo('url') . '/lawyers-location/state/' . $term->slug . '/' . $patermslug . '-lawyers">' . $term->name . '</a></li>';
 			
 						}
 			
