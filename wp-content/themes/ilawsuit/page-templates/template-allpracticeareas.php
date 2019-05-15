@@ -62,9 +62,11 @@
 					
 						foreach ( $terms as $term ) {
 	     
-							$term_link = get_term_link( $term );
+							//$term_link = get_term_link( $term );
+							
+							//rint_r($term->slug);
 	     
-							echo '<li><a href="'. esc_url( $term_link ) . '">' . $term->name . '</a></li>';
+							echo '<li><a href="'. get_bloginfo('url') . '/lawyers-practice/' . $term->slug . '-lawyers">' . $term->name . '</a></li>';
         
      				}
     

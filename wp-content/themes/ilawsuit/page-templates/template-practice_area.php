@@ -4,7 +4,26 @@
 	
 	<div class="internal_banner">
 		
-		<h1><?php single_term_title();?> Lawyers template-practice_area.php <br/> /lawyers-practice/business-lawyers</h1>
+		
+		<?php
+			
+			$currentpracticearea = get_query_var( 'office_pa');
+			
+			$taxlocations = 'location';
+			
+			$taxpracticeareas = 'practice_area';
+			
+			// pa url query -> pa id/title conversion
+	
+			$patermslug = get_term_by('slug', $currentpracticearea, $taxpracticeareas);
+	
+			$patermsid = $patermslug->term_taxonomy_id;
+	
+			$patermstitle = $patermslug->name;
+			
+		?>
+		
+		<h1><?php echo $patermstitle;?> Lawyers template-practice_area.php <br/> /lawyers-practice/business-lawyers</h1>
 
 	</div><!-- internal_banner -->
 	
@@ -16,19 +35,19 @@
 				
 				<a href="<?php bloginfo('url');?>">Home</a>
 	
-				<a href="<?php the_permalink(126);?>">Practice Areas</a>
+				<a href="<?php the_field( 'practice_area_view_more_button', 124); ?>">Practice Areas</a>
 	
-				<a><?php single_term_title();?></a>
+				<a><?php echo $patermstitle;?></a>
 				
 			</div><!-- breadcrumb_wrapper -->
 			 			 
-			 <?php $currentterm = get_queried_object()->term_id; 
+			 <?php // $currentterm = get_queried_object()->term_id; 
 	
 				 if(get_field('pa_location_content_blocks','option')) : 
 		 		 
 					  while(has_sub_field('pa_location_content_blocks','option')) :
 			 			 
-				 			if(get_sub_field('current_taxonomy') == $currentterm && empty(get_sub_field('current_location_taxonomy_state')) && empty(get_sub_field('current_location_taxonomy_city')) ) : ?>
+				 			if(get_sub_field('current_taxonomy') == $patermsid && empty(get_sub_field('current_location_taxonomy_state')) && empty(get_sub_field('current_location_taxonomy_city')) ) : ?>
 				 		
 				 			<div class="directory_description content">
 			 			 
@@ -58,9 +77,6 @@
 			<div class="list_wrapper">
 				
 			<?php
-				
-				$taxlocations = 'location';
-				$taxpracticeareas = 'practice_area';
 	
 				$query_args = array (
 					'post_type' => 'lawyer',
@@ -80,7 +96,7 @@
 								'taxonomy'  => $taxpracticeareas,
 								'field'     => 'ids',
 								'operator' => 'IN',
-								'terms'     => $currentterm,
+								'terms'     => $patermsid,
 							)
 						),
 					);

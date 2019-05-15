@@ -5,7 +5,21 @@
 	
 	<div class="internal_banner">
 		
-		<h1><?php single_term_title();?> Lawyers template-location.php<br/>/lawyers-location/state/alaska-lawyers/</h1>
+		<?php	// state url query -> state id conversion
+		
+			$currentstate = get_query_var( 'office_location_currentstate');
+	
+			$taxlocations = 'location';
+			$taxpracticeareas = 'practice_area';	
+		
+			$stateterms = get_term_by('slug', $currentstate, $taxlocations);
+			$statetermid = $stateterms->term_taxonomy_id;
+			$statetermtitle = $stateterms->name;
+			$statetermslug = $stateterms->slug;
+	
+		?>
+		
+		<h1><?php echo $statetermtitle;?> Lawyers template-location.php<br/>/lawyers-location/state/alaska-lawyers/</h1>
 
 	</div><!-- internal_banner -->
 	
@@ -19,23 +33,17 @@
 	
 				<a href="<?php the_permalink(133);?>">Locations</a>
 	
-				<a><?php single_term_title();?></a>
+				<a><?php echo $statetermtitle;?></a>
 				
 			</div><!-- breadcrumb_wrapper -->
 			
-			
-				<?php	$children = get_queried_object()->term_id;?>
-
-	
-					<?php if(get_field('content_blocks','option')) : ?>
+			<?php 
+				
+				if(get_field('content_blocks','option')) : 
 					
-						
-		 			 
-							<?php while(has_sub_field('content_blocks','option')) : ?>
+					while(has_sub_field('content_blocks','option')) :
 								
-								
-			 			 
-								<?php if(get_sub_field('current_taxonomy') == $children) :?>
+						if(get_sub_field('current_taxonomy') == $statetermid) :?>
 								
 									<div class="directory_description content">
 			 			 
@@ -45,15 +53,11 @@
 			
 										<h2 class="section_header">Browse by city</h2>
 			 		
-			 					<?php endif;?>
+			 				<?php endif;
 		 			 		
-		 					<?php endwhile; ?>
-		 		
-		 				
-
-		 			<?php endif;	 ?>
-			
-			
+				 		endwhile;
+				 					
+				 endif;	 ?>
 			
 			<div class="filter_by_search_wrapper">
 				
@@ -72,13 +76,12 @@
 
 				<?php 
 					
-				$taxlocations = 'location';
-				$taxpracticeareas = 'practice_area';
+				
 	
 
 				$termargs = array (
 					'taxonomy' => $taxlocations,
-					'parent' => $children 
+					'parent' => $statetermid 
 				);
 				
 				
@@ -91,9 +94,7 @@
      
 						foreach ( $terms->terms as $term ) {
 	     
-							$term_link = get_term_link( $term );
-	     
-							echo '<li><a href="'. esc_url( $term_link ) . '">' . $term->name . '</a></li>';
+							echo '<li><a href="'. get_bloginfo('url') . '/lawyers-location/state/'. $statetermslug . '/' . $term->slug . '-lawyers">' . $term->name . '</a></li>';
         
      				}
      
