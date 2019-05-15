@@ -149,9 +149,8 @@
 				echo "<ul>";
 				
 				foreach ( $term_query ->terms as $term )
-				
-			
-					echo '<li><a href="'. get_bloginfo('url') . "/lawyers-practice/" .  $term->slug  . '/' . $lawfirm_location_currentstate . '/' . $lawfirm_location_currentcity . '">' . $term->name . '</a></li>';
+					
+					echo '<li><a href="'. get_bloginfo('url') . "/lawyers-practice/" .  $lawfirm_location_currentstate  . '/' . $lawfirm_location_currentcity . '/' . $term->slug . '-lawyers">' . $term->name . '</a></li>';
 			
 				}
 				

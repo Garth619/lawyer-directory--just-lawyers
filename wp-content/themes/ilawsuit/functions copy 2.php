@@ -482,20 +482,19 @@ function prefix_rewrite_rule() {
 		
 		// "/lawyers-location/state/alaska"
 		
-		add_rewrite_rule( 'lawyers-location/state/([^/]+)/([^/]+)-lawyers', 'index.php?office_location_currentstate=$matches[1]&office_location_currentcity=$matches[2]', 'top' );
+		add_rewrite_rule( 'lawyers-location/state/([^/]+)/([^/]+)', 'index.php?office_location_currentstate=$matches[1]&office_location_currentcity=$matches[2]', 'top' );
 		
 		// pagination "/lawyers-practice/business/california/los-angeles/page/2"
 		
-		add_rewrite_rule( 'lawyers-practice/([^/]+)/([^/]+)/([^/]+)-lawyers/page/([0-9]+)', 'index.php?currentstate=$matches[1]&currentcity=$matches[2]&office_pa=$matches[3]&mypaged=$matches[4]', 'top' );
+		add_rewrite_rule( 'lawyers-practice/([^/]+)/([^/]+)/([^/]+)/page/([0-9]+)', 'index.php?office_pa=$matches[1]&currentstate=$matches[2]&currentcity=$matches[3]&mypaged=$matches[4]', 'top' );
 		
 		// "/lawyers-practice/business/california/los-angeles"
 		
-		add_rewrite_rule( 'lawyers-practice/([^/]+)/([^/]+)/([^/]+)-lawyers', 'index.php?currentstate=$matches[1]&currentcity=$matches[2]&office_pa=$matches[3]', 'toZ');
-		
+		add_rewrite_rule( 'lawyers-practice/([^/]+)/([^/]+)/([^/]+)', 'index.php?office_pa=$matches[1]&currentstate=$matches[2]&currentcity=$matches[3]', 'top' );
 		
 		// "/lawyers-practice/business/california"
 		
-		add_rewrite_rule( 'lawyers-practice/([^/]+)/([^/]+)-lawyers', 'index.php?currentstate=$matches[1]&office_pa=$matches[2]', 'top' );
+		add_rewrite_rule( 'lawyers-practice/([^/]+)/([^/]+)', 'index.php?office_pa=$matches[1]&currentstate=$matches[2]', 'top' );
  
  }
  

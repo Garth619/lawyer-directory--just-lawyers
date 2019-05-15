@@ -21,8 +21,6 @@
 				<a><?php single_term_title();?></a>
 				
 			</div><!-- breadcrumb_wrapper -->
-			
-			
 			 			 
 			 <?php $currentterm = get_queried_object()->term_id; 
 	

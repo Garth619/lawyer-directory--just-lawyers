@@ -57,7 +57,7 @@
 	     
 							$stateterm_link = get_term_link( $state_term );
 	     
-							echo '<li><a href="' . esc_url( $stateterm_link ) . '">' . $state_term->name . '</a></li>';
+							echo '<li><a href="' . get_bloginfo('url') . '/lawyers-location/state/' . $state_term->slug . '-lawyers">' . $state_term->name . '</a></li>';
         
      				}
 		 				
