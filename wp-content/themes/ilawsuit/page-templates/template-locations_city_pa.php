@@ -52,7 +52,9 @@
 			
 		} ?>
 		
-		<h1><?php echo $citytermtitle;?> <?php echo $patermstitle;?> Lawyers <?php echo $lawyer_page_number;?> template-locations_city_pa.php <br/> /lawyers-practice/california/los-angeles/business-lawyers</h1>
+		<h1><?php echo $citytermtitle . ' ' . $patermstitle . ' Lawyers' . ' ' . $lawyer_page_number;?></h1>
+		
+		<!-- template-locations_city_pa.php /lawyers-practice/california/los-angeles/business-lawyers -->
 
 	</div><!-- internal_banner -->
 	
@@ -67,19 +69,16 @@
 				<a href="<?php bloginfo('url');?>">Home</a>
 	
 				<a href="<?php the_permalink(126);?>">Practice Areas</a> 
-	
-				<a class="" href="<?php bloginfo('url');?>/lawyers-practice/<?php echo $currentpracticearea;?>"><?php echo  $patermstitle;?></a>
-	
-				<a class="" href="<?php bloginfo('url');?>/lawyers-practice/<?php echo get_query_var( 'office_pa');?>/<?php echo get_query_var( 'currentstate');?>"><?php echo $statetermtitle;?></a>
+				
+				<a href="<?php echo get_bloginfo('url') . '/lawyers-practice/' . $currentpracticearea . '-lawyers'; ?>"><?php echo  $patermstitle;?></a>
+				
+				<a href="<?php echo get_bloginfo('url') . '/lawyers-practice/' . $currentstate . '/' . $currentpracticearea . '-lawyers';?>"><?php echo $statetermtitle;?></a>
 	
 				<a><?php echo $citytermtitle;?></a>
 			
 			</div><!-- breadcrumb_wrapper -->
 			
-						
-			
-			
-			<?php if(get_field('pa_location_content_blocks','option')) :?>
+				<?php if(get_field('pa_location_content_blocks','option')) :?>
 		 		 
 					<?php while(has_sub_field('pa_location_content_blocks','option')) :
 			 			 

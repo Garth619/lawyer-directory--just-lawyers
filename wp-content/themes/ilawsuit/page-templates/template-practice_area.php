@@ -25,7 +25,9 @@
 			
 		?>
 		
-		<h1><?php echo $patermstitle;?> Lawyers template-practice_area.php <br/> /lawyers-practice/business-lawyers</h1>
+		<h1><?php echo $patermstitle . ' ' . 'Lawyers';?></h1>
+		
+		<!-- template-practice_area.php <br/> /lawyers-practice/business-lawyers -->
 
 	</div><!-- internal_banner -->
 	
@@ -128,7 +130,7 @@
 			
 						foreach ( $term_query->terms as $term )
 			
-							echo '<li><a href="' . get_bloginfo('url') . '/lawyers-location/state/' . $term->slug . '/' . $patermslug . '-lawyers">' . $term->name . '</a></li>';
+							echo '<li><a href="' . get_bloginfo('url') . '/lawyers-practice/' . $term->slug . '/' . $patermslug . '-lawyers">' . $term->name . '</a></li>';
 			
 						}
 			

@@ -36,7 +36,9 @@
 	
 	<div class="internal_banner">
 		
-		<h1><?php echo $statetermtitle;?> <?php echo $patermstitle;?> Lawyers template-locations_state_pa.php<br/>/lawyers-practice/colorado/criminal-defense-lawyers</h1>
+		<h1><?php echo $statetermtitle . ' ' . $patermstitle . ' ' . 'Lawyers'?></h1>
+		
+		<!-- template-locations_state_pa.php /lawyers-practice/colorado/criminal-defense-lawyers -->
 
 	</div><!-- internal_banner -->
 	
@@ -49,8 +51,8 @@
 				<a href="<?php bloginfo('url');?>">Home</a>
 	
 				<a href="<?php the_permalink(126);?>">Practice Areas</a>
-	
-				<a href="<?php bloginfo('url');?>/lawyers-practice/<?php echo $currentpracticearea;?>"><?php echo $patermstitle;?></a>
+				
+				<a href="<?php echo get_bloginfo('url') . '/lawyers-practice/' . $currentpracticearea . '-lawyers'; ?>"><?php echo $patermstitle;?></a>
 	
 				<a><?php echo $statetermtitle;?></a>
 			
@@ -98,7 +100,7 @@
 			 					
 			 						if ( $featured_city_term ): 
 			 					
-			 						echo '<li><a href="' . get_bloginfo('url') . '/lawyers-practice/' . $currentpracticearea . '/' . $currentstate . '/' . $featured_city_term->slug . '">' . $featured_city_term->name . '</a></li>';
+			 						echo '<li><a href="' . get_bloginfo('url') . '/lawyers-practice/' . $currentstate . '/' . $featured_city_term->slug . '/' . $currentpracticearea . '-lawyers">' . $featured_city_term->name . '</a></li>';
 			 					
 			 						endif;
 			 			    

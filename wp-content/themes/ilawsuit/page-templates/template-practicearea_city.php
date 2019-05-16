@@ -29,7 +29,9 @@
 	
 	<div class="internal_banner">
 		
-		<h1><?php echo $citytermtitle;?> Lawyers</h1>
+		<h1><?php echo $citytermtitle . ' ' . 'Lawyers';?></h1>
+		
+		<!-- template-practicearea_city <br/> /lawyers-location/state/california/agoura-hills-lawyers/ -->
 
 	</div><!-- internal_banner -->
 	
@@ -42,8 +44,8 @@
 				<a href="<?php bloginfo('url');?>">Home</a>
 	
 				<a href="<?php the_permalink(133);?>">Locations</a>
-	
-				<a href="<?php bloginfo('url');?>/lawyers-location/state/<?php echo $lawfirm_location_currentstate;?>"><?php echo $statetitle;?></a>
+				
+				<a href="<?php echo get_bloginfo('url') . '/lawyers-location/state/' . $lawfirm_location_currentstate . '-lawyers';?>"><?php echo $statetitle;?></a>
 	
 				<a><?php echo $citytermtitle;?></a>
 				

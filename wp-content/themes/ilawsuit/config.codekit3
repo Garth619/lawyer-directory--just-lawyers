@@ -611,14 +611,6 @@
 		"oAP": "/page-templates/template-contact.php",
 		"oF": 0
 		},
-	"/page-templates/template-customsearch.php.og": {
-		"cB": 0,
-		"ft": 8192,
-		"hM": 0,
-		"oA": 0,
-		"oAP": "/page-templates/template-customsearch.php.og",
-		"oF": 0
-		},
 	"/page-templates/template-home.php": {
 		"cB": 0,
 		"ft": 8192,
@@ -1003,22 +995,6 @@
 		"hM": 0,
 		"oA": 0,
 		"oAP": "/style.css.map",
-		"oF": 0
-		},
-	"/taxonomy-location.php.og": {
-		"cB": 0,
-		"ft": 8192,
-		"hM": 0,
-		"oA": 0,
-		"oAP": "/taxonomy-location.php.og",
-		"oF": 0
-		},
-	"/taxonomy-practice_area.php.og": {
-		"cB": 0,
-		"ft": 8192,
-		"hM": 0,
-		"oA": 0,
-		"oAP": "/taxonomy-practice_area.php.og",
 		"oF": 0
 		}
 	},

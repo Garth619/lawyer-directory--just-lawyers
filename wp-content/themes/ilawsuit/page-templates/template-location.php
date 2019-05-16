@@ -19,7 +19,9 @@
 	
 		?>
 		
-		<h1><?php echo $statetermtitle;?> Lawyers template-location.php<br/>/lawyers-location/state/alaska-lawyers/</h1>
+		<h1><?php echo $statetermtitle;?> Lawyers</h1>
+		
+		<!-- template-location.php. /lawyers-location/state/alaska-lawyers/ -->
 
 	</div><!-- internal_banner -->
 	
