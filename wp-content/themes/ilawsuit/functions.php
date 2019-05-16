@@ -514,6 +514,20 @@ function prefix_rewrite_rule() {
 		// "/lawyers-practice/business-lawyers"
 		
 		add_rewrite_rule( 'lawyers-practice/([^/]+)-lawyers', 'index.php?office_pa=$matches[1]', 'top' );
+		
+		
+		  // bio
+    
+    //https://wordpress.stackexchange.com/questions/39500/how-to-create-a-permalink-structure-with-custom-taxonomies-and-custom-post-types/39862#39862
+    
+    //https://gist.github.com/kasparsd/2924900
+    
+    //https://travis.media/modifying-the-custom-taxonomy-permalink-structure-in-a-custom-post-type
+    
+    
+    
+    // other pages possible could be done like this with custom permalink varables ^
+		
  
  }
  
@@ -607,6 +621,9 @@ function prefix_url_rewrite_templates() {
      	});
 
     }
+    
+    
+  
 
 }
  
@@ -975,6 +992,62 @@ function my_custom_search($query) {
 	// rest map endpoint
 
 	require get_theme_file_path('/functions-inc/rest-map-endpoint.php');
+	
+
+	
+	
+	
+	add_filter('rewrite_rules_array', 'mmp_rewrite_rules');
+function mmp_rewrite_rules($rules) {
+    $newRules  = array();
+    $newRules['location/(.+)/(.+)/(.+)/(.+)/?$'] = 'index.php?lawyer=$matches[4]'; // my custom structure will always have the post name as the 5th uri segment
+    $newRules['location/(.+)/?$'] = 'index.php?location=$matches[1]'; 
+
+    return array_merge($newRules, $rules);
+}
+
+
+function filter_post_type_link($link, $post)
+{
+    if ($post->post_type != 'lawyer')
+        return $link;
+
+    if ($cats = get_the_terms($post->ID, 'location'))
+    {
+        $link = str_replace('%location%', get_taxonomy_parents(array_pop($cats)->term_id, 'location', false, '/', true), $link); // see custom function defined below
+    }
+    return $link;
+}
+add_filter('post_type_link', 'filter_post_type_link', 10, 2);
+
+
+
+// my own function to do what get_category_parents does for other taxonomies
+function get_taxonomy_parents($id, $taxonomy, $link = false, $separator = '/', $nicename = false, $visited = array()) {    
+    $chain = '';   
+    $parent = &get_term($id, $taxonomy);
+
+    if (is_wp_error($parent)) {
+        return $parent;
+    }
+
+    if ($nicename)    
+        $name = $parent -> slug;        
+else    
+        $name = $parent -> name;
+
+    if ($parent -> parent && ($parent -> parent != $parent -> term_id) && !in_array($parent -> parent, $visited)) {    
+        $visited[] = $parent -> parent;    
+        $chain .= get_taxonomy_parents($parent -> parent, $taxonomy, $link, $separator, $nicename, $visited);
+
+    }
+
+    if ($link) {
+        // nothing, can't get this working :(
+    } else    
+        $chain .= $name . $separator;    
+    return $chain;    
+}
 	
 	
 	
