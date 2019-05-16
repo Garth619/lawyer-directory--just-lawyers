@@ -526,7 +526,7 @@ function prefix_rewrite_rule() {
     
     
     
-    // other pages possible could be done like this with custom permalink varables ^
+    // other pages possible could be done like this with custom permalink varables ^ maybe like "/lawyers-practice/california/alhambra/alhambra-criminal-defense-lawyers"
 		
  
  }
