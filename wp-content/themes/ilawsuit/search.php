@@ -28,7 +28,7 @@
 					
 					if($count) { ?>
 							
-						<span class="results_number">Search Results (<?php echo $count_with_commas;?>)</span><!-- results_number -->
+						<span class="results_number_search">Search Results (<?php echo $count_with_commas;?>)</span><!-- results_number -->
 							
 					<?php } ?>
 
