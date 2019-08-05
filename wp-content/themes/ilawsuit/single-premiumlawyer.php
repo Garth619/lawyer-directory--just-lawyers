@@ -140,7 +140,7 @@
  
 								<?php foreach ( $terms as $term ) { ?>
 								
-									<li><a href="<?php bloginfo('url');?>/lawyers-practice/<?php echo $term->slug;?>"><?php echo $term->name;?></a></li>
+									<li><a href="<?php bloginfo('url');?>/lawyers-practice/<?php echo $term->slug;?>-lawyers"><?php echo $term->name;?></a></li>
 									
 								<?php } ?>
     
