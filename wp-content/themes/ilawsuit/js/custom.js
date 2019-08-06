@@ -616,5 +616,42 @@ $('.sec_three_tab').on('click', function(e) {
 	}
 	
 	
+	// bio overlay
+	
+	$('a.claim_button').on('click', function(e) {
+	  
+		$('.claim_overlay').addClass('open');
+	
+	});
+	
+	$('.overlay_close').on('click', function(e) {
+	  
+		$('.claim_overlay').removeClass('open');
+	
+	});
+	
+	
+	// claim profile form
+	
+	// layout styles: target li that has a textarea child and make it flex-basis 100%
+	
+	
+	$('.overlay_form textarea').parent().parent().addClass('flex_width');
+	
+	$('.form_content_wrapper').parent().addClass('flex_width');
+	
+	$('.ginput_container_checkbox').parent().addClass('flex_width');
+	
+	
+	
+	
+	$(document).bind('gform_post_render', function(){
+		
+			$('.overlay_form textarea').parent().parent().addClass('flex_width');
+			
+			$('.form_content_wrapper').parent().addClass('flex_width');
+  	
+  });
+	
   
 }); // document ready

@@ -124,7 +124,7 @@ function load_my_styles_scripts() {
 		
 		wp_enqueue_script( 'jquery-addon', get_template_directory_uri() . '/js/custom-min.js', 'jquery', '', true );
 		
-		//wp_enqueue_script( 'jquery-mygravity', get_template_directory_uri() . '/js/gravityforms-min.js', 'jquery', '', true );
+		wp_enqueue_script( 'jquery-mygravity', get_template_directory_uri() . '/js/gravityforms-min.js', 'jquery', '', true );
 		
 		
 		if (get_query_var( 'currentstate') && get_query_var( 'currentcity')) { 

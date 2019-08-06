@@ -221,11 +221,26 @@
 					
 					<a class="claim_button">Claim this Listing</a><!-- claim_button -->
 					
-					<div class="overlay">
+					<div class="overlay claim_overlay">
 						
 						<div class="overlay_inner">
 							
-							claim profile will have prepopulated   do multistep 
+							<div class="overlay_close"></div><!-- overlay_close -->
+							
+							<img class="overlay_logo" src="<?php bloginfo('template_directory');?>/images/ilawuit-logo-dark.svg"/>
+							
+							<div class="overlay_description content">
+								
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderits</p>
+								
+								
+							</div><!-- overlay_description -->
+							
+							<div class="overlay_form">
+								
+								<?php gravity_form(2, false, false, false, '', true, 1332); ?>
+								
+							</div><!-- overlay_form -->
 							
 						</div><!-- overlay_inner -->
 						
