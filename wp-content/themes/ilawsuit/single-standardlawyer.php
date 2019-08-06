@@ -218,6 +218,18 @@
 						<?php } ?>
 						
 					</div><!-- att_standard_education -->
+					
+					<a class="claim_button">Claim this Listing</a><!-- claim_button -->
+					
+					<div class="overlay">
+						
+						<div class="overlay_inner">
+							
+							
+							
+						</div><!-- overlay_inner -->
+						
+					</div><!-- overlay -->
 				
 				</div><!-- att_bio_content -->
 			
