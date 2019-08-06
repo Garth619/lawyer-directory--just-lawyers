@@ -90,6 +90,11 @@ form ::-moz-placeholder {
 	}
 	
 	
+	
+	
+
+	
+	
 .list_wrapper {
 	ul {
 		list-style: none;
@@ -138,9 +143,38 @@ form ::-moz-placeholder {
 }
 
 
-.list_wrapper {
-	//margin-bottom:190px;
-}
+
+
+
+	
+	.list_wrapper.featured_cities {
+		background:$offwhite;
+		border:1px solid $blue;
+		padding:35px 30px;
+		h3.featured_city_header {
+			text-transform: uppercase;
+	    color: #000;
+	    font-size: 16px;
+	    letter-spacing: 0.1em;
+	    text-decoration: none;
+	    line-height: 20px;
+			text-transform: uppercase;
+			margin-bottom:25px;
+			@include montserrat_extrabold;
+		}
+		ul {
+			li {
+				background: transparent;
+				border-bottom: none;
+				padding-left:0;
+				height:50px;
+			}
+			li:nth-child(4n+1):nth-last-child(-n+4), li:nth-child(4n+1):nth-last-child(-n+4) ~ li {
+				border:none;
+			}
+		}
+	}
+
 	
 	
 	

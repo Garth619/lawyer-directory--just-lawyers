@@ -87,10 +87,12 @@
 			 		if(get_sub_field( 'practice_area_featured_city' ) == $patermsid && (get_sub_field( 'location_featured_city' ) == $statetermid) && empty(get_sub_field('current_location_taxonomy_city')) ) :
 			 		
 			 			if(get_sub_field('featured_city_internal')): ?>
-			 				
-			 				<h2 class="section_header featured_city">Featured Cities</h2><!-- featured_title -->
+			 			
+			 			<h2 class="section_header featured_city">Featured Cities</h2><!-- featured_title -->
 			 				
 			 				<div class="list_wrapper featured_cities">
+				 				
+				 				<h3 class="featured_city_header">Most Popular Cities to Find <?php echo $statetermtitle . ' ' . $patermstitle . ' ' . 'Lawyers'?></h3>
 				 			
 				 				<ul>
 			 			 
@@ -106,10 +108,10 @@
 			 			    
 			 					endwhile; ?>
 			 				
-				 				</ul><!-- list_wrapper -->
+				 				</ul>
 				 			
-			 				</div>
-			 			 
+			 				</div><!-- list_wrapper -->
+			 				
 			 			<?php endif;
 			 		
 				 			endif;
