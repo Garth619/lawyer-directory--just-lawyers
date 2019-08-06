@@ -53,13 +53,56 @@
 										
 										</div><!-- directory_description -->
 			
-										<h2 class="section_header">Browse by city</h2>
+										
 			 		
 			 				<?php endif;
 		 			 		
 				 		endwhile;
 				 					
-				 endif;	 ?>
+				 endif;	
+				 
+			if(get_field('featured_cities_blocks_location_page','option')):
+			  
+			 	while(has_sub_field('featured_cities_blocks_location_page','option')):
+			  
+			 		if((get_sub_field( 'location_featured_city' ) == $statetermid) ) :
+			 		
+			 			if(get_sub_field('featured_city_internal')): ?>
+			 			
+			 			<h2 class="section_header featured_city">Featured Cities</h2><!-- featured_title -->
+			 				
+			 				<div class="list_wrapper featured_cities">
+				 				
+				 				<h3 class="featured_city_header">Most Popular Cities to Find <?php echo $statetermtitle;?> Lawyers</h3>
+				 			
+				 				<ul>
+			 			 
+				 				<?php while(has_sub_field('featured_city_internal')): 
+			 			 
+			 						$featured_city_term = get_sub_field( 'featured_city' );
+			 					
+			 						if ( $featured_city_term ): 
+			 					
+			 						echo '<li><a href="' . get_bloginfo('url') . '/lawyers-location/state/' . $currentstate . '/' . $featured_city_term->slug . '-lawyers">' . $featured_city_term->name . '</a></li>';
+			 					
+			 						endif;
+			 			    
+			 					endwhile; ?>
+			 				
+				 				</ul>
+				 			
+			 				</div><!-- list_wrapper -->
+			 				
+			 			<?php endif;
+			 		
+				 			endif;
+			     
+				 		endwhile;
+			  
+				 	endif; ?>
+
+				 
+			<h2 class="section_header browse_city">Browse by city</h2>
 			
 			<div class="filter_by_search_wrapper">
 				

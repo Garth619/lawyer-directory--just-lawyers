@@ -84,7 +84,7 @@
 			  
 			 	while(has_sub_field('featured_cities_blocks','option')):
 			  
-			 		if(get_sub_field( 'practice_area_featured_city' ) == $patermsid && (get_sub_field( 'location_featured_city' ) == $statetermid) && empty(get_sub_field('current_location_taxonomy_city')) ) :
+			 		if(get_sub_field( 'practice_area_featured_city' ) == $patermsid && (get_sub_field( 'location_featured_city' ) == $statetermid) ) :
 			 		
 			 			if(get_sub_field('featured_city_internal')): ?>
 			 			
