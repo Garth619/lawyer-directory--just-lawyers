@@ -641,8 +641,13 @@ a.claim_button {
 	height:100%;
 	background: rgba(0,0,0,0.7);
 	z-index:20;
+	overflow-y: scroll;
+	-webkit-overflow-scrolling: touch;
 	.overlay_inner {
-		
+		width:700px;
+		height:100px;
+		background: #fff;
+		margin:45px auto;
 	}
 }
 
