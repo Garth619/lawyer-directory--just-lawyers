@@ -240,9 +240,9 @@ a.visit_website_button {
 }
 
 
-		.att_bio_sidebar_row {
+		.att_bio_content_row {
 			padding-bottom:25px;
-			span.att_bio_sidebar_title {
+			span.att_bio_content_title {
 				color:$bluetwo;
 				text-transform: uppercase;
 				font-size: 18px;
@@ -254,6 +254,9 @@ a.visit_website_button {
 			ul {
 				li {
 					margin-bottom:10px;
+					span {
+						display: block;
+					}
 				}
 			}
 		}

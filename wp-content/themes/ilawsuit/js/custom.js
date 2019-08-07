@@ -631,6 +631,7 @@ $('.sec_three_tab').on('click', function(e) {
 	});
 	
 	
+
 	// claim profile form
 	
 	// layout styles: target li that has a textarea child and make it flex-basis 100%
@@ -652,7 +653,7 @@ $('.sec_three_tab').on('click', function(e) {
   	
   });
   
-  // populate the claim profile form with exisiting profile info on page
+  // populate the claim profile form with exisiting profile info on bio pages (super hardcoded in order to map correctly)
   
   // name
   
@@ -671,6 +672,94 @@ $('.sec_three_tab').on('click', function(e) {
   var iyears = $('.years_licensed_for').text();
   
   $('input#input_2_3').val(iyears);
+  
+  // lawfirm name
+  
+   var ilawfirm = $('.lawfirm_name').text();
+  
+	 $('input#input_2_4').val(ilawfirm);
+	 
+	 // website url
+	 
+	 var iurl = $('a.visit_website_button').attr('href');
+  
+	 $('input#input_2_5').val(iurl);
+	 
+	 // address
+	 
+	 var iaddress = $('.att_bio_address').text();
+  
+	 $('input#input_2_6').val(iaddress);
+	 
+	 // pa
+	 
+	 
+	 var paItem = [];
+	 
+	 $(".att_bio_pa_list ul li").each(function() { 
+		 
+		 paItem.push($(this).text()) 
+		 
+		});
+	 
+	 var paList = '' + paItem.join(', ') + '';
+	 
+	 $('textarea#input_2_26').val(paList);
+	 
+	 
+	 // school one name
+	 
+	 
+	 var ischoolonename = $('.school_one_name').text();
+  
+	 $('input#input_2_10').val(ischoolonename);
+	 
+	// school one major
 	
+	
+	var ischoolonemajor = $('.school_one_major').text();
+  
+	$('input#input_2_11').val(ischoolonemajor);
+	
+	// school one degree
+	
+	var ischoolonedegree = $('.school_one_degree').text();
+  
+	$('input#input_2_12').val(ischoolonedegree);
+	
+	// school one year grad
+	
+	var ischooloneyeargrad = $('.school_one_year_graduated').text();
+  
+	$('input#input_2_13').val(ischooloneyeargrad);
+	
+	
+	// school two name
+	
+	var ischooltwoname = $('.school_two_name').text();
+  
+	$('input#input_2_14').val(ischooltwoname);
+	
+	
+	// school two major
+	
+	var ischooltwomajor = $('.school_two_major').text();
+  
+	$('input#input_2_15').val(ischooltwomajor);
+	
+	
+	// school two degree
+	
+	var ischooltwodegree = $('.school_two_degree').text();
+  
+	$('input#input_2_16').val(ischooltwodegree);
+	
+	// school two year grad
+	
+	var ischooltwoyeargrad = $('.school_two_year_graduated').text();
+  
+	$('input#input_2_17').val(ischooltwoyeargrad);
+	
+
   
 }); // document ready

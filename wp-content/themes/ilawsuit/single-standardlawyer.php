@@ -109,7 +109,7 @@
 					
 						<span class="att_bio_sidebar_title">Lawfirm Name</span><!-- att_bio_sidebar_title -->
 					
-						<span class="att_bio_row_title years_licensed_for"><?php the_field( 'lawfirm_name' ); ?></span><!-- att_bio_row_title -->
+						<span class="att_bio_row_title lawfirm_name"><?php the_field( 'lawfirm_name' ); ?></span><!-- att_bio_row_title -->
 					
 					</div><!-- att_bio_row_wrapper -->
 				
@@ -166,75 +166,72 @@
 					<?php } ?>
 						
 					
-				
-				<div class="att_standard_education">
-					
-					
 					<?php if(get_field('school_one_name') && get_field('school_one_name') !== 'NULL') { ?>
-						
-							<div class="att_bio_sidebar_row">
 					
-								<span class="att_bio_sidebar_title">Education</span><!-- att_bio_sidebar_title -->
+						<div class="att_standard_education">
+						
+							<div class="att_bio_content_row">
+					
+								<span class="att_bio_content_title">Education</span><!-- att_bio_sidebar_title -->
 					
 								<ul>
+									
+									<?php if(get_field('school_one_name') && get_field('school_one_name') !== 'NULL') { ?>
 								
 									<li>
 									
 										<strong>
 										
-										<?php if(get_field('school_one_name') && get_field('school_one_name') !== 'NULL') {
-									
-											the_field( 'school_one_name' );
-										
-										} ?>
-										
+											<span class="school_one_name"><?php the_field( 'school_one_name' );?></span><!-- school_one_name -->
+											
 										</strong>
+										
+										<?php if(get_field('school_one_major') && get_field('school_one_major') !== 'NULL' && get_field('school_one_major') !== 'N/A' ) { ?>
 									
-										<br/>
+											<span class="school_one_major"><?php the_field( 'school_one_major' ); ?></span><!-- school_one_major -->
+										<?php } ?>
 										
-										<?php if(get_field('school_one_major') && get_field('school_one_major') !== 'NULL' && get_field('school_one_major') !== 'N/A' ) {
+										<?php if(get_field('school_one_degree') && get_field('school_one_degree') !== 'NULL' && get_field('school_one_degree') !== 'N/A' ) { ?>
 									
-											the_field( 'school_one_major' ); echo "&nbsp;&nbsp;|&nbsp;&nbsp";
+											<span class="school_one_degree"><?php the_field( 'school_one_degree' ); ?></span><!-- school_one_major -->
+										<?php } ?>
 										
-										} 
-										
-										if(get_field('school_one_year_graduated') && get_field('school_one_year_graduated') !== 'NULL' && get_field('school_one_year_graduated') !== 'N/A') {
+										<?php if(get_field('school_one_year_graduated') && get_field('school_one_year_graduated') !== 'NULL' && get_field('school_one_year_graduated') !== 'N/A') { ?>
 									
-											the_field( 'school_one_year_graduated' );
+											<span class="school_one_year_graduated"><?php the_field( 'school_one_year_graduated' );?></span><!-- school_one_year_graduated -->
 										
-										} ?>
+										<?php } ?>
 										
 									</li>
 								
-									
+									<?php } ?>
 										
-										<?php if(get_field('school_two_name') && get_field('school_two_name') !== 'NULL') { ?>
+									<?php if(get_field('school_two_name') && get_field('school_two_name') !== 'NULL') { ?>
 										
 										<li>
 									
 										<strong>
 									
-											<?php the_field( 'school_two_name' );?>
+											<span class="school_two_name"><?php the_field( 'school_two_name' );?></span><!-- school_two_name -->
 											
-											</strong>
+										</strong>
 										
-										<br/>
-										
-										
-										
-										
-										
-										<?php if(get_field('school_two_major') && get_field('school_two_major') !== 'NULL' && get_field('school_two_major') !== 'N/A') {
+										<?php if(get_field('school_two_major') && get_field('school_two_major') !== 'NULL' && get_field('school_two_major') !== 'N/A') { ?>
 									
-											the_field( 'school_two_major' ); echo "&nbsp;&nbsp;|&nbsp;&nbsp";
+											<span class="school_two_major"><?php the_field( 'school_two_major' );?></span><!-- school_two_major -->
 										
-										} 
+										<?php } ?> 
 										
-										if(get_field('school_two_year_graduated') && get_field('school_two_year_graduated') !== 'NULL' && get_field('school_two_year_graduated') !== 'N/A') {
+										<?php if(get_field('school_two_degree') && get_field('school_two_degree') !== 'NULL' && get_field('school_two_degree') !== 'N/A' ) { ?>
 									
-											the_field( 'school_two_year_graduated' );
+											<span class="school_two_degree"><?php the_field( 'school_two_degree' ); ?></span><!-- school_one_major -->
+										<?php } ?>
 										
-										} ?>
+										<?php if(get_field('school_two_year_graduated') && get_field('school_two_year_graduated') !== 'NULL' && get_field('school_two_year_graduated') !== 'N/A') { ?>
+									
+											<span class="school_two_year_graduated"><?php the_field( 'school_two_year_graduated' );?></span><!-- school_two_year_graduated -->
+										
+										<?php } ?>
 								
 									</li>
 									
@@ -243,10 +240,12 @@
 								</ul>
 												
 							</div><!-- att_bio_sidebar_row -->
+							
+						</div><!-- att_standard_education -->
 						
 						<?php } ?>
 						
-					</div><!-- att_standard_education -->
+					
 					
 					<a class="claim_button">Claim this Listing</a><!-- claim_button -->
 					
