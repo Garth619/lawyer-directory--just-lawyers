@@ -655,7 +655,7 @@ a.claim_button {
 		max-width:800px;
 		background: #fff;
 		margin:45px auto;
-		padding:85px 45px 45px;
+		padding:85px 45px 65px;
 		position: relative;
 		img.overlay_logo {
 			width:280px;
@@ -1342,7 +1342,27 @@ span.overylay_header {
 }
 
 
+.overlay {
+	.overlay_inner {
+		padding: 105px 25px 45px;
+		margin-top:25px;
+		img.overlay_logo {
+			width: 240px;
+		}
+	}
+}
+
+
+
+.overlay_form {
+	ul {
+		display: block;
+	}
+}
 
 	
 	
 } /* Media Query */
+
+
+

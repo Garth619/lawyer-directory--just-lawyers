@@ -760,6 +760,69 @@ $('.sec_three_tab').on('click', function(e) {
   
 	$('input#input_2_17').val(ischooltwoyeargrad);
 	
+	
+	// contact info checkmark
+
+
+
+$('#choice_2_19_1').change(function() {
+  
+  if ($(this).is(':checked')) {
+    
+    // name
+		
+		var contactname = $('input#input_2_1').val();
+		
+		$('input#input_2_20').val(contactname);
+		
+		// email
+		
+		$('#input_2_22').focus();
+		
+		// phone
+		
+		var contactphone = $('input#input_2_2').val();
+		
+		$('input#input_2_23').val(contactphone);
+		
+		// address
+		
+		var contactaddress = $('input#input_2_6').val();
+		
+		$('input#input_2_24').val(contactaddress);
+		
+		
+		
+  
+  } else {
+	  
+	  $('input#input_2_20, input#input_2_23, input#input_2_24').val('');
+    
+  
+  }
+
+});
+
+
+
+
+
+	
+/*
+	if ($('#choice_2_19_1').prop('checked')) {
+		
+		$('body').addClass('garrett');
+		
+		// name
+		
+		var contactname = $('input#input_2_1').val();
+		
+		$('input#input_2_17').val(contactname);
+		
+	}
+*/
+
+	
 
   
 }); // document ready
