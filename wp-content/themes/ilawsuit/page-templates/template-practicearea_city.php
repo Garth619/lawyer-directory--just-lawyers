@@ -101,7 +101,7 @@
 			</div><!-- filter_by_search_wrapper -->
 
 			
-			<div class="list_wrapper">
+			<div class="list_wrapper browse_filter">
 				
 			
 		 		

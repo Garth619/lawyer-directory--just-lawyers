@@ -114,16 +114,10 @@
 				
 			</div><!-- filter_by_search_wrapper -->
 			
-			<div class="list_wrapper">
+			<div class="list_wrapper browse_filter">
 				
-				
-
-
-				<?php 
+			<?php 
 					
-				
-	
-
 				$termargs = array (
 					'taxonomy' => $taxlocations,
 					'parent' => $statetermid 
