@@ -67,7 +67,7 @@
 }
 
 
-.att_bio_address_wrapper {
+.att_bio_row_wrapper {
 	margin-bottom:60px;
 	span {
 		display: block;
@@ -80,7 +80,7 @@
 		margin-bottom:12px;
 		@include montserrat_extrabold;
 	}
-	span.att_bio_address, a.att_bio_phone {
+	span.att_bio_address, .att_bio_row_title {
 		display: block;
 		font-size: 20px;
 		line-height: 28px;
@@ -89,7 +89,7 @@
 	span.att_bio_address {
 		max-width: 250px;
 	}
-	a.att_bio_phone {
+	.att_bio_row_title {
 		text-decoration: none;
 		color:#000;
 	}
@@ -737,6 +737,25 @@ a.claim_button {
 				width:25px;
 				height:25px;
 				border: 2px solid #d8d8d8;
+				position: relative;
+				&:checked {
+					//background: $offwhite;
+					&:after {
+						display: block;
+					}
+				}
+				&:after {
+					content: "";
+					position: absolute;
+					left: 8px;
+					top: 3px;
+					width: 7px;
+					height: 11px;
+					border: solid $bluetwo;
+					border-width: 0 3px 3px 0;
+					transform: rotate(45deg);
+					display: none;
+				}
 			}
 			textarea {
 				height:200px;
@@ -767,7 +786,6 @@ a.claim_button {
 					text-transform: none;
 					letter-spacing: 0;
 					font-weight: 400;
-					
 				}
 			}
 		}

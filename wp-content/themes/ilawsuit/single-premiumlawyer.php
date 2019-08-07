@@ -73,7 +73,7 @@
 				
 				<?php if(get_field('lawyer_address') && get_field('lawyer_address') !== 'NULL') { ?>
 				
-					<div class="att_bio_address_wrapper">
+					<div class="att_bio_row_wrapper">
 					
 						<span class="att_bio_sidebar_title">Address</span><!-- att_bio_sidebar_title -->
 					
@@ -87,19 +87,43 @@
 					
 						<a class="get_directions" href="https://www.google.com/maps/search/?api=1&query=<?php echo $addressCleaned;?>" target="_blank" rel="noopener">Directions</a><!-- get_directions -->
 
-					</div><!-- att_bio_address_wrapper -->
+					</div><!-- att_bio_row_wrapper -->
 				
 				<?php } ?>
 				
 				<?php if(get_field('lawyer_phone') && get_field('lawyer_phone') !== 'NULL') { ?>
 				
-					<div class="att_bio_address_wrapper">
+					<div class="att_bio_row_wrapper">
 					
-						<span class="att_bio_sidebar_title">Phone</span><!-- att_bio_sidebar_title -->
+						<span class="att_bio_sidebar_title att_bio_phone">Phone</span><!-- att_bio_sidebar_title -->
 					
-						<a class="att_bio_phone" href="tel:<?php echo str_replace(['-', '(', ')', ' '], '', get_field('lawyer_phone')); ?>"><?php the_field( 'lawyer_phone' ); ?></a><!-- att_bio_phone -->
+						<a class="att_bio_row_title" href="tel:<?php echo str_replace(['-', '(', ')', ' '], '', get_field('lawyer_phone')); ?>"><?php the_field( 'lawyer_phone' ); ?></a><!-- att_bio_row_title -->
 					
-					</div><!-- att_bio_address_wrapper -->
+					</div><!-- att_bio_row_wrapper -->
+				
+				<?php } ?>
+				
+				<?php if(get_field('lawfirm_name') && get_field('lawfirm_name') !== 'NULL') { ?>
+				
+					<div class="att_bio_row_wrapper">
+					
+						<span class="att_bio_sidebar_title">Lawfirm Name</span><!-- att_bio_sidebar_title -->
+					
+						<span class="att_bio_row_title years_licensed_for"><?php the_field( 'lawfirm_name' ); ?></span><!-- att_bio_row_title -->
+					
+					</div><!-- att_bio_row_wrapper -->
+				
+				<?php } ?>
+				
+				<?php if(get_field('years_licensed_for') && get_field('years_licensed_for') !== 'NULL') { ?>
+				
+					<div class="att_bio_row_wrapper">
+					
+						<span class="att_bio_sidebar_title">Years Licensed For</span><!-- att_bio_sidebar_title -->
+					
+						<span class="att_bio_row_title years_licensed_for"><?php the_field( 'years_licensed_for' ); ?></span><!-- att_bio_row_title -->
+					
+					</div><!-- att_bio_row_wrapper -->
 				
 				<?php } ?>
 				
@@ -145,14 +169,14 @@
 								<?php } ?>
     
     						</ul>
-						
-							<?php } ?>
-						
-					</div><!-- att_bio_pa_list -->
+    						
+    					</div><!-- att_bio_pa_list -->
 					
-				</div><!-- att_bio_practice_areas -->
-				
-			</div><!-- att_bio_content -->
+						</div><!-- att_bio_practice_areas -->
+						
+					<?php } ?>
+						
+				</div><!-- att_bio_content -->
 			
 		</section><!-- att_bio_wrapper -->
 		

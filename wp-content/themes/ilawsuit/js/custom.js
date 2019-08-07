@@ -642,16 +642,35 @@ $('.sec_three_tab').on('click', function(e) {
 	
 	$('.ginput_container_checkbox').parent().addClass('flex_width');
 	
-	
-	
-	
 	$(document).bind('gform_post_render', function(){
 		
 			$('.overlay_form textarea').parent().parent().addClass('flex_width');
 			
 			$('.form_content_wrapper').parent().addClass('flex_width');
+			
+			$('.ginput_container_checkbox').parent().addClass('flex_width');
   	
   });
+  
+  // populate the claim profile form with exisiting profile info on page
+  
+  // name
+  
+  var iname = $('.internal_banner h1').text();
+  
+  $('input#input_2_1').val(iname);
+  
+  // phone
+  
+  var iphone = $('a.att_bio_phone').text();
+  
+  $('input#input_2_2').val(iphone);
+  
+  // years licensed for
+  
+  var iyears = $('.years_licensed_for').text();
+  
+  $('input#input_2_3').val(iyears);
 	
   
 }); // document ready
