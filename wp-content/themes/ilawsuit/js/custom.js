@@ -733,6 +733,7 @@ $('.sec_three_tab').on('click', function(e) {
 	 // pa
 	 
 	 
+/*
 	 var paItem = [];
 	 
 	 $(".att_bio_pa_list ul li").each(function() { 
@@ -744,6 +745,7 @@ $('.sec_three_tab').on('click', function(e) {
 	 var paList = '' + paItem.join(', ') + '';
 	 
 	 $('textarea#input_2_26').val(paList);
+*/
 	 
 	 
 	 // school one name
