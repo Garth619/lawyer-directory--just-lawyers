@@ -282,7 +282,13 @@
 			
 			<div class="related_att_inner">
 				
-				<span class="related_att_title">Attorneys in 
+				<?php 
+					
+					$term = reset($terms);
+				
+				?>
+			
+				<span class="related_att_title"><?php echo $term->name; ?> Attorneys in 
 				
 				<?php if(get_field('lawyer_city') && get_field('lawyer_city') !== 'NULL') {
 			
@@ -314,9 +320,11 @@
     				}
 					}
 					
-					
-					
 					$currentcityterm = $deepestTerm->slug;
+					
+					// exclude current post
+					
+					$exclude_post = $post->ID;
 					
 					// query args for wp query below
 					
@@ -325,12 +333,18 @@
 						'orderby' => 'rand',
 						'post_staus' => 'publish',
 						'posts_per_page' => 8,
+						'post__not_in' => array($exclude_post),
 						'tax_query' => array(
-								array(
+							array(
 								'taxonomy' => 'location',
 								'field' => 'slug',
 								'terms' => $currentcityterm
 							),
+							array(
+								'taxonomy'  => 'practice_area',
+								'field'     => 'slug',
+								'terms'     =>	'business',
+							)
 						),
 					); 
 				
@@ -363,6 +377,8 @@
 							if(get_field('lawyer_featured_practice_area')) { ?>
 					
 								<span class="related_single_att_subtitle"><?php the_field('lawyer_featured_practice_area');?></span><!-- related_single_att_subtitle -->
+								
+								<span class="related_single_att_subtitle city"><?php echo $currentcityterm;?></span>
 					
 							<?php }
 					
@@ -375,6 +391,8 @@
 						?>
 			
 						<span class="related_single_att_subtitle"><?php echo $term->name; ?></span><!-- related_single_att_subtitle -->
+						
+						<span class="related_single_att_subtitle city"><?php echo $currentcityterm;?></span>
 			
 					
 					<?php } ?>

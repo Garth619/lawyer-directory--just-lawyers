@@ -588,6 +588,9 @@ h2.att_bio_title {
 			margin:0 auto;
 			@include montserrat_extrabold;
 		}
+		span.related_single_att_subtitle.city {
+			margin-top:5px;
+		}
 		.related_view_profile_wrapper {
 			position: absolute;
 			bottom:50px;
