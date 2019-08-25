@@ -11,8 +11,7 @@
 \margl1440\margr1440\vieww15420\viewh12640\viewkind0
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
-\f0\fs24 \cf0 The practice area title in the banner on the bio page is grabbing the first PA from that attorney\'92s list as a default. This is because each lawyer has so many PA\'92s. That practice area term is now being filtered into the related attorneys below based on that PA within that city. If there isn\'92t a query that results in that pa within that city, it defaults back to just the city. (this is random list though too so its showing a random eight.\
-\
+\f0\fs24 \cf0 The practice area title in the banner on the bio page is grabbing the first PA from that attorney\'92s list as a default. This is because each lawyer has so many PA\'92s. That practice area term is now being filtered into the related attorneys below based on that PA within that city. \
 \'97\'97\'97\
 \
 But I was thinking\'85 what if we had the pa title banner and the related attorneys below change dynamically based on the specific pa term the user is intending to see? For example: \
@@ -30,6 +29,9 @@ let\'92s say as a user, you have narrowed down your pa (aviation) and city (atla
 The user has the term \'93business\'94 in mind. So wouldn\'92t it make sense to have \'93business\'94 dynamically be the pa title banner as well as the related attorneys below? This would happen only when coming from that /lawyers-practice/california/los-angeles/business-lawyers page. To make that happen we could have the bio link on this page have a query string  /lawyer/a-william-urquhart?business. \
 \
 Then for seo purposes it would just default to the first pa if there isn\'92t a query string tied to the bio url.\
+\
+\
+(if we do this will need to have query string setup on certain pages and also in the related attorneys posts)\
 \
 \
 \'97\'97\'97\'97\

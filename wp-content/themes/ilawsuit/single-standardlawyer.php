@@ -8,6 +8,7 @@
 			
 			<?php $terms = get_the_terms( get_the_ID(), 'practice_area' ); ?>
 			
+<!--
 			<?php 
 				
 				if(get_field('lawyer_featured_practice_area')) { ?>
@@ -25,6 +26,15 @@
 					<span><?php echo $term->name; ?></span>
 			
 			<?php } ?>
+-->
+			
+			<?php $term = reset($terms);
+				
+				$termslug = $term->slug;
+				
+			?>
+			
+			<span><?php echo $term->name; ?></span>
 			
 			<?php if(get_field('lawyer_city') && get_field('lawyer_city') !== 'NULL') { ?>
 			
@@ -343,7 +353,7 @@
 							array(
 								'taxonomy'  => 'practice_area',
 								'field'     => 'slug',
-								'terms'     =>	'business',
+								'terms'     =>	$termslug,
 							)
 						),
 					); 
@@ -372,13 +382,12 @@
 						
 						<span class="related_single_att_title"><?php the_title();?></span><!-- related_single_att_title -->
 						
+<!--
 						<?php 
 				
 							if(get_field('lawyer_featured_practice_area')) { ?>
 					
-								<span class="related_single_att_subtitle"><?php the_field('lawyer_featured_practice_area');?></span><!-- related_single_att_subtitle -->
-								
-								<span class="related_single_att_subtitle city"><?php echo $currentcityterm;?></span>
+								<span class="related_single_att_subtitle"><?php the_field('lawyer_featured_practice_area');?></span>								
 					
 							<?php }
 					
@@ -390,12 +399,10 @@
 				
 						?>
 			
-						<span class="related_single_att_subtitle"><?php echo $term->name; ?></span><!-- related_single_att_subtitle -->
-						
-						<span class="related_single_att_subtitle city"><?php echo $currentcityterm;?></span>
+						<span class="related_single_att_subtitle"><?php echo $term->name; ?></span>
 			
-					
 					<?php } ?>
+-->
 					
 						<div class="related_view_profile_wrapper">
 						
