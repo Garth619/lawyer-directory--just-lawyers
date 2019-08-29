@@ -777,6 +777,9 @@ a.claim_button {
 	.ginput_container_checkbox {
 		ul#input_2_28.gfield_checkbox {
 			padding-top:25px;
+			> li {
+					flex-basis: 50%;
+			}
 		}
 		ul.gfield_checkbox {
 			margin-bottom: 0;
