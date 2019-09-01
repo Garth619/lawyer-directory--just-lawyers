@@ -673,18 +673,19 @@ a.claim_button {
 				
 			}
 			span.claim_begin {
-				background: #2117dc;
+				background: $bluetwo;
 		    color: #fff;
 		    font-size: 16px;
 		    text-transform: uppercase;
 		    letter-spacing: 0.25em;
 		    padding: 15px 30px;
 		    display: inline-block;
-		    -webkit-transition: all 200ms ease-in-out;
+				cursor: pointer;
 		    transition: all 200ms ease-in-out;
-		    font-family: 'Montserrat', sans-serif;
-		    font-weight: 800;
-		    font-style: normal;
+		    @include montserrat_extrabold;
+		    &:hover {
+			    background: $blue;
+		    }
 			}
 		}
 	}
