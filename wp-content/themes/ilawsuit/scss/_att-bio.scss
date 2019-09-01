@@ -725,8 +725,12 @@ a.claim_button {
 
 
 .overlay_form {
-	padding-top:20px;
+	padding-top:25px;
 	display: none;
+	h3 {
+		text-align: center;
+		padding-bottom:50px;
+	}
 	ul {
 		display: flex;
 		flex-wrap:wrap;

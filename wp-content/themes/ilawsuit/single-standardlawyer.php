@@ -280,6 +280,8 @@
 							
 							<div class="overlay_form">
 								
+								<h3>Step 1 of 3</h3>
+								
 								<?php gravity_form(2, false, false, false, '', true, 1332); ?>
 								
 							</div><!-- overlay_form -->

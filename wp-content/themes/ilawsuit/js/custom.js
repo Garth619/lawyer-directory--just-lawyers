@@ -634,6 +634,17 @@ $('.sec_three_tab').on('click', function(e) {
 
 	// claim profile form
 	
+	
+	$('span.claim_begin').on('click', function(e) {
+	  
+		$('.overlay_description').fadeOut(300);
+		
+		$('.overlay_form').delay(500).fadeIn(300);
+	
+	});
+	
+	
+	
 	// layout styles: target li that has a textarea child and make it flex-basis 100%
 	
 	
