@@ -191,6 +191,14 @@ form ::-moz-placeholder {
 		line-height: 21px;
 		@include montserrat_extrabold;
 	}
+	h3 {
+		text-transform: uppercase;
+    display: block;
+    font-size: 16px;
+    letter-spacing: 0.15em;
+    margin-bottom: 12px;
+    @include montserrat_extrabold;
+	}
 	a {
 		color:$bluetwo;
 		text-decoration: none;

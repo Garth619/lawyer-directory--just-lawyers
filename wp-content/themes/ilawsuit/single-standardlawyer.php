@@ -269,7 +269,11 @@
 							
 							<div class="overlay_description content">
 								
+								<h3>Price of service goes here $$$</h3>
+								
 								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderits</p>
+								
+								<span class="claim_begin">Let's Begin</span><!-- claim_begin -->
 								
 								
 							</div><!-- overlay_description -->
