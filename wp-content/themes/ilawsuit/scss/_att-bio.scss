@@ -729,7 +729,12 @@ a.claim_button {
 	display: none;
 	h3 {
 		text-align: center;
-		padding-bottom:50px;
+		//padding-bottom:50px;
+	}
+	// username password
+	ul#gform_fields_2_2 {
+		max-width:525px;
+		margin:0 auto;
 	}
 	ul {
 		display: flex;
@@ -751,7 +756,7 @@ a.claim_button {
 				margin-bottom:10px;
 				@include montserrat_extrabold;
 			}
-			input[type="text"], textarea {
+			input[type="text"],input[type="password"], textarea {
 				border: 2px solid #d8d8d8;
 				font-size: 20px;
 				line-height: 38px;
@@ -797,6 +802,18 @@ a.claim_button {
 		}
 		li#field_2_19 > label {
 			display: none;
+		}
+		// username password
+		li#field_2_30, li#field_2_31 {
+			flex-basis:100%;
+			label:not(.gfield_label) {
+				font-size:13px;
+				margin-top:5px;
+				padding-left:20px;
+			}
+			input#input_2_31_2 {
+				margin-top:18px;
+			}
 		}
 	}
 	.ginput_container_checkbox {
@@ -857,6 +874,63 @@ a.claim_button {
 	}
 }
 
+
+.gf_progressbar {
+	width:320px;
+	height: 16px;
+	margin:0 auto 70px;
+	border: 2px solid #d8d8d8;
+	border-radius: 30px;
+	overflow: hidden;
+}
+
+.gf_progressbar_percentage {
+	background: $blue;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height:100%;
+	span {
+		color:#fff;
+		font-size: 16px;
+		display: none;
+		font-family: $worksans;
+	}
+}
+
+#input_2_31_strength_indicator {
+	background: #d8d8d8;
+	//border: 2px solid #d8d8d8;
+	border-radius:10px;
+	margin-top: 22px;
+	padding-left:20px;
+	font-size:13px;
+	letter-spacing: 0.1em;
+	color:#000;
+	text-transform: uppercase;
+	@include montserrat_extrabold;
+}
+
+#input_2_31_strength_indicator.short,
+#input_2_31_strength_indicator.bad {
+	background:#c93241;
+	color:#fff;
+	width:33%;
+	//border: 2px solid #c93241;
+	//scolor:#c93241;
+}
+
+#input_2_31_strength_indicator.good {
+	background:#f3ac29;
+	color:#fff;
+	width:50%;
+}
+
+#input_2_31_strength_indicator.strong {
+	background:#539c41;
+	color:#fff;
+	width:100%;
+}
 
 
 .form_content_wrapper {
