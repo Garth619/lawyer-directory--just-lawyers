@@ -271,39 +271,57 @@
 								
 								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim </p>
 								
-								<h3>Claim Free Profile</h3>
+								<div class="price_tier_wrapper">
 								
-								<p>Lorem ipsum dolor sit amet, consectetur adip</p>
+								<div class="price_tier">
 								
-								<div class="layout_selection">
-									
-									<span class="radio_button"></span>
-									
-									<span class="radio_button_verbiage">Claim Profile</span>
-									
-								</div><!-- layout_selection -->
+									<h3>Claim Free Profile</h3>
 								
-								<h3>Basic - Update Claim $119/yr</h3>
+									<p>Lorem ipsum dolor sit amet, consectetur adip</p>
 								
-								<p>Lorem ipsum dolor sit amet, consectetur adip</p>
+									<div class="layout_selection">
+									
+										<span class="radio_button radio_button_one checked"></span>
+									
+										<span class="radio_button_verbiage">Claim Profile</span>
+									
+									</div><!-- layout_selection -->
 								
-								<div class="layout_selection">
-									
-									<span class="radio_button"></span>
-									
-									<span class="radio_button_verbiage">Update Basis Claim</span>
-									
-								</div><!-- layout_selection -->
+								</div><!-- price_tier -->
 								
-								<h3>Premium - Extended Information $189/yr</h3>
+								<div class="price_tier">
 								
-								<p>Lorem ipsum dolor sit amet, consectetur adip</p>
+									<h3>Basic - Update Profile $119/yr</h3>
 								
-								<div class="layout_selection">
+									<p>Lorem ipsum dolor sit amet, consectetur adip</p>
+								
+									<div class="layout_selection">
 									
-									<span class="radio_button">Radio Button</span>
+										<span class="radio_button radio_button_two"></span>
 									
-								</div><!-- layout_selection -->
+										<span class="radio_button_verbiage">Update Basis Profile</span>
+									
+									</div><!-- layout_selection -->
+								
+								</div><!-- price_tier -->
+								
+								<div class="price_tier">
+								
+									<h3>Premium - Extended Profile $189/yr</h3>
+								
+									<p>Lorem ipsum dolor sit amet, consectetur adip</p>
+								
+									<div class="layout_selection">
+									
+										<span class="radio_button radio_button_three"></span>
+									
+										<span class="radio_button_verbiage">Update Premium Profile</span>
+									
+									</div><!-- layout_selection -->
+								
+								</div><!-- price_tier -->
+								
+								</div><!-- price_tier_wrapper -->
 								
 								<span class="claim_begin">Let's Begin</span><!-- claim_begin -->
 								
@@ -312,7 +330,7 @@
 							
 							<div class="overlay_form">
 								
-								<?php gravity_form(2, false, false, false, '', true, 1332); ?>
+								<?php gravity_form(2, false, false, false, '', true, 1344); ?>
 								
 							</div><!-- overlay_form -->
 							

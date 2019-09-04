@@ -667,10 +667,29 @@ a.claim_button {
 		}
 		.overlay_description {
 			margin:50px auto 0;
-			max-width: 750px;
+			max-width: 670px;
 			text-align: center;
+			.price_tier {
+				margin:0 auto 45px;
+				max-width: 500px;
+				padding-bottom:45px;
+				border-bottom:1px solid #d8d8d8;
+				&:first-of-type {
+					border-top:1px solid #d8d8d8;
+					padding-top:35px;
+					margin-top:60px;
+				}
+			}
 			h3 {
 				
+			}
+			p {
+				margin-bottom:18px;
+			}
+			.layout_selection {
+				display: flex;
+				justify-content: center;
+				align-items: center;
 			}
 			span.radio_button {
 				display: block;
@@ -678,6 +697,28 @@ a.claim_button {
 				height: 25px;
 				border: 2px solid #d8d8d8;
 				position: relative;
+				&:after {
+					content: "";
+					position: absolute;
+					left: 8px;
+					top: 3px;
+					width: 7px;
+					height: 11px;
+					border: solid $bluetwo;
+					border-width: 0 3px 3px 0;
+					transform: rotate(45deg);
+					display: none;
+					//display: block;
+				}
+			}
+			span.radio_button.checked {
+				&:after {
+					display: block;
+				}
+			}
+			span.radio_button_verbiage {
+				margin-left:15px;
+				display: block;
 			}
 			span.claim_begin {
 				background: $bluetwo;
@@ -752,6 +793,36 @@ a.claim_button {
 			margin-top:45px;
 			margin-bottom:35px;
 		}
+		//education
+		li#field_2_46 {
+			margin-top:10px;
+		}
+		// profile choice
+		li#field_2_42 {
+			margin-bottom:0;
+			flex-basis: 100%;
+			ul {
+				display: block;
+				margin-bottom:0;
+				li {
+					display: flex;
+					flex-basis: 100%;
+					label {
+						font-size: 20px;
+						line-height: 26px;
+						font-family: "Work Sans",sans-serif;
+						font-weight: 600;
+						text-transform: none;
+						letter-spacing: 0;
+						font-weight: 400;
+						margin-left: 15px;
+					}
+				}
+				li.gchoice_2_42_2 {
+					margin-bottom:0;
+				}
+			}
+		}
 		li {
 			flex-basis: 47.5%;
 			padding:0;
@@ -781,7 +852,7 @@ a.claim_button {
 					border: 2px solid $blue;
 				}
 			}
-			input[type="checkbox"] {
+			input[type="checkbox"], input[type="radio"] {
 				width:25px;
 				height:25px;
 				border: 2px solid #d8d8d8;
@@ -815,6 +886,18 @@ a.claim_button {
 		li#field_2_19 > label {
 			display: none;
 		}
+		// profile choice
+		li#field_2_42 {
+			label.gfield_label {
+				display: none;
+			}
+		}
+		//practice areas
+		li#field_2_28 {
+			label.gfield_label {
+				display: none;
+			}
+		}
 		// username password
 		li#field_2_30, li#field_2_31 {
 			flex-basis:100%;
@@ -839,7 +922,7 @@ a.claim_button {
 	}
 	.ginput_container_checkbox {
 		ul#input_2_28.gfield_checkbox {
-			padding-top:25px;
+			//padding-top:25px;
 			> li {
 					flex-basis: 50%;
 			}
@@ -861,6 +944,7 @@ a.claim_button {
 					text-transform: none;
 					letter-spacing: 0;
 					font-weight: 400;
+					margin-left:5px;
 				}
 			}
 		}

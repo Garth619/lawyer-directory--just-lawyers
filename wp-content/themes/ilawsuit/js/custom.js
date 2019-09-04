@@ -635,6 +635,43 @@ $('.sec_three_tab').on('click', function(e) {
 	// claim profile form
 	
 	
+	// profile choice radio buttons
+	
+	// price teirs
+	  
+	// radio button one checked by default
+	
+	$("#choice_2_42_0").prop("checked", true);
+	
+	$('span.radio_button').on('click', function(e) {
+	  
+	  $('span.radio_button').removeClass('checked');
+	  
+	  $(this).addClass('checked');
+	  
+	  // map radio buttons above to the co-existing form on step 1
+	  
+	  if($('.radio_button_one.checked').length >0 ){
+
+			$("#choice_2_42_0").prop("checked", true);
+		
+		}
+	  
+	  if($('.radio_button_two.checked').length >0 ){
+
+			$("#choice_2_42_1").prop("checked", true);
+		
+		}
+	  
+	  if($('.radio_button_three.checked').length >0 ){
+
+			$("#choice_2_42_2").prop("checked", true);
+		
+		}
+	  
+	  
+	});
+	
 	
 	
 	
