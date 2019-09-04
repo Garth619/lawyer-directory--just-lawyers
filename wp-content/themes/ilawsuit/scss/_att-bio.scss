@@ -672,6 +672,13 @@ a.claim_button {
 			h3 {
 				
 			}
+			span.radio_button {
+				display: block;
+				width: 25px;
+				height: 25px;
+				border: 2px solid #d8d8d8;
+				position: relative;
+			}
 			span.claim_begin {
 				background: $bluetwo;
 		    color: #fff;
@@ -740,6 +747,11 @@ a.claim_button {
 		display: flex;
 		flex-wrap:wrap;
 		justify-content: space-between;
+		li.gsection {
+			flex-basis: 100%;
+			margin-top:45px;
+			margin-bottom:35px;
+		}
 		li {
 			flex-basis: 47.5%;
 			padding:0;
@@ -814,6 +826,15 @@ a.claim_button {
 			input#input_2_31_2 {
 				margin-top:18px;
 			}
+			.gfield_description, .validation_message {
+				color:#c93241;
+				font-family: $worksans;
+				text-transform: none;
+				font-weight: 400;
+				letter-spacing: 0;
+				font-size: 17px;
+				line-height: 23px;
+			}
 		}
 	}
 	.ginput_container_checkbox {
@@ -875,6 +896,18 @@ a.claim_button {
 }
 
 
+
+
+.form_content_wrapper {
+/*
+	max-width:750px;
+	text-align: center;
+	margin-left:auto;
+	margin-right:auto;
+*/
+}
+
+
 .gf_progressbar {
 	width:320px;
 	height: 16px;
@@ -902,7 +935,7 @@ a.claim_button {
 	background: #d8d8d8;
 	//border: 2px solid #d8d8d8;
 	border-radius:10px;
-	margin-top: 22px;
+	margin-top: 25px;
 	padding-left:20px;
 	font-size:13px;
 	letter-spacing: 0.1em;
@@ -912,7 +945,8 @@ a.claim_button {
 }
 
 #input_2_31_strength_indicator.short,
-#input_2_31_strength_indicator.bad {
+#input_2_31_strength_indicator.bad,
+#input_2_31_strength_indicator.mismatch {
 	background:#c93241;
 	color:#fff;
 	width:33%;

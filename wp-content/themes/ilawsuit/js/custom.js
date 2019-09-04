@@ -635,6 +635,9 @@ $('.sec_three_tab').on('click', function(e) {
 	// claim profile form
 	
 	
+	
+	
+	
 	$('span.claim_begin').on('click', function(e) {
 	  
 		$('.overlay_description').fadeOut(300);
@@ -674,7 +677,7 @@ $('.sec_three_tab').on('click', function(e) {
 		
 		// email
 		
-		$('#input_2_22').focus();
+		//$('#input_2_22').focus();
 		
 		// phone
 		
@@ -829,7 +832,11 @@ $('#choice_2_19_1').change(function() {
 		
 		// email
 		
-		$('#input_2_22').focus();
+		var contactemail = $('input#input_2_48').val();
+		
+		$('input#input_2_22').val(contactemail);
+		
+		//$('#input_2_22').focus();
 		
 		// phone
 		

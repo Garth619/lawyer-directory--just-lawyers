@@ -269,9 +269,41 @@
 							
 							<div class="overlay_description content">
 								
-								<h3>Price of service goes here $$$</h3>
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim </p>
 								
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderits</p>
+								<h3>Claim Free Profile</h3>
+								
+								<p>Lorem ipsum dolor sit amet, consectetur adip</p>
+								
+								<div class="layout_selection">
+									
+									<span class="radio_button"></span>
+									
+									<span class="radio_button_verbiage">Claim Profile</span>
+									
+								</div><!-- layout_selection -->
+								
+								<h3>Basic - Update Claim $119/yr</h3>
+								
+								<p>Lorem ipsum dolor sit amet, consectetur adip</p>
+								
+								<div class="layout_selection">
+									
+									<span class="radio_button"></span>
+									
+									<span class="radio_button_verbiage">Update Basis Claim</span>
+									
+								</div><!-- layout_selection -->
+								
+								<h3>Premium - Extended Information $189/yr</h3>
+								
+								<p>Lorem ipsum dolor sit amet, consectetur adip</p>
+								
+								<div class="layout_selection">
+									
+									<span class="radio_button">Radio Button</span>
+									
+								</div><!-- layout_selection -->
 								
 								<span class="claim_begin">Let's Begin</span><!-- claim_begin -->
 								
