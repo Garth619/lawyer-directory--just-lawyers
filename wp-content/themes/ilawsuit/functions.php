@@ -101,6 +101,13 @@ function load_my_styles_scripts() {
        $currentdomain = get_bloginfo('url');
        $lawyer_title = get_the_title();
        
+       // Attorney Bio Meta Data for form and post updates
+       
+       $lawyerbio_city = get_field('lawyer_city');
+       $lawyerbio_state = get_field('lawyer_state');
+       $lawyerbio_stateabr = get_field('state_abbr');
+       $lawyerbio_zipcode = get_field('lawyer_zip');
+       
        // Localize the script with new data array 
 						
 			
@@ -111,6 +118,10 @@ function load_my_styles_scripts() {
 				'map_current_pa' => $patermslug_map,
 				'map_paged' => $mypaged,
 				'current_domain' => $currentdomain,
+				'lawyerbio_city' => $lawyerbio_city,
+				'lawyerbio_state' => $lawyerbio_state,
+				'lawyerbio_stateabr' => $lawyerbio_stateabr,
+				'lawyerbio_zipcode' => $lawyerbio_zipcode,
 			);
 
 			wp_localize_script( 'jquery-addon', 'my_mapdata', $map_array );
@@ -332,7 +343,8 @@ class GW_Minimum_Characters {
 new GW_Minimum_Characters( array( 
  'form_id' => 2,
  'field_id' => 9,
- 'min_chars' => 250,
+ 'min_chars' => 1,
+ //'min_chars' => 250,
  'max_chars' => 2000,
  'min_validation_message' => __( 'You need to enter at least %s characters.' ),
  'max_validation_message' => __( 'You can only enter %s characters.' )

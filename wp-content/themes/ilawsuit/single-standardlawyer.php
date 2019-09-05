@@ -79,26 +79,44 @@
 					
 				</div><!-- att_bio_profile -->
 				
-				<?php if(get_field('lawyer_address') && get_field('lawyer_address') !== 'NULL') { ?>
+				<?php if(get_field('lawyer_street_address')) : ?>
 				
-					<div class="att_bio_row_wrapper">
+						<div class="att_bio_row_wrapper">
 					
-						<span class="att_bio_sidebar_title">Address</span><!-- att_bio_sidebar_title -->
+							<span class="att_bio_sidebar_title">Address</span><!-- att_bio_sidebar_title -->
+						
+							<span class="att_bio_address">Hi street address</span><!-- att_bio_address -->
+						
+							<!-- do this -->
 					
-						<span class="att_bio_address"><?php the_field( 'lawyer_address' ); ?></span><!-- att_bio_address -->
+							<a class="get_directions" href="https://www.google.com/maps/search/?api=1&query=" target="_blank" rel="noopener">Directions</a><!-- get_directions -->
+
+						</div><!-- att_bio_row_wrapper -->
+						
+						<?php else : ?>
+				
+					<?php if(get_field('lawyer_address') && get_field('lawyer_address') !== 'NULL') { ?>
+				
+						<div class="att_bio_row_wrapper">
 					
-						<?php $address = get_field('lawyer_address');
+							<span class="att_bio_sidebar_title">Address</span><!-- att_bio_sidebar_title -->
+						
+							<span class="att_bio_address"><?php the_field( 'lawyer_address' ); ?></span><!-- att_bio_address -->
+						
+							<?php $address = get_field('lawyer_address');
 	
-							$addressCleaned = str_replace(' ', '%20', $address); // this works but doesnt echo in ahref below?
+								$addressCleaned = str_replace(' ', '%20', $address); // this works but doesnt echo in ahref below?
 					
-						?>
+							?>
 					
-						<a class="get_directions" href="https://www.google.com/maps/search/?api=1&query=<?php echo $addressCleaned;?>" target="_blank" rel="noopener">Directions</a><!-- get_directions -->
+							<a class="get_directions" href="https://www.google.com/maps/search/?api=1&query=<?php echo $addressCleaned;?>" target="_blank" rel="noopener">Directions</a><!-- get_directions -->
 
-
-					</div><!-- att_bio_row_wrapper -->
+						</div><!-- att_bio_row_wrapper -->
 				
-				<?php } ?>
+					<?php } ?>
+				
+				
+				<?php endif;?>
 				
 				
 				<?php if(get_field('lawyer_phone') && get_field('lawyer_phone') !== 'NULL') { ?>

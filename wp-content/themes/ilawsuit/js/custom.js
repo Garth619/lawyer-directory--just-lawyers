@@ -705,6 +705,8 @@ $('.sec_three_tab').on('click', function(e) {
 			$('#choice_2_19_1').change(function() {
   
   if ($(this).is(':checked')) {
+	  
+	  // contact info is checked, reapply the values after gravity forms does its ajax validation
     
     // name
 		
@@ -722,20 +724,36 @@ $('.sec_three_tab').on('click', function(e) {
 		
 		$('input#input_2_23').val(contactphone);
 		
-		// address
+		// street address
 		
-		var contactaddress = $('input#input_2_6').val();
+		var contactstreet = $('input#input_2_36').val();
 		
-		$('input#input_2_24').val(contactaddress);
+		$('input#input_2_49').val(contactstreet);
+		
+		// city
+		
+		var contactcity = $('input#input_2_39').val();
+		
+		$('input#input_2_50').val(contactcity);
+		
+		// state
+		
+		var contactstate = $('input#input_2_37').val();
+		
+		$('input#input_2_51').val(contactstate);
 		
 		
+		// zip
 		
-  
-  } else {
+		var contactzip = $('input#input_2_38').val();
+		
+		$('input#input_2_52').val(contactzip);
+		
+		
+		} else { // clears the personal contact info 
 	  
-	  $('input#input_2_20, input#input_2_23, input#input_2_24').val('');
+	  $('input#input_2_20, input#input_2_22, input#input_2_23, input#input_2_49, input#input_2_50, input#input_2_51, input#input_2_52').val('');
     
-  
   }
 
 });
@@ -775,12 +793,26 @@ $('.sec_three_tab').on('click', function(e) {
   
 	 $('input#input_2_5').val(iurl);
 	 
-	 // address
+	 // City, State and Zip Code metadata are being set up in the functions.php. This is bc I am not using these acfs onthe template and I don't want them to index along with the whole address acf in the sidebar (street address doesn't exist in this database)
 	 
-	 var iaddress = $('.att_bio_address').text();
+	 // City
+	 
+	 var icity = my_mapdata.lawyerbio_city;
   
-	 $('input#input_2_6').val(iaddress);
+	 $('input#input_2_39').val(icity);
 	 
+	 // State
+	 
+	 var istate = my_mapdata.lawyerbio_state;
+  
+	 $('select#input_2_56').val(istate);
+	 
+	 // Zip code
+	 
+	 var izip = my_mapdata.lawyerbio_zipcode;
+  
+	 $('input#input_2_38').val(izip);
+	 	 
 	 // pa
 	 
 	 
@@ -881,18 +913,36 @@ $('#choice_2_19_1').change(function() {
 		
 		$('input#input_2_23').val(contactphone);
 		
-		// address
+		// street address
 		
-		var contactaddress = $('input#input_2_6').val();
+		var contactstreet = $('input#input_2_36').val();
 		
-		$('input#input_2_24').val(contactaddress);
+		$('input#input_2_49').val(contactstreet);
+		
+		// city
+		
+		var contactcity = $('input#input_2_39').val();
+		
+		$('input#input_2_50').val(contactcity);
+		
+		// state
+		
+		var contactstate = $('select#input_2_56').val();
+		
+		$('#input_2_50').val('waht');
+		
+		console.log(contactstate);
+		
+		// zip
+		
+		var contactzip = $('input#input_2_38').val();
+		
+		$('input#input_2_52').val(contactzip);
 		
 		
-		
-  
-  } else {
+	} else {
 	  
-	  $('input#input_2_20, input#input_2_23, input#input_2_24').val('');
+	  $('input#input_2_20, input#input_2_22, input#input_2_23, input#input_2_49, input#input_2_50, input#input_2_51, input#input_2_52').val('');
     
   
   }
