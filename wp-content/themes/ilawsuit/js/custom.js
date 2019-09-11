@@ -822,9 +822,7 @@ $('.sec_three_tab').on('click', function(e) {
   
 	 $('select#input_2_56').val(istate);
 	 
-	 var istate = my_mapdata.lawyerbio_state;
-  
-	 $('select#input_2_56').val(istate);
+	 
 	 
 	 var x, i, j, selElmnt, a, b, c;
 /*look for any elements with the class "custom-select":*/
