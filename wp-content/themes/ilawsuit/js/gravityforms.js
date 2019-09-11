@@ -4,5 +4,6 @@
 // @codekit-prepend '../../../plugins/gravityforms/js/gravityforms.min.js'
 // @codekit-prepend '../../../plugins/gravityforms/js/jquery.maskedinput.min.js'
 // @codekit-prepend '../../../plugins/gravityforms/js/placeholders.jquery.min.js'
+// @codekit-prepend '../../../plugins/gravityforms/js/conditional_logic.min.js'
 
 

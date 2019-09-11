@@ -687,7 +687,8 @@ a.claim_button {
 				margin-bottom:18px;
 			}
 			.layout_selection {
-				display: flex;
+				//display: flex;
+				display: none;
 				justify-content: center;
 				align-items: center;
 			}
@@ -781,8 +782,10 @@ a.claim_button {
 	}
 	// username password
 	ul#gform_fields_2_2 {
+/*
 		max-width:525px;
 		margin:0 auto;
+*/
 	}
 	ul {
 		display: flex;
@@ -953,6 +956,7 @@ a.claim_button {
 				margin-top:18px;
 			}
 			.gfield_description, .validation_message {
+/*
 				color:#c93241;
 				font-family: $worksans;
 				text-transform: none;
@@ -960,6 +964,7 @@ a.claim_button {
 				letter-spacing: 0;
 				font-size: 17px;
 				line-height: 23px;
+*/
 			}
 		}
 	}
@@ -993,7 +998,7 @@ a.claim_button {
 		}
 	}
 	.gfield_description, .validation_message {
-		color:$bluetwo;
+		color:red;
 		font-size: 14px;
 		letter-spacing: 0.09em;
 		text-transform: uppercase;

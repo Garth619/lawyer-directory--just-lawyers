@@ -641,7 +641,9 @@ $('.sec_three_tab').on('click', function(e) {
 	  
 	// radio button one checked by default
 	
-	$("#choice_2_42_0").prop("checked", true);
+	// below is not in use anymore
+	
+// 	$("#choice_2_42_0").prop("checked", true);
 	
 	$('span.radio_button').on('click', function(e) {
 	  
@@ -702,108 +704,9 @@ $('.sec_three_tab').on('click', function(e) {
 			
 			$('.ginput_container_checkbox').parent().addClass('flex_width');
 			
-			$('#choice_2_19_1').change(function() {
-  
-  if ($(this).is(':checked')) {
-	  
-	  // contact info is checked, reapply the values after gravity forms does its ajax validation
-    
-    // name
-		
-		var contactname = $('input#input_2_1').val();
-		
-		$('input#input_2_20').val(contactname);
-		
-		// email
-		
-		//$('#input_2_22').focus();
-		
-		// phone
-		
-		var contactphone = $('input#input_2_2').val();
-		
-		$('input#input_2_23').val(contactphone);
-		
-		// street address
-		
-		var contactstreet = $('input#input_2_36').val();
-		
-		$('input#input_2_49').val(contactstreet);
-		
-		// city
-		
-		var contactcity = $('input#input_2_39').val();
-		
-		$('input#input_2_50').val(contactcity);
-		
-		// state
-		
-		var contactstate = $('input#input_2_37').val();
-		
-		$('input#input_2_51').val(contactstate);
-		
-		
-		// zip
-		
-		var contactzip = $('input#input_2_38').val();
-		
-		$('input#input_2_52').val(contactzip);
-		
-		
-		} else { // clears the personal contact info 
-	  
-	  $('input#input_2_20, input#input_2_22, input#input_2_23, input#input_2_49, input#input_2_50, input#input_2_51, input#input_2_52').val('');
-    
-  }
-
-});
-
-  	
-  });
-  
-  // populate the claim profile form with exisiting profile info on bio pages (super hardcoded in order to map correctly)
-  
-  // name
-  
-  var iname = $('.internal_banner h1').text();
-  
-  $('input#input_2_1').val(iname);
-  
-  // phone
-  
-  var iphone = $('a.att_bio_phone').text();
-  
-  $('input#input_2_2').val(iphone);
-  
-  // years licensed for
-  
-  var iyears = $('.years_licensed_for').text();
-  
-  $('input#input_2_3').val(iyears);
-  
-  // lawfirm name
-  
-   var ilawfirm = $('.lawfirm_name').text();
-  
-	 $('input#input_2_4').val(ilawfirm);
-	 
-	 // website url
-	 
-	 var iurl = $('a.visit_website_button').attr('href');
-  
-	 $('input#input_2_5').val(iurl);
-	 
-	 // City, State and Zip Code metadata are being set up in the functions.php. This is bc I am not using these acfs onthe template and I don't want them to index along with the whole address acf in the sidebar (street address doesn't exist in this database)
-	 
-	 // City
-	 
-	 var icity = my_mapdata.lawyerbio_city;
-  
-	 $('input#input_2_39').val(icity);
-	 
-	 // State
-	 
-	 var istate = my_mapdata.lawyerbio_state;
+			// state
+			
+			var istate = my_mapdata.lawyerbio_state;
   
 	 $('select#input_2_56').val(istate);
 	 
@@ -879,6 +782,118 @@ function closeAllSelect(elmnt) {
 /*if the user clicks anywhere outside the select box,
 then close all select boxes:*/
 document.addEventListener("click", closeAllSelect);
+			
+			$('#choice_2_19_1').change(function() {
+  
+  if ($(this).is(':checked')) {
+	  
+	  // contact info is checked, reapply the values after gravity forms does its ajax validation
+    
+    // name
+		
+		var contactname = $('input#input_2_1').val();
+		
+		$('input#input_2_20').val(contactname);
+		
+		// email
+		
+		var contactemail = $('input#input_2_48').val();
+		
+		$('input#input_2_22').val(contactemail);
+
+		
+		// phone
+		
+		var contactphone = $('input#input_2_2').val();
+		
+		$('input#input_2_23').val(contactphone);
+		
+		// street address
+		
+		var contactstreet = $('input#input_2_36').val();
+		
+		$('input#input_2_49').val(contactstreet);
+		
+		// city
+		
+		var contactcity = $('input#input_2_39').val();
+		
+		$('input#input_2_50').val(contactcity);
+		
+		// state
+		
+		var contactstate = $('select#input_2_56').val();
+		
+		$('#input_2_57').val(contactstate);
+		
+		console.log(contactstate);
+		
+		
+		// zip
+		
+		var contactzip = $('input#input_2_38').val();
+		
+		$('input#input_2_52').val(contactzip);
+		
+		
+		} else { // clears the personal contact info 
+	  
+	  $('input#input_2_20, input#input_2_22, input#input_2_23, input#input_2_49, input#input_2_50, input#input_2_51, input#input_2_52, #input_2_57').val('');
+    
+  }
+
+});
+
+  	
+  });
+  
+  // populate the claim profile form with exisiting profile info on bio pages (super hardcoded in order to map correctly)
+  
+  // name
+  
+  var iname = $('.internal_banner h1').text();
+  
+  $('input#input_2_1').val(iname);
+  
+  // phone
+  
+  var iphone = $('a.att_bio_phone').text();
+  
+  $('input#input_2_2').val(iphone);
+  
+  // years licensed for
+  
+  var iyears = $('.years_licensed_for').text();
+  
+  $('input#input_2_3').val(iyears);
+  
+  // lawfirm name
+  
+   var ilawfirm = $('.lawfirm_name').text();
+  
+	 $('input#input_2_4').val(ilawfirm);
+	 
+	 // website url
+	 
+	 var iurl = $('a.visit_website_button').attr('href');
+  
+	 $('input#input_2_5').val(iurl);
+	 
+	 // City, State and Zip Code metadata are being set up in the functions.php. This is bc I am not using these acfs onthe template and I don't want them to index along with the whole address acf in the sidebar (street address doesn't exist in this database)
+	 
+	 // City
+	 
+	 var icity = my_mapdata.lawyerbio_city;
+  
+	 $('input#input_2_39').val(icity);
+	 
+	 // State
+	 
+	 var istate = my_mapdata.lawyerbio_state;
+  
+	 $('select#input_2_56').val(istate);
+	 
+	 // apparently i dont need select js here for some reason the gfrom render hook is handling it 
 	 
 	 // Zip code
 	 
@@ -1015,7 +1030,7 @@ $('#choice_2_19_1').change(function() {
 		
 	} else {
 	  
-	  $('input#input_2_20, input#input_2_22, input#input_2_23, input#input_2_49, input#input_2_50, input#input_2_51, input#input_2_52').val('');
+	  $('input#input_2_20, input#input_2_22, input#input_2_23, input#input_2_49, input#input_2_50, input#input_2_51, input#input_2_52, #input_2_57').val('');
     
   
   }

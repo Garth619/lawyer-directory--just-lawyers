@@ -17,6 +17,17 @@
 		"oAP": "/404.php",
 		"oF": 0
 		},
+	"/Applications/MAMP/htdocs/lawyer-directory--just-lawyers/wp-content/plugins/gravityforms/js/conditional_logic.min.js": {
+		"bF": 0,
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 1,
+		"oAP": "/Applications/MAMP/htdocs/lawyer-directory--just-lawyers/wp-content/plugins/gravityforms/js/conditional_logic.min-min.js",
+		"oF": 0,
+		"sC": 3,
+		"tS": 0
+		},
 	"/Applications/MAMP/htdocs/lawyer-directory--just-lawyers/wp-content/plugins/gravityforms/js/gravityforms.min.js": {
 		"bF": 0,
 		"ft": 64,
@@ -99,6 +110,14 @@
 		"hM": 0,
 		"oA": 0,
 		"oAP": "/functions copy 2.php",
+		"oF": 0
+		},
+	"/functions copy custom defer.php": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 0,
+		"oAP": "/functions copy custom defer.php",
 		"oF": 0
 		},
 	"/functions copy.php": {
