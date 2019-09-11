@@ -355,7 +355,6 @@ new GW_Minimum_Characters( array(
  'form_id' => 2,
  'field_id' => 9,
  'min_chars' => 1,
- //'min_chars' => 250,
  'max_chars' => 2000,
  'min_validation_message' => __( 'You need to enter at least %s characters.' ),
  'max_validation_message' => __( 'You can only enter %s characters.' )

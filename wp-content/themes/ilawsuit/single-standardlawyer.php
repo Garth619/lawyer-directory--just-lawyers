@@ -294,13 +294,15 @@
 							
 							<div class="overlay_description content">
 								
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim </p>
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
 								
 								<div class="price_tier_wrapper">
 								
 								<div class="price_tier">
 								
-									<h3>Claim Free Profile</h3>
+									<h3>Claim Profile</h3>
+									
+									<span class="price_tier_subheder">Free</span><!-- price_tier_subheder -->
 								
 									<p>Lorem ipsum dolor sit amet, consectetur adip</p>
 								
@@ -316,7 +318,9 @@
 								
 								<div class="price_tier">
 								
-									<h3>Basic - Update Profile $119/yr</h3>
+									<h3>Basic Profile</h3>
+									
+									<span class="price_tier_subheder">$119/Year</span><!-- price_tier_subheder -->
 								
 									<p>Lorem ipsum dolor sit amet, consectetur adip</p>
 								
@@ -332,7 +336,9 @@
 								
 								<div class="price_tier">
 								
-									<h3>Premium - Extended Profile $189/yr</h3>
+									<h3>Premium Profile</h3>
+									
+									<span class="price_tier_subheder">$189/Year</span><!-- price_tier_subheder -->
 								
 									<p>Lorem ipsum dolor sit amet, consectetur adip</p>
 								
@@ -350,6 +356,7 @@
 								
 								<span class="claim_begin">Let's Begin</span><!-- claim_begin -->
 								
+								<span class="go_back_to_profile">Go Back to Profile</span><!-- go_back_to_profile -->
 								
 							</div><!-- overlay_description -->
 							
