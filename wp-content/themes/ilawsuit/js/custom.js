@@ -714,19 +714,19 @@ $('.sec_three_tab').on('click', function(e) {
 	 
 	 
 	 
-	 var x, i, j, selElmnt, a, b, c;
+var x, i, j, selElmnt, a, b, c;
 /*look for any elements with the class "custom-select":*/
 x = document.getElementsByClassName("mycustom-select");
 for (i = 0; i < x.length; i++) {
   selElmnt = x[i].getElementsByTagName("select")[0];
   /*for each element, create a new DIV that will act as the selected item:*/
   a = document.createElement("DIV");
-  a.setAttribute("class", "select-selected");
+  a.setAttribute("class", "select-selected render");
   a.innerHTML = selElmnt.options[selElmnt.selectedIndex].innerHTML;
   x[i].appendChild(a);
   /*for each element, create a new DIV that will contain the option list:*/
   b = document.createElement("DIV");
-  b.setAttribute("class", "select-items select-hide");
+  b.setAttribute("class", "select-items select-hide render");
   for (j = 1; j < selElmnt.length; j++) {
     /*for each option in the original select element,
     create a new DIV that will act as an option item:*/
@@ -789,7 +789,7 @@ document.addEventListener("click", closeAllSelect);
 	 
 	
 			
-			$('#choice_2_19_1').change(function() {
+$('#choice_2_19_1').change(function() {
   
   if ($(this).is(':checked')) {
 	  
@@ -833,7 +833,6 @@ document.addEventListener("click", closeAllSelect);
 		$('#input_2_57').val(contactstate);
 		
 		console.log(contactstate);
-		
 		
 		// zip
 		
@@ -898,8 +897,6 @@ document.addEventListener("click", closeAllSelect);
 	 var istate = my_mapdata.lawyerbio_state;
   
 	 $('select#input_2_56').val(istate);
-	 
-	 
 	 
 	 var x, i, j, selElmnt, a, b, c;
 /*look for any elements with the class "custom-select":*/
