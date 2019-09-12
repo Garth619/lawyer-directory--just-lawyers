@@ -964,7 +964,10 @@ a.claim_button {
 				background-color: rgba(0, 0, 0, 0.1);
 			}
 		}
-		
+		// featured lawyer
+		li#field_2_85 {
+			display: none !important;
+		}
 		// profile choice
 		li#field_2_42 {
 			label.gfield_label {
