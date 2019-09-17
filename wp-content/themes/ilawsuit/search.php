@@ -86,17 +86,16 @@
 								
 									<div class="single_lawyer_meta">
 									
-										<span>
+										<?php if(get_field('lawyer_street_address')) : ?>
 										
-										<?php the_field('lawyer_city');
+											<span><?php the_field( 'lawyer_street_address' ); ?>, <?php the_field( 'lawyer_city' ); ?> <?php the_field( 'lawyer_state' ); ?> 
+<?php the_field( 'lawyer_zip' ); ?></span>
 										
-										 if(get_field('state_abbr') && get_field('state_abbr') !== 'NULL') {
+										<?php else: ?>
 										
-											echo ", "; the_field('state_abbr');
-										
-										} ?>
-										
-										</span>
+											<span><?php the_field( 'lawyer_address' ); ?></span>
+											
+										<?php endif;?>
 									
 										<?php if(get_field('lawyer_phone') && get_field('lawyer_phone') !== 'NULL') { ?>
 									

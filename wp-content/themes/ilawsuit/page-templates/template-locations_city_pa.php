@@ -173,9 +173,19 @@
 										} ?>
 										
 										</span>
--->
+-->	
+										<?php if(get_field('lawyer_street_address')) : ?>
 										
-										<span class="results_address"><?php the_field( 'lawyer_address' ); ?></span><!-- results_address -->
+											<span class="results_address"><?php the_field( 'lawyer_street_address' ); ?>, <?php the_field( 'lawyer_city' ); ?> <?php the_field( 'lawyer_state' ); ?> 
+<?php the_field( 'lawyer_zip' ); ?></span><!-- results_address -->
+										
+										<?php else: ?>
+										
+											<span class="results_address"><?php the_field( 'lawyer_address' ); ?></span><!-- results_address -->
+											
+										<?php endif;?>
+										
+										
 									
 										<?php if(get_field('lawyer_phone') && get_field('lawyer_phone') !== 'NULL') { ?>
 									
@@ -294,7 +304,16 @@
 										</span>
 -->
 										
-										<span class="results_address"><?php the_field( 'lawyer_address' ); ?></span><!-- results_address -->
+										<?php if(get_field('lawyer_street_address')) : ?>
+										
+											<span class="results_address"><?php the_field( 'lawyer_street_address' ); ?>, <?php the_field( 'lawyer_city' ); ?> <?php the_field( 'lawyer_state' ); ?> 
+<?php the_field( 'lawyer_zip' ); ?></span><!-- results_address -->
+										
+										<?php else: ?>
+										
+											<span class="results_address"><?php the_field( 'lawyer_address' ); ?></span><!-- results_address -->
+											
+										<?php endif;?>
 									
 										<?php if(get_field('lawyer_phone') && get_field('lawyer_phone') !== 'NULL') { ?>
 									

@@ -83,11 +83,18 @@
 					
 							<span class="att_bio_sidebar_title">Address</span><!-- att_bio_sidebar_title -->
 						
-							<span class="att_bio_address">Hi street address</span><!-- att_bio_address -->
+							<span class="att_bio_address"><?php the_field( 'lawyer_street_address' ); ?>, <?php the_field( 'lawyer_city' ); ?> <?php the_field( 'lawyer_state' ); ?> 
+<?php the_field( 'lawyer_zip' ); ?></span><!-- att_bio_address -->
 						
 							<!-- do this -->
+							
+							<?php $claim_address = get_field('lawyer_street_address') . ' ' . get_field('lawyer_city') . ' ' . get_field('lawyer_state') . ' ' . get_field('lawyer_zip');
+	
+								$claim_addressCleaned = str_replace(' ', '%20', $claim_address); // this works but doesnt echo in ahref below?
 					
-							<a class="get_directions" href="https://www.google.com/maps/search/?api=1&query=" target="_blank" rel="noopener">Directions</a><!-- get_directions -->
+							?>
+					
+							<a class="get_directions" href="https://www.google.com/maps/search/?api=1&query=<?php echo $claim_addressCleaned;?>" target="_blank" rel="noopener">Directions</a><!-- get_directions -->
 
 						</div><!-- att_bio_row_wrapper -->
 						
@@ -424,7 +431,7 @@
 					
 					$query_args = array (
 						'post_type' => 'lawyer',
-						'orderby' => 'rand',
+						//'orderby' => 'title',
 						'post_staus' => 'publish',
 						'posts_per_page' => 8,
 						'post__not_in' => array($exclude_post),
@@ -465,6 +472,22 @@
 					<?php endif; ?>
 						
 						<span class="related_single_att_title"><?php the_title();?></span><!-- related_single_att_title -->
+						
+						<?php if(get_field('lawyer_street_address')) : ?>
+										
+											<span class="related_single_att_subtitle address"><?php the_field( 'lawyer_street_address' ); ?>, <?php the_field( 'lawyer_city' ); ?><br/> <?php the_field( 'lawyer_state' ); ?> <?php the_field( 'lawyer_zip' ); ?></span>
+										
+										<?php else: ?>
+										
+											<span class="related_single_att_subtitle address"><?php the_field( 'lawyer_address' ); ?></span>
+											
+										<?php endif;?>
+									
+										<?php if(get_field('lawyer_phone') && get_field('lawyer_phone') !== 'NULL') { ?>
+									
+											<span class="related_single_att_subtitle"><?php the_field( 'lawyer_phone' ); ?></span>
+									
+										<?php }?>
 						
 <!--
 						<?php 

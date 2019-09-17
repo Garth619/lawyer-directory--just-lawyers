@@ -565,7 +565,7 @@ h2.att_bio_title {
 	margin:88px auto 0;
 	justify-content: center;
 	.related_single_att {
-		height:560px;
+		height: 660px;
 		background: #fff;
 		flex-basis:calc(25% - 36px);
 		margin:0 18px 36px;
@@ -596,6 +596,9 @@ h2.att_bio_title {
 			max-width:270px;
 			margin:0 auto;
 			@include montserrat_extrabold;
+		}
+		span.related_single_att_subtitle.address {
+			margin-bottom:25px;
 		}
 		span.related_single_att_subtitle.city {
 			margin-top:5px;
