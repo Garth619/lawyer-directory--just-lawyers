@@ -167,11 +167,11 @@
 							<div class="single_lawyer_img_wrapper">
 								
 								
-								<?php $lawyer_profile_image = get_field( 'lawyer_profile_image' ); ?>
+							<?php if (get_field('lawyer_profile_picture')) : ?>
 					
-								<?php if ( $lawyer_profile_image ) : ?>
+									<img class="att_feed_image" src="<?php the_field('lawyer_profile_picture');?>" alt="<?php the_title();?>" />
 					
-									<img class="att_feed_image" src="<?php echo $lawyer_profile_image['url']; ?>" alt="<?php echo $lawyer_profile_image['alt']; ?>" />
+									
 						
 									<?php else:?>
 						
