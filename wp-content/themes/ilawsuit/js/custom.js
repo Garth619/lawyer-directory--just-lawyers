@@ -634,6 +634,8 @@ $('.sec_three_tab').on('click', function(e) {
 
 	// claim profile form
 	
+
+	
 	
 	// profile choice radio buttons
 	

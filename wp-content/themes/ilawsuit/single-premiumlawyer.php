@@ -53,11 +53,9 @@
 				
 				<div class="att_bio_profile">
 					
-					<?php $lawyer_profile_image = get_field( 'lawyer_profile_image' ); ?>
+					<?php if (get_field('lawyer_profile_picture')) : ?>
 					
-					<?php if ( $lawyer_profile_image ) : ?>
-					
-						<img class="att_img" src="<?php echo $lawyer_profile_image['url']; ?>" alt="<?php echo $lawyer_profile_image['alt']; ?>" />
+						<img class="att_img" src="<?php the_field('lawyer_profile_picture');?>" alt="<?php the_title();?>" />
 						
 						<?php else:?>
 						

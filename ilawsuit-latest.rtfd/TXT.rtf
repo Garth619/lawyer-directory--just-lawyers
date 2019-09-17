@@ -8,7 +8,7 @@
 {\*\expandedcolortbl;;\cssrgb\c0\c0\c93333;\cssrgb\c0\c0\c0;\cssrgb\c0\c0\c100000;
 \cssrgb\c0\c40000\c60000;\cssrgb\c66667\c46667\c0;\cssrgb\c0\c50980\c0;\csgenericrgb\c24706\c41176\c11765;\csgenericrgb\c100000\c0\c0;
 \cssrgb\c29020\c29020\c29020;\cssrgb\c94118\c94118\c94118;\cssrgb\c100000\c100000\c100000;\cssrgb\c95294\c95294\c96863;}
-\margl1440\margr1440\vieww14400\viewh12640\viewkind0
+\margl1440\margr1440\vieww19620\viewh12640\viewkind0
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
 \f0\fs24 \cf0 \
@@ -106,6 +106,10 @@ what am i doing with all of the questions that arent mapped and on mock up? ask 
 scale height on paragraph texts animation so it seems shorter scroll\
 turn basic 250 basic back on\
 \
+i might have to create a separate image edit upload section for image\'85 so annoying bc post creation isint mapping image object to the acf, either is gform post image, or it also isnt adding to featured image or not even uploading to media library \
+\
+gform errors on premium \
+\
 whats the difference between free and basic? tell mike\
 fixed overlay logo header\
 \
@@ -135,20 +139,20 @@ if it ends up being faster without cats maybe this will help\
 \pard\intbl\itap1\pardeftab720\sl300\partightenfactor0
 
 \f2 \cf3 \expnd0\expndtw0\kerning0
-\outl0\strokewidth0 \strokec3 add_action( \cf4 \strokec4 'gform_advancedpostcreation_post_after_creation'\cf3 \strokec3 , \cf4 \strokec4 'update_product_information'\cf3 \strokec3 , 10, 4 );\
-\cf5 \strokec5 function\cf3 \strokec3  update_product_information( \cf6 \strokec6 $post_id\cf3 \strokec3 , \cf6 \strokec6 $feed\cf3 \strokec3 , \cf6 \strokec6 $entry\cf3 \strokec3 , \cf6 \strokec6 $form\cf3 \strokec3  )\{\
+add_action( \cf4 'gform_advancedpostcreation_post_after_creation'\cf3 , \cf4 'update_product_information'\cf3 , 10, 4 );\
+\cf5 function\cf3  update_product_information( \cf6 $post_id\cf3 , \cf6 $feed\cf3 , \cf6 $entry\cf3 , \cf6 $form\cf3  )\{\
 \'a0\
-\'a0\'a0\'a0\'a0\cf7 \strokec7 //update the prices set for the product\cf3 \strokec3 \
-\'a0\'a0\'a0\'a0update_post_meta( \cf6 \strokec6 $post_id\cf3 \strokec3 , \cf4 \strokec4 '_regular_price'\cf3 \strokec3 , \cf6 \strokec6 $entry\cf3 \strokec3 [\cf4 \strokec4 '7'\cf3 \strokec3 ] );\
-\'a0\'a0\'a0\'a0update_post_meta( \cf6 \strokec6 $post_id\cf3 \strokec3 , \cf4 \strokec4 '_price'\cf3 \strokec3 , \cf6 \strokec6 $entry\cf3 \strokec3 [\cf4 \strokec4 '7'\cf3 \strokec3 ] );\
+\'a0\'a0\'a0\'a0\cf7 //update the prices set for the product\cf3 \
+\'a0\'a0\'a0\'a0update_post_meta( \cf6 $post_id\cf3 , \cf4 '_regular_price'\cf3 , \cf6 $entry\cf3 [\cf4 '7'\cf3 ] );\
+\'a0\'a0\'a0\'a0update_post_meta( \cf6 $post_id\cf3 , \cf4 '_price'\cf3 , \cf6 $entry\cf3 [\cf4 '7'\cf3 ] );\
 \'a0\
-\'a0\'a0\'a0\'a0\cf7 \strokec7 //update the category\cf3 \strokec3 \
-\'a0\'a0\'a0\'a0wp_set_object_terms( \cf6 \strokec6 $post_id\cf3 \strokec3 , \cf6 \strokec6 $entry\cf3 \strokec3 [\cf4 \strokec4 '6'\cf3 \strokec3 ], \cf4 \strokec4 'product_cat'\cf3 \strokec3  );\
+\'a0\'a0\'a0\'a0\cf7 //update the category\cf3 \
+\'a0\'a0\'a0\'a0wp_set_object_terms( \cf6 $post_id\cf3 , \cf6 $entry\cf3 [\cf4 '6'\cf3 ], \cf4 'product_cat'\cf3  );\
 \'a0\
 \}\cell \lastrow\row
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
-\f0 \cf0 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 \
+\f0 \cf0 \kerning1\expnd0\expndtw0 \
 \
 \'97\'97\'97\
 \
