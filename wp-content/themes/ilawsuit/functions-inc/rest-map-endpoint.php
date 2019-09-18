@@ -63,7 +63,7 @@ add_action( 'rest_api_init', 'map_route' );
 			),
 		);
 		
-		
+		$postid_array = array();
 		$post_data = array();
 		
 		
@@ -73,25 +73,26 @@ add_action( 'rest_api_init', 'map_route' );
 		
 		
 			while($featured_query->have_posts()) : $featured_query->the_post();
-			
-			
-/*
-			$terms = get_the_terms($post->ID, 'featured_lawyers');
-			
-			$term = array_pop($terms);
-*/			
+						
 				
 				$lawyer_profile_image = get_field( 'lawyer_profile_image' );
-			
+				
+				$post_ids[] = get_the_ID();
+				
 				$post_data[] = array(
 		    	'Title' => get_the_title(),
+		    	'Post ID' => get_the_ID(),
 					'Featured_lawyer' => true,
 					'Featured_post_image' => $lawyer_profile_image['url'],
 					'Permalink' => get_the_permalink(),
 					'Lat' => round(get_field('latitude'), 6),
 					'Lng' =>  round(get_field('longitude'), 6),
-					'Address' => get_field('lawyer_address'),
+					'Full Address' => get_field('lawyer_address'),
+					'Street Address' => get_field('lawyer_street_address'),
+					'City' => get_field('lawyer_city'),
+					'State' => get_field('lawyer_state'),
 					'Phone' => get_field('lawyer_phone'),
+					'Zip Code' => get_field('lawyer_zip'),
 					'Tel_href' => str_replace(['-', '(', ')', ' '], '', get_field('lawyer_phone')),
 					//'"ACF"' => get_fields($post->ID)
 					);
@@ -103,7 +104,7 @@ add_action( 'rest_api_init', 'map_route' );
 		
 		}
 		
-		
+		$posts_not_in = array_merge($postid_array, $post_ids);
 		
 		$reg_args = array(
 	  	'post_type' => 'lawyer',
@@ -112,7 +113,7 @@ add_action( 'rest_api_init', 'map_route' );
     	'orderby' => 'title',
     	'post_status' => 'publish',
 			'order' => 'ASC',
-			//'post__not_in' => $featured_lawyers,
+			'post__not_in' => $posts_not_in, // exclude featured posts so they aren't listed in both 
 			'tax_query' => array(
 				'relation' => 'AND',
 				array(
@@ -131,19 +132,25 @@ add_action( 'rest_api_init', 'map_route' );
 		);
 		
 		
+		
 		$reg_query = new WP_Query($reg_args); 
 		
 		while($reg_query->have_posts()) : $reg_query->the_post();
 		
 			$post_data_two[] = array(
 		    'Title' => get_the_title(),
+		    'Post ID' => get_the_ID(),
 		    'Permalink' => get_the_permalink(),
 		    'Featured_lawyer' => false,
 		    'Featured_post_image' => false,
 		    'Lat' => round(get_field('latitude'), 6),
 		    'Lng' =>  round(get_field('longitude'), 6),
-		    'Address' => get_field('lawyer_address'),
-		    'Phone' => get_field('lawyer_phone'),
+		    'Full Address' => get_field('lawyer_address'),
+		    'Street Address' => get_field('lawyer_street_address'),
+				'City' => get_field('lawyer_city'),
+				'State' => get_field('lawyer_state'),
+				'Phone' => get_field('lawyer_phone'),
+				'Zip Code' => get_field('lawyer_zip'),
 		    'Tel_href' => str_replace(['-', '(', ')', ' '], '', get_field('lawyer_phone')),
 		    //'"ACF"' => get_fields($post->ID)
 		  );

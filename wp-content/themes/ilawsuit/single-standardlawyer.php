@@ -431,7 +431,7 @@
 					
 					$query_args = array (
 						'post_type' => 'lawyer',
-						//'orderby' => 'title',
+						'orderby' => 'rand',
 						'post_staus' => 'publish',
 						'posts_per_page' => 8,
 						'post__not_in' => array($exclude_post),
