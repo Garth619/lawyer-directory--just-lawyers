@@ -82,20 +82,26 @@ function load_my_styles_scripts() {
 	
 		 		$citytermtitle = $citytermslug->name;
      		
-     		// build gecode url to retrieve the current city coordinates so the map can recenter
+     		// if page that displays map i.e. "/lawyers-practice/california/san-diego/business-lawyers"
      		
-     		$mapaddress = $citytermtitle . ',' . $statetermtitle; 
-		 		$prepAddr = str_replace(' ','+',$mapaddress);
+     		if (get_query_var( 'currentstate') && get_query_var( 'currentcity')) {
+	     		
+	     		// build gecode url to retrieve the current city coordinates so the map can recenter
+	     		
+	     		$mapaddress = $citytermtitle . ',' . $statetermtitle; 
+			 		$prepAddr = str_replace(' ','+',$mapaddress);
         
         
-		 		$geocode = file_get_contents('https://maps.google.com/maps/api/geocode/json?address='.$prepAddr.'&key=' . $google_map_api .'');
+			 		$geocode = file_get_contents('https://maps.google.com/maps/api/geocode/json?address='.$prepAddr.'&key=' . $google_map_api .'');
      
 
-		 		$output= json_decode($geocode);
-		 		$city_latitude = $output->results[0]->geometry->location->lat;
-		 		$city_longitude = $output->results[0]->geometry->location->lng;
-        
-       }
+			 		$output= json_decode($geocode);
+			 		$city_latitude = $output->results[0]->geometry->location->lat;
+			 		$city_longitude = $output->results[0]->geometry->location->lng;
+	     		
+	     	}
+     		
+     	}
        
        // current domian used for the rest api url call
        

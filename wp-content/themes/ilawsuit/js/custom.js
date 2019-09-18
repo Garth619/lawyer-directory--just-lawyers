@@ -788,6 +788,12 @@ function closeAllSelect(elmnt) {
 /*if the user clicks anywhere outside the select box,
 then close all select boxes:*/
 document.addEventListener("click", closeAllSelect);
+
+
+// ready only for latitude and longitude
+
+
+$('#input_2_88, #input_2_87').prop('readonly', true);
 	 
 	
 			
@@ -1116,7 +1122,10 @@ $('#choice_2_19_1').change(function() {
 });
 
 
+// ready only for latitude and longitude
 
+
+$('#input_2_88, #input_2_87').prop('readonly', true);
 
 
 	
@@ -1134,6 +1143,18 @@ $('#choice_2_19_1').change(function() {
 	}
 */
 
+
+var geocoder = new google.maps.Geocoder();
+var address = "1045+Turquoise+St,+San+Diego,+California+92109";
+
+geocoder.geocode( { 'address': address}, function(results, status) {
+
+  if (status == google.maps.GeocoderStatus.OK) {
+    var latitude = results[0].geometry.location.lat();
+    var longitude = results[0].geometry.location.lng();
+    alert(latitude + ' ' + longitude);
+  } 
+}); 
 	
 
   
