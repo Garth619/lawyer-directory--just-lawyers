@@ -160,6 +160,10 @@ window.eqfeed_callback = function(myJsonFile) {
 	        		
 				var lawyerTitle = myJsonFile[i].Title;
         var address = myJsonFile[i].Address;
+        var streetaddress = myJsonFile[i].Street_address;
+        var city = myJsonFile[i].City;
+        var state = myJsonFile[i].State;
+        var zipcode = myJsonFile[i].Zip_code;
         var phone = myJsonFile[i].Phone;
         var tel_href = myJsonFile[i].Tel_href;
         var viewprofile = myJsonFile[i].Permalink;
@@ -172,7 +176,7 @@ window.eqfeed_callback = function(myJsonFile) {
         });
 
         
-        var contentStringfeatured = "<div class='map_tooltip featured'><div class='map_tooltip_left'><img src='"+featuredProfileimg+"' /></div><div class='map_tooltip_right'><h3>"+lawyerTitle+"</h3><p><a href='"+viewprofile+"'>"+address+"</a></p><p><a href='tel:"+tel_href+"'>"+phone+"</a></p><p><a class='map_view_profile' href='"+viewprofile+"'>View Profile</a></div></div>";
+        var contentStringfeatured = "<div class='map_tooltip featured'><div class='map_tooltip_left'><img src='"+featuredProfileimg+"' /></div><div class='map_tooltip_right'><h3>"+lawyerTitle+"</h3><p><a href='"+viewprofile+"'>"+streetaddress+' '+city+', '+state+' '+zipcode+"</a></p><p><a href='tel:"+tel_href+"'>"+phone+"</a></p><p><a class='map_view_profile' href='"+viewprofile+"'>View Profile</a></div></div>";
         
         
         var contentString = "<div class='map_tooltip regular'><h3>"+lawyerTitle+"</h3><p><a href='"+viewprofile+"'>"+address+"</a></p><p><a href='tel:"+tel_href+"'>"+phone+"</a></p><p><a class='map_view_profile' href='"+viewprofile+"'>View Profile</a></div>";

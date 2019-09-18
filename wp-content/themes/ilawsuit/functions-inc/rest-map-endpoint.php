@@ -75,7 +75,7 @@ add_action( 'rest_api_init', 'map_route' );
 			while($featured_query->have_posts()) : $featured_query->the_post();
 						
 				
-				$lawyer_profile_image = get_field( 'lawyer_profile_image' );
+				$lawyer_profile_picture = get_field( 'lawyer_profile_picture' );
 				
 				$post_ids[] = get_the_ID();
 				
@@ -93,16 +93,16 @@ add_action( 'rest_api_init', 'map_route' );
 		    	'Title' => get_the_title(),
 		    	'Post ID' => get_the_ID(),
 					'Featured_lawyer' => true,
-					'Featured_post_image' => $lawyer_profile_image['url'],
+					'Featured_post_image' => $lawyer_profile_picture,
 					'Permalink' => get_the_permalink(),
 					'Lat' => $latfloat,
 					'Lng' =>  $longfloat,
-					'Full Address' => get_field('lawyer_address'),
-					'Street Address' => get_field('lawyer_street_address'),
+					'Full_address' => get_field('lawyer_address'),
+					'Street_address' => get_field('lawyer_street_address'),
 					'City' => get_field('lawyer_city'),
 					'State' => get_field('lawyer_state'),
 					'Phone' => get_field('lawyer_phone'),
-					'Zip Code' => get_field('lawyer_zip'),
+					'Zip_code' => get_field('lawyer_zip'),
 					'Tel_href' => str_replace(['-', '(', ')', ' '], '', get_field('lawyer_phone')),
 					//'"ACF"' => get_fields($post->ID)
 					);
@@ -165,12 +165,12 @@ add_action( 'rest_api_init', 'map_route' );
 		    'Featured_post_image' => false,
 		    'Lat' => $latfloat,
 				'Lng' =>  $longfloat,
-		    'Full Address' => get_field('lawyer_address'),
-		    'Street Address' => get_field('lawyer_street_address'),
+		    'Full_address' => get_field('lawyer_address'),
+		    'Street_address' => get_field('lawyer_street_address'),
 				'City' => get_field('lawyer_city'),
 				'State' => get_field('lawyer_state'),
 				'Phone' => get_field('lawyer_phone'),
-				'Zip Code' => get_field('lawyer_zip'),
+				'Zip_code' => get_field('lawyer_zip'),
 		    'Tel_href' => str_replace(['-', '(', ')', ' '], '', get_field('lawyer_phone')),
 		    //'"ACF"' => get_fields($post->ID)
 		  );
