@@ -248,7 +248,7 @@ jQuery(document).ready(function($){
    function livechatLoad() {
 	   if(my_data.live_chat) {
       jQuery.getScript(my_data.live_chat, function(data, textStatus, jqxhr) {
-        console.log('Live Chat load:', textStatus); // Success
+        //console.log('Live Chat load:', textStatus); // Success
       });
       // alert( my_data.live_chat);
       }
@@ -494,7 +494,7 @@ $('.sec_three_tab').on('click', function(e) {
 		 
 	 	if(!myUrl.includes("//")){
    	
-		 	console.log(myUrl + ' doesnt have "//" at all - add in to fix broken link');
+		 	//console.log(myUrl + ' doesnt have "//" at all - add in to fix broken link');
 		 	
 		 	$(myUrl).prepend('//');
 		 	
@@ -840,7 +840,7 @@ $('#choice_2_19_1').change(function() {
 		
 		$('#input_2_57').val(contactstate);
 		
-		console.log(contactstate);
+		//console.log(contactstate);
 		
 		// zip
 		
@@ -1103,7 +1103,7 @@ $('#choice_2_19_1').change(function() {
 		
 		$('#input_2_57').val(contactstate);
 		
-		console.log(contactstate);
+		//console.log(contactstate);
 		
 		// zip
 		
@@ -1125,36 +1125,70 @@ $('#choice_2_19_1').change(function() {
 // ready only for latitude and longitude
 
 
+// read only input
+
 $('#input_2_88, #input_2_87').prop('readonly', true);
+
+// if all address inout fields have a value, fire the ajax call to convert the address into latitude/longtitude coordinates
+
+$('span.calculate_lat_long').on('click', function(e) {
+	
+
+	if(!$('#input_2_36, #input_2_39, #input_2_56, #input_2_38').val() == '') {
+  
+  	var latStreet = $('input#input_2_36').val();
+  
+		latStreet_plus = latStreet.replace(/\s/g , "+");
+  
+		var latCity = $('input#input_2_39').val();
+		
+		latCity_plus = latCity.replace(/\s/g , "+");
+  
+		var latState = $('#input_2_56').val();
+		
+		latState_plus = latState.replace(/\s/g , "+");
+  
+		var latZip = $('input#input_2_38').val();
+  
+		var address = ''+latStreet_plus+',+'+latCity_plus+',+'+latState_plus+'+'+latZip+'';
+  
+		//console.log(test);
+  
+			$.ajax({
+        url: 'https://maps.googleapis.com/maps/api/geocode/json?address=' + address+'&key=AIzaSyDPAds-G8zjbtCxCC19dH2o_voVQIEjg7o',
+        dataType: 'json',
+        success: function(json) {
+            console.log(json.results[0].geometry.location.lat);
+            console.log(json.results[0].geometry.location.lng);
+            
+            var mylat = json.results[0].geometry.location.lat;
+            var mylong = json.results[0].geometry.location.lng;
+            
+            $('input#input_2_88').val(mylat);
+            $('input#input_2_87').val(mylong);
+            
+        }
+    });
+  
+   
+ }
 
 
 	
-/*
-	if ($('#choice_2_19_1').prop('checked')) {
-		
-		$('body').addClass('garrett');
-		
-		// name
-		
-		var contactname = $('input#input_2_1').val();
-		
-		$('input#input_2_17').val(contactname);
-		
-	}
-*/
+
+	
+  
+	 
+
+});
 
 
-var geocoder = new google.maps.Geocoder();
-var address = "1045+Turquoise+St,+San+Diego,+California+92109";
+   
 
-geocoder.geocode( { 'address': address}, function(results, status) {
 
-  if (status == google.maps.GeocoderStatus.OK) {
-    var latitude = results[0].geometry.location.lat();
-    var longitude = results[0].geometry.location.lng();
-    alert(latitude + ' ' + longitude);
-  } 
-}); 
+
+
+
 	
 
   

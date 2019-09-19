@@ -99,7 +99,9 @@ function load_my_styles_scripts() {
 			 		$city_latitude = $output->results[0]->geometry->location->lat;
 			 		$city_longitude = $output->results[0]->geometry->location->lng;
 	     		
-	     	}
+	     	} 
+	     	
+	     	
      		
      	}
        
@@ -377,9 +379,6 @@ function gform_tabindexer( $tab_index, $form = false ) {
     add_filter( 'gform_tabindex_' . $form['id'], 'gform_tabindexer' );
   return GFCommon::$tab_index >= $starting_index ? GFCommon::$tab_index : $starting_index;
 }
-
-
-
 
 
 /* Remove Unnecessary Scripts
