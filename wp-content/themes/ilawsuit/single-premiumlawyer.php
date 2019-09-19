@@ -53,9 +53,15 @@
 				
 				<div class="att_bio_profile">
 					
-					<?php if (get_field('lawyer_profile_picture')) : ?>
-					
-						<img class="att_img" src="<?php the_field('lawyer_profile_picture');?>" alt="<?php the_title();?>" />
+					<?php if (has_post_thumbnail( $post->ID ) ): ?>
+						
+						<?php 
+							
+							$image = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'single-post-thumbnail' ); 
+						
+						?>
+							
+						<img class="att_img" src="<?php echo $image[0]; ?>" alt="<?php the_title();?> Profile Picture"/>
 						
 						<?php else:?>
 						
@@ -64,8 +70,9 @@
 							<span>Add Photo</span>
 						
 						</div><!-- att_bio_placeholder -->
-					
+
 					<?php endif; ?>
+
 					
 				</div><!-- att_bio_profile -->
 				

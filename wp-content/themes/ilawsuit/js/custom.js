@@ -1196,7 +1196,7 @@ $('span.calculate_lat_long').on('click', function(e) {
 		//console.log(test);
   
 			$.ajax({
-        url: 'https://maps.googleapis.com/maps/api/geocode/json?address=' + address+'&key=AIzaSyDPAds-G8zjbtCxCC19dH2o_voVQIEjg7o',
+        url: 'https://maps.googleapis.com/maps/api/geocode/json?address=' + address+'&key=zzz',
         dataType: 'json',
         success: function(json) {
           //console.log(json.results[0].geometry.location.lat);
