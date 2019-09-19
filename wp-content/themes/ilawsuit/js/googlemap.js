@@ -177,7 +177,7 @@ window.eqfeed_callback = function(myJsonFile) {
 
         // premiere profile tooltip
         
-        var contentStringfeatured = "<div class='map_tooltip featured'><div class='map_tooltip_left'><img src='"+featuredProfileimg+"' /></div><div class='map_tooltip_right'><h3>"+lawyerTitle+"</h3><p><a href='"+viewprofile+"'>"+streetaddress+' '+city+', '+state+' '+zipcode+"</a></p><p><a href='tel:"+tel_href+"'>"+phone+"</a></p><p><a class='map_view_profile' href='"+viewprofile+"'>View Profile</a></div></div>";
+        var contentStringfeatured = "<div class='map_tooltip featured'><div class='map_tooltip_left'><img src='"+featuredProfileimg+"' /></div><div class='map_tooltip_right'><h3>"+lawyerTitle+"</h3><p><a href='"+viewprofile+"'>"+streetaddress+', '+city+', '+state+' '+zipcode+"</a></p><p><a href='tel:"+tel_href+"'>"+phone+"</a></p><p><a class='map_view_profile' href='"+viewprofile+"'>View Profile</a></div></div>";
         
         // basic profile with the full address text area filled out (without street address text area)
         
