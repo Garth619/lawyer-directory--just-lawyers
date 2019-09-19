@@ -159,7 +159,7 @@ window.eqfeed_callback = function(myJsonFile) {
 	        		
 	        		
 				var lawyerTitle = myJsonFile[i].Title;
-        var address = myJsonFile[i].Address;
+        var address = myJsonFile[i].Full_address;
         var streetaddress = myJsonFile[i].Street_address;
         var city = myJsonFile[i].City;
         var state = myJsonFile[i].State;
@@ -175,14 +175,25 @@ window.eqfeed_callback = function(myJsonFile) {
             icon: {url:displayImg, scaledSize: new google.maps.Size(35, 35)}
         });
 
+        // premiere profile tooltip
         
         var contentStringfeatured = "<div class='map_tooltip featured'><div class='map_tooltip_left'><img src='"+featuredProfileimg+"' /></div><div class='map_tooltip_right'><h3>"+lawyerTitle+"</h3><p><a href='"+viewprofile+"'>"+streetaddress+' '+city+', '+state+' '+zipcode+"</a></p><p><a href='tel:"+tel_href+"'>"+phone+"</a></p><p><a class='map_view_profile' href='"+viewprofile+"'>View Profile</a></div></div>";
         
+        // basic profile with the full address text area filled out (without street address text area)
         
         var contentString = "<div class='map_tooltip regular'><h3>"+lawyerTitle+"</h3><p><a href='"+viewprofile+"'>"+address+"</a></p><p><a href='tel:"+tel_href+"'>"+phone+"</a></p><p><a class='map_view_profile' href='"+viewprofile+"'>View Profile</a></div>";
         
+        // basic profile with the street address text area line filled out in the claim file form, this overrides the full address text area
         
-        var customTooltip = featuredPost === true ? contentStringfeatured : contentString;
+        var contentStringstreet = "<div class='map_tooltip regular'><h3>"+lawyerTitle+"</h3><p><a href='"+viewprofile+"'>"+streetaddress+' '+city+', '+state+' '+zipcode+"</a></p><p><a href='tel:"+tel_href+"'>"+phone+"</a></p><p><a class='map_view_profile' href='"+viewprofile+"'>View Profile</a></div>";
+        
+        // if the streetaddress has a value then assign contentStringstreet to the contentStringbasic var and push it through to the featured vs unfeatured tooltip info below. else just show the full address text input line with contentString 
+        
+        var contentStringbasic = !streetaddress ? contentString : contentStringstreet;
+            
+        // if the post is a featured post and equals true then contentStringfeatured becomes the customTooltip var, else contentStringbasic becomes the customTooltip var
+        
+        var customTooltip = featuredPost === true ? contentStringfeatured : contentStringbasic;
 
         var infoWindow = new google.maps.InfoWindow();
         google.maps.event.addListener(marker, 'click', (function(marker) {

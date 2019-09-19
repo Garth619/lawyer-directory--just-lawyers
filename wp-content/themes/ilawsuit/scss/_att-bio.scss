@@ -921,7 +921,11 @@ a.claim_button {
 				}
 			}
 			textarea {
-				height:200px;
+				height:52px;
+				transition: all 300ms ease-in-out;
+				&:focus {
+					height:500px;
+				}
 			}
 		}
 		li.flex_width {

@@ -75,7 +75,9 @@ add_action( 'rest_api_init', 'map_route' );
 			while($featured_query->have_posts()) : $featured_query->the_post();
 						
 				
-				$lawyer_profile_picture = get_field( 'lawyer_profile_picture' );
+				$lawyer_profile_picture = get_the_post_thumbnail_url();
+				
+				
 				
 				$post_ids[] = get_the_ID();
 				

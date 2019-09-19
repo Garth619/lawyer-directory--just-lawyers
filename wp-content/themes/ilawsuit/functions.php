@@ -56,7 +56,7 @@ function load_my_styles_scripts() {
 				
 				// Get lat and long by address 
      
-     		$google_map_api = 'zzz';
+     		$google_map_api = 'AIzaSyDPAds-G8zjbtCxCC19dH2o_voVQIEjg7o';
      		
 		 		// pa url query -> pa id conversion
 	
