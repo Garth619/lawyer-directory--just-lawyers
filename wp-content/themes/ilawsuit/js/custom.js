@@ -794,7 +794,48 @@ document.addEventListener("click", closeAllSelect);
 
 
 $('#input_2_88, #input_2_87').prop('readonly', true);
-	 
+
+$('span.calculate_lat_long').on('click', function(e) {
+	
+	if(!$('#input_2_36, #input_2_39, #input_2_56, #input_2_38').val() == '') {
+  
+  	var latStreet = $('input#input_2_36').val();
+  
+		latStreet_plus = latStreet.replace(/\s/g , "+");
+  
+		var latCity = $('input#input_2_39').val();
+		
+		latCity_plus = latCity.replace(/\s/g , "+");
+  
+		var latState = $('#input_2_56').val();
+		
+		latState_plus = latState.replace(/\s/g , "+");
+  
+		var latZip = $('input#input_2_38').val();
+  
+		var address = ''+latStreet_plus+',+'+latCity_plus+',+'+latState_plus+'+'+latZip+'';
+  
+		//console.log(test);
+  
+			$.ajax({
+        url: 'https://maps.googleapis.com/maps/api/geocode/json?address=' + address+'&key=AIzaSyDPAds-G8zjbtCxCC19dH2o_voVQIEjg7o',
+        dataType: 'json',
+        success: function(json) {
+          //console.log(json.results[0].geometry.location.lat);
+          //console.log(json.results[0].geometry.location.lng);
+            
+          var mylat = json.results[0].geometry.location.lat;
+          var mylong = json.results[0].geometry.location.lng;
+            
+          $('input#input_2_88').val(mylat);
+          $('input#input_2_87').val(mylong);
+            
+       }
+    });
+  
+  }
+
+});
 	
 			
 $('#choice_2_19_1').change(function() {
@@ -1118,6 +1159,7 @@ $('#choice_2_19_1').change(function() {
     
   
   }
+  
 
 });
 
@@ -1133,7 +1175,6 @@ $('#input_2_88, #input_2_87').prop('readonly', true);
 
 $('span.calculate_lat_long').on('click', function(e) {
 	
-
 	if(!$('#input_2_36, #input_2_39, #input_2_56, #input_2_38').val() == '') {
   
   	var latStreet = $('input#input_2_36').val();
@@ -1158,38 +1199,25 @@ $('span.calculate_lat_long').on('click', function(e) {
         url: 'https://maps.googleapis.com/maps/api/geocode/json?address=' + address+'&key=AIzaSyDPAds-G8zjbtCxCC19dH2o_voVQIEjg7o',
         dataType: 'json',
         success: function(json) {
-            console.log(json.results[0].geometry.location.lat);
-            console.log(json.results[0].geometry.location.lng);
+          //console.log(json.results[0].geometry.location.lat);
+          //console.log(json.results[0].geometry.location.lng);
             
-            var mylat = json.results[0].geometry.location.lat;
-            var mylong = json.results[0].geometry.location.lng;
+          var mylat = json.results[0].geometry.location.lat;
+          var mylong = json.results[0].geometry.location.lng;
             
-            $('input#input_2_88').val(mylat);
-            $('input#input_2_87').val(mylong);
+          $('input#input_2_88').val(mylat);
+          $('input#input_2_87').val(mylong);
             
-        }
+       }
     });
   
-   
- }
-
-
-	
-
-	
-  
-	 
+  }
 
 });
 
 
    
 
-
-
-
-
-	
 
   
 }); // document ready
