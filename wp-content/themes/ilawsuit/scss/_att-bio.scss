@@ -838,11 +838,11 @@ a.claim_button {
 			margin-bottom:35px;
 		}
 		//education
-		li#field_2_46 {
+		li#field_2_46, li#field_3_46 {
 			margin-top:10px;
 		}
 		// profile choice
-		li#field_2_42 {
+		li#field_2_42, li#field_3_42 {
 			margin-bottom:0;
 			flex-basis: 100%;
 			ul {
@@ -862,7 +862,7 @@ a.claim_button {
 						margin-left: 15px;
 					}
 				}
-				li.gchoice_2_42_2 {
+				li.gchoice_2_42_2, li.gchoice_3_42_2 {
 					margin-bottom:0;
 				}
 			}
@@ -931,17 +931,17 @@ a.claim_button {
 		li.flex_width {
 			flex-basis:100%;
 		}
-		li#field_2_19 > label {
+		li#field_2_19 > label, li#field_3_19 > label {
 			display: none;
 		}
 		// account creation
-		li#field_2_18 {
+		li#field_2_18, li#field_3_18 {
 			margin-bottom:0;
 		}
 		// state select
-		li#field_2_56 {
+		li#field_2_56, li#field_3_56 {
 			position: relative;
-			select#input_2_56 {
+			select#input_2_56, select#input_3_56 {
 				display: none;
 			}
 			.select-selected {
@@ -981,30 +981,30 @@ a.claim_button {
 			}
 		}
 		// featured lawyer
-		li#field_2_85 {
+		li#field_2_85, li#field_3_85 {
 			display: none !important;
 		}
 		// profile choice
-		li#field_2_42 {
+		li#field_2_42, li#field_3_42 {
 			label.gfield_label {
 				display: none;
 			}
 		}
 		//practice areas
-		li#field_2_28 {
+		li#field_2_28, li#field_3_28 {
 			label.gfield_label {
 				display: none;
 			}
 		}
 		// username password
-		li#field_2_30, li#field_2_31 {
+		li#field_2_30, li#field_2_31, li#field_3_30, li#field_3_31 {
 			flex-basis:100%;
 			label:not(.gfield_label) {
 				font-size:13px;
 				margin-top:5px;
 				padding-left:20px;
 			}
-			input#input_2_31_2 {
+			input#input_2_31_2, input#input_3_31_2 {
 				margin-top:18px;
 			}
 			.gfield_description, .validation_message {
@@ -1021,7 +1021,7 @@ a.claim_button {
 		}
 	}
 	.ginput_container_checkbox {
-		ul#input_2_28.gfield_checkbox {
+		ul#input_2_28.gfield_checkbox, ul#input_3_28.gfield_checkbox {
 			//padding-top:25px;
 			> li {
 					flex-basis: 50%;
@@ -1098,7 +1098,7 @@ a.claim_button {
 	border:2px solid #d8d8d8;
 	border-radius: 10px;
 	padding:5px 20px;
-	span#extensions_message_2_55 {
+	span#extensions_message_2_55, span#extensions_message_3_55 {
 		display: block;
 	}
 }
@@ -1115,7 +1115,7 @@ a.claim_button {
 
 
 // lat long
-li#field_2_91 {
+li#field_2_91, li#field_3_91 {
 	flex-basis:100%;
 	margin-top:-20px;
 }
@@ -1155,7 +1155,7 @@ span.calculate_lat_long {
 	}
 }
 
-#input_2_31_strength_indicator {
+#input_2_31_strength_indicator, #input_3_31_strength_indicator {
 	background: #d8d8d8;
 	//border: 2px solid #d8d8d8;
 	border-radius:10px;
@@ -1169,9 +1169,9 @@ span.calculate_lat_long {
 	@include montserrat_extrabold;
 }
 
-#input_2_31_strength_indicator.short,
-#input_2_31_strength_indicator.bad,
-#input_2_31_strength_indicator.mismatch {
+#input_2_31_strength_indicator.short, #input_3_31_strength_indicator.short,
+#input_2_31_strength_indicator.bad, #input_3_31_strength_indicator.bad,
+#input_2_31_strength_indicator.mismatch, #input_3_31_strength_indicator.mismatch {
 	background:#c93241;
 	color:#fff;
 	width:160px;
@@ -1179,13 +1179,13 @@ span.calculate_lat_long {
 	//scolor:#c93241;
 }
 
-#input_2_31_strength_indicator.good {
+#input_2_31_strength_indicator.good, #input_3_31_strength_indicator.good {
 	background:#f3ac29;
 	color:#fff;
 	width:225px;
 }
 
-#input_2_31_strength_indicator.strong {
+#input_2_31_strength_indicator.strong, #input_3_31_strength_indicator.strong {
 	background:#539c41;
 	color:#fff;
 	width:300px;
@@ -1791,7 +1791,7 @@ span.overylay_header {
 
 .overlay_form {
 	ul {
-		li#field_2_56 {
+		li#field_2_56, li#field_3_56 {
 			.select-items {
 				width:100%;
 				top: 100px;
@@ -1810,7 +1810,7 @@ span.overylay_header {
 	
 .overlay_form {
 	ul {
-		li#field_2_56 {
+		li#field_2_56, li#field_3_56 {
 			.select-items {
 				width:100%;
 				top: 100px;
