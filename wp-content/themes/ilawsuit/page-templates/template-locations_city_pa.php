@@ -150,11 +150,11 @@
 						
 								<?php else:?>
 						
-								<div class="att_bio_placeholder">
-						
-									<span>Add Photo</span>
-						
-								</div><!-- att_bio_placeholder -->
+								<div class="logo_placeholder">
+									
+									<span>Add Logo</span>
+									
+								</div><!-- logo_placeholder -->
 
 							<?php endif; ?>
 								

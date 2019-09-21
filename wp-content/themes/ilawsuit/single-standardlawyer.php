@@ -373,7 +373,7 @@
 							
 							<div class="overlay_form">
 								
-								<?php gravity_form(3, false, false, false, '', true, 1344); ?>
+								<?php gravity_form(2, false, false, false, '', true, 1344); ?>
 								
 							</div><!-- overlay_form -->
 							
