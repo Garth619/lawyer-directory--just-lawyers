@@ -838,11 +838,11 @@ a.claim_button {
 			margin-bottom:35px;
 		}
 		//education
-		li#field_2_46, li#field_3_46 {
+		li.myeducation_section {
 			margin-top:10px;
 		}
 		// profile choice
-		li#field_2_42, li#field_3_42 {
+		li.myprofile_choice {
 			margin-bottom:0;
 			flex-basis: 100%;
 			ul {
@@ -851,6 +851,9 @@ a.claim_button {
 				li {
 					display: flex;
 					flex-basis: 100%;
+					&:last-of-type {
+						margin-bottom:0;
+					}
 					label {
 						font-size: 20px;
 						line-height: 26px;
@@ -861,9 +864,6 @@ a.claim_button {
 						font-weight: 400;
 						margin-left: 15px;
 					}
-				}
-				li.gchoice_2_42_2, li.gchoice_3_42_2 {
-					margin-bottom:0;
 				}
 			}
 		}
@@ -931,17 +931,38 @@ a.claim_button {
 		li.flex_width {
 			flex-basis:100%;
 		}
-		li#field_2_19 > label, li#field_3_19 > label {
-			display: none;
+		li.mycontact_checkmark {
+			> label {
+				display: none;
+			}
+			ul {
+				li {
+					display: flex;
+					align-items: center;
+					flex-basis:100%;
+					margin-bottom: 0;
+					label {
+						font-family: $worksans;
+						text-transform: none;
+						letter-spacing: 0;
+						font-size: 20px;
+						line-height: 34px;
+						font-weight: 400;
+						position: relative;
+						top:3px;
+						margin-left:15px;
+					}
+				}
+			}
 		}
 		// account creation
-		li#field_2_18, li#field_3_18 {
+		li.mycontact_description {
 			margin-bottom:0;
 		}
 		// state select
-		li#field_2_56, li#field_3_56 {
+		li.mylawyer_state {
 			position: relative;
-			select#input_2_56, select#input_3_56 {
+			select {
 				display: none;
 			}
 			.select-selected {
@@ -981,50 +1002,44 @@ a.claim_button {
 			}
 		}
 		// featured lawyer
-		li#field_2_85, li#field_3_85 {
+		li.myfeatured_lawyer {
 			display: none !important;
 		}
 		// profile choice
-		li#field_2_42, li#field_3_42 {
+		li.myprofile_choice {
 			label.gfield_label {
 				display: none;
 			}
 		}
 		//practice areas
-		li#field_2_28, li#field_3_28 {
+		li.mypracticeareas {
 			label.gfield_label {
 				display: none;
 			}
 		}
 		// username password
-		li#field_2_30, li#field_2_31, li#field_3_30, li#field_3_31 {
+		li.myusername, li.mypassword {
 			flex-basis:100%;
 			label:not(.gfield_label) {
 				font-size:13px;
 				margin-top:5px;
 				padding-left:20px;
 			}
-			input#input_2_31_2, input#input_3_31_2 {
-				margin-top:18px;
-			}
-			.gfield_description, .validation_message {
-/*
-				color:#c93241;
-				font-family: $worksans;
-				text-transform: none;
-				font-weight: 400;
-				letter-spacing: 0;
-				font-size: 17px;
-				line-height: 23px;
-*/
+			.ginput_right {
+				input {
+					margin-top:18px;
+				}
 			}
 		}
 	}
+	li.mypracticeareas {
+		
+	
 	.ginput_container_checkbox {
-		ul#input_2_28.gfield_checkbox, ul#input_3_28.gfield_checkbox {
+		ul.gfield_checkbox {
 			//padding-top:25px;
 			> li {
-					flex-basis: 50%;
+					flex-basis: 50% !important;
 			}
 		}
 		ul.gfield_checkbox {
@@ -1048,6 +1063,8 @@ a.claim_button {
 				}
 			}
 		}
+		}
+		
 	}
 	.gfield_description, .validation_message {
 		color:red;
@@ -1098,7 +1115,7 @@ a.claim_button {
 	border:2px solid #d8d8d8;
 	border-radius: 10px;
 	padding:5px 20px;
-	span#extensions_message_2_55, span#extensions_message_3_55 {
+	span {
 		display: block;
 	}
 }
@@ -1115,7 +1132,7 @@ a.claim_button {
 
 
 // lat long
-li#field_2_91, li#field_3_91 {
+.calculate_lat_long_wrapper {
 	flex-basis:100%;
 	margin-top:-20px;
 }
@@ -1155,7 +1172,7 @@ span.calculate_lat_long {
 	}
 }
 
-#input_2_31_strength_indicator, #input_3_31_strength_indicator {
+.gfield_password_strength {
 	background: #d8d8d8;
 	//border: 2px solid #d8d8d8;
 	border-radius:10px;
@@ -1169,9 +1186,9 @@ span.calculate_lat_long {
 	@include montserrat_extrabold;
 }
 
-#input_2_31_strength_indicator.short, #input_3_31_strength_indicator.short,
-#input_2_31_strength_indicator.bad, #input_3_31_strength_indicator.bad,
-#input_2_31_strength_indicator.mismatch, #input_3_31_strength_indicator.mismatch {
+.gfield_password_strength.short,
+.gfield_password_strength.bad,
+.gfield_password_strength.mismatch {
 	background:#c93241;
 	color:#fff;
 	width:160px;
@@ -1179,13 +1196,13 @@ span.calculate_lat_long {
 	//scolor:#c93241;
 }
 
-#input_2_31_strength_indicator.good, #input_3_31_strength_indicator.good {
+.gfield_password_strength.good {
 	background:#f3ac29;
 	color:#fff;
 	width:225px;
 }
 
-#input_2_31_strength_indicator.strong, #input_3_31_strength_indicator.strong {
+.gfield_password_strength.strong {
 	background:#539c41;
 	color:#fff;
 	width:300px;
@@ -1789,9 +1806,10 @@ span.overylay_header {
 
 
 
+
 .overlay_form {
 	ul {
-		li#field_2_56, li#field_3_56 {
+		li.mylawyer_state {
 			.select-items {
 				width:100%;
 				top: 100px;
@@ -1800,21 +1818,23 @@ span.overylay_header {
 	}
 }
 
+
 	
 	
 } /* Media Query */
 
 
-@media screen and (max-width: 505px) {
+@media screen and (max-width: 580px) {
 	
 	
 .overlay_form {
 	ul {
-		li#field_2_56, li#field_3_56 {
+		li.mylawyer_state {
 			.select-items {
-				width:100%;
-				top: 100px;
 				display: block;
+			}
+			.select-items.select-hide {
+				display: none;
 			}
 		}
 	}
