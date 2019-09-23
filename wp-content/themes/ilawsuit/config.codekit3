@@ -651,6 +651,14 @@
 		"oAP": "/page-templates/template-contact.php",
 		"oF": 0
 		},
+	"/page-templates/template-createprofile.php": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 0,
+		"oAP": "/page-templates/template-createprofile.php",
+		"oF": 0
+		},
 	"/page-templates/template-home.php": {
 		"cB": 0,
 		"ft": 8192,

@@ -608,9 +608,9 @@ $('.sec_three_tab').on('click', function(e) {
 	
 	$('span.claim_begin').on('click', function(e) {
 	  
-		$('.overlay_description').fadeOut(300);
+		$('.price_description').fadeOut(300);
 		
-		$('.overlay_form').delay(500).fadeIn(300);
+		$('.mymultistep_form').delay(500).fadeIn(300);
 	
 	});
 	
@@ -746,7 +746,13 @@ $('.sec_three_tab').on('click', function(e) {
 		
 	}
 	
-	mypopulateForm();
+	if($('body.single-lawyer').length >0 ){ // populate only on existing single lawyer forms
+
+		mypopulateForm();
+
+	}
+	
+	
   
   // replace the select dropdown with a better styled version
 	

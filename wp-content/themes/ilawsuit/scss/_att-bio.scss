@@ -672,12 +672,21 @@ a.claim_button {
 		margin:45px auto;
 		padding:85px 45px 65px;
 		position: relative;
-		img.overlay_logo {
+		
+	}
+}
+
+
+
+
+	.mymultistep_form_wrapper {
+		text-align: left;
+		img.price_logo {
 			width:280px;
 			margin:0 auto;
 			display: block;
 		}
-		.overlay_description {
+		.price_description {
 			margin:50px auto 0;
 			max-width: 1090px;
 			text-align: center;
@@ -776,7 +785,9 @@ a.claim_button {
 			}
 		}
 	}
-}
+
+
+
 
 
 .claim_overlay.open {
@@ -811,7 +822,7 @@ a.claim_button {
 }
 
 
-.overlay_form {
+.mymultistep_form {
 	padding-top:25px;
 	display: none;
 	max-width:970px;
@@ -1390,7 +1401,13 @@ span.overylay_header {
 	.overlay {
 		.overlay_inner {
 			//max-width: 580px;
-			.overlay_description {
+			
+		}
+	}  
+	
+	
+		.mymultistep_form_wrapper {
+			.price_description {
 				.price_tier_wrapper {
 					display: block;
 					max-width:400px;
@@ -1413,9 +1430,8 @@ span.overylay_header {
 							margin-bottom:50px;
 						}
 					}
+				}
 			}
-		}
-	}  
 	
 	
 	
@@ -1790,15 +1806,19 @@ span.overylay_header {
 	.overlay_inner {
 		padding: 105px 25px 45px;
 		margin-top:25px;
-		img.overlay_logo {
-			width: 240px;
-		}
+		
+	}
+}
+
+.mymultistep_form_wrapper {
+	img.price_logo {
+		width: 240px;
 	}
 }
 
 
 
-.overlay_form {
+.mymultistep_form {
 	ul {
 		display: block;
 	}
@@ -1807,7 +1827,7 @@ span.overylay_header {
 
 
 
-.overlay_form {
+.mymultistep_form {
 	ul {
 		li.mylawyer_state {
 			.select-items {
@@ -1827,7 +1847,7 @@ span.overylay_header {
 @media screen and (max-width: 580px) {
 	
 	
-.overlay_form {
+.mymultistep_form {
 	ul {
 		li.mylawyer_state {
 			.select-items {

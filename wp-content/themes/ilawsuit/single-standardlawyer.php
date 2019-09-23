@@ -301,9 +301,11 @@
 							
 							<div class="overlay_close"></div><!-- overlay_close -->
 							
-							<img class="overlay_logo" src="<?php bloginfo('template_directory');?>/images/ilawuit-logo-dark.svg"/>
+							<div class="mymultistep_form_wrapper">
 							
-							<div class="overlay_description content">
+							<img class="price_logo" src="<?php bloginfo('template_directory');?>/images/ilawuit-logo-dark.svg"/>
+							
+							<div class="price_description content">
 								
 								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
 								
@@ -369,13 +371,15 @@
 								
 								<span class="go_back_to_profile">Go Back to Profile</span><!-- go_back_to_profile -->
 								
-							</div><!-- overlay_description -->
+							</div><!-- price_description -->
 							
-							<div class="overlay_form">
+							<div class="mymultistep_form">
 								
 								<?php gravity_form(2, false, false, false, '', true, 1344); ?>
 								
-							</div><!-- overlay_form -->
+								</div><!-- mymultistep_form -->
+								
+							</div><!-- mymultistep_form_wrapper -->
 							
 						</div><!-- overlay_inner -->
 						
