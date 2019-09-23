@@ -1157,139 +1157,77 @@ else
 }
 
 
+////////////// use gform_advancedpostcreation_post or gform_advancedpostcreation_post_after_creation test both/////////////////
 
+add_action( 'gform_advancedpostcreation_post_after_creation', 'update_term_information', 10, 4 );
 
-
-
-/*
-add_action( 'gform_after_submission_2', 'set_post_content', 10, 2 );
-function set_post_content( $entry, $form ) {
- 
-    //getting post
-    $post = get_post( $entry['post_id'] );
- 
-    //changing post content
-    $post->post_content = 'Blender Version:' . rgar( $entry, '7' ) . "<br/> <img src='" . rgar( $entry, '8' ) . "'> <br/> <br/> " . rgar( $entry, '13' ) . " <br/> <img src='" . rgar( $entry, '5' ) . "'>";
- 
-    //updating post
-    wp_update_post( $post );
-}
-*/
-
-
-
-
-
-
-
-
-
-
-
+function update_term_information( $post_id, $feed, $entry, $form ) {
 	
-// https://wordpress.stackexchange.com/questions/125290/change-gravity-forms-confirmation-redirect-query-string-to-include-entry-id
+		// parent cat "State"
+		
+		$stateid = '139';
+		
+		// State Name to ID
+		
+		$statenameid = $entry['56'];
+		
+		$mystate_term = term_exists( $statenameid, 'location' );
+		
+		$mystate_termid = $mystate_term['term_id'];
+		
+		// City Name to ID
+		
+		$entrycity = $entry['39'];
+		
+		$mycity_term = term_exists( $entrycity, 'location' );
+		
+		$mycity_termid = $mycity_term['term_id'];
+		
+		$location_string = $stateid . ',' . $mystate_termid . ', ' . $mycity_termid;
+		
+		
+		if($mycity_term) {
+			
+			wp_set_post_terms( $post_id, $location_string, 'location' );
+		
+		}
+		
+		if(!$mycity_term) {
+			
+			 //str_replace(['-', '(', ')', ' '], '', $entrycity);
+			
+			$entrycity_nospace = preg_replace('/\s*/', '', $entrycity);
+			//////// need to do apos too and ~ what else
+			
+			$entrycity_slug = strtolower($entrycity_nospace);
+			
+			wp_insert_term(
+				$entrycity, // the term 
+				'location', // the taxonomy
+				array(
+					//'description'=> 'a term update test of san diego',
+					'slug' => $entrycity_slug,
+					'parent'=> $mystate_termid  // get numeric term id
+				)
+			);
+			
+			//get the term id i just created and throw into the string below
+			
+			$mynewcity_term = term_exists( $entrycity, 'location' );
+			
+			$mynewcity_termid = $mynewcity_term['term_id'];
+			
+			$newlocation_string = $stateid . ',' . $mystate_termid . ', ' . $mynewcity_termid;
+			
+			wp_set_post_terms( $post_id, $newlocation_string, 'location' );
+		
+		}
 
-
-/*
-add_filter("gform_confirmation", "confirm_change", 10, 4);
-function confirm_change($confirmation, $form, $lead, $ajax){
-
-    $url = get_bloginfo('url') ."/thank-you/?page=". $lead['1']. "&rma=" . ($lead['id']);
-
-    $confirmation = array('redirect' => $url);
-    return $confirmation;
-}
-*/
-
-// https://stackoverflow.com/questions/18938128/redirect-gravity-form-on-submission-to-post-just-created
-
-/*
-add_action('gform_after_submission', 'redirect_on_post', 10, 2);
-
-function redirect_on_post($confirmation, $form, $lead, $ajax){
-	$pid = $lead['post_id'];
-	$confirmation = array("redirect" => get_site_url() . "/?p=$pid");
-	return $confirmation;
-}
-*/
-
-//gform_advancedpostcreation_post_2
-	
-
-/*
-add_filter( 'gform_advancedpostcreation_post_2', 'change_post', 10, 4 );
-
-function change_post( $post, $feed, $entry, $form){
-    $post['post_title'] = 'This is a g test';
-    return $post;
-}
-*/
-
-
-
-/*
-add_action( 'gform_after_submission', 'set_post_content', 10, 2 );
-function set_post_content( $entry, $form ) {
- 
-    //if the Advanced Post Creation add-on is used, more than one post may be created for a form submission
-    //the post ids are stored as an array in the entry meta
-    $created_posts = gform_get_meta( $entry['id'], 'gravityformsadvancedpostcreation_post_id' );
-    foreach ( $created_posts as $post )
-    {
-        $post_id = $post['post_id'];
-        $post = get_post( $post_id );
- 
-        $post->post_content = 'This is a test for post id ' . $post_id . '.';
- 
-        wp_update_post( $post );
-    }
-}
-*/
-
-// look into this more
-
-/*
-add_action( 'gform_advancedpostcreation_post_after_creation', 'update_product_information', 10, 4 );
-function update_product_information( $post_id, $feed, $entry, $form ){
- 
-    //update the prices set for the product
-    update_post_meta( $post_id, '_regular_price', $entry['7'] );
-    update_post_meta( $post_id, '_price', $entry['7'] );
- 
-    //update the category
-    wp_set_object_terms( $post_id, $entry['6'], 'product_cat' );
- 
-}
-*/
-
-
-
-
-
-//https://legacy.forums.gravityhelp.com/topic/how-to-update-a-post
-
-// Update post 37
-/*
-  $my_post = array(
-      'ID'           => 598188,
-      'post_title'   => 'garrett was here',
-  );
-*/
-
-// Update the post into the database
-  // wp_update_post( $my_post );
-  
-  // Of course, this should be done in an development environment only and commented out or removed after deploying to your production site.
-
-/*
-$post_id = wp_update_post( $current_item, true );						  
-if (is_wp_error($post_id)) {
-	$errors = $post_id->get_error_messages();
-	foreach ($errors as $error) {
-		echo $error;
 	}
-}
-*/
+
+
+
+
 
 
 	

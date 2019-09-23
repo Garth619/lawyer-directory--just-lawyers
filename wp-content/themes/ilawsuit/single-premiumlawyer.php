@@ -82,7 +82,7 @@
 					
 							<span class="att_bio_sidebar_title">Address</span><!-- att_bio_sidebar_title -->
 						
-							<span class="att_bio_address"><?php the_field( 'lawyer_street_address' ); ?>, <?php the_field( 'lawyer_city' ); ?> <?php the_field( 'lawyer_state' ); ?> 
+							<span class="att_bio_address"><?php the_field( 'lawyer_street_address' ); ?>, <?php the_field( 'lawyer_city' ); ?>, <?php the_field( 'lawyer_state' ); ?> 
 <?php the_field( 'lawyer_zip' ); ?></span><!-- att_bio_address -->
 						
 							<!-- do this -->
