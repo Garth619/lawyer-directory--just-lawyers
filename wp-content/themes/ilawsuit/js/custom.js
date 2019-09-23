@@ -618,7 +618,7 @@ $('.sec_three_tab').on('click', function(e) {
 	
 	function myflexWidth() {
 		
-		$('.overlay_form textarea').parent().parent().addClass('flex_width');
+		$('.mymultistep_form textarea').parent().parent().addClass('flex_width');
 	
 		$('.form_content_wrapper').parent().addClass('flex_width');
 	
