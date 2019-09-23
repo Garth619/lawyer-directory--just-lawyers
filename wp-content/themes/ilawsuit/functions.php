@@ -30,7 +30,7 @@ function load_my_styles_scripts() {
 		if (get_query_var( 'currentstate') && get_query_var( 'currentcity')) { 
 			
 				
-				$currentpracticearea =  get_query_var( 'office_pa'); // figure out how to decale these outside of a function one time on this file and call them into where needed
+				$currentpracticearea =  get_query_var( 'office_pa'); // figure out how to declare these outside of a function one time on this file and call them into where needed
 
 				$currentcity = get_query_var( 'currentcity');
 				
@@ -1226,6 +1226,14 @@ function update_term_information( $post_id, $feed, $entry, $form ) {
 			wp_set_post_terms( $post_id, $newlocation_string, 'location' );
 		
 		}
+		
+/*
+		$postid = get_post( $entry['post_id'] );
+		
+		$_POST()
+*/
+		
+		//rgar( $entry, '93' );
 
 	}
 	
@@ -1243,9 +1251,17 @@ function update_term_information( $post_id, $feed, $entry, $form ) {
  
     //changing post title
     
-    // if this works the redirect will need to reflect this change or i will get a 404
+    
     $post->post_title = rgar( $entry, '1' );
-    //$post->post_name = rgar( $entry, '7' );
+    $post->post_name = rgar( $entry, '1' );
+    
+    
+    //$entry['39']
+    
+    // redirection to post slug url merge tag that I made
+    
+    
+    
  
     //updating post
     wp_update_post( $post );
@@ -1255,11 +1271,13 @@ function update_term_information( $post_id, $feed, $entry, $form ) {
 	
 
 /*
+
 	$entry_id = '89';
 	$entry = GFAPI::get_entry( $entry_id );
 
 	var_dump( $entry );
 */
+
 
 
 
