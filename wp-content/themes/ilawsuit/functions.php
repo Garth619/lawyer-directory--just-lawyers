@@ -1157,9 +1157,9 @@ else
 }
 
 
-////////////// use gform_advancedpostcreation_post or gform_advancedpostcreation_post_after_creation test both/////////////////
+// Assigns parent child cats. also assigns city to exisiting state if a city does not exist, the advanced post creation plugin settings page is not capable of this so it needs to be written by hand 
 
-add_action( 'gform_advancedpostcreation_post_after_creation', 'update_term_information', 10, 4 );
+add_action( 'gform_advancedpostcreation_post_after_creation_4', 'update_term_information', 10, 4 );
 
 function update_term_information( $post_id, $feed, $entry, $form ) {
 	
@@ -1194,10 +1194,14 @@ function update_term_information( $post_id, $feed, $entry, $form ) {
 		
 		if(!$mycity_term) {
 			
-			 //str_replace(['-', '(', ')', ' '], '', $entrycity);
+				$rules[] = ",";
+				$rules[] = " ";
+				$rules[] = "'";
 			
-			$entrycity_nospace = preg_replace('/\s*/', '', $entrycity);
-			//////// need to do apos too and ~ what else
+			  $entrycity_nospace = str_replace($rules, '-', $entrycity);
+			
+			//$entrycity_nospace = preg_replace('/\s*/', '', $entrycity);
+			
 			
 			$entrycity_slug = strtolower($entrycity_nospace);
 			
@@ -1224,9 +1228,38 @@ function update_term_information( $post_id, $feed, $entry, $form ) {
 		}
 
 	}
+	
+	
+	// update existing posts 
+	
 
+	
+	add_action( 'gform_after_submission_2', 'set_post_content', 10, 2 );
+	
+	function set_post_content( $entry, $form ) {
+ 
+    //getting post
+    $post = get_post( $entry['post_id'] );
+ 
+    //changing post title
+    
+    // if this works the redirect will need to reflect this change or i will get a 404
+    $post->post_title = rgar( $entry, '1' );
+    //$post->post_name = rgar( $entry, '7' );
+ 
+    //updating post
+    wp_update_post( $post );
+	
+	}
+	
+	
 
+/*
+	$entry_id = '89';
+	$entry = GFAPI::get_entry( $entry_id );
 
+	var_dump( $entry );
+*/
 
 
 
