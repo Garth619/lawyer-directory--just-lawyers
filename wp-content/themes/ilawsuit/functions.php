@@ -1261,7 +1261,7 @@ function update_term_information( $post_id, $feed, $entry, $form ) {
 	
 	}
 	
-	// overrides the confirmation on form 2
+	// overrides the confirmation on form 2 to just redirect back itself (the ?p=post_id doesnt redirect properly when starting on the bio post, but works from settings from antoher page like "create a profile"
 	
 	
 	add_filter( 'gform_confirmation_2', 'custom_confirmation', 10, 4 );
