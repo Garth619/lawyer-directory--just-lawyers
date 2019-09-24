@@ -1159,7 +1159,7 @@ else
 
 // Assigns parent child cats. also assigns city to exisiting state if a city does not exist, the advanced post creation plugin settings page is not capable of this so it needs to be written by hand 
 
-add_action( 'gform_advancedpostcreation_post_after_creation_4', 'update_term_information', 10, 4 );
+add_action( 'gform_advancedpostcreation_post_after_creation', 'update_term_information', 10, 4 );
 
 function update_term_information( $post_id, $feed, $entry, $form ) {
 	
@@ -1261,7 +1261,23 @@ function update_term_information( $post_id, $feed, $entry, $form ) {
 	
 	}
 	
+	// overrides the confirmation on form 2
 	
+	
+	add_filter( 'gform_confirmation_2', 'custom_confirmation', 10, 4 );
+	
+	function custom_confirmation( $confirmation, $form, $lead, $ajax ) {
+				
+		$pid = $lead['post_id'];
+				
+		$slug = get_post_field( 'post_name', $pid );
+				
+		$confirmation = array("redirect" => get_site_url() . "/lawyer/" . $slug . "");
+				
+		return $confirmation;
+}
+	
+
 
 /*
 
