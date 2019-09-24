@@ -1226,16 +1226,9 @@ function update_term_information( $post_id, $feed, $entry, $form ) {
 			wp_set_post_terms( $post_id, $newlocation_string, 'location' );
 		
 		}
-		
-/*
-		$postid = get_post( $entry['post_id'] );
-		
-		$_POST()
-*/
-		
-		//rgar( $entry, '93' );
 
 	}
+	
 	
 	
 	// update existing posts 
