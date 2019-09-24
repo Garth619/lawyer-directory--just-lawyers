@@ -13,7 +13,18 @@
 		
 		get_template_part('single','standardlawyer');
 		
-	}
+	} ?>
+	
+	
+	<div class="success_overlay show_on_success">
+		
+		<div class="success_overlay_inner">
+			
+			<span class="success_close">Close</span>
+			
+		</div><!-- success_overlay_inner -->
+		
+	</div><!-- success_overlay -->
 
 
- get_footer(); ?>
+<?php  get_footer(); ?>

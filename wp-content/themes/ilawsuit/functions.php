@@ -1272,7 +1272,7 @@ function update_term_information( $post_id, $feed, $entry, $form ) {
 				
 		$slug = get_post_field( 'post_name', $pid );
 				
-		$confirmation = array("redirect" => get_site_url() . "/lawyer/" . $slug . "");
+		$confirmation = array("redirect" => get_site_url() . "/lawyer/" . $slug . "/?profile=success");
 				
 		return $confirmation;
 }

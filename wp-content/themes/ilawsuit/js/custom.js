@@ -1039,6 +1039,29 @@ document.addEventListener("click", closeAllSelect);
 			mycontactCheck();
 			
 	});
+	
+	
+	
+	// success overlay
+	
+	
+	$("div.show_on_success").toggle(document.URL.indexOf("profile=success") !== -1);
+	
+	// remove query on close
+	
+	
+	$('span.success_close').on('click', function(e) {
+		
+		$('.success_overlay').fadeOut(300);
+		
+		var uri = window.location.toString();
+		
+		if (uri.indexOf("?") > 0) {
+	    var clean_uri = uri.substring(0, uri.indexOf("?"));
+	    window.history.replaceState({}, document.title, clean_uri);
+		}
+	  
+	});
   
   
   
