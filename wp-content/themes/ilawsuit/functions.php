@@ -1260,19 +1260,60 @@ function update_term_information( $post_id, $feed, $entry, $form ) {
     update_field( 'lawyer_email', rgar( $entry, '48' ), $post );
     update_field( 'lawfirm_name', rgar( $entry, '4' ), $post );
     update_field( 'lawyer_website', rgar( $entry, '5' ), $post );
+    
+    
     // featured image
     
+    $url = rgar( $entry, 55 ); 
     
+    // Current directory
+		
+		$abs_path = getcwd();
+		
+		// Convert to absolute URL
+		
+		$url = str_replace( site_url(), $abs_path, $url);
+		
+		// Checking filetype for MIME
+		
+		$filetype = wp_check_filetype( basename( $url ), null );
+		
+		// WordPress upload directory	
+		
+		$wp_upload_dir = wp_upload_dir();	
+		
+		$attachment = array(
+			'guid'           => $wp_upload_dir['url'] . '/' . basename( $url ), 
+			'post_mime_type' => $filetype['type'],
+			'post_title'     => preg_replace( '/\.[^.]+$/', '', basename( $url ) ),
+			'post_content'   => '',
+			'post_status'    => 'inherit'
+		);
+	
+		// Get attachment ID
+	
+		$attach_id = wp_insert_attachment( $attachment, $url, $post );
+	
+		// Dependency for wp_generate_attachment_metadata().
+	
+		require_once( ABSPATH . 'wp-admin/includes/image.php' );
+	
+		// Generate metadata for image attachment.
+	
+		$attach_data = wp_generate_attachment_metadata( $attach_id, $url );
+	
+		wp_update_attachment_metadata( $attach_id, $attach_data );
+	
+		// Set as featured image for the post created on line 13.
+	
+		set_post_thumbnail( $post, $attach_id );
+
     update_field( 'lawyer_street_address', rgar( $entry, '36' ), $post );
     update_field( 'lawyer_city', rgar( $entry, '39' ), $post );
     update_field( 'lawyer_state', rgar( $entry, '56' ), $post );
     update_field( 'lawyer_zip', rgar( $entry, '38' ), $post );
     update_field( 'latitude', rgar( $entry, '88' ), $post );
     update_field( 'longitude', rgar( $entry, '87' ), $post );
-    
-    // map practice areas
-    
-    // map all taxonomies, pa, location and featured lawyers
     
     update_field( 'school_one_name', rgar( $entry, '10' ), $post );
     update_field( 'school_one_major', rgar( $entry, '11' ), $post );
@@ -1287,11 +1328,22 @@ function update_term_information( $post_id, $feed, $entry, $form ) {
     
     update_field( 'years_licensed_for', rgar( $entry, '3' ), $post );
     update_field( 'lawyer_bio', rgar( $entry, '9' ), $post );
+    
+    // map all taxonomies, pa, location and featured lawyers cats
+    
+    
  
     //updating post
     wp_update_post( $post );
 	
 	}
+	
+	
+	
+
+	
+	
+	
 	
 	// overrides the confirmation on form 2 to just redirect back itself (the ?p=post_id doesnt redirect properly when starting on the bio post, but works from settings from antoher page like "create a profile"
 	

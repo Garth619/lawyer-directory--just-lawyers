@@ -775,6 +775,8 @@ $('.sec_three_tab').on('click', function(e) {
 	 var ibio = $('.lawyer_bio').text();
 		
 	 $('.mylawyer_bio textarea').val(ibio);
+	 
+	 console.log(ibio);
 		
 	}
 	
@@ -784,14 +786,7 @@ $('.sec_three_tab').on('click', function(e) {
 
 	}
 	
-	function postslugHidden() {
-		
-		// i think a smater way is to pass the post id here through functions and just add it to the hidden field, then on the after submission hook convert the id to slug buti cant put it back into the merge tag
-		
-				
-	}
 	
-	postslugHidden();
 	
 	// replace the select dropdown with a better styled version
 	
