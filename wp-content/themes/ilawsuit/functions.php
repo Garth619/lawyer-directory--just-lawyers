@@ -116,6 +116,9 @@ function load_my_styles_scripts() {
        $lawyerbio_state = get_field('lawyer_state');
        $lawyerbio_stateabr = get_field('state_abbr');
        $lawyerbio_zipcode = get_field('lawyer_zip');
+       $lawyerbio_latitude = get_field('latitude');
+       $lawyerbio_longitude = get_field('longitude');
+       
        
        // Localize the script with new data array 
 						
@@ -131,6 +134,8 @@ function load_my_styles_scripts() {
 				'lawyerbio_state' => $lawyerbio_state,
 				'lawyerbio_stateabr' => $lawyerbio_stateabr,
 				'lawyerbio_zipcode' => $lawyerbio_zipcode,
+				'lawyerbio_latitude' => $lawyerbio_latitude,
+				'lawyerbio_longitude' => $lawyerbio_longitude,
 			);
 
 			wp_localize_script( 'jquery-addon', 'my_mapdata', $map_array );
@@ -1249,21 +1254,39 @@ function update_term_information( $post_id, $feed, $entry, $form ) {
     
     //update_field("_personal_information_first_name","field_5b672aa250437",$post);
     
+    update_field( 'lawyer_premium_layout_two', rgar( $entry, '42' ), $post );
+    
     update_field( 'lawyer_phone', rgar( $entry, '2' ), $post );
     update_field( 'lawyer_email', rgar( $entry, '48' ), $post );
     update_field( 'lawfirm_name', rgar( $entry, '4' ), $post );
     update_field( 'lawyer_website', rgar( $entry, '5' ), $post );
-    
     // featured image
-    // do
+    
     
     update_field( 'lawyer_street_address', rgar( $entry, '36' ), $post );
     update_field( 'lawyer_city', rgar( $entry, '39' ), $post );
+    update_field( 'lawyer_state', rgar( $entry, '56' ), $post );
+    update_field( 'lawyer_zip', rgar( $entry, '38' ), $post );
+    update_field( 'latitude', rgar( $entry, '88' ), $post );
+    update_field( 'longitude', rgar( $entry, '87' ), $post );
+    
+    // map practice areas
+    
+    // map all taxonomies, pa, location and featured lawyers
+    
+    update_field( 'school_one_name', rgar( $entry, '10' ), $post );
+    update_field( 'school_one_major', rgar( $entry, '11' ), $post );
+    update_field( 'school_one_degree', rgar( $entry, '12' ), $post );
+    update_field( 'school_one_year_graduated', rgar( $entry, '13' ), $post );
     
     
+    update_field( 'school_two_name', rgar( $entry, '14' ), $post );
+    update_field( 'school_two_major', rgar( $entry, '15' ), $post );
+    update_field( 'school_two_degree', rgar( $entry, '16' ), $post );
+    update_field( 'school_two_year_graduated', rgar( $entry, '17' ), $post );
     
-    
-    
+    update_field( 'years_licensed_for', rgar( $entry, '3' ), $post );
+    update_field( 'lawyer_bio', rgar( $entry, '9' ), $post );
  
     //updating post
     wp_update_post( $post );
@@ -1291,11 +1314,13 @@ function update_term_information( $post_id, $feed, $entry, $form ) {
 
 
 /*
+
 	$entry_id = '131';
 	$entry = GFAPI::get_entry( $entry_id );
 
 	var_dump( $entry );
 */
+
 
 
 

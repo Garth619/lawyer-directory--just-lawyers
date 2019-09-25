@@ -89,7 +89,7 @@
 					
 							<span class="att_bio_sidebar_title">Address</span><!-- att_bio_sidebar_title -->
 						
-							<span class="att_bio_address"><?php the_field( 'lawyer_street_address' ); ?>, <?php the_field( 'lawyer_city' ); ?>, <?php the_field( 'lawyer_state' ); ?> 
+							<span class="att_bio_address"><span class="street_address"><?php the_field( 'lawyer_street_address' ); ?></span>, <?php the_field( 'lawyer_city' ); ?>, <?php the_field( 'lawyer_state' ); ?> 
 <?php the_field( 'lawyer_zip' ); ?></span><!-- att_bio_address -->
 						
 							<!-- do this -->
@@ -137,6 +137,18 @@
 						<span class="att_bio_sidebar_title">Phone</span><!-- att_bio_sidebar_title -->
 					
 						<a class="att_bio_row_title att_bio_phone" href="tel:<?php echo str_replace(['-', '(', ')', ' '], '', get_field('lawyer_phone')); ?>"><?php the_field( 'lawyer_phone' ); ?></a><!-- att_bio_row_title -->
+					
+					</div><!-- att_bio_row_wrapper -->
+				
+				<?php } ?>
+				
+				<?php if(get_field('lawyer_email') && get_field('lawyer_email') !== 'NULL') { ?>
+				
+					<div class="att_bio_row_wrapper">
+					
+						<span class="att_bio_sidebar_title">Email</span><!-- att_bio_sidebar_title -->
+					
+						<a class="att_bio_row_title att_bio_email" href="mailto:<?php the_field('lawyer_email'); ?>"><?php the_field( 'lawyer_email' ); ?></a><!-- att_bio_row_title -->
 					
 					</div><!-- att_bio_row_wrapper -->
 				
@@ -204,7 +216,15 @@
 						
 					<?php } ?>
 					
-			
+					<?php if(get_field('lawyer_bio')) { ?>
+					
+						<div class="lawyer_bio">
+					
+							<?php the_field( 'lawyer_bio' ); ?>
+				
+						</div><!-- lawyer_bio -->
+					
+					<?php } ?>
 				
 				
 				<?php //acf_form(); ?>

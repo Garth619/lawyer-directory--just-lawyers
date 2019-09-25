@@ -97,6 +97,9 @@
 	}
 	span.att_bio_address {
 		max-width: 250px;
+		span.street_address {
+			display: inline-block;
+		}
 	}
 	.att_bio_row_title {
 		text-decoration: none;
@@ -115,7 +118,9 @@
 }
 
 
-
+.lawyer_bio {
+	margin-bottom: 90px;
+}
 
 
 a.visit_website_button {
@@ -1667,6 +1672,11 @@ span.overylay_header {
 	
 	.att_bio_sidebar {
 		
+	}
+	
+	.lawyer_bio {
+		padding-top:45px;
+		margin-bottom: 0px;
 	}
 	
 	.att_bio_content {

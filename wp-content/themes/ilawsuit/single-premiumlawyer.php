@@ -134,6 +134,18 @@
 				
 				<?php } ?>
 				
+				<?php if(get_field('lawyer_email') && get_field('lawyer_email') !== 'NULL') { ?>
+				
+					<div class="att_bio_row_wrapper">
+					
+						<span class="att_bio_sidebar_title">Email</span><!-- att_bio_sidebar_title -->
+					
+						<a class="att_bio_row_title att_bio_email" href="mailto:<?php the_field('lawyer_email'); ?>"><?php the_field( 'lawyer_email' ); ?></a><!-- att_bio_row_title -->
+					
+					</div><!-- att_bio_row_wrapper -->
+				
+				<?php } ?>
+				
 				<?php if(get_field('lawfirm_name') && get_field('lawfirm_name') !== 'NULL') { ?>
 				
 					<div class="att_bio_row_wrapper">

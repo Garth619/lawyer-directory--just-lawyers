@@ -644,6 +644,12 @@ $('.sec_three_tab').on('click', function(e) {
 		
 		$('.mylawyer_phone input').val(iphone);
 		
+		// email
+		
+		var iemail = $('a.att_bio_email').text();
+		
+		$('.mylawyer_email input').val(iemail);
+		
 		// lawfirm name
 		
 		var ilawfirm = $('.lawfirm_name').text();
@@ -655,6 +661,14 @@ $('.sec_three_tab').on('click', function(e) {
 		var iurl = $('a.visit_website_button').attr('href');
 		
 		$('.mylawfirm_url input').val(iurl);
+		
+		
+		// street address
+		
+		var istreetaddress = $('.street_address').text();;
+		
+		$('.mylawyer_streetaddress input').val(istreetaddress);
+
 		 
 		// City, State and Zip Code metadata are being set up in the functions.php. This is bc I am not using these acfs onthe template and I don't want them to index along with the whole address acf in the sidebar (street address doesn't exist in this database)
 		 
@@ -662,7 +676,7 @@ $('.sec_three_tab').on('click', function(e) {
 		 
 		var icity = my_mapdata.lawyerbio_city;
 		
-		$('.mylawyer_city').val(icity);
+		$('.mylawyer_city input').val(icity);
 		 
 		// State
 		 
@@ -743,6 +757,24 @@ $('.sec_three_tab').on('click', function(e) {
 	 var iyears = $('.years_licensed_for').text();
 		
 	 $('.my_years_liscensed input').val(iyears);
+	 
+	 // latitude
+	 
+	 var ilatitude = my_mapdata.lawyerbio_latitude;
+		
+	 $('.mylatitude input').val(ilatitude);
+	 
+	 // longitude
+	 
+	 var ilongitude = my_mapdata.lawyerbio_longitude;
+		
+	 $('.mylongitude input').val(ilongitude);
+	 
+	 // bio
+	 
+	 var ibio = $('.lawyer_bio').text();
+		
+	 $('.mylawyer_bio textarea').val(ibio);
 		
 	}
 	
