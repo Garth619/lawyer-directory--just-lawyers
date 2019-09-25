@@ -1244,14 +1244,23 @@ function update_term_information( $post_id, $feed, $entry, $form ) {
  
     //changing post title
     
-    
     $post->post_title = rgar( $entry, '1' );
     $post->post_name = rgar( $entry, '1' );
     
+    //update_field("_personal_information_first_name","field_5b672aa250437",$post);
     
-    //$entry['39']
+    update_field( 'lawyer_phone', rgar( $entry, '2' ), $post );
+    update_field( 'lawyer_email', rgar( $entry, '48' ), $post );
+    update_field( 'lawfirm_name', rgar( $entry, '4' ), $post );
+    update_field( 'lawyer_website', rgar( $entry, '5' ), $post );
     
-    // redirection to post slug url merge tag that I made
+    // featured image
+    // do
+    
+    update_field( 'lawyer_street_address', rgar( $entry, '36' ), $post );
+    update_field( 'lawyer_city', rgar( $entry, '39' ), $post );
+    
+    
     
     
     
@@ -1279,13 +1288,15 @@ function update_term_information( $post_id, $feed, $entry, $form ) {
 	
 
 
-/*
 
-	$entry_id = '89';
+
+/*
+	$entry_id = '131';
 	$entry = GFAPI::get_entry( $entry_id );
 
 	var_dump( $entry );
 */
+
 
 
 

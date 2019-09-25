@@ -1044,11 +1044,11 @@ document.addEventListener("click", closeAllSelect);
 	
 	// success overlay
 	
-	
-	$("div.show_on_success").toggle(document.URL.indexOf("profile=success") !== -1);
+	var url = location.href;
+
+  if (url.search('success') >= 0) $('.show_on_success').show();
 	
 	// remove query on close
-	
 	
 	$('span.success_close').on('click', function(e) {
 		
