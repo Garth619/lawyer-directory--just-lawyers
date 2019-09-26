@@ -34,9 +34,9 @@
 			
 			<?php }?>
 			
-			<?php if(get_field('state_abbr') && get_field('state_abbr') !== 'NULL') { ?>
+			<?php if(get_field('lawyer_state') && get_field('lawyer_state') !== 'NULL') { ?>
 			
-				<span><?php the_field( 'state_abbr' ); ?></span>
+				<span><?php the_field( 'lawyer_state' ); ?></span>
 			
 			<?php }?>
 

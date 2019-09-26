@@ -1228,7 +1228,7 @@ function update_term_information( $post_id, $feed, $entry, $form ) {
 			
 			$newlocation_string = $stateid . ',' . $mystate_termid . ', ' . $mynewcity_termid;
 			
-			wp_set_post_terms( $post_id, $newlocation_string, 'location' ); // does $post_id need to become $post_id = get_post( $entry['post_id'] ); $podt_id->ID or is it just assumed in the advanced custom stuff, if i make my own post creation then i might have to do this ^^^
+			wp_set_post_terms( $post_id, $newlocation_string, 'location' );
 		
 		}
 
@@ -1329,150 +1329,47 @@ function update_term_information( $post_id, $feed, $entry, $form ) {
 		// Set as featured image for the post created on line 13.
 	
 		set_post_thumbnail( $post, $attach_id );
+	
+		
+			
+		$mynewcity_term = term_exists( 'garrettstate', 'location' );
+			
+		$mynewcity_termid = $mynewcity_term['term_id'];
+			
+		wp_set_post_terms( $post, $mynewcity_termid , 'location', false );
     
     	//updating post
     wp_update_post( $post );
     
-    
-    // all taxonomies, pa, location and featured lawyers cats
+    // map all taxonomies, pa, location and featured lawyers cats
     
     
     // locations
     
-    $postid = $post->ID;
-			
-		$stateid = '139';
-		
-		// State Name to ID
-		
-		$statenameid = $entry['56'];
-		
-		$mystate_term = term_exists( $statenameid, 'location' );
-		
-		$mystate_termid = $mystate_term['term_id'];
-		
-		// City Name to ID
-		
-		$entrycity = $entry['39'];
-		
-		$mycity_term = term_exists( $entrycity, 'location' );
-		
-		$mycity_termid = $mycity_term['term_id'];
-		
-		$location_string = $stateid . ',' . $mystate_termid . ', ' . $mycity_termid;
-		
-		
-		if($mycity_term) {
-			
-			wp_set_post_terms( $postid, $location_string, 'location' );
-		
-		}
-		
-		if(!$mycity_term) {
-			
-				$rules[] = ",";
-				$rules[] = " ";
-				$rules[] = "'";
-			
-			  $entrycity_nospace = str_replace($rules, '-', $entrycity);
-			
-			//$entrycity_nospace = preg_replace('/\s*/', '', $entrycity);
-			
-			
-			$entrycity_slug = strtolower($entrycity_nospace);
-			
-			wp_insert_term(
-				$entrycity, // the term 
+    
+    
+/* this works
+    wp_insert_term(
+				'garrettstate', // the term 
 				'location', // the taxonomy
 				array(
 					//'description'=> 'a term update test of san diego',
-					'slug' => $entrycity_slug,
-					'parent'=> $mystate_termid  // get numeric term id
+					'slug' => 'garrettstate',
+					'parent'=> 'state'  // get numeric term id
 				)
 			);
+*/
 			
-			//get the term id i just created and throw into the string below
 			
-			$mynewcity_term = term_exists( $entrycity, 'location' );
 			
-			$mynewcity_termid = $mynewcity_term['term_id'];
 			
-			$newlocation_string = $stateid . ',' . $mystate_termid . ', ' . $mynewcity_termid;
+// 			$newlocation_string = $stateid . ',' . $mystate_termid . ', ' . $mynewcity_termid;
 			
-			wp_set_post_terms( $postid, $newlocation_string, 'location' ); 
-		
-		}
-		
-		
-		// practice areas
-		
-		// find a way to loop through these instead of hardcoding, and try to consolodate, if they dont exist then add insert terms function later
-		
-		// pa choice one
-		
-		
-		// https://docs.gravityforms.com/entry-object/#checkboxes-field
-
-		$pachoiceone = $entry['28.1'];
-		
-		$pachoiceone_term = term_exists( $pachoiceone, 'practice_area' );
-		
-		$pachoiceone_termid = $pachoiceone_term['term_id'];
-		
-		$paonearray = explode(",", $pachoiceone_termid);
-		
-		$paone = array_map('intval', array_filter($paonearray, 'is_numeric'));
-		
-		// pa choice two
-		
-		$pachoicetwo = rgar( $entry, 28.2 );
-		
-		$pachoicetwo_term = term_exists( $pachoicetwo, 'practice_area' );
-		
-		$pachoicetwo_termid = $pachoicetwo_term['term_id'];
-		
-		// pa choice three
-		
-		$pachoicethree = rgar( $entry, 28.3 );
-		
-		$pachoicethree_term = term_exists( $pachoicethree, 'practice_area' );
-		
-		$pachoicethree_termid = $pachoicethree_term['term_id'];
-		
-		// pa choice four
-		
-		$pachoicefour = rgar( $entry, 28.4 );
-		
-		$pachoicefour_term = term_exists( $pachoicefour, 'practice_area' );
-		
-		$pachoicefour_termid = $pachoicefour_term['term_id'];
-		
-		// pa choice five
-		
-		$pachoicefive = rgar( $entry, 28.5 );
-		
-		$pachoicefive_term = term_exists( $pachoicefive, 'practice_area' );
-		
-		$pachoicefive_termid = $pachoicefive_term['term_id'];
-		
-		// pa choice six
-		
-		$pachoicesix = rgar( $entry, 28.6 );
-		
-		$pachoicesix_term = term_exists( $pachoicesix, 'practice_area' );
-		
-		$pachoicesix_termid = $pachoicesix_term['term_id'];
-		
-		// pa string
-		
-// 		$pa_string = $pachoiceone_termid . ', ' . $pachoicetwo_termid . ', ' . $pachoicethree_termid . ', ' . $pachoicefour_termid . ', ' . $pachoicefive_termid . ', ' . $pachoicesix_termid;
-		
-		//$pa_string_ids = explode(" ",$pa_string_ids);
-		
-		wp_set_post_terms( $postid, $paone, 'practice_area' );
+			
 
 		
-	}
+    
+   }
 	
 	
 	
@@ -1499,13 +1396,20 @@ function update_term_information( $post_id, $feed, $entry, $form ) {
 	
 
 
+
+
+
+
 /*
 
-	$entry_id = '193';
+
+	$entry_id = '149';
 	$entry = GFAPI::get_entry( $entry_id );
 
 	var_dump( $entry );
 */
+
+
 
 
 
@@ -1517,92 +1421,6 @@ $value = is_object( $field ) ? $field->get_value_export( $entry, $field_id, true
 var_dump($value);
 */
 
-		// pa choice one
-
-		$pachoiceone = "Personal Injury";
-		
-		$pachoiceone_term = term_exists( $pachoiceone, 'practice_area' );
-		
-		$pachoiceone_termid = $pachoiceone_term['term_id'];
-		
-		$paonearray = explode(",", $pachoiceone_termid);
-		
-		$paone = array_map('intval', array_filter($paonearray, 'is_numeric'));
-		
-		var_dump($paone);
-		
-		// pa choice two
-		
-		$pachoicetwo = "Criminal Defense";
-		
-		$pachoicetwo_term = term_exists( $pachoicetwo, 'practice_area' );
-		
-		$pachoicetwo_termid = $pachoicetwo_term['term_id'];
-		
-		$patwoarray = explode(",", $pachoicetwo_termid);
-
-		$patwo = array_map('intval', array_filter($patwoarray, 'is_numeric'));
-		
-		var_dump($patwo);
-		
-		// pa choice three
-		
-		$pachoicethree = "Family Law";
-		
-		$pachoicethree_term = term_exists( $pachoicethree, 'practice_area' );
-		
-		$pachoicethree_termid = $pachoicethree_term['term_id'];
-		
-		$pathreearray = explode(",", $pachoicethree_termid);
-
-		$pathree = array_map('intval', array_filter($pathreearray, 'is_numeric'));
-		
-		var_dump($pathree);
-		
-		// pa choice four
-		
-		$pachoicefour = "Bankruptcy";
-		
-		$pachoicefour_term = term_exists( $pachoicefour, 'practice_area' );
-		
-		$pachoicefour_termid = $pachoicefour_term['term_id'];
-		
-		$pafourarray = explode(",", $pachoicefour_termid);
-
-		$pafour = array_map('intval', array_filter($pafourarray, 'is_numeric'));
-		
-		var_dump($pafour);
-		
-		// pa choice five
-		
-		$pachoicefive = "Business";
-		
-		$pachoicefive_term = term_exists( $pachoicefive, 'practice_area' );
-		
-		$pachoicefive_termid = $pachoicefive_term['term_id'];
-		
-		$pafivearray = explode(",", $pachoicefive_termid);
-
-		$pafive = array_map('intval', array_filter($pafivearray, 'is_numeric'));
-		
-		var_dump($pafive);
-		
-		// pa choice six
-		
-		$pachoicesix = "Immigration";
-		
-		$pachoicesix_term = term_exists( $pachoicesix, 'practice_area' );
-		
-		$pachoicesix_termid = $pachoicesix_term['term_id'];
-		
-		$pasixarray = explode(",", $pachoicesix_termid);
-
-		$pasix = array_map('intval', array_filter($pasixarray, 'is_numeric'));
-		
-		var_dump($pasix);
-		
-		var_dump(array_merge($paone, $patwo, $pathree,$pafour,$pafive,$pasix));
-		
 
 
 
