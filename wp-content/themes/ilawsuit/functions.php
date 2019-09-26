@@ -1280,17 +1280,7 @@ function update_term_information( $post_id, $feed, $entry, $form ) {
     
     update_field( 'years_licensed_for', rgar( $entry, '3' ), $post );
     update_field( 'lawyer_bio', rgar( $entry, '9' ), $post );
-    
-/*
-    $field_id = 28; // Update this number to your field id number
-		$field = RGFormsModel::get_field( $form, $field_id );
-		$value = is_object( $field ) ? $field->get_value_export( $entry, $field_id, true ) : '';
-
-    
-    
-    update_field( 'checks', $value , $post );
-*/
-    
+        
     // featured image
     
     $url = rgar( $entry, 55 ); 
@@ -1425,17 +1415,10 @@ function update_term_information( $post_id, $feed, $entry, $form ) {
 			
 			wp_set_post_terms( $postid, 'Featured Lawyer', 'featured_lawyers' );
 			
-		
 		}
 		
 		
 	}
-	
-	
-	
-
-	
-	
 	
 	
 	// overrides the confirmation on form 2 to just redirect back itself (the ?p=post_id doesnt redirect properly when starting on the bio post, but works from settings from antoher page like "create a profile"
@@ -1456,83 +1439,6 @@ function update_term_information( $post_id, $feed, $entry, $form ) {
 	
 
 
-
-
-	$entry_id = '206';
-	$entry = GFAPI::get_entry( $entry_id );
-
-	var_dump( $entry['42'] );
-
-
-
-
-
-
-/*
-$field_id = 28; // Update this number to your field id number
-$field = RGFormsModel::get_field( $form, $field_id );
-$value = is_object( $field ) ? $field->get_value_export( $entry, $field_id, true ) : '';
-
-var_dump($value);
-*/
-
-		// pa choice one
-
-		$pachoiceone = "Personal Injury";
-		
-		$pachoiceone_term = term_exists( $pachoiceone, 'practice_area' );
-		
-		$pachoiceone_termid = $pachoiceone_term['term_id'];
-		
-		// pa choice two
-		
-		$pachoicetwo = "Criminal Defense";
-		
-		$pachoicetwo_term = term_exists( $pachoicetwo, 'practice_area' );
-		
-		$pachoicetwo_termid = $pachoicetwo_term['term_id'];
-		
-		// pa choice three
-		
-		$pachoicethree = "Family Law";
-		
-		$pachoicethree_term = term_exists( $pachoicethree, 'practice_area' );
-		
-		$pachoicethree_termid = $pachoicethree_term['term_id'];
-		
-		// pa choice four
-		
-		$pachoicefour = "Bankruptcy";
-		
-		$pachoicefour_term = term_exists( $pachoicefour, 'practice_area' );
-		
-		$pachoicefour_termid = $pachoicefour_term['term_id'];
-		
-		// pa choice five
-		
-		$pachoicefive = "Business";
-		
-		$pachoicefive_term = term_exists( $pachoicefive, 'practice_area' );
-		
-		$pachoicefive_termid = $pachoicefive_term['term_id'];
-		
-		// pa choice six
-		
-		$pachoicesix = "Immigration";
-		
-		$pachoicesix_term = term_exists( $pachoicesix, 'practice_area' );
-		
-		$pachoicesix_termid = $pachoicesix_term['term_id'];
-		
-		// pa array
-			
-		$pa_string = $pachoiceone_termid . ' ' . $pachoicetwo_termid . ' ' . $pachoicethree_termid . ' ' . $pachoicefour_termid . ' ' . $pachoicefive_termid . ' ' . $pachoicesix_termid;
-
-		$pa_array = explode(" ", $pa_string);
-	
-		$pa_intarray = array_map('intval', array_filter($pa_array, 'is_numeric'));
-	
-		//var_dump($pa_intarray);
 
 
 	

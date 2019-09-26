@@ -1,20 +1,31 @@
 {\rtf1\ansi\ansicpg1252\cocoartf1671\cocoasubrtf600
 {\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fnil\fcharset0 Montserrat-ExtraBold;\f2\froman\fcharset0 Times-Roman;
-\f3\froman\fcharset0 Palatino-Roman;\f4\fswiss\fcharset0 ArialMT;\f5\fnil\fcharset0 Monaco;
-\f6\fswiss\fcharset0 Helvetica-Bold;\f7\fmodern\fcharset0 CourierNewPSMT;\f8\fmodern\fcharset0 CourierNewPS-BoldMT;
-\f9\fmodern\fcharset0 Courier;}
+\f3\froman\fcharset0 Palatino-Roman;\f4\fswiss\fcharset0 ArialMT;\f5\fswiss\fcharset0 Helvetica-Bold;
+\f6\fmodern\fcharset0 CourierNewPSMT;\f7\fmodern\fcharset0 CourierNewPS-BoldMT;\f8\fmodern\fcharset0 Courier;
+\f9\fnil\fcharset0 Monaco;}
 {\colortbl;\red255\green255\blue255;\red0\green0\blue0;\red241\green241\blue241;\red0\green0\blue233;
-\red0\green0\blue233;\red255\green255\blue255;\red27\green29\blue31;\red0\green0\blue255;\red10\green82\blue135;
-\red153\green100\blue4;\red15\green114\blue1;\red63\green105\blue30;\red255\green0\blue0;\red57\green57\blue57;
+\red255\green255\blue255;\red27\green29\blue31;\red63\green105\blue30;\red255\green0\blue0;\red57\green57\blue57;
 \red236\green236\blue236;\red240\green240\blue245;}
 {\*\expandedcolortbl;;\cssrgb\c0\c0\c0;\cssrgb\c95686\c95686\c95686;\cssrgb\c0\c0\c93333;
-\cssrgb\c0\c0\c93333;\cssrgb\c100000\c100000\c100000;\cssrgb\c14118\c15294\c16078;\cssrgb\c0\c0\c100000;\cssrgb\c0\c40000\c60000;
-\cssrgb\c66667\c46667\c0;\cssrgb\c0\c50980\c0;\csgenericrgb\c24706\c41176\c11765;\csgenericrgb\c100000\c0\c0;\cssrgb\c29020\c29020\c29020;
+\cssrgb\c100000\c100000\c100000;\cssrgb\c14118\c15294\c16078;\csgenericrgb\c24706\c41176\c11765;\csgenericrgb\c100000\c0\c0;\cssrgb\c29020\c29020\c29020;
 \cssrgb\c94118\c94118\c94118;\cssrgb\c95294\c95294\c96863;}
 \margl1440\margr1440\vieww21520\viewh12640\viewkind0
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
-\f0\fs24 \cf0 textarea cant add val\
+\f0\fs24 \cf0 pagination is broken agaaaain \
+\
+\
+if street address is filled then i shoudl somehow have the full address line get updated too so they aren\'92t different fuck this might be the easiet way so i dont have to have all these street conditionals everythwere\'85.\
+\
+once claimed hide the claim button\
+\
+also position fix the overlay logo steps and closes\
+\
+add featured ribbon to sidebars with \'93featured lawyer\'94\
+\
+loading screen. spinnign circle then walk through process steps\
+\
+after clicking state have it jump up to the input again esp mobile\
 \
 \
 \pard\pardeftab720\sl420\partightenfactor0
@@ -31,60 +42,8 @@ does  bio shit need to be formatted when mapping back to the form? maybe html in
 \
 email confirmations for all scenarios \
 \
-https://att-directory.com/lawyer?p=\{post_id\}\
-\
-https://att-directory.com/lawyer/\{Post ID Merge Tag:94\}\
-\
-\
-validatoin errorss arent snapping \
-	\
-	// this works\
-	\
-	add_action( 'gform_pre_submission_4', 'pre_submission_handler' );\
-	\
-	function pre_submission_handler( $form ) \{\
-    \
-    $_POST['input_94'] = rgpost( 'input_1' );\
-	\
-	\}\
-\
-redo stylesheet input ids\
-\
-\pard\pardeftab720\sl280\partightenfactor0
-{\field{\*\fldinst{HYPERLINK "https://legacy.forums.gravityhelp.com/topic/using-forms-to-update-a-post"}}{\fldrslt 
-\f2 \cf4 \expnd0\expndtw0\kerning0
-\ul \ulc4 https://legacy.forums.gravityhelp.com/topic/using-forms-to-update-a-post}}
-\f2 \cf4 \expnd0\expndtw0\kerning0
-\ul \ulc4 \
-\pard\pardeftab720\sl280\partightenfactor0
-{\field{\*\fldinst{HYPERLINK "https://legacy.forums.gravityhelp.com/topic/how-to-update-a-post"}}{\fldrslt \cf4 https://legacy.forums.gravityhelp.com/topic/how-to-update-a-post}}\
-\pard\pardeftab720\sl280\partightenfactor0
-{\field{\*\fldinst{HYPERLINK "https://docs.gravityforms.com/gform_after_submission/"}}{\fldrslt \cf4 https://docs.gravityforms.com/gform_after_submission/}}\
-\pard\pardeftab720\sl280\partightenfactor0
-{\field{\*\fldinst{HYPERLINK "https://docs.gravityforms.com/entry-object/"}}{\fldrslt \cf4 https://docs.gravityforms.com/entry-object/}}\
-\pard\pardeftab720\sl280\partightenfactor0
-{\field{\*\fldinst{HYPERLINK "https://codex.wordpress.org/Function_Reference/wp_update_post"}}{\fldrslt \cf4 https://codex.wordpress.org/Function_Reference/wp_update_post}}\
-\pard\pardeftab720\sl280\partightenfactor0
-{\field{\*\fldinst{HYPERLINK "https://www.advancedcustomfields.com/resources/update_field/"}}{\fldrslt \cf4 https://www.advancedcustomfields.com/resources/update_field/}}\
-\pard\pardeftab720\sl280\partightenfactor0
-{\field{\*\fldinst{HYPERLINK "http://bionicteaching.com/gravity-forms-to-acf-pattern/"}}{\fldrslt \cf4 http://bionicteaching.com/gravity-forms-to-acf-pattern/}}
-\f0 \cf0 \kerning1\expnd0\expndtw0 \ulnone \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 \cf0 \
-\
-\pard\pardeftab720\sl280\partightenfactor0
-{\field{\*\fldinst{HYPERLINK "https://att-directory.com/wp-json/mapping/v1/location/san-diego/business/1?_jsonp=eqfeed_callback#"}}{\fldrslt 
-\f2 \cf5 \expnd0\expndtw0\kerning0
-\ul \ulc5 \outl0\strokewidth0 \strokec5 https://att-directory.com/wp-json/mapping/v1/location/san-diego/business/1?_jsonp=eqfeed_callback#}}
-\f2 \cf5 \expnd0\expndtw0\kerning0
-\ul \ulc5 \outl0\strokewidth0 \strokec5 \
-\pard\pardeftab720\sl280\partightenfactor0
-{\field{\*\fldinst{HYPERLINK "https://stackoverflow.com/questions/30464889/how-to-hide-api-key-using-php"}}{\fldrslt \cf5 \ulc5 https://stackoverflow.com/questions/30464889/how-to-hide-api-key-using-php}}\
-\pard\pardeftab720\sl280\partightenfactor0
-{\field{\*\fldinst{HYPERLINK "http://bionicteaching.com/gravity-forms-to-acf-pattern/"}}{\fldrslt \cf5 \ulc5 http://bionicteaching.com/gravity-forms-to-acf-pattern/}}
-\f0 \cf0 \kerning1\expnd0\expndtw0 \ulnone \outl0\strokewidth0 \
-\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
-\cf0 wrap bio brs into paragraphs \
 \
 \
 then all other future updates can be handled by having them login and using the acf form to make updates\
@@ -97,261 +56,33 @@ what is lawyer bar admission acf in basic, a conditional error?\
 \
 map states to abbr for the addresss\
 \
-bummer it has to loop a bunch of locations\
+bummer it has to loop a bunch of locations that makes slow, post creation get infinitely faster without having it search through terms during post creation, can I do that afterwards?\
 \
-acf price tiers\
-\
-post creation get infinitely faster without having it search through terms during post creation, can I do that afterwards?\
+acf price tiers overlay\
 \
 \
 \
-/*\
-add_action( 'gform_after_submission_2', 'set_post_content', 10, 2 );\
-function set_post_content( $entry, $form ) \{\
- \
-    //getting post\
-    $post = get_post( $entry['post_id'] );\
- \
-    //changing post content\
-    $post->post_content = 'Blender Version:' . rgar( $entry, '7' ) . "<br/> <img src='" . rgar( $entry, '8' ) . "'> <br/> <br/> " . rgar( $entry, '13' ) . " <br/> <img src='" . rgar( $entry, '5' ) . "'>";\
- \
-    //updating post\
-    wp_update_post( $post );\
-\}\
-*/\
-\
-\
-\
-\
-\
-\
-\
-\
-\
-\
-\
-	\
-// https://wordpress.stackexchange.com/questions/125290/change-gravity-forms-confirmation-redirect-query-string-to-include-entry-id\
-\
-\
-/*\
-add_filter("gform_confirmation", "confirm_change", 10, 4);\
-function confirm_change($confirmation, $form, $lead, $ajax)\{\
-\
-    $url = get_bloginfo('url') ."/thank-you/?page=". $lead['1']. "&rma=" . ($lead['id']);\
-\
-    $confirmation = array('redirect' => $url);\
-    return $confirmation;\
-\}\
-*/\
-\
-// https://stackoverflow.com/questions/18938128/redirect-gravity-form-on-submission-to-post-just-created\
-\
-/*\
-add_action('gform_after_submission', 'redirect_on_post', 10, 2);\
-\
-function redirect_on_post($confirmation, $form, $lead, $ajax)\{\
-	$pid = $lead['post_id'];\
-	$confirmation = array("redirect" => get_site_url() . "/?p=$pid");\
-	return $confirmation;\
-\}\
-*/\
-\
-//gform_advancedpostcreation_post_2\
-	\
-\
-/*\
-add_filter( 'gform_advancedpostcreation_post_2', 'change_post', 10, 4 );\
-\
-function change_post( $post, $feed, $entry, $form)\{\
-    $post['post_title'] = 'This is a g test';\
-    return $post;\
-\}\
-*/\
-\
-\
-\
-/*\
-add_action( 'gform_after_submission', 'set_post_content', 10, 2 );\
-function set_post_content( $entry, $form ) \{\
- \
-    //if the Advanced Post Creation add-on is used, more than one post may be created for a form submission\
-    //the post ids are stored as an array in the entry meta\
-    $created_posts = gform_get_meta( $entry['id'], 'gravityformsadvancedpostcreation_post_id' );\
-    foreach ( $created_posts as $post )\
-    \{\
-        $post_id = $post['post_id'];\
-        $post = get_post( $post_id );\
- \
-        $post->post_content = 'This is a test for post id ' . $post_id . '.';\
- \
-        wp_update_post( $post );\
-    \}\
-\}\
-*/\
-\
-// look into this more\
-\
-/*\
-add_action( 'gform_advancedpostcreation_post_after_creation', 'update_product_information', 10, 4 );\
-function update_product_information( $post_id, $feed, $entry, $form )\{\
-\'a0\
-\'a0\'a0\'a0\'a0//update the prices set for the product\
-\'a0\'a0\'a0\'a0update_post_meta( $post_id, '_regular_price', $entry['7'] );\
-\'a0\'a0\'a0\'a0update_post_meta( $post_id, '_price', $entry['7'] );\
-\'a0\
-\'a0\'a0\'a0\'a0//update the category\
-\'a0\'a0\'a0\'a0wp_set_object_terms( $post_id, $entry['6'], 'product_cat' );\
-\'a0\
-\}\
-*/\
-\
-\
-\
-\
-\
-//https://legacy.forums.gravityhelp.com/topic/how-to-update-a-post\
-\
-// Update post 37\
-/*\
-  $my_post = array(\
-      'ID'           => 598188,\
-      'post_title'   => 'garrett was here',\
-  );\
-*/\
-\
-// Update the post into the database\
-  // wp_update_post( $my_post );\
-  \
-  // Of course, this should be done in an development environment only and commented out or removed after deploying to your production site.\
-\
-/*\
-$post_id = wp_update_post( $current_item, true );						  \
-if (is_wp_error($post_id)) \{\
-	$errors = $post_id->get_error_messages();\
-	foreach ($errors as $error) \{\
-		echo $error;\
-	\}\
-\}\
-*/\
-\
-\
-\
-//wp_set_post_terms( $post_id, '139,2689', 'location' );\
-	\
-		// will need an array for pa's\
- \
-   //update the category\
-    //wp_set_object_terms( $post_id, 'A New Test', 'practice_area' );\
-    \
-   //wp_insert_term\
-   \
-   //https://wordpress.stackexchange.com/questions/99681/how-to-set-hierarchical-terms-to-a-post-using-wp-set-object-terms\
-   \
-\
-/*\
-// set terms\
-wp_set_object_terms( $post_id, $object_types, 'immomakler_object_type', true );\
-// make terms hierarchial by objektart\
-$term_parent = get_term_by( 'slug', $openimmo_data['objektart'], 'immomakler_object_type' );\
-$term_child  = get_term_by( 'slug', $openimmo_data['objektart_detail'], 'immomakler_object_type' );\
-delete_option( 'immomakler_object_type_children' ); // workaround for WordPress not updating this option properly\
-wp_update_term( $term_child->term_id, 'immomakler_object_type', array( 'parent' => $term_parent->term_id ) );\
-*/\
-\
-\
-// wp_set_post_terms might be it https://codex.wordpress.org/Function_Reference/wp_set_post_terms\
-\
- $mycity_term = term_exists( 'San Diego', 'location' );\
- \
- if($mycity_term) \{\
-	 \
-	 echo "yes" . var_dump($mycity_term['term_id']);\
-	 \
- \}\
- \
-\
-$entry_id = '63';\
-$entry = GFAPI::get_entry( $entry_id );\
-\
-var_dump( $entry['56'] );\
-\
-	// if city term exists then get id and set terms list array of state/state/city\
-			 \
-			 // wp_set_post_terms()\
-		\
-   // if city term does not exist, wp_insert_term to create term object, get that id, then \
-   \
-   		// wp_set_post_terms()\
-\
-   //$parent_term = term_exists( 'california', 'location' ); // array is returned if taxonomy is given\
-\
-/*\
-	 wp_insert_term(\
-	 'San Diego', // the term \
-	 'location', // the taxonomy\
-	  array(\
-    	'description'=> 'a term update test of san diego',\
-			'slug' => 'san-diego333',\
-			'parent'=> $parent_term['term_id']  // get numeric term id\
-		)\
-	);\
-*/\
-\
-//if it seems cached on the fly i might have to delete the child term first https://gist.github.com/hinnerk-a/3835366\
-\
-// https://wordpress.stackexchange.com/questions/8357/inserting-terms-in-an-hierarchical-taxonomy\
-\
-\
-\
-\pard\pardeftab720\sl280\partightenfactor0
-{\field{\*\fldinst{HYPERLINK "https://www.google.com/search?q=ph+variables+101&rlz=1C5CHFA_enUS724US726&oq=ph+variables+101&aqs=chrome..69i57.3894j0j1&sourceid=chrome&ie=UTF-8"}}{\fldrslt 
-\f2 \cf4 \expnd0\expndtw0\kerning0
-\ul https://www.google.com/search?q=ph+variables+101&rlz=1C5CHFA_enUS724US726&oq=ph+variables+101&aqs=chrome..69i57.3894j0j1&sourceid=chrome&ie=UTF-8}}
-\f2 \cf4 \expnd0\expndtw0\kerning0
-\ul \
-\pard\pardeftab720\sl280\partightenfactor0
-
-\f0 \cf0 \kerning1\expnd0\expndtw0 \ulnone \
-\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
-\cf0 we could assing the locations by hand or use a loading screen\
-\
-\
-\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
-\cf0 {{\NeXTGraphic Screen Shot 2019-09-18 at 6.06.59 PM.png \width22420 \height6220 \appleattachmentpadding0 \appleembedtype0 \appleaqc
-}¬}\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
-\cf0 \
 \
 \
 HIDE API KEYS IN FNCTIONS (TO GIT) AND IN JS FILE\
 \pard\pardeftab720\sl440\partightenfactor0
 
-\f3\fs40 \cf2 \cb6 \expnd0\expndtw0\kerning0
+\f3\fs40 \cf2 \cb5 \expnd0\expndtw0\kerning0
 serverside wrapper or proxy\'a0\
 \pard\pardeftab720\sl340\partightenfactor0
 
-\f4\fs30 \cf7 create a PHP wrapper around the API calls that require keys, and then call that wrapper from Javascript\
+\f4\fs30 \cf6 create a PHP wrapper around the API calls that require keys, and then call that wrapper from Javascript\
 maybe try to use config file to ignore the api key in functions.php? or call the file into functions then ignore \
 \
-\
-might be able to use featured image i got the media to work through media option i overlooked\
 \
 \pard\pardeftab720\sl280\partightenfactor0
 {\field{\*\fldinst{HYPERLINK "https://stackoverflow.com/questions/30464889/how-to-hide-api-key-using-php"}}{\fldrslt 
 \f2\fs24 \cf4 \cb1 \ul https://stackoverflow.com/questions/30464889/how-to-hide-api-key-using-php}}
 \f2\fs24 \cf4 \cb1 \ul \
 \
-\pard\pardeftab720\sl440\partightenfactor0
+\pard\pardeftab720\sl280\partightenfactor0
 
 \f0 \cf0 \kerning1\expnd0\expndtw0 \ulnone \
-\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
-\cf0 \
-pagination is broken agaaaain \
-\
-\pard\pardeftab720\sl280\partightenfactor0
-{\field{\*\fldinst{HYPERLINK "https://garretts-macbook-pro.local:5757/lawyers-practice/california/san-diego/business-lawyers/page/3/?ckcachecontrol=1568768950"}}{\fldrslt 
-\f2 \cf4 \expnd0\expndtw0\kerning0
-\ul https://garretts-macbook-pro.local:5757/lawyers-practice/california/san-diego/business-lawyers/page/3/?ckcachecontrol=1568768950}}\
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 \cf0 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
@@ -359,20 +90,8 @@ pagination is broken agaaaain \
 }¬}\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 \cf0 \
 \
-learn about all gform hooks tutorial\
-\
-fuck new categories dont get hierarchy\
-\
-redirect to the new profile with an overlay that says welcome etc etc\
-\
-if all else fails:\
-\
-put the url on the thank you page, might work better that way bc you can say thank you: give them login url, tell them you emailed them, explain how you can make edits etc\
-\
-if i cant update existing posts, create the new then after submission delete the old one, redirect to the thank you page then show the link\
 \
 \
-R\
 \
 \pard\pardeftab720\sl280\partightenfactor0
 {\field{\*\fldinst{HYPERLINK "https://att-directory.com/wp-json/mapping/v1/location/san-diego/business/1?_jsonp=eqfeed_callback#"}}{\fldrslt 
@@ -383,54 +102,19 @@ R\
 ajax gform error page snap to top, also just next page snap to top\
 \
 \
-then the map needs a street address url built to plot correctly on the map\
-\
-if street address is filled then i shoudl somehow have the full address line get updated too so they aren\'92t different fuck this might be the easiet way so i dont have to have all these street conditionals everythwere\'85.\
 \
 \
-once claimed hide the claim button\
 \
 \
-Step 1.\
-\
-intro text with price etc with begin button\
-\
-Step 2.\
-\
-The actual listing form\
-\
-Step 3.\
-\
-Then the check box with contact info and add username and password\
-\
-Step 4. \
-\
-Paypal integrated into the overlay\
-\
-Step 5. \
-\
-Behind the scenes -  \
-create post/or it has to update a post too {\field{\*\fldinst{HYPERLINK "https://docs.gravityforms.com/gform_after_submission/#2-update-post-created-using-the-advanced-post-creation-add-on"}}{\fldrslt 
-\f2 \cf4 \expnd0\expndtw0\kerning0
-\ul https://docs.gravityforms.com/gform_after_submission/#2-update-post-created-using-the-advanced-post-creation-add-on}}\
-create user(ability to edit just their post)\
-payment\
-redirect to new post as private - once they click on email verifcation it goes live\
 \
 \
-https://www.gravityforms.com/add-ons/advanced-post-creation/\uc0\u8232 https://www.gravityforms.com/add-ons/user-registration/\u8232 https://www.gravityforms.com/add-ons/authorize-net/\
 \
-email verification\
 \
-redirect after completion\
 \
 need charcter count to lessen as you type\
 \
-next back\
 \
-grey lne\
 \
-then submit\
 \
 claim:\
 \
@@ -446,13 +130,9 @@ gotta figure out how to not have redenuant php variables inside different loops 
 \
 \'97\'97\'97\
 \
-create profile\
-\
-if basic then create\
-if premium then switch the template over to premium acf and mark it as a featured post\
 \
 \
-also position fix the overlay logo steps and closes\
+\
 \
 split up js into better organized files when making documentation\
 \
@@ -461,61 +141,31 @@ we also have a featured lawyer option tick that for premium tell mike\
 \
 prepopulate repeater rows on pages backend/ view example for premium \'93add content overlays? lorem ipsum fillers?\'94 then edit buttons and prompt the acf stuff\
 \
-add featured ribbon to sidebars with \'93featured lawyer\'94\
+\
 \
 i want to acf form but its breaking a ton of shit bc of my defer stuff, i might need to put all files back in the header and then hope siteground cache can defer all files\'85 or keep trying to have a conditional for just the single page\
 \
 what am i doing with all of the questions that arent mapped and on mock up? ask mike\
 \
-scale height on paragraph texts animation so it seems shorter scroll\
+\
 turn basic 250 basic back on\
 \
-i might have to create a separate image edit upload section for image\'85 so annoying bc post creation isint mapping image object to the acf, either is gform post image, or it also isnt adding to featured image or not even uploading to media library \
-\
-gform errors on premium \
 \
 whats the difference between free and basic? tell mike\
-fixed overlay logo header\
 \
-\
-does render have to be redundant? look up example again\
-\
-fade out contact info if the exact same - maybe\
-\
-i wonder if each level needs different roles when user is created? maybe \
+i wonder if each level needs different roles when user is created? maybe use user role plugin so they only see their current page to edit\
 \
 if contact info is different(email) have those be get sent to the person\'92s email as a confirmation, but for free claim it needs to be just the first email\
 \
-loading screen once you hit claim nexts submit buttons\
 \
-how will i know the longitude and lat of an address? I think I have a converter but how will i use here on form post? leave a link in the form that will tell them what is as a build in query string - click button to enter lat long into inputs\
 \
-after clicking state have it jump up to the input again esp mobile\
+\
+\
+\
 \
 tell him it takes awhile to assign the post through all the practice areas as well as process the payment so I did a load screen \'93please do not refresh\'94\
 \
 \
-if it ends up being faster without cats maybe this will help\
-
-\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrt\brdrnil \trbrdrl\brdrnil \trbrdrt\brdrnil \trbrdrr\brdrnil 
-\clvertalt\clvertalbase \clshdrawnil \clwWidth19540\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadl0 \clpadr0 \gaph\cellx8640
-\pard\intbl\itap1\pardeftab720\sl300\partightenfactor0
-
-\f5 \cf2 \expnd0\expndtw0\kerning0
-add_action( \cf8 'gform_advancedpostcreation_post_after_creation'\cf2 , \cf8 'update_product_information'\cf2 , 10, 4 );\
-\cf9 function\cf2  update_product_information( \cf10 $post_id\cf2 , \cf10 $feed\cf2 , \cf10 $entry\cf2 , \cf10 $form\cf2  )\{\
-\'a0\
-\'a0\'a0\'a0\'a0\cf11 //update the prices set for the product\cf2 \
-\'a0\'a0\'a0\'a0update_post_meta( \cf10 $post_id\cf2 , \cf8 '_regular_price'\cf2 , \cf10 $entry\cf2 [\cf8 '7'\cf2 ] );\
-\'a0\'a0\'a0\'a0update_post_meta( \cf10 $post_id\cf2 , \cf8 '_price'\cf2 , \cf10 $entry\cf2 [\cf8 '7'\cf2 ] );\
-\'a0\
-\'a0\'a0\'a0\'a0\cf11 //update the category\cf2 \
-\'a0\'a0\'a0\'a0wp_set_object_terms( \cf10 $post_id\cf2 , \cf10 $entry\cf2 [\cf8 '6'\cf2 ], \cf8 'product_cat'\cf2  );\
-\'a0\
-\}\cell \lastrow\row
-\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
-
-\f0 \cf0 \kerning1\expnd0\expndtw0 \
 \
 \'97\'97\'97\
 \
@@ -734,49 +384,49 @@ templates\
 \'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\
 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
-\cf12 1. pre_get_post\cf0 \
+\cf7 1. pre_get_post\cf0 \
 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
-\f6\b \cf0 \'93archive-lawyer\'94  three part search
+\f5\b \cf0 \'93archive-lawyer\'94  three part search
 \f0\b0 \
 \
 	- runs a pre_get_post with all conditionals\
 \
 
-\f6\b  "template-locations_city_pa.php" /lawyers-practice/california/anaheim-hills/business-lawyers/
+\f5\b  "template-locations_city_pa.php" /lawyers-practice/california/anaheim-hills/business-lawyers/
 \f0\b0 \
 \
 	- runs a pre_get_post - needs a rewrite rule setup to handle pagination\
 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
-\cf12 2. Unable to run pre_get_post at this time, each of these loops are similar with multiple wp_query calls, these also seem like I\'92m running a few things too many times\cf0 \
+\cf7 2. Unable to run pre_get_post at this time, each of these loops are similar with multiple wp_query calls, these also seem like I\'92m running a few things too many times\cf0 \
 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
-\f6\b \cf0 \'93taxonomy-practice_area.php\'94  /lawyers-practice/criminal-defense-lawyers
+\f5\b \cf0 \'93taxonomy-practice_area.php\'94  /lawyers-practice/criminal-defense-lawyers
 \f0\b0 \
 \
 	- im unable to use pre_get_posts and there are a couple wp_query calls\'85\
 	- timeout on large ones\
-	- I get the first 2000 post ids that are in both the locations and current pa - \cf13 this needs to be improved upon\cf0 \
+	- I get the first 2000 post ids that are in both the locations and current pa - \cf8 this needs to be improved upon\cf0 \
 	- then I return all terms found in locations that have those object_ids (post ids)\
 \
 
-\f6\b \'93template-locations_state_pa.php\'94 /lawyers-practice/colorado/criminal-defense-lawyers/\
+\f5\b \'93template-locations_state_pa.php\'94 /lawyers-practice/colorado/criminal-defense-lawyers/\
 \
 	
-\f0\b0 \cf13 - look at this closer what is get_term_by I think this is here to show just cities tied to a current state id\cf0 \
+\f0\b0 \cf8 - look at this closer what is get_term_by I think this is here to show just cities tied to a current state id\cf0 \
 	- most likely won\'92t be using pre_get_post because I need to run mutiple wp_queries\
 	- I get all post ids in the current state and the current pa\
 	- then I return all terms of locations (cities) that have those object ids (post ids)\
 \
 
-\f6\b \'93template-practicearea_city.php\'94 /lawyers-location/state/alaska/barrington-alaska-lawyers/\
+\f5\b \'93template-practicearea_city.php\'94 /lawyers-location/state/alaska/barrington-alaska-lawyers/\
 \
 	
 \f0\b0 - does this timeout on large ones?
-\f6\b \
+\f5\b \
 	
 \f0\b0 - get all post ids in the current location (city) with all the pas\
 	- then I return all terms found in pas with those object ids (post ids)\
@@ -812,15 +462,15 @@ look at transients again\
 \
 \pard\pardeftab720\sl300\partightenfactor0
 
-\f7\fs26 \cf14 \cb15 \expnd0\expndtw0\kerning0
+\f6\fs26 \cf9 \cb10 \expnd0\expndtw0\kerning0
 \'a0
-\f8\b \cb1 'cache_results'\'a0 => false,
-\f7\b0 \
+\f7\b \cb1 'cache_results'\'a0 => false,
+\f6\b0 \
 
-\f8\b \'a0\'a0\'a0 'update_post_meta_cache' => false,
-\f7\b0 \
+\f7\b \'a0\'a0\'a0 'update_post_meta_cache' => false,
+\f6\b0 \
 
-\f8\b \'a0\'a0\'a0 'update_post_term_cache' => false,\
+\f7\b \'a0\'a0\'a0 'update_post_term_cache' => false,\
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
 \f0\b0\fs24 \cf0 \kerning1\expnd0\expndtw0 \
@@ -850,23 +500,23 @@ this worked to export db\
 \
 \pard\pardeftab720\sl300\sa440\partightenfactor0
 
-\f6\b\fs26 \cf2 \cb6 \expnd0\expndtw0\kerning0
+\f5\b\fs26 \cf2 \cb5 \expnd0\expndtw0\kerning0
 Nested Taxonomy Handling:
 \f0\b0 \
 The\'a0
-\f9 'tax_query'
+\f8 'tax_query'
 \f0 \'a0clauses can be nested, to create more complex queries. Example: Display\'a0
-\f6\b posts
+\f5\b posts
 \f0\b0 \'a0that are in the\'a0
-\f6\b quotes
+\f5\b quotes
 \f0\b0 \'a0category OR both have the\'a0
-\f6\b quote
+\f5\b quote
 \f0\b0 \'a0post format AND are in the\'a0
-\f6\b wisdom
+\f5\b wisdom
 \f0\b0 \'a0category:\
 \pard\pardeftab720\sl312\partightenfactor0
 
-\f5\fs24 \cf2 \cb16 $args = array(\
+\f9\fs24 \cf2 \cb11 $args = array(\
 	'post_type' => 'post',\
 	'tax_query' => array(\
 		'relation' => 'OR',\
@@ -976,5 +626,280 @@ $query = new WP_Query( $args );\
 		// checked checkmarks test\
 		\
 		// do an inout field and see what the hell this returns inside hook\
+\
+\
+\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 https://att-directory.com/lawyer?p=\{post_id\}\
+\
+https://att-directory.com/lawyer/\{Post ID Merge Tag:94\}\
+\
+\
+validatoin errorss arent snapping \
+	\
+	// this works\
+	\
+	add_action( 'gform_pre_submission_4', 'pre_submission_handler' );\
+	\
+	function pre_submission_handler( $form ) \{\
+    \
+    $_POST['input_94'] = rgpost( 'input_1' );\
+	\
+	\}\
+\
+\
+\
+\pard\pardeftab720\sl280\partightenfactor0
+{\field{\*\fldinst{HYPERLINK "https://legacy.forums.gravityhelp.com/topic/using-forms-to-update-a-post"}}{\fldrslt 
+\f2 \cf4 \expnd0\expndtw0\kerning0
+\ul \ulc4 https://legacy.forums.gravityhelp.com/topic/using-forms-to-update-a-post}}
+\f2 \cf4 \expnd0\expndtw0\kerning0
+\ul \ulc4 \
+\pard\pardeftab720\sl280\partightenfactor0
+{\field{\*\fldinst{HYPERLINK "https://legacy.forums.gravityhelp.com/topic/how-to-update-a-post"}}{\fldrslt \cf4 https://legacy.forums.gravityhelp.com/topic/how-to-update-a-post}}\
+\pard\pardeftab720\sl280\partightenfactor0
+{\field{\*\fldinst{HYPERLINK "https://docs.gravityforms.com/gform_after_submission/"}}{\fldrslt \cf4 https://docs.gravityforms.com/gform_after_submission/}}\
+\pard\pardeftab720\sl280\partightenfactor0
+{\field{\*\fldinst{HYPERLINK "https://docs.gravityforms.com/entry-object/"}}{\fldrslt \cf4 https://docs.gravityforms.com/entry-object/}}\
+\pard\pardeftab720\sl280\partightenfactor0
+{\field{\*\fldinst{HYPERLINK "https://codex.wordpress.org/Function_Reference/wp_update_post"}}{\fldrslt \cf4 https://codex.wordpress.org/Function_Reference/wp_update_post}}\
+\pard\pardeftab720\sl280\partightenfactor0
+{\field{\*\fldinst{HYPERLINK "https://www.advancedcustomfields.com/resources/update_field/"}}{\fldrslt \cf4 https://www.advancedcustomfields.com/resources/update_field/}}\
+\pard\pardeftab720\sl280\partightenfactor0
+{\field{\*\fldinst{HYPERLINK "http://bionicteaching.com/gravity-forms-to-acf-pattern/"}}{\fldrslt \cf4 http://bionicteaching.com/gravity-forms-to-acf-pattern/}}
+\f0 \cf0 \kerning1\expnd0\expndtw0 \ulnone \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
+\
+\pard\pardeftab720\sl280\partightenfactor0
+{\field{\*\fldinst{HYPERLINK "https://att-directory.com/wp-json/mapping/v1/location/san-diego/business/1?_jsonp=eqfeed_callback#"}}{\fldrslt 
+\f2 \cf4 \expnd0\expndtw0\kerning0
+\ul https://att-directory.com/wp-json/mapping/v1/location/san-diego/business/1?_jsonp=eqfeed_callback#}}
+\f2 \cf4 \expnd0\expndtw0\kerning0
+\ul \
+\pard\pardeftab720\sl280\partightenfactor0
+{\field{\*\fldinst{HYPERLINK "https://stackoverflow.com/questions/30464889/how-to-hide-api-key-using-php"}}{\fldrslt \cf4 https://stackoverflow.com/questions/30464889/how-to-hide-api-key-using-php}}\
+\pard\pardeftab720\sl280\partightenfactor0
+{\field{\*\fldinst{HYPERLINK "http://bionicteaching.com/gravity-forms-to-acf-pattern/"}}{\fldrslt \cf4 http://bionicteaching.com/gravity-forms-to-acf-pattern/}}
+\f0 \cf0 \kerning1\expnd0\expndtw0 \ulnone \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
+\
+\
+/*\
+add_action( 'gform_after_submission_2', 'set_post_content', 10, 2 );\
+function set_post_content( $entry, $form ) \{\
+ \
+    //getting post\
+    $post = get_post( $entry['post_id'] );\
+ \
+    //changing post content\
+    $post->post_content = 'Blender Version:' . rgar( $entry, '7' ) . "<br/> <img src='" . rgar( $entry, '8' ) . "'> <br/> <br/> " . rgar( $entry, '13' ) . " <br/> <img src='" . rgar( $entry, '5' ) . "'>";\
+ \
+    //updating post\
+    wp_update_post( $post );\
+\}\
+*/\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+	\
+// https://wordpress.stackexchange.com/questions/125290/change-gravity-forms-confirmation-redirect-query-string-to-include-entry-id\
+\
+\
+/*\
+add_filter("gform_confirmation", "confirm_change", 10, 4);\
+function confirm_change($confirmation, $form, $lead, $ajax)\{\
+\
+    $url = get_bloginfo('url') ."/thank-you/?page=". $lead['1']. "&rma=" . ($lead['id']);\
+\
+    $confirmation = array('redirect' => $url);\
+    return $confirmation;\
+\}\
+*/\
+\
+// https://stackoverflow.com/questions/18938128/redirect-gravity-form-on-submission-to-post-just-created\
+\
+/*\
+add_action('gform_after_submission', 'redirect_on_post', 10, 2);\
+\
+function redirect_on_post($confirmation, $form, $lead, $ajax)\{\
+	$pid = $lead['post_id'];\
+	$confirmation = array("redirect" => get_site_url() . "/?p=$pid");\
+	return $confirmation;\
+\}\
+*/\
+\
+//gform_advancedpostcreation_post_2\
+	\
+\
+/*\
+add_filter( 'gform_advancedpostcreation_post_2', 'change_post', 10, 4 );\
+\
+function change_post( $post, $feed, $entry, $form)\{\
+    $post['post_title'] = 'This is a g test';\
+    return $post;\
+\}\
+*/\
+\
+\
+\
+/*\
+add_action( 'gform_after_submission', 'set_post_content', 10, 2 );\
+function set_post_content( $entry, $form ) \{\
+ \
+    //if the Advanced Post Creation add-on is used, more than one post may be created for a form submission\
+    //the post ids are stored as an array in the entry meta\
+    $created_posts = gform_get_meta( $entry['id'], 'gravityformsadvancedpostcreation_post_id' );\
+    foreach ( $created_posts as $post )\
+    \{\
+        $post_id = $post['post_id'];\
+        $post = get_post( $post_id );\
+ \
+        $post->post_content = 'This is a test for post id ' . $post_id . '.';\
+ \
+        wp_update_post( $post );\
+    \}\
+\}\
+*/\
+\
+// look into this more\
+\
+/*\
+add_action( 'gform_advancedpostcreation_post_after_creation', 'update_product_information', 10, 4 );\
+function update_product_information( $post_id, $feed, $entry, $form )\{\
+\'a0\
+\'a0\'a0\'a0\'a0//update the prices set for the product\
+\'a0\'a0\'a0\'a0update_post_meta( $post_id, '_regular_price', $entry['7'] );\
+\'a0\'a0\'a0\'a0update_post_meta( $post_id, '_price', $entry['7'] );\
+\'a0\
+\'a0\'a0\'a0\'a0//update the category\
+\'a0\'a0\'a0\'a0wp_set_object_terms( $post_id, $entry['6'], 'product_cat' );\
+\'a0\
+\}\
+*/\
+\
+\
+\
+\
+\
+//https://legacy.forums.gravityhelp.com/topic/how-to-update-a-post\
+\
+// Update post 37\
+/*\
+  $my_post = array(\
+      'ID'           => 598188,\
+      'post_title'   => 'garrett was here',\
+  );\
+*/\
+\
+// Update the post into the database\
+  // wp_update_post( $my_post );\
+  \
+  // Of course, this should be done in an development environment only and commented out or removed after deploying to your production site.\
+\
+/*\
+$post_id = wp_update_post( $current_item, true );						  \
+if (is_wp_error($post_id)) \{\
+	$errors = $post_id->get_error_messages();\
+	foreach ($errors as $error) \{\
+		echo $error;\
+	\}\
+\}\
+*/\
+\
+\
+\
+//wp_set_post_terms( $post_id, '139,2689', 'location' );\
+	\
+		// will need an array for pa's\
+ \
+   //update the category\
+    //wp_set_object_terms( $post_id, 'A New Test', 'practice_area' );\
+    \
+   //wp_insert_term\
+   \
+   //https://wordpress.stackexchange.com/questions/99681/how-to-set-hierarchical-terms-to-a-post-using-wp-set-object-terms\
+   \
+\
+/*\
+// set terms\
+wp_set_object_terms( $post_id, $object_types, 'immomakler_object_type', true );\
+// make terms hierarchial by objektart\
+$term_parent = get_term_by( 'slug', $openimmo_data['objektart'], 'immomakler_object_type' );\
+$term_child  = get_term_by( 'slug', $openimmo_data['objektart_detail'], 'immomakler_object_type' );\
+delete_option( 'immomakler_object_type_children' ); // workaround for WordPress not updating this option properly\
+wp_update_term( $term_child->term_id, 'immomakler_object_type', array( 'parent' => $term_parent->term_id ) );\
+*/\
+\
+\
+// wp_set_post_terms might be it https://codex.wordpress.org/Function_Reference/wp_set_post_terms\
+\
+ $mycity_term = term_exists( 'San Diego', 'location' );\
+ \
+ if($mycity_term) \{\
+	 \
+	 echo "yes" . var_dump($mycity_term['term_id']);\
+	 \
+ \}\
+ \
+\
+$entry_id = '63';\
+$entry = GFAPI::get_entry( $entry_id );\
+\
+var_dump( $entry['56'] );\
+\
+	// if city term exists then get id and set terms list array of state/state/city\
+			 \
+			 // wp_set_post_terms()\
+		\
+   // if city term does not exist, wp_insert_term to create term object, get that id, then \
+   \
+   		// wp_set_post_terms()\
+\
+   //$parent_term = term_exists( 'california', 'location' ); // array is returned if taxonomy is given\
+\
+/*\
+	 wp_insert_term(\
+	 'San Diego', // the term \
+	 'location', // the taxonomy\
+	  array(\
+    	'description'=> 'a term update test of san diego',\
+			'slug' => 'san-diego333',\
+			'parent'=> $parent_term['term_id']  // get numeric term id\
+		)\
+	);\
+*/\
+\
+//if it seems cached on the fly i might have to delete the child term first https://gist.github.com/hinnerk-a/3835366\
+\
+// https://wordpress.stackexchange.com/questions/8357/inserting-terms-in-an-hierarchical-taxonomy\
+\
+\
+\
+\pard\pardeftab720\sl280\partightenfactor0
+{\field{\*\fldinst{HYPERLINK "https://www.google.com/search?q=ph+variables+101&rlz=1C5CHFA_enUS724US726&oq=ph+variables+101&aqs=chrome..69i57.3894j0j1&sourceid=chrome&ie=UTF-8"}}{\fldrslt 
+\f2 \cf4 \expnd0\expndtw0\kerning0
+\ul https://www.google.com/search?q=ph+variables+101&rlz=1C5CHFA_enUS724US726&oq=ph+variables+101&aqs=chrome..69i57.3894j0j1&sourceid=chrome&ie=UTF-8}}
+\f2 \cf4 \expnd0\expndtw0\kerning0
+\ul \
+\pard\pardeftab720\sl280\partightenfactor0
+
+\f0 \cf0 \kerning1\expnd0\expndtw0 \ulnone \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
+	$entry_id = '206';\
+	$entry = GFAPI::get_entry( $entry_id );\
+\
+	var_dump( $entry['42'] );\
 \
 }
