@@ -149,7 +149,7 @@ function load_my_styles_scripts() {
 		
 		wp_enqueue_script( 'jquery-addon', get_template_directory_uri() . '/js/custom-min.js', 'jquery', '', true );
 		
-		wp_enqueue_script( 'jquery-mygravity', get_template_directory_uri() . '/js/gravityforms-min.js', 'jquery', '', true );
+		//wp_enqueue_script( 'jquery-mygravity', get_template_directory_uri() . '/js/gravityforms-min.js', 'jquery', '', true );
 		
 		
 		if (get_query_var( 'currentstate') && get_query_var( 'currentcity')) { 
@@ -174,6 +174,7 @@ function load_my_styles_scripts() {
 -------------------------------------------------------------- */
  
  
+/*
 function add_defer_attribute($tag, $handle) {
    // add script handles to the array below
    $scripts_to_defer = array(
@@ -194,6 +195,7 @@ function add_defer_attribute($tag, $handle) {
 
 
 add_filter('script_loader_tag', 'add_defer_attribute', 10, 2);
+*/
 
 
 
@@ -204,6 +206,7 @@ add_filter('script_loader_tag', 'add_defer_attribute', 10, 2);
 
 
 
+/*
 
  function my_deregister_scripts(){
   
@@ -212,6 +215,7 @@ add_filter('script_loader_tag', 'add_defer_attribute', 10, 2);
 	}
 
 	add_action( 'wp_footer', 'my_deregister_scripts' );
+*/
 
 
 
@@ -222,6 +226,7 @@ add_filter('script_loader_tag', 'add_defer_attribute', 10, 2);
 	
 	
 
+/*
 
 	function deregister_scripts(){
 			
@@ -238,6 +243,7 @@ add_filter('script_loader_tag', 'add_defer_attribute', 10, 2);
  add_action("gform_enqueue_scripts", "deregister_scripts");
  
  
+*/
 
 
 
@@ -269,6 +275,7 @@ add_action( 'wp_head', 'internal_css_print' );
 -------------------------------------------------------------- */
 
 
+/*
 add_filter( 'gform_init_scripts_footer', '__return_true' );
 add_filter( 'gform_cdata_open', 'wrap_gform_cdata_open', 1 );
 function wrap_gform_cdata_open( $content = '' ) {
@@ -286,6 +293,7 @@ return $content;
 $content = ' }, false );';
 return $content;
 }
+*/
 
 
 // minumum characters
@@ -1167,6 +1175,17 @@ else
 add_action( 'gform_advancedpostcreation_post_after_creation', 'update_term_information', 10, 4 );
 
 function update_term_information( $post_id, $feed, $entry, $form ) {
+		
+		//old address from orignal posts need to get updated for consistency
+    
+    $streetaddress = rgar( $entry, '36' );
+    $city = rgar( $entry, '39' );
+    $state = rgar( $entry, '56' );
+    $zip = rgar( $entry, '38' );
+    
+    $newaddress = '' . $streetaddress . ' ' . $city . ', ' . $state . ' ' . $zip . '';
+    
+    update_field( 'lawyer_address', $newaddress, $post_id );
 	
 		// parent cat "State"
 		
@@ -1256,15 +1275,29 @@ function update_term_information( $post_id, $feed, $entry, $form ) {
     
     update_field( 'lawyer_premium_layout_two', rgar( $entry, '42' ), $post );
     
+    update_field( 'hide_claim_button', 'Yes', $post );
+    
     update_field( 'lawyer_phone', rgar( $entry, '2' ), $post );
     update_field( 'lawyer_email', rgar( $entry, '48' ), $post );
     update_field( 'lawfirm_name', rgar( $entry, '4' ), $post );
     update_field( 'lawyer_website', rgar( $entry, '5' ), $post );
     
-		update_field( 'lawyer_street_address', rgar( $entry, '36' ), $post );
+    update_field( 'lawyer_street_address', rgar( $entry, '36' ), $post );
     update_field( 'lawyer_city', rgar( $entry, '39' ), $post );
     update_field( 'lawyer_state', rgar( $entry, '56' ), $post );
     update_field( 'lawyer_zip', rgar( $entry, '38' ), $post );
+    
+    //old address from orignal posts need to get updated for consistency redundant from other function fix this and combine into one function call
+    
+    $streetaddress = rgar( $entry, '36' );
+    $city = rgar( $entry, '39' );
+    $state = rgar( $entry, '56' );
+    $zip = rgar( $entry, '38' );
+    
+    $newaddress = '' . $streetaddress . ' ' . $city . ', ' . $state . ' ' . $zip . '';
+    
+    update_field( 'lawyer_address', $newaddress, $post );
+    
     update_field( 'latitude', rgar( $entry, '88' ), $post );
     update_field( 'longitude', rgar( $entry, '87' ), $post );
     

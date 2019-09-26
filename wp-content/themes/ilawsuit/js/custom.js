@@ -776,7 +776,7 @@ $('.sec_three_tab').on('click', function(e) {
 		
 	 $('.mylawyer_bio textarea').val(ibio);
 	 
-	 console.log(ibio);
+	 //console.log(ibio);
 		
 	}
 	
