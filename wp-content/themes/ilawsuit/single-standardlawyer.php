@@ -311,9 +311,11 @@
 						
 						<?php } ?>
 						
+					<?php if(!get_field('hide_claim_button')) { ?>
 					
+						<a class="claim_button">Claim this Listing</a><!-- claim_button -->
 					
-					<a class="claim_button">Claim this Listing</a><!-- claim_button -->
+					<?php } ?>
 					
 					<div class="overlay claim_overlay">
 						
