@@ -1261,10 +1261,7 @@ function update_term_information( $post_id, $feed, $entry, $form ) {
     update_field( 'lawfirm_name', rgar( $entry, '4' ), $post );
     update_field( 'lawyer_website', rgar( $entry, '5' ), $post );
     
-    
-    
-
-    update_field( 'lawyer_street_address', rgar( $entry, '36' ), $post );
+		update_field( 'lawyer_street_address', rgar( $entry, '36' ), $post );
     update_field( 'lawyer_city', rgar( $entry, '39' ), $post );
     update_field( 'lawyer_state', rgar( $entry, '56' ), $post );
     update_field( 'lawyer_zip', rgar( $entry, '38' ), $post );
@@ -1283,6 +1280,16 @@ function update_term_information( $post_id, $feed, $entry, $form ) {
     
     update_field( 'years_licensed_for', rgar( $entry, '3' ), $post );
     update_field( 'lawyer_bio', rgar( $entry, '9' ), $post );
+    
+/*
+    $field_id = 28; // Update this number to your field id number
+		$field = RGFormsModel::get_field( $form, $field_id );
+		$value = is_object( $field ) ? $field->get_value_export( $entry, $field_id, true ) : '';
+
+    
+    
+    update_field( 'checks', $value , $post );
+*/
     
     // featured image
     
@@ -1403,74 +1410,24 @@ function update_term_information( $post_id, $feed, $entry, $form ) {
 		
 		}
 		
-		
 		// practice areas
-		
-		// find a way to loop through these instead of hardcoding, and try to consolodate, if they dont exist then add insert terms function later
-		
-		// pa choice one
-		
-		
-		// https://docs.gravityforms.com/entry-object/#checkboxes-field
+				
 
-		$pachoiceone = $entry['28.1'];
+		$field_id = 28; // Update this number to your field id number
+		$field = RGFormsModel::get_field( $form, $field_id );
+		$value = is_object( $field ) ? $field->get_value_export( $entry, $field_id, true ) : '';
 		
-		$pachoiceone_term = term_exists( $pachoiceone, 'practice_area' );
+		wp_set_post_terms( $postid, $value, 'practice_area' );
 		
-		$pachoiceone_termid = $pachoiceone_term['term_id'];
+		// featured lawyer
 		
-		$paonearray = explode(",", $pachoiceone_termid);
+		if($entry['42'] =="Premium Profile $189/Year") { // this value or featured lawyer wont work
+			
+			wp_set_post_terms( $postid, 'Featured Lawyer', 'featured_lawyers' );
+			
 		
-		$paone = array_map('intval', array_filter($paonearray, 'is_numeric'));
+		}
 		
-		// pa choice two
-		
-		$pachoicetwo = rgar( $entry, 28.2 );
-		
-		$pachoicetwo_term = term_exists( $pachoicetwo, 'practice_area' );
-		
-		$pachoicetwo_termid = $pachoicetwo_term['term_id'];
-		
-		// pa choice three
-		
-		$pachoicethree = rgar( $entry, 28.3 );
-		
-		$pachoicethree_term = term_exists( $pachoicethree, 'practice_area' );
-		
-		$pachoicethree_termid = $pachoicethree_term['term_id'];
-		
-		// pa choice four
-		
-		$pachoicefour = rgar( $entry, 28.4 );
-		
-		$pachoicefour_term = term_exists( $pachoicefour, 'practice_area' );
-		
-		$pachoicefour_termid = $pachoicefour_term['term_id'];
-		
-		// pa choice five
-		
-		$pachoicefive = rgar( $entry, 28.5 );
-		
-		$pachoicefive_term = term_exists( $pachoicefive, 'practice_area' );
-		
-		$pachoicefive_termid = $pachoicefive_term['term_id'];
-		
-		// pa choice six
-		
-		$pachoicesix = rgar( $entry, 28.6 );
-		
-		$pachoicesix_term = term_exists( $pachoicesix, 'practice_area' );
-		
-		$pachoicesix_termid = $pachoicesix_term['term_id'];
-		
-		// pa string
-		
-// 		$pa_string = $pachoiceone_termid . ', ' . $pachoicetwo_termid . ', ' . $pachoicethree_termid . ', ' . $pachoicefour_termid . ', ' . $pachoicefive_termid . ', ' . $pachoicesix_termid;
-		
-		//$pa_string_ids = explode(" ",$pa_string_ids);
-		
-		wp_set_post_terms( $postid, $paone, 'practice_area' );
-
 		
 	}
 	
@@ -1499,13 +1456,15 @@ function update_term_information( $post_id, $feed, $entry, $form ) {
 	
 
 
-/*
 
-	$entry_id = '193';
+
+	$entry_id = '206';
 	$entry = GFAPI::get_entry( $entry_id );
 
-	var_dump( $entry );
-*/
+	var_dump( $entry['42'] );
+
+
+
 
 
 
@@ -1525,12 +1484,6 @@ var_dump($value);
 		
 		$pachoiceone_termid = $pachoiceone_term['term_id'];
 		
-		$paonearray = explode(",", $pachoiceone_termid);
-		
-		$paone = array_map('intval', array_filter($paonearray, 'is_numeric'));
-		
-		var_dump($paone);
-		
 		// pa choice two
 		
 		$pachoicetwo = "Criminal Defense";
@@ -1538,12 +1491,6 @@ var_dump($value);
 		$pachoicetwo_term = term_exists( $pachoicetwo, 'practice_area' );
 		
 		$pachoicetwo_termid = $pachoicetwo_term['term_id'];
-		
-		$patwoarray = explode(",", $pachoicetwo_termid);
-
-		$patwo = array_map('intval', array_filter($patwoarray, 'is_numeric'));
-		
-		var_dump($patwo);
 		
 		// pa choice three
 		
@@ -1553,12 +1500,6 @@ var_dump($value);
 		
 		$pachoicethree_termid = $pachoicethree_term['term_id'];
 		
-		$pathreearray = explode(",", $pachoicethree_termid);
-
-		$pathree = array_map('intval', array_filter($pathreearray, 'is_numeric'));
-		
-		var_dump($pathree);
-		
 		// pa choice four
 		
 		$pachoicefour = "Bankruptcy";
@@ -1566,12 +1507,6 @@ var_dump($value);
 		$pachoicefour_term = term_exists( $pachoicefour, 'practice_area' );
 		
 		$pachoicefour_termid = $pachoicefour_term['term_id'];
-		
-		$pafourarray = explode(",", $pachoicefour_termid);
-
-		$pafour = array_map('intval', array_filter($pafourarray, 'is_numeric'));
-		
-		var_dump($pafour);
 		
 		// pa choice five
 		
@@ -1581,12 +1516,6 @@ var_dump($value);
 		
 		$pachoicefive_termid = $pachoicefive_term['term_id'];
 		
-		$pafivearray = explode(",", $pachoicefive_termid);
-
-		$pafive = array_map('intval', array_filter($pafivearray, 'is_numeric'));
-		
-		var_dump($pafive);
-		
 		// pa choice six
 		
 		$pachoicesix = "Immigration";
@@ -1595,17 +1524,15 @@ var_dump($value);
 		
 		$pachoicesix_termid = $pachoicesix_term['term_id'];
 		
-		$pasixarray = explode(",", $pachoicesix_termid);
+		// pa array
+			
+		$pa_string = $pachoiceone_termid . ' ' . $pachoicetwo_termid . ' ' . $pachoicethree_termid . ' ' . $pachoicefour_termid . ' ' . $pachoicefive_termid . ' ' . $pachoicesix_termid;
 
-		$pasix = array_map('intval', array_filter($pasixarray, 'is_numeric'));
-		
-		var_dump($pasix);
-		
-		var_dump(array_merge($paone, $patwo, $pathree,$pafour,$pafive,$pasix));
-		
-
-
-
+		$pa_array = explode(" ", $pa_string);
+	
+		$pa_intarray = array_map('intval', array_filter($pa_array, 'is_numeric'));
+	
+		//var_dump($pa_intarray);
 
 
 	
