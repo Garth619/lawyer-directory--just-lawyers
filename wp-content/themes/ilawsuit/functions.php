@@ -17,7 +17,7 @@ function load_my_styles_scripts() {
     // disables jquery then registers it again to go into footer
     
     wp_deregister_script( 'jquery' );
-    wp_register_script( 'jquery', includes_url( '/js/jquery/jquery.js' ), false, NULL, true );
+    wp_register_script( 'jquery', includes_url( '/js/jquery/jquery.js' ), false, NULL, false );
     wp_enqueue_script( 'jquery' );
     
 		
