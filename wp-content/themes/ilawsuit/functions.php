@@ -1186,6 +1186,8 @@ function update_term_information( $post_id, $feed, $entry, $form ) {
     $newaddress = '' . $streetaddress . ' ' . $city . ', ' . $state . ' ' . $zip . '';
     
     update_field( 'lawyer_address', $newaddress, $post_id );
+    
+    update_field( 'hide_claim_button', 'Yes', $post_id );
 	
 		// parent cat "State"
 		
