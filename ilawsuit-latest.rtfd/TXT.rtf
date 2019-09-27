@@ -14,6 +14,12 @@
 
 \f0\fs24 \cf0 pagination is broken agaaaain \
 \
+if($entry['42'] =="Premium Profile $189/Year") \{ // this value or featured lawyer wont work this can be tied to product input from stripe now\
+			\
+			wp_set_post_terms( $postid, 'Featured Lawyer', 'featured_lawyers' );\
+			\
+		\}\
+\
 \
 add url tag to confirmations\
 \

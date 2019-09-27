@@ -7,24 +7,28 @@
 		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
 		
 		<div class="price_tier_wrapper">
-		
-		<div class="price_tier">
-		
-			<h3>Claim Profile</h3>
 			
-			<span class="price_tier_subheder">Free</span><!-- price_tier_subheder -->
+		<?php if(is_singular('lawyer')) {?>
 		
-			<p>Lorem ipsum dolor sit amet, consectetur adip</p>
+			<div class="price_tier">
 		
-			<div class="layout_selection">
+				<h3>Claim Profile</h3>
 			
-				<span class="radio_button radio_button_one checked"></span>
-			
-				<span class="radio_button_verbiage">Claim Profile</span>
-			
-			</div><!-- layout_selection -->
+				<span class="price_tier_subheder">Free</span><!-- price_tier_subheder -->
 		
-		</div><!-- price_tier -->
+				<p>Lorem ipsum dolor sit amet, consectetur adip</p>
+		
+				<div class="layout_selection">
+			
+					<span class="radio_button radio_button_one checked"></span>
+			
+					<span class="radio_button_verbiage">Claim Profile</span>
+			
+				</div><!-- layout_selection -->
+		
+			</div><!-- price_tier -->
+		
+		<?php } ?>
 		
 		<div class="price_tier">
 		

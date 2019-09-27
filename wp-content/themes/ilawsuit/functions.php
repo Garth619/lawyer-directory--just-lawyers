@@ -1275,7 +1275,7 @@ function update_term_information( $post_id, $feed, $entry, $form ) {
     
     update_field( 'lawyer_premium_layout_two', rgar( $entry, '42' ), $post );
     
-    //update_field( 'hide_claim_button', 'Yes', $post );
+    update_field( 'hide_claim_button', 'Yes', $post );
     
     update_field( 'lawyer_phone', rgar( $entry, '2' ), $post );
     update_field( 'lawyer_email', rgar( $entry, '48' ), $post );
@@ -1444,7 +1444,7 @@ function update_term_information( $post_id, $feed, $entry, $form ) {
 		
 		// featured lawyer
 		
-		if($entry['42'] =="Premium Profile $189/Year") { // this value or featured lawyer wont work
+		if($entry['42'] =="Premium Profile $189/Year") { // this value or featured lawyer wont work this can be tied to product input from stripe now
 			
 			wp_set_post_terms( $postid, 'Featured Lawyer', 'featured_lawyers' );
 			
@@ -1457,7 +1457,7 @@ function update_term_information( $post_id, $feed, $entry, $form ) {
 	// overrides the confirmation on form 2 to just redirect back itself (the ?p=post_id doesnt redirect properly when starting on the bio post, but works from settings from antoher page like "create a profile"
 	
 	
-/*
+
 	add_filter( 'gform_confirmation_2', 'custom_confirmation', 10, 4 );
 	
 	function custom_confirmation( $confirmation, $form, $lead, $ajax ) {
@@ -1470,7 +1470,7 @@ function update_term_information( $post_id, $feed, $entry, $form ) {
 				
 		return $confirmation;
 }
-*/
+
 	
 
 
