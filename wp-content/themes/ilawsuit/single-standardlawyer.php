@@ -8,25 +8,7 @@
 			
 			<?php $terms = get_the_terms( get_the_ID(), 'practice_area' ); ?>
 			
-<!--
-			<?php 
-				
-				if(get_field('lawyer_featured_practice_area')) { ?>
-					
-					<span><?php the_field('lawyer_featured_practice_area');?></span>
-					
-				<?php }
-					
-					else {
-				
-					$term = reset($terms);
-				
-				?>
-			
-					<span><?php echo $term->name; ?></span>
-			
-			<?php } ?>
--->
+
 			
 			<?php $term = reset($terms);
 				

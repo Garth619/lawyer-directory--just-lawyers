@@ -1186,7 +1186,6 @@ function update_term_information( $post_id, $feed, $entry, $form ) {
     $newaddress = '' . $streetaddress . ' ' . $city . ', ' . $state . ' ' . $zip . '';
     
     update_field( 'lawyer_address', $newaddress, $post_id );
-    
     update_field( 'hide_claim_button', 'Yes', $post_id );
 	
 		// parent cat "State"
@@ -1446,7 +1445,7 @@ function update_term_information( $post_id, $feed, $entry, $form ) {
 		
 		// featured lawyer
 		
-		if($entry['42'] =="Premium Profile $189/Year") { // this value or featured lawyer wont work this can be tied to product input from stripe now
+		if($entry['42'] =="Premium Profile $189/Year") { // this value or featured lawyer wont work
 			
 			wp_set_post_terms( $postid, 'Featured Lawyer', 'featured_lawyers' );
 			
@@ -1460,7 +1459,7 @@ function update_term_information( $post_id, $feed, $entry, $form ) {
 	
 	
 
-	add_filter( 'gform_confirmation_2', 'custom_confirmation', 10, 4 );
+	//add_filter( 'gform_confirmation_2', 'custom_confirmation', 10, 4 );
 	
 	function custom_confirmation( $confirmation, $form, $lead, $ajax ) {
 				

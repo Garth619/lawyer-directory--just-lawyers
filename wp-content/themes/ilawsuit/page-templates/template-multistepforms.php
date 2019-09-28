@@ -34,7 +34,7 @@
 		
 			<h3>Basic Profile</h3>
 			
-			<span class="price_tier_subheder">$119/Year</span><!-- price_tier_subheder -->
+			<span class="price_tier_subheder">$99/Year</span><!-- price_tier_subheder -->
 		
 			<p>Lorem ipsum dolor sit amet, consectetur adip</p>
 		
@@ -52,7 +52,7 @@
 		
 			<h3>Premium Profile</h3>
 			
-			<span class="price_tier_subheder">$189/Year</span><!-- price_tier_subheder -->
+			<span class="price_tier_subheder">$199/Year</span><!-- price_tier_subheder -->
 		
 			<p>Lorem ipsum dolor sit amet, consectetur adip</p>
 		
