@@ -12,17 +12,10 @@
 \margl1440\margr1440\vieww21520\viewh12640\viewkind0
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
-\f0\fs24 \cf0 step one pull database down\
-step two back local db up\
-add to localhost\
-\
-dont change price right away see wtf is going on\
-\
-stripe will be lost\
-\
+\f0\fs24 \cf0 \
 tie profile to product input\
 \
-then see if ipn is gonna be a problem locally\'85.\
+then see if ipn is gonna be a problem locally\'85. it is all processes ok but theipn redirects to lawyrsnearme\'85.i wll have to switch the ipn back and forth\'85 \
 \
 \
 \
@@ -30,7 +23,7 @@ pagination is broken agaaaain \
 \
 \
 \
-daaaamn claim profile just straight wipes all data clean on update post maybe because they are all empty???\
+daaaamn claim profile just straight wipes all data clean on update post maybe because they are all empty??? i might need to say if empty then dont update\
 \pard\pardeftab720\sl580\partightenfactor0
 \cf0 if i hide the product and cc on stripe claim will it skip stripe processing?\
 super annoying that coditional is based on labels not values so when i change the price the whole thing needs to be reconfigured\
@@ -63,7 +56,7 @@ https://hooks.zapier.com/hooks/paypal/?cid=741289\
 \
 https://att-directory.com/lawyer?p=\{post_id\}\
 \
-/Applications/MAMP/Library/bin/mysqldump -u root -p lawyersdb > /Applications/MAMP/htdocs/lawyer-directory--just-lawyers/export_test.sql\
+/Applications/MAMP/Library/bin/mysqldump -u root -p lawyersdbtwo > /Applications/MAMP/htdocs/lawyer-directory--just-lawyers/export_test.sql\
 \
 once claimed hide the claim button -works but double check\
 \
