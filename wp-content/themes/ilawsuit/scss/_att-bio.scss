@@ -852,6 +852,7 @@ a.claim_button {
 	max-width:970px;
 	margin-left:auto;
 	margin-right:auto;
+	
 	h3 {
 		text-align: center;
 		//padding-bottom:50px;
@@ -867,6 +868,7 @@ a.claim_button {
 		display: flex;
 		flex-wrap:wrap;
 		justify-content: space-between;
+		margin-bottom:0;
 		li.gsection {
 			flex-basis: 100%;
 			margin-top:45px;
@@ -1071,6 +1073,42 @@ a.claim_button {
 			}
 		}
 	}
+	// credit card
+	li.mycreditcard {
+		#input_2_104_5_container, #input_4_101_5_container {
+			display: none;
+		}
+		span.ginput_full {
+			display: block;
+			margin-bottom:25px;
+			span {
+				display: block;
+			}
+			span.ginput_cardinfo_left {
+				margin-bottom: 25px;
+			}
+			span.ginput_cardinfo_right {
+				input {
+					width:120px;
+				}
+			}
+			span.ginput_card_security_code_icon {
+				display: none;
+			}
+		}
+		label {
+/*
+			padding-top:8px;
+			padding-bottom:15px;
+*/
+		}
+		label.gfield_label_before_complex {
+			display: none;
+		}
+	}
+	li.mycountry {
+		display: none;
+	}
 	li.mypracticeareas {
 		
 	
@@ -1134,6 +1172,7 @@ a.claim_button {
     }
 	}
 }
+
 
 
 
@@ -1283,6 +1322,42 @@ span.overylay_header {
   &:hover {
 	  background: $blue;
   }
+}
+
+
+
+.gform_card_icon_container {
+	display: flex;
+	padding-top:10px;
+	margin-bottom:45px;
+	.gform_card_icon {
+		flex-basis:50px;
+		flex-shrink:0;
+		height:31px;
+		text-indent: -9999px;
+		margin-right:8px;
+	}
+	.gform_card_icon_amex {
+		background: url(#{$themePath}images/amex.png);
+		background-size: 50px 31px;
+	}
+	.gform_card_icon_discover {
+		background: url(#{$themePath}images/discover.png);
+		background-size: 50px 31px;
+	}
+	.gform_card_icon_mastercard {
+		background: url(#{$themePath}images/master.png);
+		background-size: 50px 31px;
+	}
+	.gform_card_icon_visa {
+		background: url(#{$themePath}images/visa.png);
+		background-size: 50px 31px;
+	}
+}
+
+
+span.ginput_card_security_code_icon {
+	display: none;
 }
 
 

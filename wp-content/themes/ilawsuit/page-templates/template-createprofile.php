@@ -28,6 +28,7 @@
 	</div><!-- outer_container -->
 	
 </div><!-- internal_main -->
-		
+
+<?php get_template_part('page-templates/template','prepareoverlay');?>
 
 <?php get_footer(); ?>

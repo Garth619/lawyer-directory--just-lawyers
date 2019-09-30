@@ -1,0 +1,111 @@
+
+
+.prepare_overlay {
+	position: fixed;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+	background: rgba(255,255,255,1);
+	z-index:15;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	display: none;
+	.prepare_overlay_inner {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		img {
+			width:270px;
+			margin-bottom:45px;
+		}
+	}
+}
+
+
+
+span.do_not_refresh {
+	color: $blue;
+  font-size: 17px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  line-height: 21px;
+  padding-bottom:40px;
+  display: block;
+  @include montserrat_extrabold;
+}
+
+.prepare_content {
+	padding-top:45px;
+}
+  
+  span.prepare_items {
+	  display: block;
+	  font-size: 18px;
+		line-height: 28px;
+		margin-bottom:13px;
+		text-align: center;
+		font-family: $worksans;
+		opacity: 0;
+		transition: all 400ms ease-in-out;
+		span {
+			
+		}
+	}
+  
+  span.prepare_items.fadein {
+	  &:first-of-type {
+			transition-delay: 1000ms;
+			opacity: 1;
+		}
+		&:nth-of-type(2) {
+			transition-delay: 4000ms;
+			opacity: 1;
+		}
+  }
+
+
+
+
+$offset: 187;
+$duration: 1.4s;
+
+.spinner {
+  animation: rotator $duration linear infinite;
+}
+
+@keyframes rotator {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(270deg); }
+}
+
+.mycircle {
+  stroke-dasharray: $offset;
+  stroke-dashoffset: 0;
+  transform-origin: center;
+  animation:
+    dash $duration ease-in-out infinite, 
+    colors ($duration*4) ease-in-out infinite;
+}
+
+@keyframes colors {
+	0% { stroke: $blue; }
+	//25% { stroke: $bluetwo; }
+	//50% { stroke: $bluetwo; }
+	//75% { stroke: #1B9A59; }
+  100% { stroke: $blue; }
+}
+
+@keyframes dash {
+ 0% { stroke-dashoffset: $offset; }
+ 50% {
+   stroke-dashoffset: $offset/4;
+   transform:rotate(135deg);
+ }
+ 100% {
+   stroke-dashoffset: $offset;
+   transform:rotate(450deg);
+ }
+}

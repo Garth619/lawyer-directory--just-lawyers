@@ -1170,6 +1170,20 @@ else
 }
 
 
+// turn on load screen after the form validates
+
+add_action( 'gform_post_process', 'post_process_actions', 10, 3 );
+function post_process_actions( $form, $page_number, $source_page_number ){
+	
+?>
+ <script>
+document.getElementById("load").classList.add("garrrrettttt");
+</script>
+<?php
+   
+}
+
+
 // Assigns parent child cats. also assigns city to exisiting state if a city does not exist, the advanced post creation plugin settings page is not capable of this so it needs to be written by hand 
 
 add_action( 'gform_advancedpostcreation_post_after_creation', 'update_term_information', 10, 4 );

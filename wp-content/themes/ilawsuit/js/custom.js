@@ -971,6 +971,7 @@ $('.sec_three_tab').on('click', function(e) {
 	
 	function mycontactCheck() {
 		
+		
 		$('.mycontact_checkmark input[type="checkbox"]').change(function() {
 		  
 		  if ($(this).is(':checked')) {
@@ -980,6 +981,18 @@ $('.sec_three_tab').on('click', function(e) {
 				var contactname = $('.mylawyer_name input').val();
 				
 				$('.mypersonal_name input').val(contactname);
+				
+				// maps to credit card feilds (if in use)
+				
+				$('input#input_2_104_5, input#input_4_101_5').val(contactname);
+				
+				$('.mypersonal_name input').change(function() {
+					
+					var fullname = $('.mypersonal_name input').val();
+					
+					$('input#input_2_104_5, input#input_4_101_5').val(fullname);
+					
+				});
 				
 				// email
 				
@@ -1022,7 +1035,7 @@ $('.sec_three_tab').on('click', function(e) {
 				
 			} else {
 			  
-			  $('.mypsersonal_address input, .mypsersonal_address select').val('');
+			  $('.mypsersonal_address input, .mypsersonal_address select, input#input_2_104_5, input#input_4_101_5').val('');
 		    
 		 }
 		  
@@ -1120,6 +1133,20 @@ document.addEventListener("click", closeAllSelect);
 	});
 	
 	
+	// prepare overlay
+	
+	$('.mymultistep_form input[type="submit"]').on('click', function(e) {
+	  
+	  $('.prepare_overlay').fadeIn(300);
+		
+		$('span.prepare_items').addClass('fadein');
+	
+	});
+	
+	
+	
+	
+	
 	
 	// success overlay
 	
@@ -1141,6 +1168,9 @@ document.addEventListener("click", closeAllSelect);
 		}
 	  
 	});
+	
+	
+	
   
   
   

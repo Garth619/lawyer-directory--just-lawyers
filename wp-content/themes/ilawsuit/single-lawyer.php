@@ -15,6 +15,7 @@
 		
 	} ?>
 	
+	<?php get_template_part('page-templates/template','prepareoverlay');?>
 	
 	<div class="success_overlay show_on_success">
 		
