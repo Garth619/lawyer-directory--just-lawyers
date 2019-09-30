@@ -588,7 +588,7 @@ $('.sec_three_tab').on('click', function(e) {
 	}
 	
 	
-	// bio overlay
+	// claim overlay
 	
 	$('a.claim_button').on('click', function(e) {
 	  
@@ -916,6 +916,57 @@ $('.sec_three_tab').on('click', function(e) {
 	
 	mylatLng();
 	
+	// updates the paypal product to basic or premium from the three optioned profile radio buttons (excluding the free claim profile option)
+	
+	function layouttoProduct() {
+		
+		// adding classes to radio buttons for both forms (update and create forms)
+		
+		$('.myprofile_choice ul.gfield_radio li').each(function(i, el) {
+    
+    	if ( i === 1) {
+      
+      	$(this).find('input').addClass('basic');
+      	
+    	}
+    	
+    	if ( i === 2) {
+      
+      	$(this).find('input').addClass('premium');
+      	
+    	}
+    
+    });
+    
+    
+    $('.mypaypal_product ul.gfield_radio li').each(function(i, el) {
+    
+    	if ( i === 0) {
+      
+      	$(this).find('input').addClass('basic');
+      	
+    	}
+    	
+    	if ( i === 1) {
+      
+      	$(this).find('input').addClass('premium');
+      	
+    	}
+    
+    });
+		
+		// ties values of layout and product together of both radio sets
+		
+		$('.myprofile_choice input').change(function(){
+    	
+    	$('.' + this.className).prop('checked', this.checked);
+
+   	});
+		
+	}
+	
+	layouttoProduct();
+	
 	// contact info checkmark
 	
 	function mycontactCheck() {
@@ -1064,6 +1115,7 @@ document.addEventListener("click", closeAllSelect);
 
 			mylatLng();
 			mycontactCheck();
+			layouttoProduct();
 			
 	});
 	

@@ -1459,7 +1459,7 @@ function update_term_information( $post_id, $feed, $entry, $form ) {
 	
 	
 
-	//add_filter( 'gform_confirmation_2', 'custom_confirmation', 10, 4 );
+	add_filter( 'gform_confirmation_2', 'custom_confirmation', 10, 4 );
 	
 	function custom_confirmation( $confirmation, $form, $lead, $ajax ) {
 				
