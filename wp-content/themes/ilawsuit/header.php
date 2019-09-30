@@ -36,7 +36,7 @@
 
 </head>
 
-<body id="load" <?php body_class(); ?>>
+<body <?php body_class(); ?>>
 	
 	
 	<header>

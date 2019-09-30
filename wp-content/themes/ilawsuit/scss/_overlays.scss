@@ -7,21 +7,31 @@
 	width:100%;
 	height:100%;
 	background: rgba(255,255,255,1);
-	z-index:15;
+	z-index:20;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	display: none;
+	opacity: 0;
+	visibility: hidden;
+	transition: all 200ms ease-in-out;
+	//display: none;
 	.prepare_overlay_inner {
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
+		height: 100%;
 		img {
 			width:270px;
 			margin-bottom:45px;
 		}
 	}
+}
+
+
+.prepare_overlay.fadein {
+	opacity: 1;
+	visibility: visible;
 }
 
 

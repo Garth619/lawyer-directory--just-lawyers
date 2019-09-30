@@ -76,6 +76,8 @@
 	
 	<div class="mymultistep_form">
 		
+		<span class="test_button">test</span>
+		
 		<?php 
 			
 			if(is_singular('lawyer')) {

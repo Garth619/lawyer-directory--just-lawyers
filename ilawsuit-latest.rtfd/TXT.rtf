@@ -29,6 +29,8 @@ add login in header, pull their username in there with logout option / userrole 
 \
 move overlays into one scss file\
 \
+keep cc mapped on render\
+\
 maybe show loading screen only if error div doesnt exist with click functin\
 \
 EMBED URL WONTWORK bc im changing the url slug so i gotta get that confirmation function workings\
@@ -84,6 +86,27 @@ i could make the post a draft, have it create that\'85without cat creation or wi
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 \cf0 \
 stripe might still be easier\'85.\
+\
+\
+mutation\
+\
+\
+/*\
+var $div = $("#gform_wrapper_2");\
+var observer = new MutationObserver(function(mutations) \{\
+  mutations.forEach(function(mutation) \{\
+    if (mutation.attributeName === "class") \{\
+      var attributeValue = $(mutation.target).prop(mutation.attributeName);\
+      console.log("Class attribute changed to:", attributeValue);\
+      $('.prepare_overlay').fadeIn(300);\
+      $('span.prepare_items').addClass('fadein');\
+    \}\
+  \});\
+\});\
+observer.observe($div[0], \{\
+  attributes: true\
+\});\
+*/\
 \
 \pard\pardeftab720\sl320\partightenfactor0
 \cf0 \

@@ -1135,17 +1135,13 @@ document.addEventListener("click", closeAllSelect);
 	
 	// prepare overlay
 	
-	$('.mymultistep_form input[type="submit"]').on('click', function(e) {
+	$('input#gform_submit_button_2').on('click', function(e) {
 	  
 	  $('.prepare_overlay').fadeIn(300);
 		
 		$('span.prepare_items').addClass('fadein');
 	
 	});
-	
-	
-	
-	
 	
 	
 	// success overlay
@@ -1171,6 +1167,12 @@ document.addEventListener("click", closeAllSelect);
 	
 	
 	
+
+
+
+
+
+
   
   
   

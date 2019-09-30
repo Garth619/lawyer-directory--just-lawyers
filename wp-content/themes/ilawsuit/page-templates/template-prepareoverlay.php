@@ -1,4 +1,4 @@
-<div class="prepare_overlay">
+<div id="prepare" class="prepare_overlay">
 		
 		<div class="prepare_overlay_inner">
 			

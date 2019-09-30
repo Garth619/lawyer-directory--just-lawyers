@@ -25,6 +25,8 @@ function load_my_styles_scripts() {
 		    
     wp_register_script( 'jquery-addon', get_template_directory_uri() . '/js/custom-min.js','', 1);
     
+    
+    
 		// Localized PHP Data that needs to be passed onto my custom-min.js file
 			
 		if (get_query_var( 'currentstate') && get_query_var( 'currentcity')) { 
@@ -148,6 +150,7 @@ function load_my_styles_scripts() {
 		// Enqueue Script
 		
 		wp_enqueue_script( 'jquery-addon', get_template_directory_uri() . '/js/custom-min.js', 'jquery', '', true );
+		
 		
 		//wp_enqueue_script( 'jquery-mygravity', get_template_directory_uri() . '/js/gravityforms-min.js', 'jquery', '', true );
 		
@@ -1172,8 +1175,8 @@ else
 
 // turn on load screen after the form validates
 
-add_action( 'gform_post_process', 'post_process_actions', 10, 3 );
-function post_process_actions( $form, $page_number, $source_page_number ){
+//add_action( 'gform_pre_submission', 'post_process_actions', 10, 3 );
+function post_process_actions( $form){
 	
 ?>
  <script>
@@ -1472,6 +1475,20 @@ function update_term_information( $post_id, $feed, $entry, $form ) {
 	// overrides the confirmation on form 2 to just redirect back itself (the ?p=post_id doesnt redirect properly when starting on the bio post, but works from settings from antoher page like "create a profile"
 	
 	
+	add_filter("gform_submit_button", "form_submit_button", 10, 2); 
+	
+	function form_submit_button( $button, $form ) {
+		
+		$dom = new DOMDocument();
+    $dom->loadHTML( '<?xml encoding="utf-8" ?>' . $button );
+    $input = $dom->getElementsByTagName( 'input' )->item(0);
+    $onclick = $input->getAttribute( 'onclick' );
+    $onclick .= "document.getElementById('prepare').classList.add('fadein');"; // Here's the JS function we're calling on click.
+    $input->setAttribute( 'onclick', $onclick );
+    return $dom->saveHtml( $input );
+		
+	}
+	
 
 	add_filter( 'gform_confirmation_2', 'custom_confirmation', 10, 4 );
 	
@@ -1486,7 +1503,7 @@ function update_term_information( $post_id, $feed, $entry, $form ) {
 		return $confirmation;
 }
 
-	
+
 
 
 
