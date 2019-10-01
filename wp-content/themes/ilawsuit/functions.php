@@ -1468,9 +1468,11 @@ function update_term_information( $post_id, $feed, $entry, $form ) {
     $dom->loadHTML( '<?xml encoding="utf-8" ?>' . $button );
     $input = $dom->getElementsByTagName( 'input' )->item(0);
     $onclick = $input->getAttribute( 'onclick' );
-    $onclick .= "document.getElementById('prepare').classList.add('fadein');document.getElementById('gform_wrapper_2').classList.remove('gform_validation_error');"; // Here's the JS function we're calling on click.
+    $onclick .= "document.getElementById('prepare').classList.add('fadein');var elems = document.querySelectorAll('.gform_wrapper');[].forEach.call(elems, function(el) {el.classList.remove('gform_validation_error')})"; // Here's the JS function we're calling on click.
     $input->setAttribute( 'onclick', $onclick );
     return $dom->saveHtml( $input );
+    
+    //document.getElementsByClassName('gform_wrapper_2').classList.remove('gform_validation_error');
 		
 	}
 	

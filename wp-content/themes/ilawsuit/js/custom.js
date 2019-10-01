@@ -1048,36 +1048,15 @@ $('.sec_three_tab').on('click', function(e) {
 	mycontactCheck();
 	
 	
-	
+	function myListener() {
+		
+			
+			var target = document.querySelectorAll(".gform_wrapper");
+			
+			for (var i = 0; i < target.length; i++) {
 
-function myListener() {
-
-/*
-var observer = new MutationObserver(function(mutations) {
-       mutations.forEach(function(mutation) {
-         if (mutation.attributeName === "class") {
-            if ($(mutation.target).hasClass('gform_validation_error')){
-	            			console.log('gform_validation_error class was added');
-	            			$('.prepare_overlay').removeClass('fadein');
-                    alert("gform_validation_error class was added");
-                    //fill();
-           }
-         }
-     });
-  });
-
-observer.observe(document.getElementById('gform_wrapper_2'), {
-  attributes: true
-});
-*/
-
-
-
-var target = document.querySelectorAll(".gform_wrapper");
-for (var i = 0; i < target.length; i++) {
-
-    // create an observer instance
-    var observer = new MutationObserver(function(mutations) {
+			// create an observer instance
+			var observer = new MutationObserver(function(mutations) {
         mutations.forEach(function(mutation) {
             
 					if (mutation.attributeName === "class") {
@@ -1090,23 +1069,38 @@ for (var i = 0; i < target.length; i++) {
          }
             
         });
-    });
+    	});
 
-    // configuration of the observer
-    var config = { attributes: true };
+			// configuration of the observer
+			var config = { attributes: true };
 
-    // pass in the target node, as well as the observer options
-    observer.observe(target[i], config);
-}
+			// pass in the target node, as well as the observer options
+			observer.observe(target[i], config);
+		}
+
+			/*
+			var observer = new MutationObserver(function(mutations) {
+			       mutations.forEach(function(mutation) {
+			         if (mutation.attributeName === "class") {
+			            if ($(mutation.target).hasClass('gform_validation_error')){
+				            			console.log('gform_validation_error class was added');
+				            			$('.prepare_overlay').removeClass('fadein');
+			                    alert("gform_validation_error class was added");
+			                    //fill();
+			           }
+			         }
+			     });
+			  });
+			
+			observer.observe(document.getElementById('gform_wrapper_2'), {
+			  attributes: true
+			});
+			*/
+
+		}
 
 
-
-
-
-}
-
-
-myListener();
+		myListener();
 	
 	
 	
@@ -1201,16 +1195,7 @@ document.addEventListener("click", closeAllSelect);
 	});
 	
 	
-	// prepare overlay
-	
-	$('input#gform_submit_button_2').on('click', function(e) {
-	  
-	  $('.prepare_overlay').fadeIn(300);
-		
-		$('span.prepare_items').addClass('fadein');
-	
-	});
-	
+
 	
 	// success overlay
 	
@@ -1305,6 +1290,8 @@ setTimeout(function () {
 
 
 
+
+//var elements = document.getElementsByClassName("gform_wrapper");elements[0].className += " garrett";
 
 
 
