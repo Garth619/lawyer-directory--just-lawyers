@@ -1048,10 +1048,11 @@ $('.sec_three_tab').on('click', function(e) {
 	mycontactCheck();
 	
 	
-	// might need to add to render.....
+	
 
 function myListener() {
 
+/*
 var observer = new MutationObserver(function(mutations) {
        mutations.forEach(function(mutation) {
          if (mutation.attributeName === "class") {
@@ -1068,6 +1069,39 @@ var observer = new MutationObserver(function(mutations) {
 observer.observe(document.getElementById('gform_wrapper_2'), {
   attributes: true
 });
+*/
+
+
+
+var target = document.querySelectorAll(".gform_wrapper");
+for (var i = 0; i < target.length; i++) {
+
+    // create an observer instance
+    var observer = new MutationObserver(function(mutations) {
+        mutations.forEach(function(mutation) {
+            
+					if (mutation.attributeName === "class") {
+            if ($(mutation.target).hasClass('gform_validation_error')){
+	            			console.log('gform_validation_error class was added');
+	            			$('.prepare_overlay').removeClass('fadein');
+                    alert("gform_validation_error class was added");
+                    //fill();
+           }
+         }
+            
+        });
+    });
+
+    // configuration of the observer
+    var config = { attributes: true };
+
+    // pass in the target node, as well as the observer options
+    observer.observe(target[i], config);
+}
+
+
+
+
 
 }
 
