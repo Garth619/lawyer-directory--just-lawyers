@@ -32,6 +32,16 @@
 .prepare_overlay.fadein {
 	opacity: 1;
 	visibility: visible;
+	span.prepare_items {
+	  &:first-of-type {
+			transition-delay: 1000ms;
+			opacity: 1;
+		}
+		&:nth-of-type(2) {
+			transition-delay: 4000ms;
+			opacity: 1;
+		}
+  }
 }
 
 
@@ -65,16 +75,7 @@ span.do_not_refresh {
 		}
 	}
   
-  span.prepare_items.fadein {
-	  &:first-of-type {
-			transition-delay: 1000ms;
-			opacity: 1;
-		}
-		&:nth-of-type(2) {
-			transition-delay: 4000ms;
-			opacity: 1;
-		}
-  }
+  
 
 
 

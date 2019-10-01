@@ -1173,18 +1173,7 @@ else
 }
 
 
-// turn on load screen after the form validates
 
-//add_action( 'gform_pre_submission', 'post_process_actions', 10, 3 );
-function post_process_actions( $form){
-	
-?>
- <script>
-document.getElementById("load").classList.add("garrrrettttt");
-</script>
-<?php
-   
-}
 
 
 // Assigns parent child cats. also assigns city to exisiting state if a city does not exist, the advanced post creation plugin settings page is not capable of this so it needs to be written by hand 
@@ -1203,7 +1192,7 @@ function update_term_information( $post_id, $feed, $entry, $form ) {
     $newaddress = '' . $streetaddress . ' ' . $city . ', ' . $state . ' ' . $zip . '';
     
     update_field( 'lawyer_address', $newaddress, $post_id );
-    update_field( 'hide_claim_button', 'Yes', $post_id );
+    //update_field( 'hide_claim_button', 'Yes', $post_id );
 	
 		// parent cat "State"
 		
@@ -1293,7 +1282,7 @@ function update_term_information( $post_id, $feed, $entry, $form ) {
     
     update_field( 'lawyer_premium_layout_two', rgar( $entry, '42' ), $post );
     
-    update_field( 'hide_claim_button', 'Yes', $post );
+    //update_field( 'hide_claim_button', 'Yes', $post );
     
     update_field( 'lawyer_phone', rgar( $entry, '2' ), $post );
     update_field( 'lawyer_email', rgar( $entry, '48' ), $post );
@@ -1471,10 +1460,6 @@ function update_term_information( $post_id, $feed, $entry, $form ) {
 		
 	}
 	
-	
-	// overrides the confirmation on form 2 to just redirect back itself (the ?p=post_id doesnt redirect properly when starting on the bio post, but works from settings from antoher page like "create a profile"
-	
-	
 	add_filter("gform_submit_button", "form_submit_button", 10, 2); 
 	
 	function form_submit_button( $button, $form ) {
@@ -1483,13 +1468,16 @@ function update_term_information( $post_id, $feed, $entry, $form ) {
     $dom->loadHTML( '<?xml encoding="utf-8" ?>' . $button );
     $input = $dom->getElementsByTagName( 'input' )->item(0);
     $onclick = $input->getAttribute( 'onclick' );
-    $onclick .= "document.getElementById('prepare').classList.add('fadein');"; // Here's the JS function we're calling on click.
+    $onclick .= "document.getElementById('prepare').classList.add('fadein');document.getElementById('gform_wrapper_2').classList.remove('gform_validation_error');"; // Here's the JS function we're calling on click.
     $input->setAttribute( 'onclick', $onclick );
     return $dom->saveHtml( $input );
 		
 	}
 	
-
+	
+	// overrides the confirmation on form 2 to just redirect back itself (the ?p=post_id doesnt redirect properly when starting on the bio post, but works from settings from antoher page like "create a profile"
+	
+	
 	add_filter( 'gform_confirmation_2', 'custom_confirmation', 10, 4 );
 	
 	function custom_confirmation( $confirmation, $form, $lead, $ajax ) {

@@ -1047,11 +1047,47 @@ $('.sec_three_tab').on('click', function(e) {
 	
 	mycontactCheck();
 	
+	
+	// might need to add to render.....
+
+function myListener() {
+
+var observer = new MutationObserver(function(mutations) {
+       mutations.forEach(function(mutation) {
+         if (mutation.attributeName === "class") {
+            if ($(mutation.target).hasClass('gform_validation_error')){
+	            			console.log('gform_validation_error class was added');
+	            			$('.prepare_overlay').removeClass('fadein');
+                    alert("gform_validation_error class was added");
+                    //fill();
+           }
+         }
+     });
+  });
+
+observer.observe(document.getElementById('gform_wrapper_2'), {
+  attributes: true
+});
+
+}
+
+
+myListener();
+	
+	
+	
+	
 	// add all the custom jquery above back into the form after it does ajax validation
 	
 	$(document).bind('gform_post_render', function(){
 		
 			myflexWidth();
+			mylatLng();
+			mycontactCheck();
+			layouttoProduct();
+			
+			
+			
 			//mystateSelect();
 			var x, i, j, selElmnt, a, b, c;
 /*look for any elements with the class "custom-select":*/
@@ -1126,9 +1162,7 @@ function closeAllSelect(elmnt) {
 then close all select boxes:*/
 document.addEventListener("click", closeAllSelect);
 
-			mylatLng();
-			mycontactCheck();
-			layouttoProduct();
+			
 			
 	});
 	
@@ -1167,6 +1201,73 @@ document.addEventListener("click", closeAllSelect);
 	
 	
 	
+
+
+/*
+var $div = $("#gform_wrapper_2");
+var observer = new MutationObserver(function(mutations) {
+  mutations.forEach(function(mutation) {
+    if (mutation.attributeName === "class") {
+      var attributeValue = $(mutation.target).prop(mutation.attributeName);
+      console.log("Class attribute changed to:", attributeValue);
+      $('.prepare_overlay').removeClass('fadein');
+     
+    }
+  });
+});
+observer.observe($div[0], {
+  attributes: true
+});
+*/
+
+
+/*
+var target = document.querySelectorAll(".gform_wrapper");
+for (var i = 0; i < target.length; i++) {
+
+    // create an observer instance
+    var observer = new MutationObserver(function(mutations) {
+        mutations.forEach(function(mutation) {
+            var foo = mutation.target.getAttribute("class")
+
+            if (foo == "gform_validation_error")
+                mutation.target.style.backgroundColor = "red";
+        });
+    });
+
+    // configuration of the observer
+    var config = { attributes: true };
+
+    // pass in the target node, as well as the observer options
+    observer.observe(target[i], config);
+}
+*/
+
+// let's change an attribute in a second
+/*
+setTimeout(function(){
+  target[2].setAttribute('someAttribute', 'someValue');
+}, 1000);
+*/
+
+
+/*
+var e = document.getElementById('gform_wrapper_2')
+var observer = new MutationObserver(function (event) {
+  console.log(event)   
+})
+
+observer.observe(e, {
+  attributes: true, 
+  attributeFilter: ['class'],
+  childList: false, 
+  characterData: false
+})
+
+setTimeout(function () {
+  e.className = 'gfrom_validation_error'
+}, 1000)
+*/
 
 
 
