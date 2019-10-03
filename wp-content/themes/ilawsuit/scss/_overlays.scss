@@ -32,6 +32,7 @@
 .prepare_overlay.fadein {
 	opacity: 1;
 	visibility: visible;
+	transition-delay: 3000ms;
 	span.prepare_items {
 	  &:first-of-type {
 			transition-delay: 1000ms;
@@ -76,10 +77,6 @@ span.do_not_refresh {
 	}
   
   
-
-
-
-
 $offset: 187;
 $duration: 1.4s;
 
@@ -120,3 +117,39 @@ $duration: 1.4s;
    transform:rotate(450deg);
  }
 }
+
+
+
+
+// success overlay
+
+
+
+.success_overlay {
+	position: fixed;
+	top:0;
+	left:0;
+	width:100%;
+	z-index: 15;
+	height:100%;
+	padding:0 35px;
+	background:rgba(0,0,0,0.8);
+	-webkit-overflow-scrolling: touch;
+	display: none;
+}
+
+.success_overlay_inner {
+	width:100%;
+	max-width:900px;
+	background: #fff;
+	height:300px;
+	margin:70px auto 0;
+	svg#success {
+		width:55px;
+		height:55px;
+	}
+}
+
+
+
+

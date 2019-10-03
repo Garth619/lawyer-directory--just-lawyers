@@ -23,6 +23,8 @@
 			
 			<span class="success_close">Close</span>
 			
+			<?php echo file_get_contents("wp-content/themes/ilawsuit/images/success.svg"); ?>
+			
 		</div><!-- success_overlay_inner -->
 		
 	</div><!-- success_overlay -->

@@ -1362,26 +1362,7 @@ span.ginput_card_security_code_icon {
 
 
 
-.success_overlay {
-	position: fixed;
-	top:0;
-	left:0;
-	width:100%;
-	z-index: 15;
-	height:100%;
-	padding:0 35px;
-	background:rgba(0,0,0,0.8);
-	-webkit-overflow-scrolling: touch;
-	display: none;
-}
 
-.success_overlay_inner {
-	width:100%;
-	max-width:900px;
-	background: #fff;
-	height:300px;
-	margin:70px auto 0;
-}
 
 
 
