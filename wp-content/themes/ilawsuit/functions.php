@@ -1495,6 +1495,71 @@ function update_term_information( $post_id, $feed, $entry, $form ) {
 
 
 
+// autologin after registration
+
+
+add_action( 'gform_user_registered', 'autologin',  10, 4 );
+
+
+function autologin( $user_id, $user_config, $entry, $password ) {
+	
+	$user = get_userdata( $user_id );
+	$user_login = $user->user_login;
+	$user_password = $password;
+  $user->set_role(get_option('default_role', 'subscriber'));
+
+    wp_signon( array(
+		'user_login' => $user_login,
+		'user_password' =>  $user_password,
+		'remember' => true
+
+    ) );
+}
+
+
+// hide admin
+
+add_action('after_setup_theme', 'remove_admin_bar');
+ 
+function remove_admin_bar() {
+
+	if (!current_user_can('administrator') && !is_admin()) {
+  	show_admin_bar(false);
+	}
+
+}
+
+
+
+
+add_action( 'wp_login_failed', 'login_fail' );  // hook failed login
+
+function login_fail( $username ) {
+     
+     $referrer = $_SERVER['HTTP_REFERER'];  // where did the post submission come from?
+     // if there's a valid referrer, and it's not the default log-in screen
+     if ( !empty($referrer) && !strstr($referrer,'wp-login') && !strstr($referrer,'wp-admin') ) {
+          
+          wp_redirect(home_url() . '/?login=failed' );  // let's append some information (login=failed) to the URL for the theme to use
+          exit;
+     }
+}
+
+add_filter( 'authenticate', 'custom_authenticate_username_password', 30, 3);
+
+function custom_authenticate_username_password( $user, $username, $password )
+{
+    if ( is_a($user, 'WP_User') ) { return $user; }
+
+    if ( empty($username) || empty($password) )
+    {
+        $error = new WP_Error();
+        $user  = new WP_Error('authentication_failed', __('<strong>ERROR</strong>: Invalid username or incorrect password.'));
+
+        return $error;
+    }
+}
+
 
 
 

@@ -21,9 +21,17 @@
 		
 		<div class="success_overlay_inner">
 			
-			<span class="success_close">Close</span>
+			<div class="success_content">
 			
-			<?php echo file_get_contents("wp-content/themes/ilawsuit/images/success.svg"); ?>
+				<?php echo file_get_contents("wp-content/themes/ilawsuit/images/success.svg"); ?>
+			
+				<span class="success_header">Success!</span><!-- success_header -->
+			
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et.</p>
+				
+				<span class="success_close">View Profile</span>
+			
+			</div><!-- success_content -->
 			
 		</div><!-- success_overlay_inner -->
 		

@@ -53,11 +53,30 @@
 		
 		<div class="header_middle">
 			
+			<?php
+			
+			if ( is_user_logged_in() ) {
+				
+				$current_user = wp_get_current_user();?>
+			
+				<?php echo $current_user->user_login;?>
+				
+				<a href="<?php echo wp_logout_url(); ?>">Logout</a>
+			
+			<?php } else {?>
+			
+			<a href="<?php bloginfo('url');?>/wp-admin">Login</a>
+			
+		<?php }
+?>
+			
 			<div class="search_wrapper"><?php get_search_form(); ?></div><!-- search_wrapper -->
 			
 		</div><!-- header_middle -->
 		
 		<div class="header_right">
+			
+			
 			
 			<div class="menu_wrapper">
 				
