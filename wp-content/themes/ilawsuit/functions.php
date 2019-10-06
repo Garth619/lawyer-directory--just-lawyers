@@ -1532,7 +1532,7 @@ function remove_admin_bar() {
 
 
 
-add_action( 'wp_login_failed', 'login_fail' );  // hook failed login
+//add_action( 'wp_login_failed', 'login_fail' );  // hook failed login
 
 function login_fail( $username ) {
      
@@ -1540,12 +1540,12 @@ function login_fail( $username ) {
      // if there's a valid referrer, and it's not the default log-in screen
      if ( !empty($referrer) && !strstr($referrer,'wp-login') && !strstr($referrer,'wp-admin') ) {
           
-          wp_redirect(home_url() . '/?login=failed' );  // let's append some information (login=failed) to the URL for the theme to use
+          wp_redirect(home_url() . '/?login=logged-out' );  // let's append some information (login=failed) to the URL for the theme to use
           exit;
      }
 }
 
-add_filter( 'authenticate', 'custom_authenticate_username_password', 30, 3);
+//add_filter( 'authenticate', 'custom_authenticate_username_password', 30, 3);
 
 function custom_authenticate_username_password( $user, $username, $password )
 {
@@ -1561,6 +1561,114 @@ function custom_authenticate_username_password( $user, $username, $password )
 }
 
 
+
+
+
+function my_login_redirect( $redirect_to, $request, $user ) {
+    
+    //is there a user to check?
+    if ( isset( $user->roles ) && is_array( $user->roles ) ) {
+        //check for admins
+        if ( in_array( 'administrator', $user->roles ) ) {
+            // redirect them to the default place
+            return $redirect_to;
+        
+        } else {
+	        
+	        	$user_id = $user->ID;
+	        	
+	        	$author_args = array(
+							'posts_per_page' => 10,
+							'post_type' => 'lawyer',
+							'post_status' => 'publish',
+							'author' => $user_id,
+							'orderby' => 'date',
+							'order' => 'ASC',
+						);
+						
+						
+						
+						$first_post = new WP_Query($author_args); while($first_post->have_posts()) : $first_post->the_post(); 
+            
+            	$post_redirect[] = get_the_ID();
+            
+            endwhile; 
+            
+            wp_reset_postdata(); // reset the query 
+						
+						
+						$url_id = reset($post_redirect);
+
+	        	
+	        	$url = get_bloginfo('url') . "/lawyer/?p=" . $url_id;  
+	        
+	        
+            return $url;
+        
+        }
+    } else {
+        return $redirect_to;
+    }
+}
+ 
+
+add_filter( 'login_redirect', 'my_login_redirect', 10, 3 );
+
+
+
+/*
+add_action( 'login_redirect', 'custom_redirect_login', 10, 3 );
+
+
+function custom_redirect_login( $redirect_to, $request, $user )
+{
+    $redirect_posts = new WP_Query( array( 'author' => $user->ID ) );
+    if ($redirect_posts->have_posts())
+    {
+        // Since the pages are listed in DESC order, the first one is the most
+        // recently created.
+        return get_permalink($redirect_posts->posts[0]->ID);
+    }
+    else
+    {
+        // If no posts associated with the user, use default.
+        return $redirect_to;
+    }
+}
+*/
+
+
+
+						$user_id = 6;
+	        	
+	        	$author_args = array(
+							'posts_per_page' => 10,
+							'post_type' => 'lawyer',
+							'post_status' => 'publish',
+							'author' => $user_id,
+							'orderby' => 'date',
+							'order' => 'ASC',
+						);
+						
+						
+						
+						$first_post = new WP_Query($author_args); while($first_post->have_posts()) : $first_post->the_post(); 
+            
+            	$post_redirect[] = get_the_ID();
+            
+            endwhile; 
+            
+            wp_reset_postdata(); // reset the query 
+						
+						
+						$url_id = reset($post_redirect);
+
+	        	
+	        	$url = get_bloginfo('url') . "/lawyer/?p=" . $url_id; 
+	        
+	        
+            print_r($url);
+        
 
 
 	

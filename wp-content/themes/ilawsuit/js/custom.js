@@ -1299,7 +1299,7 @@ setTimeout(function () {
 // login overlay
 
 
-if (location.href.search('failed') >= 0) $('.custom_login').addClass('fadein');
+if (location.href.search('logged-out') >= 0) $('.custom_login').addClass('fadein');
 
 
 $('.login_link').on('click', function(e) {
