@@ -61,15 +61,15 @@
 				
 				$current_user = wp_get_current_user();?>
 			
-				<?php echo $current_user->user_login;?>
+				<a class="username_post_link" href=""><?php echo $current_user->user_login;?></a>
 				
-				<a href="<?php echo wp_logout_url(); ?>">Logout</a>
+				<a class="logout_link" href="<?php echo wp_logout_url(); ?>">Logout</a>
 			
-				<?php } else {?>
+				<?php } else { ?>
 			
-				<a href="<?php bloginfo('url');?>/wp-admin">Login</a>
+				<a class="login_link">Login</a>
 				
-				<a href="<?php bloginfo('url');?>/wp-admin">Create Your Profile</a>
+				<a class="create_link" href="<?php the_permalink(597956);?>">Create Your Profile</a><!-- create_link -->
 			
 			<?php } ?>
 		

@@ -123,6 +123,10 @@ body:not(.page-template-template-home) {
     font-family: $worksans;
     text-transform: uppercase;
     text-decoration: none;
+    cursor: pointer;
+    &:hover {
+	    text-decoration: underline;
+    }
     &:after {
 	    content:"|";
 	    display: inline-block;
@@ -239,7 +243,15 @@ body:not(.page-template-template-home) {
 	
 	
 	.login_header_wrapper {
-		display: none;
+		margin-right: 20px;
+		a {
+			&:after {
+				display: none;
+			}
+		}
+		a.create_link {
+			display: none;
+		}
 	}
 	
 	
@@ -391,6 +403,18 @@ body:not(.page-template-template-home) {
 	
 }
 
+	
+} /* Media Query */
+
+
+@media screen and (max-width: 460px) {
+	
+	
+	.login_header_wrapper {
+		display: none;
+	}
+	
+	
 	
 } /* Media Query */
 

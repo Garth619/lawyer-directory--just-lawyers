@@ -205,7 +205,8 @@ $duration: 1.4s;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	display: none;
+	opacity:0;
+	visibility: hidden;
 	transition: all 200ms ease-in-out;
 	.custom_login_inner {
 		display: flex;
@@ -214,5 +215,11 @@ $duration: 1.4s;
 		align-items: center;
 		height: 100%;
 	}
+}
+
+
+.custom_login.fadein {
+	opacity: 1;
+	visibility: visible;
 }
 

@@ -1199,9 +1199,9 @@ document.addEventListener("click", closeAllSelect);
 	
 	// success overlay
 	
-	var url = location.href;
+	//var url = location.href;
 
-  if (url.search('success') >= 0) $('.show_on_success').show();
+  if (location.href.search('success') >= 0) $('.show_on_success').show();
 	
 	// remove query on close
 	
@@ -1299,11 +1299,33 @@ setTimeout(function () {
 // login overlay
 
 
-$('span.back_to_site').on('click', function(e) {
+if (location.href.search('failed') >= 0) $('.custom_login').addClass('fadein');
+
+
+$('.login_link').on('click', function(e) {
   
-	$('.custom_login').fadeOut(300);
+	$('.custom_login').addClass('fadein');
 
 });
+
+
+$('span.back_to_site').on('click', function(e) {
+  
+	$('.custom_login').removeClass('fadein');
+	
+	var uri = window.location.toString();
+		
+		if (uri.indexOf("?") > 0) {
+	    var clean_uri = uri.substring(0, uri.indexOf("?"));
+	    window.history.replaceState({}, document.title, clean_uri);
+		}
+
+});
+
+
+
+
+  
   
   
   
