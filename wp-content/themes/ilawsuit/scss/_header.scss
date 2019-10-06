@@ -116,27 +116,43 @@ body:not(.page-template-template-home) {
 
 .login_header_wrapper {
 	margin-right:40px;
+	display: flex;
+	margin-top:6px;
 	a {
 		font-size: 15px;
     color: #fff;
+    //display: inline-block;
     letter-spacing: 0.1em;
     font-family: $worksans;
     text-transform: uppercase;
     text-decoration: none;
     cursor: pointer;
+    &:first-of-type {
+	   
+    }
+    &:last-of-type {
+	    &:before {
+		    content:"|";
+		    display: inline-block;
+		    margin:0 12px;
+	    }
+    }
     &:hover {
 	    text-decoration: underline;
     }
-    &:after {
-	    content:"|";
-	    display: inline-block;
-	    margin:0 10px 0 15px;
-    }
-    &:last-of-type {
-	    &:after {
-		    display: none;
-	    }
-	  }
+	}
+	a.username_post_link {
+		width:120px;
+		overflow: hidden;
+    white-space: nowrap;
+    text-align: right;
+    text-overflow: ellipsis;
+   // background: pink;
+	}
+	span.divider {
+		color:#fff;
+		margin-left:4px;
+		margin-right:20px;
 	}
 }
 
@@ -202,12 +218,30 @@ body:not(.page-template-template-home) {
 	}
 	
 	
-	
-	.header_middle {
-		.search_wrapper {
-			display: none;
+	body.page-template-template-home {
+		.header_middle {
+			.search_wrapper {
+				display: none;
+			}
 		}
 	}
+	
+	
+} /* Media Query */
+
+
+@media screen and (max-width: 1120px) {
+	
+	
+	
+	body:not(.page-template-template-home) {
+		.login_header_wrapper {
+			a.create_link {
+				display: none;
+			}
+		}
+	}
+	
 	
 	
 } /* Media Query */
@@ -233,22 +267,41 @@ body:not(.page-template-template-home) {
 }
 	
 	
+body:not(.page-template-template-home) {
+	.login_header_wrapper {
+		a.logout_link {
+			display: none;
+		}
+	}
+}
+	
+	
+} /* Media Query */
+
+
+@media screen and (max-width: 895px) {
+	
+	
+	body:not(.page-template-template-home) {
+		.header_middle {
+			.search_wrapper {
+				display: none;
+			}
+		}
+	}
+	
 	
 	
 } /* Media Query */
 
 
 
-@media screen and (max-width: 785px) {
+@media screen and (max-width: 795px) {
 	
 	
 	.login_header_wrapper {
 		margin-right: 20px;
-		a {
-			&:after {
-				display: none;
-			}
-		}
+		
 		a.create_link {
 			display: none;
 		}
@@ -403,6 +456,40 @@ body:not(.page-template-template-home) {
 	
 }
 
+	
+} /* Media Query */
+
+
+@media screen and (max-width: 645px) {
+	
+	
+	
+	.login_header_wrapper {
+		a.username_post_link {
+			margin-right:0;
+		}
+		a.logout_link {
+			display: none;
+		}
+		span.divider {
+			display: none;
+		}
+	}
+	
+	
+	
+} /* Media Query */
+
+
+@media screen and (max-width: 520px) {
+	
+	
+	.login_header_wrapper {
+		a.username_post_link {
+			display: none;
+		}
+	}
+	
 	
 } /* Media Query */
 

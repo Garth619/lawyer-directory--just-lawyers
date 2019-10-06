@@ -53,27 +53,35 @@
 		
 		<div class="header_middle">
 			
-			<div class="login_header_wrapper">
+			
 			
 			<?php
 			
 			if ( is_user_logged_in() ) {
 				
 				$current_user = wp_get_current_user();?>
-			
-				<a class="username_post_link" href=""><?php echo $current_user->user_login;?></a>
 				
-				<a class="logout_link" href="<?php echo wp_logout_url(); ?>">Logout</a>
+				<div class="login_header_wrapper loggedin">
+			
+					<a class="username_post_link" href=""><?php echo $current_user->user_login;?></a>
+				
+					<a class="logout_link" href="<?php echo wp_logout_url(); ?>">Logout</a>
+				
+				</div><!-- login_header_wrapper -->
 			
 				<?php } else { ?>
-			
-				<a class="login_link">Login</a>
 				
-				<a class="create_link" href="<?php the_permalink(597956);?>">Create Your Profile</a><!-- create_link -->
+				<div class="login_header_wrapper loggedout">
+			
+					<a class="login_link">Login</a>
+				
+					<a class="create_link" href="<?php the_permalink(597956);?>">Create Your Profile</a><!-- create_link -->
+				
+				</div><!-- login_header_wrapper -->
 			
 			<?php } ?>
 		
-		</div><!-- login_header_wrapper -->
+		
 			
 			<div class="search_wrapper"><?php get_search_form(); ?></div><!-- search_wrapper -->
 			

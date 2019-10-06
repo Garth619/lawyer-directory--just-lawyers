@@ -1638,37 +1638,4 @@ function custom_redirect_login( $redirect_to, $request, $user )
 */
 
 
-
-						$user_id = 6;
-	        	
-	        	$author_args = array(
-							'posts_per_page' => 10,
-							'post_type' => 'lawyer',
-							'post_status' => 'publish',
-							'author' => $user_id,
-							'orderby' => 'date',
-							'order' => 'ASC',
-						);
-						
-						
-						
-						$first_post = new WP_Query($author_args); while($first_post->have_posts()) : $first_post->the_post(); 
-            
-            	$post_redirect[] = get_the_ID();
-            
-            endwhile; 
-            
-            wp_reset_postdata(); // reset the query 
-						
-						
-						$url_id = reset($post_redirect);
-
-	        	
-	        	$url = get_bloginfo('url') . "/lawyer/?p=" . $url_id; 
-	        
-	        
-            print_r($url);
-        
-
-
 	
