@@ -1,37 +1,30 @@
+<?php 
+	
+	/* Template Name: Login */ ?>
+	 
+<?php wp_head(); ?>
+
 <div class="custom_login">
 	
 	<div class="custom_login_inner">
 		
 		<?php echo file_get_contents("wp-content/themes/ilawsuit/images/ilawuit-logo-dark.svg"); ?>
 		
-<!--
-		<?php $current_user = wp_get_current_user();
-			
-			$current_user_id = $current_user->ID;
-			
-			echo $current_user_id;
-			
-			$author_args = array(
-				'posts_per_page' => 1,
-				'post_status' => 'publish',
-				'author' => $current_user_id,
-				'orderby' => 'date',
-				'order' => 'ASC',
-			);
-			
-			$first_post = new WP_Query($args);
-			
-			if ($first_post->have_posts()) {
-			
-			$first_post->the_post();
-
-    // Now you can use `the_title();` etc.
-
-    wp_reset_postdata();
-}
-			
-		?>
--->
+		<div class="wp_login_error">
+    
+    <?php if( isset( $_GET['login'] ) && $_GET['login'] == 'failed' ) { ?>
+        
+        <p>The username/password you entered is incorrect, Please try again.</p>
+    
+    <?php } 
+    
+    else if( isset( $_GET['login'] ) && $_GET['login'] == 'loggedout' ) { ?>
+        
+        <p>Please enter both username and password.</p>
+   
+    <?php } ?>
+	
+	</div>   
 		
 		<?php
 			if ( ! is_user_logged_in() ) { // Display WordPress login form:
@@ -55,3 +48,5 @@
 	</div><!-- custom_login_inner -->
 	
 </div><!-- custom_login -->
+
+<?php wp_footer();?>

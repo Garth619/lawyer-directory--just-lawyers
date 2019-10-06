@@ -1532,7 +1532,7 @@ function remove_admin_bar() {
 
 
 
-//add_action( 'wp_login_failed', 'login_fail' );  // hook failed login
+add_action( 'wp_login_failed', 'login_fail' );  // hook failed login
 
 function login_fail( $username ) {
      
@@ -1540,26 +1540,27 @@ function login_fail( $username ) {
      // if there's a valid referrer, and it's not the default log-in screen
      if ( !empty($referrer) && !strstr($referrer,'wp-login') && !strstr($referrer,'wp-admin') ) {
           
-          wp_redirect(home_url() . '/?login=logged-out' );  // let's append some information (login=failed) to the URL for the theme to use
+          wp_redirect(get_bloginfo('url') . '/login/?login=failed' );  // let's append some information (login=logged-out) to the URL for the theme to use
+          
           exit;
      }
 }
 
-//add_filter( 'authenticate', 'custom_authenticate_username_password', 30, 3);
+add_action( 'authenticate', 'check_username_password', 1, 3);
+function check_username_password( $login, $username, $password ) {
 
-function custom_authenticate_username_password( $user, $username, $password )
-{
-    if ( is_a($user, 'WP_User') ) { return $user; }
+// Getting URL of the login page
+$referrer = $_SERVER['HTTP_REFERER'];
 
-    if ( empty($username) || empty($password) )
-    {
-        $error = new WP_Error();
-        $user  = new WP_Error('authentication_failed', __('<strong>ERROR</strong>: Invalid username or incorrect password.'));
-
-        return $error;
+// if there's a valid referrer, and it's not the default log-in screen
+if( !empty( $referrer ) && !strstr( $referrer,'wp-login' ) && !strstr( $referrer,'wp-admin' ) ) { 
+    if( $username == "" || $password == "" ){
+        wp_redirect( get_bloginfo('url') . '/login/?login=loggedout' );
+        exit;
     }
 }
 
+}
 
 
 
@@ -1578,7 +1579,7 @@ function my_login_redirect( $redirect_to, $request, $user ) {
 	        	$user_id = $user->ID;
 	        	
 	        	$author_args = array(
-							'posts_per_page' => 10,
+							'posts_per_page' => 1,
 							'post_type' => 'lawyer',
 							'post_status' => 'publish',
 							'author' => $user_id,

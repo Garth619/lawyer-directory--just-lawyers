@@ -62,8 +62,39 @@
 				$current_user = wp_get_current_user();?>
 				
 				<div class="login_header_wrapper loggedin">
+					
+					<?php 
+						
+						$user_id = $current_user->ID;
+	        	
+	        	$author_args = array(
+							'posts_per_page' => 1,
+							'post_type' => 'lawyer',
+							'post_status' => 'publish',
+							'author' => $user_id,
+							'orderby' => 'date',
+							'order' => 'ASC',
+						);
+						
+						
+						
+						$first_post = new WP_Query($author_args); while($first_post->have_posts()) : $first_post->the_post(); 
+            
+            	$post_redirect[] = get_the_ID();
+            
+            endwhile; 
+            
+            wp_reset_postdata(); // reset the query 
+						
+						
+						$url_id = reset($post_redirect);
+
+	        	
+	        	$url = get_bloginfo('url') . "/lawyer/?p=" . $url_id;  
+	        	
+	        	?>
 			
-					<a class="username_post_link" href=""><?php echo $current_user->user_login;?></a>
+					<a class="username_post_link" href="<?php echo $url;?>"><?php echo $current_user->user_login;?></a>
 				
 					<a class="logout_link" href="<?php echo wp_logout_url(); ?>">Logout</a>
 				
@@ -73,7 +104,7 @@
 				
 				<div class="login_header_wrapper loggedout">
 			
-					<a class="login_link">Login</a>
+					<a class="login_link" href="<?php bloginfo('url');?>/login">Login</a>
 				
 					<a class="create_link" href="<?php the_permalink(597956);?>">Create Your Profile</a><!-- create_link -->
 				

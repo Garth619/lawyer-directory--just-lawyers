@@ -5,6 +5,7 @@
 	get_header(); ?>
 
 
+
 <div id="internal_main">
 	
 	<div class="internal_banner">
