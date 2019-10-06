@@ -1295,6 +1295,15 @@ setTimeout(function () {
 
 
 
+
+// login overlay
+
+
+$('span.back_to_site').on('click', function(e) {
+  
+	$('.custom_login').fadeOut(300);
+
+});
   
   
   

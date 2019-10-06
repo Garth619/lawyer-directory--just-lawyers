@@ -775,6 +775,14 @@
 		"oAP": "/page-templates/template-locations_state_pa.php",
 		"oF": 0
 		},
+	"/page-templates/template-login.php": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 0,
+		"oAP": "/page-templates/template-login.php",
+		"oF": 0
+		},
 	"/page-templates/template-multistepforms.php": {
 		"cB": 0,
 		"ft": 8192,

@@ -53,6 +53,8 @@
 		
 		<div class="header_middle">
 			
+			<div class="login_header_wrapper">
+			
 			<?php
 			
 			if ( is_user_logged_in() ) {
@@ -63,12 +65,15 @@
 				
 				<a href="<?php echo wp_logout_url(); ?>">Logout</a>
 			
-			<?php } else {?>
+				<?php } else {?>
 			
-			<a href="<?php bloginfo('url');?>/wp-admin">Login</a>
+				<a href="<?php bloginfo('url');?>/wp-admin">Login</a>
+				
+				<a href="<?php bloginfo('url');?>/wp-admin">Create Your Profile</a>
 			
-		<?php }
-?>
+			<?php } ?>
+		
+		</div><!-- login_header_wrapper -->
 			
 			<div class="search_wrapper"><?php get_search_form(); ?></div><!-- search_wrapper -->
 			
