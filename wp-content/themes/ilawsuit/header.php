@@ -53,9 +53,7 @@
 		
 		<div class="header_middle">
 			
-			
-			
-			<?php
+		<?php
 			
 			if ( is_user_logged_in() ) {
 				

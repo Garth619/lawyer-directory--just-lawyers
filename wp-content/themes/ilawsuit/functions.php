@@ -1512,9 +1512,40 @@ function autologin( $user_id, $user_config, $entry, $password ) {
 		'user_login' => $user_login,
 		'user_password' =>  $user_password,
 		'remember' => true
-
-    ) );
+		) );
+		
+/*
+	$updated_post_id = $entry['post_id'];
+	
+	$new_author = array(
+     'ID'            => $updated_post_id,
+      'post_author'   => $user_id,
+   );
+   
+   wp_update_post($new_author);
+*/
+		
 }
+
+
+
+/*
+add_action( 'gform_user_updated', 'post_author', 10, 4 );
+
+
+function post_author( $user_id, $feed, $entry, $user_pass ) {
+	
+
+
+}
+*/
+
+
+
+
+
+
+
 
 
 // hide admin

@@ -10,21 +10,29 @@
 		
 		<?php echo file_get_contents("wp-content/themes/ilawsuit/images/ilawuit-logo-dark.svg"); ?>
 		
-		<div class="wp_login_error">
+		
     
     <?php if( isset( $_GET['login'] ) && $_GET['login'] == 'failed' ) { ?>
+    
+    	<div class="wp_login_error">
         
-        <p>The username/password you entered is incorrect, Please try again.</p>
+        <span>The username/password you entered is incorrect, Please try again.</span>
+        
+      </div><!-- wp_login_error -->
     
     <?php } 
     
     else if( isset( $_GET['login'] ) && $_GET['login'] == 'loggedout' ) { ?>
+    
+    	<div class="wp_login_error">
         
-        <p>Please enter both username and password.</p>
+        <span>Please enter both username and password.</span>
+        
+      </div>
    
     <?php } ?>
 	
-	</div>   
+   
 		
 		<?php
 			if ( ! is_user_logged_in() ) { // Display WordPress login form:

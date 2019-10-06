@@ -1299,7 +1299,7 @@ setTimeout(function () {
 // login overlay
 
 
-if (location.href.search('logged-out') >= 0) $('.custom_login').addClass('fadein');
+
 
 
 /*
@@ -1312,20 +1312,9 @@ $('.login_link').on('click', function(e) {
 
 
 $('span.back_to_site').on('click', function(e) {
-  
-	//$('.custom_login').removeClass('fadein');
 	
 	window.history.back();
 	
-/*
-	var uri = window.location.toString();
-		
-		if (uri.indexOf("?") > 0) {
-	    var clean_uri = uri.substring(0, uri.indexOf("?"));
-	    window.history.replaceState({}, document.title, clean_uri);
-		}
-*/
-
 });
 
 

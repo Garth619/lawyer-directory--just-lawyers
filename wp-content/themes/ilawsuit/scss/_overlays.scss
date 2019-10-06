@@ -233,6 +233,15 @@ $duration: 1.4s;
 	visibility: visible;
 }
 
+.wp_login_error {
+	margin-top:30px;
+	text-align: center;
+	font-size: 16px;
+	line-height: 20px;
+	margin-bottom:-5px;
+	font-family: $worksans;
+}
+
 #loginform-custom {
 	width:100%;
 	margin-top:40px;
