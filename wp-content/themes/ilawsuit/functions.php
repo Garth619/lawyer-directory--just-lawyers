@@ -1366,8 +1366,20 @@ function update_term_information( $post_id, $feed, $entry, $form ) {
 		// Set as featured image for the post created on line 13.
 	
 		set_post_thumbnail( $post, $attach_id );
+		
+		// Set newly created user as the author for this updated post
+
+		$username = rgar( $entry, '30' );
+		
+		// at this point in the hook sequence, it looks like the new user is already registered and able to be found
     
-    	//updating post
+    $newuser = get_user_by('login', $username);
+		
+		$newuser_id = $newuser->ID;
+		
+		$post->post_author = $newuser_id;
+
+    //updating post
     wp_update_post( $post );
     
     
@@ -1514,36 +1526,8 @@ function autologin( $user_id, $user_config, $entry, $password ) {
 		'remember' => true
 		) );
 		
-/*
-	$updated_post_id = $entry['post_id'];
-	
-	$new_author = array(
-     'ID'            => $updated_post_id,
-      'post_author'   => $user_id,
-   );
-   
-   wp_update_post($new_author);
-*/
 		
 }
-
-
-
-/*
-add_action( 'gform_user_updated', 'post_author', 10, 4 );
-
-
-function post_author( $user_id, $feed, $entry, $user_pass ) {
-	
-
-
-}
-*/
-
-
-
-
-
 
 
 
@@ -1647,27 +1631,6 @@ function my_login_redirect( $redirect_to, $request, $user ) {
 add_filter( 'login_redirect', 'my_login_redirect', 10, 3 );
 
 
-
-/*
-add_action( 'login_redirect', 'custom_redirect_login', 10, 3 );
-
-
-function custom_redirect_login( $redirect_to, $request, $user )
-{
-    $redirect_posts = new WP_Query( array( 'author' => $user->ID ) );
-    if ($redirect_posts->have_posts())
-    {
-        // Since the pages are listed in DESC order, the first one is the most
-        // recently created.
-        return get_permalink($redirect_posts->posts[0]->ID);
-    }
-    else
-    {
-        // If no posts associated with the user, use default.
-        return $redirect_to;
-    }
-}
-*/
 
 
 	
