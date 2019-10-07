@@ -2,9 +2,15 @@
 	
 	<div class="internal_banner">
 		
-		<h1><?php the_title();?></h1>
+		<?php 
+			
+			// some info i need to make the form redirects work properly
+			
+			$hiddenpost_id = get_the_ID();?>
 		
-		<div class="internal_banner_meta">
+			<h1 data-homeurl="<?php bloginfo('url');?>" id="<?php echo $hiddenpost_id;?>" data><?php the_title();?></h1>
+		
+			<div class="internal_banner_meta">
 			
 			<?php $terms = get_the_terms( get_the_ID(), 'practice_area' ); ?>
 			

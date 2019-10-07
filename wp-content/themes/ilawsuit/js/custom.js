@@ -628,9 +628,29 @@ $('.sec_three_tab').on('click', function(e) {
 	
 	myflexWidth();
 	
+	function formredirectInfo() {
+		
+		// post id
+		
+		var postid = $('h1').attr('id');
+		
+		$('.mypost_id input').val(postid);
+		
+		// site url for redirect
+		
+		var homeurl = $('h1').data('homeurl');
+		
+		$('.myhomeurl input').val(homeurl);
+
+  
+	}
+
+	formredirectInfo();
+	
 	// populate the claim profile form with exisiting profile info on bio pages (super hardcoded in order to map correctly)
 	
 	function mypopulateForm() {
+		
 		
 		// name
   
@@ -1111,6 +1131,7 @@ $('.sec_three_tab').on('click', function(e) {
 		
 			myflexWidth();
 			mylatLng();
+			formredirectInfo();
 			mycontactCheck();
 			layouttoProduct();
 			
@@ -1311,17 +1332,20 @@ $('.login_link').on('click', function(e) {
 */
 
 
+/*
 $('span.back_to_site').on('click', function(e) {
+	
+	
+	
+	var url = window.location.href.split('?')[0];
 	
 	window.history.back();
 	
 });
+*/
 
 
 
-
-  
-  
   
   
 }); // document ready

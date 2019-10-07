@@ -1284,6 +1284,12 @@ function update_term_information( $post_id, $feed, $entry, $form ) {
     
     //update_field( 'hide_claim_button', 'Yes', $post );
     
+    
+    
+    //The field’s key should be used when saving a new value to a post (when no value exists) https://www.advancedcustomfields.com/resources/update_field/
+    
+    
+    
     update_field( 'lawyer_phone', rgar( $entry, '2' ), $post );
     update_field( 'lawyer_email', rgar( $entry, '48' ), $post );
     update_field( 'lawfirm_name', rgar( $entry, '4' ), $post );
@@ -1489,21 +1495,6 @@ function update_term_information( $post_id, $feed, $entry, $form ) {
 	}
 	
 	
-	// overrides the confirmation on form 2 to just redirect back itself (the ?p=post_id doesnt redirect properly when starting on the bio post, but works from settings from antoher page like "create a profile"
-	
-	
-	add_filter( 'gform_confirmation_2', 'custom_confirmation', 10, 4 );
-	
-	function custom_confirmation( $confirmation, $form, $lead, $ajax ) {
-				
-		$pid = $lead['post_id'];
-				
-		$slug = get_post_field( 'post_name', $pid );
-				
-		$confirmation = array("redirect" => get_site_url() . "/lawyer/" . $slug . "/?profile=success");
-				
-		return $confirmation;
-}
 
 
 
@@ -1555,7 +1546,7 @@ function login_fail( $username ) {
      // if there's a valid referrer, and it's not the default log-in screen
      if ( !empty($referrer) && !strstr($referrer,'wp-login') && !strstr($referrer,'wp-admin') ) {
           
-          wp_redirect(get_bloginfo('url') . '/login/?login=failed' );  // let's append some information (login=logged-out) to the URL for the theme to use
+          wp_safe_redirect(get_bloginfo('url') . '/login/?login=failed' );  // let's append some information (login=logged-out) to the URL for the theme to use
           
           exit;
      }
@@ -1570,7 +1561,7 @@ $referrer = $_SERVER['HTTP_REFERER'];
 // if there's a valid referrer, and it's not the default log-in screen
 if( !empty( $referrer ) && !strstr( $referrer,'wp-login' ) && !strstr( $referrer,'wp-admin' ) ) { 
     if( $username == "" || $password == "" ){
-        wp_redirect( get_bloginfo('url') . '/login/?login=loggedout' );
+        wp_safe_redirect( get_bloginfo('url') . '/login/?login=loggedout' );
         exit;
     }
 }
@@ -1587,7 +1578,10 @@ function my_login_redirect( $redirect_to, $request, $user ) {
         //check for admins
         if ( in_array( 'administrator', $user->roles ) ) {
             // redirect them to the default place
-            return $redirect_to;
+            
+            $mydashboard = get_bloginfo('url') . '/wp-admin';
+            
+            return $mydashboard;
         
         } else {
 	        
@@ -1631,6 +1625,28 @@ function my_login_redirect( $redirect_to, $request, $user ) {
 add_filter( 'login_redirect', 'my_login_redirect', 10, 3 );
 
 
+	// overrides the confirmation on form 2 to just redirect back itself (the ?p=post_id doesnt redirect properly when starting on the bio post, but works from settings from antoher page like "create a profile"
+	
+	
+	//add_filter( 'gform_confirmation_2', 'custom_confirmation', 10, 4 );
+	
+/*
+	function custom_confirmation( $confirmation, $form, $entry, $ajax ) {
+				
+		$pid = $entry['post_id'];
+		
+		$slug = get_post_field( 'post_name', $pid );
+			
+		$url = get_bloginfo('url') . '/lawyer/' . $slug . '/?profile=success';
+
+		$confirmation = array('redirect' => $url);
+				
+		return $confirmation;
+		
+		//{embed_post:ID}
+
+	}
+*/
 
 
 	

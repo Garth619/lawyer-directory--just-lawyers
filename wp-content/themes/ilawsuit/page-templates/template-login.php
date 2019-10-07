@@ -51,7 +51,7 @@
 		} 
 ?>
 	
-	<span class="back_to_site">Back to Site</span><!-- back_to_site -->
+	<a class="back_to_site" href="<?php bloginfo('url');?>">Back to Site</a><!-- back_to_site -->
 		
 	</div><!-- custom_login_inner -->
 	
