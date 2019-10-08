@@ -1625,6 +1625,19 @@ function my_login_redirect( $redirect_to, $request, $user ) {
 add_filter( 'login_redirect', 'my_login_redirect', 10, 3 );
 
 
+//add_filter("gform_confirmation_anchor", create_function("","return 300;"));
+
+
+add_filter( 'gform_confirmation_anchor_2', function() {
+    return 0;
+} );
+
+add_filter( 'gform_confirmation_anchor_4', function() {
+    return 300;
+} );
+
+
+
 	// overrides the confirmation on form 2 to just redirect back itself (the ?p=post_id doesnt redirect properly when starting on the bio post, but works from settings from antoher page like "create a profile"
 	
 	

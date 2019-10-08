@@ -80,17 +80,6 @@
 		<?php 
 			
 			if(is_singular('lawyer')) {
-								
-				
-/*
-				if(!get_field('lawyer_post_id')) {
-					
-					$hiddenpost_id = get_the_ID();
-				
-					update_field('field_5d9ba1594736a', $acfpost_id);
-					
-				}
-*/
 		
 				gravity_form(2, false, false, false, '', true, 1344);
 			
@@ -103,6 +92,8 @@
 			}
 		
 		?>
+		
+	
 		
 		</div><!-- mymultistep_form -->
 		

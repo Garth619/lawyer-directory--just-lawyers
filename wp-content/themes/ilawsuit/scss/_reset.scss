@@ -34,7 +34,10 @@ body .gform_wrapper .gform_validation_container {
 }
 
 .validation_error {
-	display: none;
+	//display: none;
+	color:red;
+	padding-bottom: 45px;
+	text-align: center;
 }
 
 

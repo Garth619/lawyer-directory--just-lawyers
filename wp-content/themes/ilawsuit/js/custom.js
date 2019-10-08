@@ -603,6 +603,12 @@ $('.sec_three_tab').on('click', function(e) {
 	});
 	
 	
+		
+		//$( "div.claim_overlay" ).scrollTop( 0 );
+	  
+
+	
+	
 
 	// claim/create profile form
 	
@@ -1214,6 +1220,9 @@ document.addEventListener("click", closeAllSelect);
 			
 			
 	});
+	
+	
+
 	
 	
 

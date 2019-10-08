@@ -1,3 +1,15 @@
+<div class="overlay claim_overlay content">
+						
+						<div class="overlay_inner">
+							
+							<div class="overlay_close"></div><!-- overlay_close -->
+							
+							<?php get_template_part('page-templates/template','multistepforms');?>
+							
+						</div><!-- overlay_inner -->
+						
+					</div><!-- overlay -->
+
 <div id="internal_main">
 	
 	<div class="internal_banner">
@@ -305,17 +317,7 @@
 					
 					<?php } ?>
 					
-					<div class="overlay claim_overlay">
-						
-						<div class="overlay_inner">
-							
-							<div class="overlay_close"></div><!-- overlay_close -->
-							
-							<?php get_template_part('page-templates/template','multistepforms');?>
-							
-						</div><!-- overlay_inner -->
-						
-					</div><!-- overlay -->
+					
 				
 				</div><!-- att_bio_content -->
 			
