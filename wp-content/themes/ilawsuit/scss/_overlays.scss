@@ -189,8 +189,16 @@ $duration: 1.4s;
 }
 
 
-
-   
+@media screen and (max-width: 767px) {
+	   
+	   .success_overlay_inner{
+		   margin: 35px auto 0;
+		   padding:45px 35px;
+	   }
+	       
+	   
+	   
+} /* Media Query */
 
  
  
