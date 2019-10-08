@@ -590,6 +590,9 @@ $('.sec_three_tab').on('click', function(e) {
 	
 	// claim overlay
 	
+	
+	
+/*
 	$('a.claim_button').on('click', function(e) {
 	  
 		$('.claim_overlay').addClass('open');
@@ -601,6 +604,7 @@ $('.sec_three_tab').on('click', function(e) {
 		$('.claim_overlay').removeClass('open');
 	
 	});
+*/
 	
 	
 		
