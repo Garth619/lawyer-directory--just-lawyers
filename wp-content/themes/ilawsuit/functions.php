@@ -1637,6 +1637,13 @@ add_filter( 'gform_confirmation_anchor_4', function() {
 } );
 
 
+function custom_login_logo() {
+    echo '<style type ="text/css">.login h1 a { display:none!important; }</style>';
+}
+
+add_action('login_head', 'custom_login_logo');
+
+
 
 	// overrides the confirmation on form 2 to just redirect back itself (the ?p=post_id doesnt redirect properly when starting on the bio post, but works from settings from antoher page like "create a profile"
 	

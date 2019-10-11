@@ -41,7 +41,7 @@
 	width:100%;
 	margin-top:40px;
 	p {
-		margin-bottom:20px;
+		margin-bottom:30px;
 		label,input {
 			display: block;
 			width:100%;
@@ -111,7 +111,7 @@
 	}
 	p.login-submit {
 		width:170px;
-		margin:30px auto 0;
+		margin:35px auto 0;
 	}
 	p.login-remember {
 		label {
@@ -126,14 +126,22 @@
 }
 
 
-.back_to_site {
+.back_to_site, .login-forgot-password a {
 	display: block;
   color: #04289f;
   font-size: 15px;
-  padding-top: 8px;
+ 
   cursor: pointer;
   text-decoration: underline;
   font-family: $worksans;
+}
+
+.back_to_site {
+	margin-top:25px;
+}
+
+.login-forgot-password {
+	margin-top:-20px;
 }
 
  @media screen and (max-width: 1066px) {

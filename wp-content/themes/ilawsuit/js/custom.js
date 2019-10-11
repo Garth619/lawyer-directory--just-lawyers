@@ -1252,6 +1252,10 @@ document.addEventListener("click", closeAllSelect);
 	  
 	});
 	
+	// password
+	
+	$('<p class="login-forgot-password"><a href="/wp-login.php?action=lostpassword">Forgot Password?</a></p>').insertAfter('p.login-password');
+	
 	
 	
 
