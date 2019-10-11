@@ -70,7 +70,13 @@
 		
 		<span class="claim_begin">Let's Begin</span><!-- claim_begin -->
 		
-		<span class="go_back_to_profile">Go Back to Profile</span><!-- go_back_to_profile -->
+		<?php 
+			
+			if(is_singular('lawyer')) {?>
+		
+				<span class="go_back_to_profile">Go Back to Profile</span><!-- go_back_to_profile -->
+		
+		<?php } ?>
 		
 	</div><!-- price_description -->
 	
@@ -82,6 +88,8 @@
 			if(is_singular('lawyer')) {
 		
 				gravity_form(2, false, false, false, '', true, 1344);
+				
+				echo "<span class='go_back_to_profile'>Go Back to Profile</span>";
 			
 			}
 			

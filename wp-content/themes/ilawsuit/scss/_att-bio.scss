@@ -678,11 +678,12 @@ a.claim_button {
 	background: #fff;
 	
 	
+	margin-top:-909px;
+	
+	//transform: translateY(-909px);
 	
 	
-	
-	
-	padding-top:100px;
+	padding-top: 120px;
 	.overlay_inner {
 		width:100%;
 		max-width:1600px;
@@ -694,6 +695,9 @@ a.claim_button {
 }
 
 
+.overlay.dropdown {
+	margin-top:0px;
+}
 
 
 	.mymultistep_form_wrapper {
@@ -792,16 +796,19 @@ a.claim_button {
 			    background: $blue;
 		    }
 			}
-			span.go_back_to_profile {
-				display: block;
-				color:$blue;
-				font-size: 16px;
-				padding-top:5px;
-				cursor: pointer;
-				text-decoration: underline;
-			}
 		}
 	}
+	
+	
+	span.go_back_to_profile {
+		display: block;
+		color:$blue;
+		font-size: 16px;
+		padding-top:5px;
+		cursor: pointer;
+		text-align: center;
+		text-decoration: underline;
+		}
 
 	
 	body.page-template-template-createprofile {
