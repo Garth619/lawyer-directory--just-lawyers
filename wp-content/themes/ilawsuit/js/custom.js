@@ -588,6 +588,9 @@ $('.sec_three_tab').on('click', function(e) {
 	}
 	
 	
+	
+	
+	
 	// claim overlay
 	
 	$('a.claim_button').on('click', function(e) {
@@ -606,44 +609,7 @@ $('.sec_three_tab').on('click', function(e) {
 		
 		$('#internal_main').delay(800).fadeIn();
 		
-/*
-		$('body.single-lawyer #internal_main').show(0);
-	  
-		$('html, body').delay(300).animate({scrollTop: $('body.single-lawyer #internal_main').offset().top -100 }, 300);	
-		
-		$('.overlay').delay(1000).queue(function(){
-		     
-			$(this).removeClass('dropdown').dequeue();
-		  
-		});
-*/
-		
 	});
-	
-	
- /*
-	$('a.claim_button').on('click', function(e) {
-	  
-		$('.claim_overlay').addClass('open');
-	
-	});
-	
-	$('.overlay_close, span.go_back_to_profile').on('click', function(e) {
-	  
-		$('.claim_overlay').removeClass('open');
-	
-	});
-*/
-
-
-
-	
-	
-		
-		//$( "div.claim_overlay" ).scrollTop( 0 );
-	  
-
-	
 	
 
 	// claim/create profile form
@@ -1394,6 +1360,31 @@ $('span.back_to_site').on('click', function(e) {
 */
 
 
+
+// edit buttons
+
+
+$('.myedit').append('<span class="edit_icon"></span>');
+
+$('span.edit_icon').on('click', function(e) {
+	
+	$('html, body').addClass('fixed');
+  
+  $('.myacf_form').addClass('open');
+  
+  $('#internal_main').addClass('blur');
+  
+});
+
+$('.acf_close, .myacf_form_left').on('click', function(e) {
+	
+	$('html, body').removeClass('fixed');
+  
+  $('.myacf_form').removeClass('open');
+  
+  $('#internal_main').removeClass('blur');
+  
+});
 
   
   

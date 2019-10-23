@@ -190,6 +190,16 @@
 		"oT": 1,
 		"q": 100
 		},
+	"/images/edit.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "/images/edit.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 3758088159,
+		"prP": 0
+		},
 	"/images/hero-att.webp": {
 		"cB": 0,
 		"ft": 8192,
@@ -856,6 +866,19 @@
 		"ma": 0,
 		"oA": 1,
 		"oAP": "/scss/_att-bio.css",
+		"oF": 0,
+		"oS": 0,
+		"uL": 1
+		},
+	"/scss/_edit-overlay.scss": {
+		"aP": 0,
+		"bl": 0,
+		"dP": 10,
+		"dS": 0,
+		"ft": 4,
+		"ma": 0,
+		"oA": 1,
+		"oAP": "/scss/_edit-overlay.css",
 		"oF": 0,
 		"oS": 0,
 		"uL": 1

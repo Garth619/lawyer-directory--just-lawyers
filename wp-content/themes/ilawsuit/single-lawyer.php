@@ -36,6 +36,19 @@
 		</div><!-- success_overlay_inner -->
 		
 	</div><!-- success_overlay -->
-
-
-<?php  get_footer(); ?>
+	
+	<div class="myacf_form">
+		
+		<div class="myacf_form_left"></div><!-- myacf_form_left -->
+		
+		<div class="myacf_form_right">
+			
+				<div class="acf_close"></div><!-- acf_close -->
+			
+				<?php acf_form(); ?>
+			
+		</div><!-- myacf_form_right -->
+		
+	</div><!-- acf_form -->
+	
+	<?php  get_footer(); ?>

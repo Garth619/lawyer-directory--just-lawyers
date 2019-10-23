@@ -59,7 +59,7 @@
 				
 				<div class="att_bio_sidebar_inner">
 				
-				<div class="att_bio_profile">
+				<div class="att_bio_profile myedit">
 					
 					<?php if (has_post_thumbnail( $post->ID ) ): ?>
 						
@@ -85,7 +85,7 @@
 				
 				<?php if(get_field('lawyer_street_address')) : ?>
 				
-						<div class="att_bio_row_wrapper">
+						<div class="att_bio_row_wrapper myedit">
 					
 							<span class="att_bio_sidebar_title">Address</span><!-- att_bio_sidebar_title -->
 						
@@ -226,12 +226,6 @@
 					
 					<?php } ?>
 				
-				
-				<?php //acf_form(); ?>
-
-		
-						
-					
 					<?php if(get_field('school_one_name') && get_field('school_one_name') !== 'NULL') { ?>
 					
 						<div class="att_standard_education">
