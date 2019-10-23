@@ -34,17 +34,19 @@
 	height:100%;
 	z-index:0;
 	display: flex;
+	overflow-y: scroll;
 	opacity: 0;
 	visibility: hidden;
 	transition: all 300ms ease-in-out;
 	.myacf_form_left {
 		flex-grow: 1;
-		height:100%;
+		//height:100%;
 		background: rgba(255,255,255,0.7);
 	}
 	.myacf_form_right {
 		padding:45px 45px 100px;
 		width:650px;
+		height:4000px;
 		overflow-y: scroll;
 		-webkit-overflow-scrolling: touch;
 		background: #fff;

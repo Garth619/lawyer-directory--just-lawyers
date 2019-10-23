@@ -14,6 +14,7 @@
 	
 	<div class="internal_banner">
 		
+	
 		<?php 
 			
 			// some info i need to make the form redirects work properly

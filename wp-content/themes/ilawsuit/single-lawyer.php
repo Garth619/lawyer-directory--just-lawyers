@@ -1,4 +1,4 @@
-<?php // acf_form_head(); ?>
+
 
 <?php get_header(); 
 
@@ -44,8 +44,13 @@
 		<div class="myacf_form_right">
 			
 				<div class="acf_close"></div><!-- acf_close -->
-			
-				<?php acf_form(); ?>
+				
+				<?php gravity_form(5, false, false, false, '', true, 23544); ?>
+
+				
+				
+				
+				
 			
 		</div><!-- myacf_form_right -->
 		
