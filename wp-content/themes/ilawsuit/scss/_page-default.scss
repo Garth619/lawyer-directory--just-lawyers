@@ -64,7 +64,8 @@
 img.featured_icon {
 	position: absolute;
 	top:0;
-	right:30px;
+	right: 9px;
+	z-index:1;
 }
 
 
@@ -568,23 +569,34 @@ span.overall_count {
 @media screen and (max-width: 1575px) {
 	
 	.lawyer_wrapper {
-		max-width: 1025px;
+		max-width: 1505px;
 	}
 	
 	
 	.single_lawyer_result {
-		height: 575px;
+		height: 680px;
 		padding:60px 60px 0 60px;
 		a {
 			display: block;
 		}
 	}
 	
+	.single_lawyer_img_wrapper {
+		 height: 300px;
+	}
+	
 	
 	.logo_placeholder {
 		margin:0 auto;
-		width:190px;
-		height:190px;
+		width:300px;
+		height:300px;
+	}
+	
+	
+	img.att_feed_image {
+		position: relative;
+		width:300px;
+		height:300px;
 	}
 	
 	
@@ -666,7 +678,7 @@ span.overall_count {
 
 
 
-@media screen and (max-width: 955px) {
+@media screen and (max-width: 1005px) {
 	
 	
 	
@@ -681,7 +693,7 @@ span.overall_count {
 	
 	.single_lawyer_result {
 		padding: 60px 30px 0px;
-		min-height:540px;
+		min-height: 610px;
 		height:auto;
 	}
 	
@@ -814,5 +826,16 @@ span.make_new_search {
 
 
 
+	
+} /* Media Query */
+
+
+@media screen and (max-width: 600px) {
+	
+	
+	img.featured_icon {
+		right:0px;
+	}
+	
 	
 } /* Media Query */

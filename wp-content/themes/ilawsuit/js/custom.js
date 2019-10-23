@@ -590,20 +590,23 @@ $('.sec_three_tab').on('click', function(e) {
 	
 	// claim overlay
 	
-	
 	$('a.claim_button').on('click', function(e) {
 		
-		$('.overlay').addClass('dropdown');
+		$('#internal_main').fadeOut(400);
 		
-		window.scrollTo({top: 0, behavior: 'smooth'});
-		
-		$('body.single-lawyer #internal_main').delay(500).hide(0);
-		
+		$('.overlay').delay(800).fadeIn();
+			
 	});
 	
+	// close/back to profile
 	
 	$('.overlay_close, span.go_back_to_profile').on('click', function(e) {
 		
+		$('.overlay').fadeOut(400);
+		
+		$('#internal_main').delay(800).fadeIn();
+		
+/*
 		$('body.single-lawyer #internal_main').show(0);
 	  
 		$('html, body').delay(300).animate({scrollTop: $('body.single-lawyer #internal_main').offset().top -100 }, 300);	
@@ -613,6 +616,7 @@ $('.sec_three_tab').on('click', function(e) {
 			$(this).removeClass('dropdown').dequeue();
 		  
 		});
+*/
 		
 	});
 	
