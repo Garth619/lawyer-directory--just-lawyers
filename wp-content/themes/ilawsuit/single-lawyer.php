@@ -1,4 +1,6 @@
-<?php if(is_user_logged_in()) {
+<?php 
+	
+	if(is_user_logged_in() && get_current_user_id() == $post->post_author) { 
 
 	acf_form_head();
 
@@ -41,9 +43,10 @@
 		
 	</div><!-- success_overlay -->
 	
-	<?php if(is_user_logged_in()) { ?>
+		
+	<?php if(is_user_logged_in() && get_current_user_id() == $post->post_author) { ?>
 	
-	<div class="myacf_form">
+	<div class="myacf_form current_author_form">
 		
 		<div class="myacf_form_left"></div><!-- myacf_form_left -->
 		

@@ -1365,7 +1365,7 @@ $('span.back_to_site').on('click', function(e) {
 
 // this needs to be more specific to only show on the persons editable post
 
-if($('.logged-in').length >0 ){
+if($('.current_author_form').length >0 ){
 
 
 $('.myedit').append('<span class="edit_icon"></span>');

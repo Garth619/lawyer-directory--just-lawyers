@@ -230,7 +230,7 @@
 				
 					<?php if(get_field('school_one_name') && get_field('school_one_name') !== 'NULL') { ?>
 					
-						<div class="att_standard_education myedit">
+						<div class="att_standard_education">
 						
 							<div class="att_bio_content_row">
 					
