@@ -1361,7 +1361,7 @@ $('span.back_to_site').on('click', function(e) {
 
 
 
-// edit buttons
+// edit buttons and update profile when user is logged in
 
 
 $('.myedit').append('<span class="edit_icon"></span>');
@@ -1374,6 +1374,13 @@ $('span.edit_icon').on('click', function(e) {
   
   $('#internal_main').addClass('blur');
   
+  var showField = $(this).parent('.myedit').data('update');
+  
+  $('.acf-tab-wrap, .acf-field').css('display','none');
+  
+  $('[data-name="'+showField+'"]').css('display','block');
+  
+  
 });
 
 $('.acf_close, .myacf_form_left').on('click', function(e) {
@@ -1385,6 +1392,12 @@ $('.acf_close, .myacf_form_left').on('click', function(e) {
   $('#internal_main').removeClass('blur');
   
 });
+
+
+
+
+
+
 
   
   
