@@ -1192,7 +1192,7 @@ function update_term_information( $post_id, $feed, $entry, $form ) {
     $newaddress = '' . $streetaddress . ' ' . $city . ', ' . $state . ' ' . $zip . '';
     
     update_field( 'lawyer_address', $newaddress, $post_id );
-    //update_field( 'hide_claim_button', 'Yes', $post_id );
+    update_field( 'hide_claim_button', 'Yes', $post_id );
 	
 		// parent cat "State"
 		
@@ -1267,7 +1267,7 @@ function update_term_information( $post_id, $feed, $entry, $form ) {
 
 	
 	add_action( 'gform_after_submission_2', 'set_post_content', 10, 2 );
-	add_action( 'gform_after_submission_5', 'set_post_content', 10, 2 );
+	//add_action( 'gform_after_submission_5', 'set_post_content', 10, 2 );
 	
 	function set_post_content( $entry, $form ) {
  
@@ -1283,7 +1283,7 @@ function update_term_information( $post_id, $feed, $entry, $form ) {
     
     update_field( 'lawyer_premium_layout_two', rgar( $entry, '42' ), $post );
     
-    //update_field( 'hide_claim_button', 'Yes', $post );
+    update_field( 'hide_claim_button', 'Yes', $post );
     
     
     

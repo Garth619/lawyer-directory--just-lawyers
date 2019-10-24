@@ -1363,6 +1363,10 @@ $('span.back_to_site').on('click', function(e) {
 
 // edit buttons and update profile when user is logged in
 
+// this needs to be more specific to only show on the persons editable post
+
+if($('.logged-in').length >0 ){
+
 
 $('.myedit').append('<span class="edit_icon"></span>');
 
@@ -1392,6 +1396,9 @@ $('.acf_close, .myacf_form_left').on('click', function(e) {
   $('#internal_main').removeClass('blur');
   
 });
+
+
+}
 
 
 

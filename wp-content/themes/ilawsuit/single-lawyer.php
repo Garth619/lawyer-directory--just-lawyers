@@ -1,4 +1,8 @@
-<?php acf_form_head(); ?>
+<?php if(is_user_logged_in()) {
+
+	acf_form_head();
+
+	} ?>
 
 <?php get_header(); 
 
@@ -37,6 +41,8 @@
 		
 	</div><!-- success_overlay -->
 	
+	<?php if(is_user_logged_in()) { ?>
+	
 	<div class="myacf_form">
 		
 		<div class="myacf_form_left"></div><!-- myacf_form_left -->
@@ -47,8 +53,6 @@
 				
 				<!-- https://support.advancedcustomfields.com/forums/topic/split-up-an-acf_form-into-a/ -->
 
-
-				
 				<?php acf_form(); ?>
 				
 				<?php //gravity_form(5, false, false, false, '', true, 2344); ?>
@@ -58,5 +62,7 @@
 		</div><!-- myacf_form_right -->
 		
 	</div><!-- acf_form -->
+	
+<?php } ?>
 	
 	<?php  get_footer(); ?>
