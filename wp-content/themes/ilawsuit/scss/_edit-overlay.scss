@@ -108,3 +108,48 @@ body.single-lawyer {
 	}
 }
 
+
+.myacf_form {
+/*
+	li {
+		display: none;
+	}
+	li#field_5_2 {
+		display: block;
+	}
+*/
+}
+
+.acf-tab-wrap {
+	display: none;
+}
+
+.acf-field {
+	display: none;
+}
+
+[data-name="lawyer_phone"] {
+	display: block;
+}
+
+.acf-hidden {
+	display: none !important;
+}
+
+
+#message.updated {
+	display: none;
+/*
+	position:fixed;
+	top:0;
+	left:0;
+	width:100%;
+	z-index:5;
+	height:100%;
+	background: red;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+*/
+}
+

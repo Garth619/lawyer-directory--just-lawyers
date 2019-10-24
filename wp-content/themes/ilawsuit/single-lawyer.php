@@ -1,4 +1,4 @@
-
+<?php acf_form_head(); ?>
 
 <?php get_header(); 
 
@@ -45,10 +45,13 @@
 			
 				<div class="acf_close"></div><!-- acf_close -->
 				
-				<?php gravity_form(5, false, false, false, '', true, 23544); ?>
+				<!-- https://support.advancedcustomfields.com/forums/topic/split-up-an-acf_form-into-a/ -->
+
 
 				
+				<?php acf_form(); ?>
 				
+				<?php //gravity_form(5, false, false, false, '', true, 2344); ?>
 				
 				
 			

@@ -1267,6 +1267,7 @@ function update_term_information( $post_id, $feed, $entry, $form ) {
 
 	
 	add_action( 'gform_after_submission_2', 'set_post_content', 10, 2 );
+	add_action( 'gform_after_submission_5', 'set_post_content', 10, 2 );
 	
 	function set_post_content( $entry, $form ) {
  
@@ -1642,6 +1643,30 @@ function custom_login_logo() {
 }
 
 add_action('login_head', 'custom_login_logo');
+
+
+
+// disabes acf form styles 
+
+
+// disable acf css on front-end acf forms
+//add_action( 'wp_print_styles', 'my_deregister_styles', 100 );
+ 
+/*
+function my_deregister_styles() {
+  wp_deregister_style( 'acf' );
+  wp_deregister_style( 'acf-field-group' );
+  wp_deregister_style( 'acf-global' );
+  wp_deregister_style( 'acf-input' );
+  wp_deregister_style( 'acf-datepicker' );
+}
+*/
+
+
+function unqueue_af_css() {
+    wp_deregister_style('acf-input'); 
+}
+add_action( 'wp_enqueue_scripts', 'unqueue_af_css', 9999 );
 
 
 

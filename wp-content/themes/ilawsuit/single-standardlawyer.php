@@ -133,7 +133,7 @@
 				
 				<?php if(get_field('lawyer_phone') && get_field('lawyer_phone') !== 'NULL') { ?>
 				
-					<div class="att_bio_row_wrapper">
+					<div class="att_bio_row_wrapper myedit">
 					
 						<span class="att_bio_sidebar_title">Phone</span><!-- att_bio_sidebar_title -->
 					
