@@ -46,11 +46,11 @@
 		
 	<?php if(is_user_logged_in() && get_current_user_id() == $post->post_author) { ?>
 	
-	<div class="myacf_form current_author_form">
+	<div class="update_custom_form current_author_form">
 		
-		<div class="myacf_form_left"></div><!-- myacf_form_left -->
+		<div class="update_custom_form_left"></div><!-- update_custom_form_left -->
 		
-		<div class="myacf_form_right">
+		<div class="update_custom_form_right">
 			
 				<div class="acf_close"></div><!-- acf_close -->
 				
@@ -58,11 +58,9 @@
 
 				<?php acf_form(); ?>
 				
-				<?php // gravity_form(5, false, false, false, '', true, 2344); ?>
+				<?php gravity_form(5, false, false, false, '', true, 2344); ?>
 				
-				
-			
-		</div><!-- myacf_form_right -->
+			</div><!-- update_custom_form_right -->
 		
 	</div><!-- acf_form -->
 	

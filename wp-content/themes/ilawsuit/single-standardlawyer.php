@@ -20,7 +20,7 @@
 			
 			$hiddenpost_id = get_the_ID();?>
 			
-			<div class="internal_banner_content myedit edit_content">
+			<div class="internal_banner_content myedit edit_content gravity_edit">
 		
 			<h1 data-homeurl="<?php bloginfo('url');?>" id="<?php echo $hiddenpost_id;?>" data><?php the_title();?></h1>
 		
@@ -63,7 +63,7 @@
 				
 				<div class="att_bio_sidebar_inner">
 				
-				<div class="att_bio_profile myedit">
+				<div class="att_bio_profile myedit edit_sidebar gravity_edit">
 					
 					<?php if (has_post_thumbnail( $post->ID ) ): ?>
 						
@@ -89,7 +89,7 @@
 				
 				<?php if(get_field('lawyer_street_address')) : ?>
 				
-						<div class="att_bio_row_wrapper myedit">
+						<div class="att_bio_row_wrapper myedit edit_sidebar gravity_edit">
 					
 							<span class="att_bio_sidebar_title">Address</span><!-- att_bio_sidebar_title -->
 						
