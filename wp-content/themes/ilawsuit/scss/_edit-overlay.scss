@@ -93,7 +93,7 @@
 	.update_custom_form_right {
 		padding:45px 45px 100px;
 		width:650px;
-		height:4000px;
+		//height:4000px;
 		overflow-y: scroll;
 		-webkit-overflow-scrolling: touch;
 		background: #fff;
@@ -230,6 +230,325 @@ body.single-lawyer {
     @include montserrat_extrabold;
     &:hover {
 	    background: $blue;
+    }
+	}
+}
+
+
+.update_custom_form {
+	.validation_error {
+		display: none;
+	}
+	ul {
+		display: flex;
+		flex-wrap:wrap;
+		justify-content: space-between;
+		margin-bottom:0;
+		list-style: none;
+		li.gsection {
+			//flex-basis: 100%;
+			margin-top:45px;
+			margin-bottom:35px;
+		}
+		// post id redirect
+		li.mypost_id, li.myhomeurl {
+			display: none;
+		}
+		//education
+		li.myeducation_section {
+			margin-top:10px;
+		}
+		// profile choice
+		li.myprofile_choice {
+			margin-bottom:0;
+			//flex-basis: 100%;
+			ul {
+				display: block;
+				margin-bottom:0;
+				li {
+					display: flex;
+					//flex-basis: 100%;
+					&:last-of-type {
+						margin-bottom:0;
+					}
+					label {
+						font-size: 20px;
+						line-height: 26px;
+						font-family: "Work Sans",sans-serif;
+						font-weight: 600;
+						text-transform: none;
+						letter-spacing: 0;
+						font-weight: 400;
+						margin-left: 15px;
+					}
+				}
+			}
+		}
+		// product
+		li.mypaypal_product {
+			display: none;
+		}
+		li {
+			flex-basis: 100%;
+			padding:0;
+			margin-bottom:25px;
+			&:before {
+				display: none;
+			}
+			label {
+				text-transform: uppercase;
+				font-size: 15px;
+				line-height: 20px;
+				letter-spacing: 0.15em;
+				display: block;
+				margin-bottom:10px;
+				@include montserrat_extrabold;
+			}
+			input[type="text"],input[type="password"], textarea {
+				border: 2px solid #d8d8d8;
+				font-size: 20px;
+				line-height: 38px;
+				border-radius: 10px;
+				font-family: $worksans;
+				padding: 5px 20px;
+				width:100%;
+				transition: all 200ms ease-in-out;
+				&:focus {
+					border: 2px solid $blue;
+				}
+			}
+			input[type="checkbox"], input[type="radio"] {
+				width:25px;
+				height:25px;
+				border: 2px solid #d8d8d8;
+				position: relative;
+				&:checked {
+					//background: $offwhite;
+					&:after {
+						display: block;
+					}
+				}
+				&:after {
+					content: "";
+					position: absolute;
+					left: 8px;
+					top: 3px;
+					width: 7px;
+					height: 11px;
+					border: solid $bluetwo;
+					border-width: 0 3px 3px 0;
+					transform: rotate(45deg);
+					display: none;
+				}
+			}
+			textarea {
+				height:52px;
+				transition: all 300ms ease-in-out;
+				&:focus {
+					height:500px;
+				}
+			}
+		}
+		li.flex_width {
+			flex-basis:100%;
+		}
+		li.mycontact_checkmark {
+			> label {
+				display: none;
+			}
+			ul {
+				li {
+					display: flex;
+					align-items: center;
+					flex-basis:100%;
+					margin-bottom: 0;
+					label {
+						font-family: $worksans;
+						text-transform: none;
+						letter-spacing: 0;
+						font-size: 20px;
+						line-height: 34px;
+						font-weight: 400;
+						position: relative;
+						top:3px;
+						margin-left:15px;
+					}
+				}
+			}
+		}
+		// account creation
+		li.mycontact_description {
+			margin-bottom:0;
+		}
+		// state select
+		li.mylawyer_state {
+			position: relative;
+			select {
+				display: none;
+			}
+			.select-selected {
+				border: 2px solid #d8d8d8;
+				border-radius: 10px;
+				padding: 5px 20px;
+				line-height: 38px;
+				//background-color: grey;
+			}
+			.select-items div,.select-selected {
+				cursor: pointer;
+				user-select: none;
+			}
+			.select-items {
+				position: absolute;
+				border: 2px solid #d8d8d8;
+				border-radius: 10px;
+				background: #fff;
+				top: 105px;
+				width:211%;
+				left: 0;
+				z-index: 1;
+				padding: 20px 0px;
+				display: flex;
+				flex-wrap:wrap;
+				justify-content: space-between;
+				div {
+					padding:0 20px;
+					flex-basis:47%;
+				}
+			}
+			.select-hide {
+				display: none;
+			}
+			.select-items div:hover, .same-as-selected {
+				background-color: rgba(0, 0, 0, 0.1);
+			}
+		}
+		// featured lawyer
+		li.myfeatured_lawyer {
+			display: none !important;
+		}
+		// profile choice
+		li.myprofile_choice {
+			label.gfield_label {
+				display: none;
+			}
+		}
+		//practice areas
+		li.mypracticeareas {
+			label.gfield_label {
+				display: none;
+			}
+		}
+		// username password
+		li.myusername, li.mypassword {
+			flex-basis:100%;
+			label:not(.gfield_label) {
+				font-size:13px;
+				margin-top:5px;
+				padding-left:20px;
+			}
+			.ginput_right {
+				input {
+					margin-top:18px;
+				}
+			}
+		}
+	}
+	// credit card
+	li.mycreditcard {
+		#input_2_104_5_container, #input_4_101_5_container {
+			display: none;
+		}
+		span.ginput_full {
+			display: block;
+			margin-bottom:25px;
+			span {
+				display: block;
+			}
+			span.ginput_cardinfo_left {
+				margin-bottom: 25px;
+			}
+			span.ginput_cardinfo_right {
+				input {
+					width:120px;
+				}
+			}
+			span.ginput_card_security_code_icon {
+				display: none;
+			}
+		}
+		label {
+/*
+			padding-top:8px;
+			padding-bottom:15px;
+*/
+		}
+		label.gfield_label_before_complex {
+			display: none;
+		}
+	}
+	li.mycountry {
+		display: none;
+	}
+	li.mypracticeareas {
+		
+	
+	.ginput_container_checkbox {
+		ul.gfield_checkbox {
+			//padding-top:25px;
+			> li {
+					flex-basis: 50% !important;
+			}
+		}
+		ul.gfield_checkbox {
+			margin-bottom: 0;
+			li {
+				display: flex;
+				flex-basis:100%;
+				input {
+					flex-shrink:0;
+					margin-right:7px;
+				}
+				label {
+					font-size: 20px;
+					line-height: 26px;
+					font-family: $worksans;
+					font-weight: 600;
+					text-transform: none;
+					letter-spacing: 0;
+					font-weight: 400;
+					margin-left:5px;
+				}
+			}
+		}
+		}
+		
+	}
+	.gfield_description, .validation_message {
+		color:red;
+		font-size: 16px;
+		//letter-spacing: 0.09em;
+		//text-transform: uppercase;
+		line-height: 20px;
+		padding-top:5px;
+		font-family: $worksans;
+	}
+	input[type="submit"] {
+		color: $bluetwo;
+    text-transform: lowercase;
+    font-size: 25px;
+    text-decoration: none;
+    letter-spacing: 0.05em;
+    font-family: $prata;
+    cursor: pointer;
+    border: 2px solid #2117dc;
+    display: block;
+    padding: 23px 60px;
+    background: transparent;
+    margin:70px auto 0;
+    transition: all 300ms ease-in-out;
+    &:hover {
+	    background: $bluetwo;
+	    color:#fff;
     }
 	}
 }

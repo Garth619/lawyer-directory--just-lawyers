@@ -1261,6 +1261,70 @@ function update_term_information( $post_id, $feed, $entry, $form ) {
 	}
 	
 	
+	//
+	
+	add_action( 'gform_after_submission_8', 'loggedinProfile', 10, 2 );
+	
+	function loggedinProfile( $entry, $form ) {
+		
+		// all redundant code to form 2
+		
+		//getting post
+    $post = get_post( $entry['post_id'] );
+    
+    // featured image
+    
+    $url = rgar( $entry, 55 ); 
+    
+    // Current directory
+		
+		$abs_path = getcwd();
+		
+		// Convert to absolute URL
+		
+		$url = str_replace( site_url(), $abs_path, $url);
+		
+		// Checking filetype for MIME
+		
+		$filetype = wp_check_filetype( basename( $url ), null );
+		
+		// WordPress upload directory	
+		
+		$wp_upload_dir = wp_upload_dir();	
+		
+		$attachment = array(
+			'guid'           => $wp_upload_dir['url'] . '/' . basename( $url ), 
+			'post_mime_type' => $filetype['type'],
+			'post_title'     => preg_replace( '/\.[^.]+$/', '', basename( $url ) ),
+			'post_content'   => '',
+			'post_status'    => 'inherit'
+		);
+	
+		// Get attachment ID
+	
+		$attach_id = wp_insert_attachment( $attachment, $url, $post );
+	
+		// Dependency for wp_generate_attachment_metadata().
+	
+		require_once( ABSPATH . 'wp-admin/includes/image.php' );
+	
+		// Generate metadata for image attachment.
+	
+		$attach_data = wp_generate_attachment_metadata( $attach_id, $url );
+	
+		wp_update_attachment_metadata( $attach_id, $attach_data );
+	
+		// Set as featured image for the post created on line 13.
+	
+		set_post_thumbnail( $post, $attach_id );
+		
+    //updating post
+    wp_update_post( $post );
+		
+		
+	}
+	
+	
 	
 	// update existing posts 
 	

@@ -46,7 +46,7 @@
 		
 	<?php if(is_user_logged_in() && get_current_user_id() == $post->post_author) { ?>
 	
-	<div class="update_custom_form current_author_form">
+	<div class="update_custom_form current_author_form content">
 		
 		<div class="update_custom_form_left"></div><!-- update_custom_form_left -->
 		
@@ -58,7 +58,7 @@
 
 				<?php acf_form(); ?>
 				
-				<?php gravity_form(5, false, false, false, '', true, 2344); ?>
+				<?php gravity_form(8, false, false, false, '', true, 2344); ?>
 				
 			</div><!-- update_custom_form_right -->
 		
