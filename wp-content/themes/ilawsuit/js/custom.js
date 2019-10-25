@@ -1366,36 +1366,47 @@ $('span.back_to_site').on('click', function(e) {
 // this needs to be more specific to only show on the persons editable post
 
 if($('.current_author_form').length >0 ){
-
-
-$('.myedit').append('<span class="edit_icon"></span>');
-
-$('span.edit_icon').on('click', function(e) {
 	
-	$('html, body').addClass('fixed');
+	function formEdit() {
+		
+		$('html, body').addClass('fixed');
   
-  $('.myacf_form').addClass('open');
-  
-  $('#internal_main').addClass('blur');
-  
-  var showField = $(this).parent('.myedit').data('update');
-  
-  $('.acf-tab-wrap, .acf-field').css('display','none');
-  
-  $('[data-name="'+showField+'"]').css('display','block');
-  
-  
-});
-
-$('.acf_close, .myacf_form_left').on('click', function(e) {
+		$('.myacf_form').addClass('open');
+		
+		$('#internal_main').addClass('blur');
+		
+	}
 	
-	$('html, body').removeClass('fixed');
+	
+	$('.myedit').append('<span class="edit_icon"></span>');
+
+	// acf form
+
+	$('.myedit.acf_edit span.edit_icon').on('click', function(e) {
+	
+		formEdit();
   
-  $('.myacf_form').removeClass('open');
+		var showField = $(this).parent('.myedit').data('acfupdate');
   
-  $('#internal_main').removeClass('blur');
+		$('.acf-tab-wrap, .acf-field').css('display','none');
   
-});
+		$('[data-name="'+showField+'"]').css('display','block');
+  
+  
+	});
+
+
+	// close
+
+	$('.acf_close, .myacf_form_left').on('click', function(e) {
+	
+		$('html, body').removeClass('fixed');
+  
+		$('.myacf_form').removeClass('open');
+  
+		$('#internal_main').removeClass('blur');
+  
+	});
 
 
 }

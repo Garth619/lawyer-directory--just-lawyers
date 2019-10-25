@@ -39,6 +39,14 @@
 	}
 }
 
+.internal_banner_content.myedit.edit_content {
+	padding-bottom:40px;
+	> span.edit_icon {
+		bottom:0px;
+		left:0;
+	}
+}
+
 .myedit.edit_inline {
 	padding-bottom: 10px;
 	> span.edit_icon {
@@ -165,14 +173,6 @@ body.single-lawyer {
 .acf-hidden {
 	display: none !important;
 }
-
-/*
-[data-name="lawyer_phone"] {
-	display: block;
-}
-*/
-
-
 
 
 #message.updated {
