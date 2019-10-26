@@ -60,7 +60,7 @@
 				
 				
 				
-				<?php gravity_form(10, false, false, false, '', true, 2344); ?>
+				<?php gravity_form(7, false, false, false, '', true, 2344); ?>
 				
 			</div><!-- update_custom_form_right -->
 		
