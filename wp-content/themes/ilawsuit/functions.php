@@ -1263,6 +1263,12 @@ function update_term_information( $post_id, $feed, $entry, $form ) {
 	
 	//
 	
+	
+	
+	
+	
+	// update profile image logged in
+	
 	add_action( 'gform_after_submission_8', 'loggedinProfile', 10, 2 );
 	
 	function loggedinProfile( $entry, $form ) {
@@ -1325,10 +1331,158 @@ function update_term_information( $post_id, $feed, $entry, $form ) {
 	}
 	
 	
+	// update title and slug logged in
+	
+	add_action( 'gform_after_submission_7', 'loggedinTitle', 10, 2 );
+	
+	function loggedinTitle( $entry, $form ) {
+		
+		// all redundant code to form 2
+		
+		//getting post
+    $post = get_post( $entry['post_id'] );
+    
+    //changing post title
+    
+    $post->post_title = rgar( $entry, '1' );
+    $post->post_name = rgar( $entry, '1' );
+		
+    //updating post
+    wp_update_post( $post );
+		
+		
+	}
+	
+	
+	
+	
+	// update practice areas logged in
+	
+	add_action( 'gform_after_submission_10', 'loggedinPracticeareas', 10, 2 );
+	
+	function loggedinPracticeareas( $entry, $form ) {
+		
+		// all redundant code to form 2
+    
+     //getting post
+    $post = get_post( $entry['post_id'] );
+    
+    // practice areas
+    
+    
+    $postid = $post->ID;
+				
+
+		$field_id = 28; // Update this number to your field id number
+		$field = RGFormsModel::get_field( $form, $field_id );
+		$value = is_object( $field ) ? $field->get_value_export( $entry, $field_id, true ) : '';
+		
+		wp_set_post_terms( $postid, $value, 'practice_area' );
+		
+		
+	}
+
+	
+	
+	
+	
+	// update address logged in
+	
+	add_action( 'gform_after_submission_9', 'loggedinAddress', 10, 2 );
+	
+	function loggedinAddress( $entry, $form ) {
+		
+		// all redundant code to form 2
+		
+		//getting post
+    $post = get_post( $entry['post_id'] );
+    
+    
+    update_field( 'lawyer_street_address', rgar( $entry, '36' ), $post );
+    update_field( 'lawyer_city', rgar( $entry, '39' ), $post );
+    update_field( 'lawyer_state', rgar( $entry, '56' ), $post );
+    update_field( 'lawyer_zip', rgar( $entry, '38' ), $post );
+    
+    update_field( 'latitude', rgar( $entry, '88' ), $post );
+    update_field( 'longitude', rgar( $entry, '87' ), $post );
+
+    
+    //updating post
+    wp_update_post( $post );
+    
+    // locations
+    
+    $postid = $post->ID;
+			
+		$stateid = '139';
+		
+		// State Name to ID
+		
+		$statenameid = $entry['56'];
+		
+		$mystate_term = term_exists( $statenameid, 'location' );
+		
+		$mystate_termid = $mystate_term['term_id'];
+		
+		// City Name to ID
+		
+		$entrycity = $entry['39'];
+		
+		$mycity_term = term_exists( $entrycity, 'location' );
+		
+		$mycity_termid = $mycity_term['term_id'];
+		
+		$location_string = $stateid . ',' . $mystate_termid . ', ' . $mycity_termid;
+		
+		
+		if($mycity_term) {
+			
+			wp_set_post_terms( $postid, $location_string, 'location' );
+		
+		}
+		
+		if(!$mycity_term) {
+			
+				$rules[] = ",";
+				$rules[] = " ";
+				$rules[] = "'";
+			
+			  $entrycity_nospace = str_replace($rules, '-', $entrycity);
+			
+			//$entrycity_nospace = preg_replace('/\s*/', '', $entrycity);
+			
+			
+			$entrycity_slug = strtolower($entrycity_nospace);
+			
+			wp_insert_term(
+				$entrycity, // the term 
+				'location', // the taxonomy
+				array(
+					//'description'=> 'a term update test of san diego',
+					'slug' => $entrycity_slug,
+					'parent'=> $mystate_termid  // get numeric term id
+				)
+			);
+			
+			//get the term id i just created and throw into the string below
+			
+			$mynewcity_term = term_exists( $entrycity, 'location' );
+			
+			$mynewcity_termid = $mynewcity_term['term_id'];
+			
+			$newlocation_string = $stateid . ',' . $mystate_termid . ', ' . $mynewcity_termid;
+			
+			wp_set_post_terms( $postid, $newlocation_string, 'location' ); 
+		
+		}
+
+		
+		
+	}
+	
+	
 	
 	// update existing posts 
-	
-
 	
 	add_action( 'gform_after_submission_2', 'set_post_content', 10, 2 );
 	//add_action( 'gform_after_submission_5', 'set_post_content', 10, 2 );

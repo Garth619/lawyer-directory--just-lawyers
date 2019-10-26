@@ -533,22 +533,19 @@ body.single-lawyer {
 		font-family: $worksans;
 	}
 	input[type="submit"] {
-		color: $bluetwo;
-    text-transform: lowercase;
-    font-size: 25px;
-    text-decoration: none;
-    letter-spacing: 0.05em;
-    font-family: $prata;
+		background: $bluetwo;
+    color: #fff;
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+    padding: 15px 30px;
+    display: inline-block;
     cursor: pointer;
-    border: 2px solid #2117dc;
-    display: block;
-    padding: 23px 60px;
-    background: transparent;
-    margin:70px auto 0;
-    transition: all 300ms ease-in-out;
+    margin-top:20px;
+    transition: all 200ms ease-in-out;
+    @include montserrat_extrabold;
     &:hover {
-	    background: $bluetwo;
-	    color:#fff;
+	    background: $blue;
     }
 	}
 }

@@ -1,14 +1,4 @@
-<div class="overlay claim_overlay content">
-						
-						<div class="overlay_inner">
-							
-							<div class="overlay_close"></div><!-- overlay_close -->
-							
-							<?php get_template_part('page-templates/template','multistepforms');?>
-							
-						</div><!-- overlay_inner -->
-						
-					</div><!-- overlay -->
+
 
 <div id="internal_main">
 	
@@ -312,9 +302,15 @@
 						
 						<?php } ?>
 						
+					
+						
 					<?php if(!get_field('hide_claim_button')) { ?>
 					
+						<?php if(!is_user_logged_in()) { ?>
+					
 						<a class="claim_button">Claim this Listing</a><!-- claim_button -->
+					
+					<?php } ?>
 					
 					<?php } ?>
 					
@@ -478,3 +474,20 @@
 		</section><!-- related_att -->
 				
 </div><!-- internal_main -->
+
+<?php if(!is_user_logged_in()) { ?>
+
+<div class="overlay claim_overlay content">
+						
+	<div class="overlay_inner">
+							
+		<div class="overlay_close"></div><!-- overlay_close -->
+							
+			<?php get_template_part('page-templates/template','multistepforms');?>
+							
+		</div><!-- overlay_inner -->
+						
+</div><!-- overlay -->
+
+
+<?php } ?>
