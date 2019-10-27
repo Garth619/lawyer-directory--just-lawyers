@@ -10,9 +10,9 @@
 			
 			$hiddenpost_id = get_the_ID();?>
 			
-			<div class="internal_banner_content myedit edit_content gravity_edit">
+			<div class="internal_banner_content">
 		
-			<h1 data-homeurl="<?php bloginfo('url');?>" id="<?php echo $hiddenpost_id;?>" data><?php the_title();?></h1>
+			<h1 data-homeurl="<?php bloginfo('url');?>" id="<?php echo $hiddenpost_id;?>" class="myedit edit_content gravity_edit" data><?php the_title();?></h1>
 		
 			<div class="internal_banner_meta">
 			
@@ -26,17 +26,17 @@
 				
 			?>
 			
-			<span><?php echo $term->name; ?></span>
+			<span class="myedit edit_content edit_banner_meta gravity_edit"><?php echo $term->name; ?></span>
 			
 			<?php if(get_field('lawyer_city') && get_field('lawyer_city') !== 'NULL') { ?>
 			
-				<span><?php the_field( 'lawyer_city' ); ?></span>
+				<span class="myedit edit_content edit_banner_meta gravity_edit"><?php the_field( 'lawyer_city' ); ?></span>
 			
 			<?php }?>
 			
 			<?php if(get_field('lawyer_state') && get_field('lawyer_state') !== 'NULL') { ?>
 			
-				<span><?php the_field( 'lawyer_state' ); ?></span>
+				<span class="myedit edit_content edit_banner_meta gravity_edit"><?php the_field( 'lawyer_state' ); ?></span>
 			
 			<?php }?>
 

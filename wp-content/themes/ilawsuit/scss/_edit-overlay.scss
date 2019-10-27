@@ -39,11 +39,16 @@
 	}
 }
 
-.internal_banner_content.myedit.edit_content {
-	padding-bottom:40px;
-	> span.edit_icon {
-		bottom:0px;
-		left:0;
+
+
+
+.internal_banner_content {
+	.myedit.edit_content.edit_banner_meta {
+		padding-bottom:40px;
+		> span.edit_icon {
+			bottom:6px;
+			left:0;
+		}
 	}
 }
 
