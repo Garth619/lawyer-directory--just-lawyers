@@ -190,7 +190,7 @@
 				
 				<?php if ( $terms && ! is_wp_error( $terms ) ) {?>
 								
-						<div class="att_bio_practice_areas">
+						<div data-gravityupdate="gform_wrapper_10" class="att_bio_practice_areas myedit edit_content gravity_edit">
 					
 							<h2>Practice Areas</h2>
 					

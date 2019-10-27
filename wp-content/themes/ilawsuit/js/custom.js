@@ -1087,8 +1087,9 @@ $('.sec_three_tab').on('click', function(e) {
 	
 	mycontactCheck();
 	
+	// fires prepare only if there isnt a gform error class added
 	
-	function myListener() {
+	function multistepListener() {
 		
 			
 			var target = document.querySelectorAll(".gform_wrapper");
@@ -1140,7 +1141,19 @@ $('.sec_three_tab').on('click', function(e) {
 		}
 
 
-		myListener();
+		multistepListener();
+		
+		
+		
+		// fires the same prepare overlay when clicking the acf update form submit button
+		
+		
+		$('#acf-form input[type="submit"]').on('click', function(e) {
+		  
+			$('.prepare_overlay').addClass('fadein_nodelay');
+		
+		
+		});
 	
 	
 	
@@ -1457,7 +1470,13 @@ if($('.current_author_form').length >0 ){
 }
 
 
+// acf submit button
 
+$('#acf-form input[type="submit"]').on('click', function(e) {
+  
+  
+  
+});
 
 
 

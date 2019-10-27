@@ -14,7 +14,7 @@
 			
 			<div class="prepare_content">
 				
-				<span class="prepare_items">Processing Payment...</span>
+<!-- 				<span class="prepare_items">Processing Payment...</span> -->
 				
 				<span class="prepare_items">Building Lawyer Profile...</span>
 				

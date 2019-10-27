@@ -31,9 +31,9 @@
 			
 				<?php echo file_get_contents("wp-content/themes/ilawsuit/images/success.svg"); ?>
 			
-				<span class="success_header">Success!</span><!-- success_header -->
+				<span class="success_header">Success</span><!-- success_header -->
 			
-				<p>This can be verbiage to explain how to make edits by hovering over sections of the profile. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et.</p>
+				<p>Your profile has been updated!</p>
 				
 				<span class="success_close">View Profile</span>
 			

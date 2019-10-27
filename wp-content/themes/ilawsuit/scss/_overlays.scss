@@ -46,6 +46,12 @@
 }
 
 
+.prepare_overlay.fadein_nodelay {
+	opacity: 1;
+	visibility: visible;
+}
+
+
 
 span.do_not_refresh {
 	color: $blue;
@@ -140,11 +146,11 @@ $duration: 1.4s;
 
 .success_overlay_inner {
 	width:100%;
-	max-width: 750px;
+	max-width: 570px;
 	background: #fff;
 	margin:70px auto 0;
 	text-align: center;
-	padding:45px;
+	padding:60px 45px;
 	svg#success {
 		width:50px;
 		height:50px;
