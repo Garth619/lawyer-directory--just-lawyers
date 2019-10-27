@@ -52,7 +52,11 @@
 		
 		<div class="update_custom_form_right">
 			
-				<div class="acf_close"></div><!-- acf_close -->
+				<div class="acf_close_wrapper">
+				
+					<div class="acf_close"></div><!-- acf_close -->
+				
+				</div><!-- acf_close_wrapper -->
 				
 					<?php 
 						

@@ -906,9 +906,21 @@ $('.sec_three_tab').on('click', function(e) {
 		
 		$('.mylatitude input, .mylongitude input').prop('readonly', true);
 		
+				
+		// clear the old lat and long if the original value is changed
+		
+		$('.myaddress input').on('input', function() {
+   
+			$('.mylatitude input, .mylongitude input').val('');
+		
+		});
+		
 		// if all address input fields have a value, fire the ajax call to convert the address into latitude/longtitude coordinates
 		
 		$('span.calculate_lat_long').on('click', function(e) {
+			
+			// if all address inputs are filled out then fire the lat long coordinates on click, spaced out to target each one for validation
+		
 			
 			if(!$('.mylawyer_streetaddress input, .mylawyer_city input, .mylawyer_state input, .mylawyer_zipcode input').val() == '') {
 		  
