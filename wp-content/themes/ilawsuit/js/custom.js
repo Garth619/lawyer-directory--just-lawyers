@@ -236,6 +236,8 @@ jQuery(document).ready(function($){
 
     createWaypoint('internal_main', '.mobile_sticky_header', 'visible', -300, null, true);
     
+    createWaypoint('internal_main', '.update_custom_form', 'adjust', -300, null, true);
+    
 
 
 /* Slick Carousel ( http://kenwheeler.github.io/slick/ )

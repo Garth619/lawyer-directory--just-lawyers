@@ -92,6 +92,14 @@
 		
 	</div><!-- acf_form -->
 	
+	<div class="mobile_edit">
+		
+		<span>Tap any content to edit</span>
+	
+	</div><!-- mobile_edit -->
+	
 <?php } ?>
+
+	
 	
 	<?php  get_footer(); ?>
