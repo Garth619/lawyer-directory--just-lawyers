@@ -79,7 +79,7 @@
 				
 				<?php if(get_field('lawyer_street_address')) : ?>
 				
-						<div class="att_bio_row_wrapper myedit edit_sidebar gravity_edit">
+						<div data-gravityupdate="gform_wrapper_9" class="att_bio_row_wrapper myedit edit_sidebar gravity_edit">
 					
 							<span class="att_bio_sidebar_title">Address</span><!-- att_bio_sidebar_title -->
 						
@@ -102,7 +102,7 @@
 				
 					<?php if(get_field('lawyer_address') && get_field('lawyer_address') !== 'NULL') { ?>
 				
-						<div class="att_bio_row_wrapper myedit">
+						<div data-gravityupdate="gform_wrapper_9" class="att_bio_row_wrapper myedit edit_sidebar gravity_edit">
 					
 							<span class="att_bio_sidebar_title">Address</span><!-- att_bio_sidebar_title -->
 						
