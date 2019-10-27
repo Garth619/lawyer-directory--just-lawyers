@@ -80,7 +80,11 @@
 						
 						// all other items on page 
 						
-						acf_form(); 
+						$acf_redirect = $_SERVER['REQUEST_URI'];
+						
+						$acf_success = $acf_redirect . '/?profile=success';
+						
+						acf_form($settings = array('return' => $acf_success)); 
 					
 					?>
 				
