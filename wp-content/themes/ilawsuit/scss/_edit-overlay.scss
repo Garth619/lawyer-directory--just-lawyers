@@ -561,3 +561,52 @@ body.single-lawyer {
 	}
 }
 
+
+@media screen and (max-width: 1066px) {
+	
+	
+	.update_custom_form {
+		top:97px;
+	}
+	
+	
+} /* Media Query */
+
+
+@media screen and (max-width: 835px) {
+	
+	
+	
+	.update_custom_form {
+		display: block;
+		.update_custom_form_left {
+			display: none;
+		}
+		.update_custom_form_right {
+			width:100%;
+			height:100vh;
+			box-shadow: none;
+			padding: 25px 30px 100px;
+		}
+	}
+	
+	body.single-lawyer {
+		#internal_main.blur {
+			filter: blur(0px);
+			-webkit-filter: blur(0px);
+		}
+	}
+	
+	
+} /* Media Query */
+
+@media screen and (max-width: 767px) {
+	
+	
+	.update_custom_form {
+		top:79px;
+	}
+	
+	
+} /* Media Query */
+
