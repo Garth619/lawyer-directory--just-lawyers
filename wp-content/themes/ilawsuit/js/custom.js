@@ -1391,12 +1391,6 @@ if($('.current_author_form').length >0 ){
 	}
 	
 	
-	function showGravity() {
-		
-		$('.update_custom_form .gform_wrapper').show();
-		
-	}
-	
 	
 	$('.myedit').append('<span class="edit_icon"></span>');
 
@@ -1425,7 +1419,12 @@ if($('.current_author_form').length >0 ){
 		
 		hideAcf();
 		
-		showGravity();
+		var showGform = $(this).parent('.myedit').data('gravityupdate');
+				
+		$('.update_custom_form .gform_wrapper').hide();
+		
+		$('#'+showGform+'').css('display','block');
+		
   
 	});
 

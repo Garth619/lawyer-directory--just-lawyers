@@ -12,7 +12,7 @@
 			
 			<div class="internal_banner_content">
 		
-			<h1 data-homeurl="<?php bloginfo('url');?>" id="<?php echo $hiddenpost_id;?>" class="myedit edit_content gravity_edit" data><?php the_title();?></h1>
+			<h1 data-gravityupdate="gform_wrapper_7" data-homeurl="<?php bloginfo('url');?>" id="<?php echo $hiddenpost_id;?>" class="myedit edit_content gravity_edit" data><?php the_title();?></h1>
 		
 			<div class="internal_banner_meta">
 			
@@ -26,17 +26,17 @@
 				
 			?>
 			
-			<span class="myedit edit_content edit_banner_meta gravity_edit"><?php echo $term->name; ?></span>
+			<span data-gravityupdate="gform_wrapper_10" class="myedit edit_content edit_banner_meta gravity_edit"><?php echo $term->name; ?></span>
 			
 			<?php if(get_field('lawyer_city') && get_field('lawyer_city') !== 'NULL') { ?>
 			
-				<span class="myedit edit_content edit_banner_meta gravity_edit"><?php the_field( 'lawyer_city' ); ?></span>
+				<span data-gravityupdate="gform_wrapper_9" class="myedit edit_content edit_banner_meta gravity_edit"><?php the_field( 'lawyer_city' ); ?></span>
 			
 			<?php }?>
 			
 			<?php if(get_field('lawyer_state') && get_field('lawyer_state') !== 'NULL') { ?>
 			
-				<span class="myedit edit_content edit_banner_meta gravity_edit"><?php the_field( 'lawyer_state' ); ?></span>
+				<span data-gravityupdate="gform_wrapper_9" class="myedit edit_content edit_banner_meta gravity_edit"><?php the_field( 'lawyer_state' ); ?></span>
 			
 			<?php }?>
 
@@ -53,7 +53,7 @@
 				
 				<div class="att_bio_sidebar_inner">
 				
-				<div class="att_bio_profile myedit edit_sidebar gravity_edit">
+				<div data-gravityupdate="gform_wrapper_8" class="att_bio_profile myedit edit_sidebar gravity_edit">
 					
 					<?php if (has_post_thumbnail( $post->ID ) ): ?>
 						

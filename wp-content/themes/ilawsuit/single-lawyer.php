@@ -54,13 +54,31 @@
 			
 				<div class="acf_close"></div><!-- acf_close -->
 				
-				<!-- https://support.advancedcustomfields.com/forums/topic/split-up-an-acf_form-into-a/ -->
-
-				<?php acf_form(); ?>
-				
-				
-				
-				<?php gravity_form(7, false, false, false, '', true, 2344); ?>
+					<?php 
+						
+						// updates are broken into seperate forms for speed. Some items, acf form can handle fast, others need to be gravity forms in order to do the custom functions such as update title, slug, featured image and terms
+						
+						// post title and slug
+						
+						gravity_form(7, false, false, false, '', true, 3344);
+						
+						// image upload that sets to the featured image and add to the media library
+						
+						gravity_form(8, false, false, false, '', true, 3345);
+						
+						// practice areas - sets terms and plots post to the directory 
+						
+						gravity_form(10, false, false, false, '', true, 3346);
+						
+						// Address - plots post to the directory and the director google map
+						
+						gravity_form(9, false, false, false, '', true, 3347);
+						
+						// all other items on page 
+						
+						acf_form(); 
+					
+					?>
 				
 			</div><!-- update_custom_form_right -->
 		
