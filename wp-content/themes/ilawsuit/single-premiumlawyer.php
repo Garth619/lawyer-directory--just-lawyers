@@ -500,7 +500,7 @@
 				
 				<div class="faq_questions">
 					
-					<div class="faq_col">
+					<div data-acfupdate="lawyer_faq" class="faq_col myedit edit_content_top acf_edit">
 						
 						<?php if(get_field('lawyer_faq')): ?>
 						 
@@ -524,7 +524,7 @@
 						
 					</div><!-- faq_col -->
 					
-					<div class="faq_col">
+					<div data-acfupdate="lawyer_faq_col_two" class="faq_col myedit edit_content_top acf_edit">
 						
 						<?php if(get_field('lawyer_faq_col_two')): ?>
 						 

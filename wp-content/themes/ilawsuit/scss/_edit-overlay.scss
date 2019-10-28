@@ -38,6 +38,14 @@
 }
 
 
+.myedit.edit_content_top {
+	padding-top:45px;
+	> span.edit_icon {
+			top:0px;
+			left:0;
+	}
+}
+
 
 
 .internal_banner_content {
@@ -587,6 +595,8 @@ body.single-lawyer {
 }
 
 
+
+
 [data-type="repeater"] {
 	padding-right:20px;
 	
@@ -738,6 +748,11 @@ body.single-lawyer {
 		display: block;
 	}
 }
+
+
+
+
+
 
 
 @media screen and (max-width: 1066px) {
