@@ -408,7 +408,11 @@
 			
 			<div class="att_bio_caseresults_inner">
 				
-				<h2 data-acfupdate="lawyer_case_result_slides" class="att_bio_title myedit edit_content acf_edit">Case Results</h2><!-- att_bio_title -->
+				<div class="caseresults_header_wrapper">
+				
+					<h2 data-acfupdate="lawyer_case_result_slides" class="att_bio_title myedit edit_content acf_edit">Case Results</h2><!-- att_bio_title -->
+				
+				</div><!-- caseresults_header_wrapper -->
 				
 				<?php if(get_field('lawyer_case_result_selling_points')): ?>
 				
