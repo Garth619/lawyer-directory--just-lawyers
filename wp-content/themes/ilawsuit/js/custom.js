@@ -1417,6 +1417,20 @@ if($('.current_author_form').length >0 ){
 		
 	}
 	
+	function repeaterPlaceholder() {
+		
+		$('[data-type="repeater"] input, [data-type="repeater"] textarea').each(function(){
+    
+  		var phText = $(this).closest('.acf-field').find('label').text();
+  	
+  		$(this).attr("placeholder", phText);
+  	
+  	});
+				
+	}
+	
+	repeaterPlaceholder();
+	
 	
 	
 	$('.myedit').append('<span class="edit_icon"></span>');
