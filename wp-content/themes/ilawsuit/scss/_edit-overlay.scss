@@ -61,6 +61,14 @@
 }
 
 
+.att_bio_selling_point_inner.myedit {
+	> span.edit_icon {
+			background: url(#{$themePath}images/edit-white.svg);
+			//position: relative;
+	}
+}
+
+
 
 .visit_website_button_wrapper.myedit {
 	width:100%;
@@ -686,6 +694,15 @@ body.single-lawyer {
 }
 
 
+.show-if-value.image-wrap {
+	img {
+		max-width: 100%;
+		height:auto;
+		display: block;
+	}
+}
+
+
 @media screen and (max-width: 1066px) {
 	
 	
@@ -693,7 +710,7 @@ body.single-lawyer {
 		top:97px;
 	}
 	
-	.myedit {
+	.myedit, .att_bio_selling_point_inner.myedit {
 		position: relative;
 		> span.edit_icon {
 			opacity: 1;

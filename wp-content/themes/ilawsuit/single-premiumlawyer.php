@@ -243,7 +243,7 @@
 		
 		<section class="att_bio_selling_point">
 			
-			<div class="att_bio_selling_point_inner">
+			<div data-acfupdate="selling_points_section" class="att_bio_selling_point_inner myedit edit_content acf_edit">
 				
 				<span class="selling_points_subheader"><?php the_field( 'selling_points_title' ); ?></span><!-- subheader -->
 				

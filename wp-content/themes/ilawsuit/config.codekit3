@@ -190,6 +190,16 @@
 		"oT": 1,
 		"q": 100
 		},
+	"/images/edit-white.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "/images/edit-white.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 3758088159,
+		"prP": 0
+		},
 	"/images/edit.svg": {
 		"ft": 2097152,
 		"miP": 0,
@@ -458,6 +468,17 @@
 		"opt": 0,
 		"plM": 3758088159,
 		"prP": 0
+		},
+	"/images/test.jpg": {
+		"ft": 16384,
+		"iS": 21740,
+		"jF": 0,
+		"oA": 0,
+		"oAP": "/images/test.jpg",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"q": 100
 		},
 	"/images/visa.png": {
 		"ft": 32768,
