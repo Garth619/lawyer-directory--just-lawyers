@@ -7,8 +7,10 @@
 			// some info i need to make the form redirects work properly
 			
 			$hiddenpost_id = get_the_ID();?>
+			
+			<div class="internal_banner_content">
 		
-			<h1 data-homeurl="<?php bloginfo('url');?>" id="<?php echo $hiddenpost_id;?>" data><?php the_title();?></h1>
+			<h1 data-homeurl="<?php bloginfo('url');?>" id="<?php echo $hiddenpost_id;?>" data-gravityupdate="gform_wrapper_7" class="myedit edit_content gravity_edit" data><?php the_title();?></h1>
 		
 		<div class="internal_banner_meta">
 			
@@ -30,24 +32,26 @@
 				
 				?>
 			
-					<span><?php echo $term->name; ?></span>
+					<span data-gravityupdate="gform_wrapper_10" class="myedit edit_content edit_banner_meta gravity_edit"><?php echo $term->name; ?></span>
 			
 			<?php } ?>
 			
 			<?php if(get_field('lawyer_city') && get_field('lawyer_city') !== 'NULL') { ?>
 			
-				<span><?php the_field( 'lawyer_city' ); ?></span>
+				<span data-gravityupdate="gform_wrapper_9" class="myedit edit_content edit_banner_meta gravity_edit"><?php the_field( 'lawyer_city' ); ?></span>
 			
 			<?php }?>
 			
 			<?php if(get_field('lawyer_state') && get_field('lawyer_state') !== 'NULL') { ?>
 			
-				<span><?php the_field( 'lawyer_state' ); ?></span>
+				<span data-gravityupdate="gform_wrapper_9" class="myedit edit_content edit_banner_meta gravity_edit"><?php the_field( 'lawyer_state' ); ?></span>
 			
 			<?php }?>
 
 
 		</div><!-- internal_banner_meta -->
+		
+	</div><!-- internal_banner_content -->
 
 	</div><!-- internal_banner -->
 	
@@ -57,7 +61,7 @@
 				
 				<div class="att_bio_sidebar_inner">
 				
-				<div class="att_bio_profile">
+				<div data-gravityupdate="gform_wrapper_8" class="att_bio_profile myedit edit_sidebar gravity_edit">
 					
 					<?php if (has_post_thumbnail( $post->ID ) ): ?>
 						
@@ -84,7 +88,7 @@
 				
 				<?php if(get_field('lawyer_street_address')) : ?>
 				
-						<div class="att_bio_row_wrapper">
+						<div data-gravityupdate="gform_wrapper_9" class="att_bio_row_wrapper myedit edit_sidebar gravity_edit">
 					
 							<span class="att_bio_sidebar_title">Address</span><!-- att_bio_sidebar_title -->
 						
@@ -130,7 +134,7 @@
 				
 				<?php if(get_field('lawyer_phone') && get_field('lawyer_phone') !== 'NULL') { ?>
 				
-					<div class="att_bio_row_wrapper">
+					<div data-acfupdate="lawyer_phone" class="att_bio_row_wrapper myedit edit_sidebar acf_edit">
 					
 						<span class="att_bio_sidebar_title att_bio_phone">Phone</span><!-- att_bio_sidebar_title -->
 					
@@ -142,7 +146,7 @@
 				
 				<?php if(get_field('lawyer_email') && get_field('lawyer_email') !== 'NULL') { ?>
 				
-					<div class="att_bio_row_wrapper">
+					<div data-acfupdate="lawyer_email" class="att_bio_row_wrapper myedit edit_sidebar acf_edit">
 					
 						<span class="att_bio_sidebar_title">Email</span><!-- att_bio_sidebar_title -->
 					
@@ -154,7 +158,7 @@
 				
 				<?php if(get_field('lawfirm_name') && get_field('lawfirm_name') !== 'NULL') { ?>
 				
-					<div class="att_bio_row_wrapper">
+					<div data-acfupdate="lawfirm_name" class="att_bio_row_wrapper myedit edit_sidebar acf_edit">
 					
 						<span class="att_bio_sidebar_title">Lawfirm Name</span><!-- att_bio_sidebar_title -->
 					
@@ -166,7 +170,7 @@
 				
 				<?php if(get_field('years_licensed_for') && get_field('years_licensed_for') !== 'NULL') { ?>
 				
-					<div class="att_bio_row_wrapper">
+					<div data-acfupdate="years_licensed_for" class="att_bio_row_wrapper myedit edit_sidebar acf_edit">
 					
 						<span class="att_bio_sidebar_title">Years Licensed For</span><!-- att_bio_sidebar_title -->
 					
@@ -178,7 +182,11 @@
 				
 				<?php if(get_field('lawyer_website') && get_field('lawyer_website') !== 'NULL') { ?>
 				
-					<a class="visit_website_button" href="<?php the_field( 'lawyer_website' ); ?>" target="_blank" rel="noopener">Visit Website</a><!-- visit_website -->
+					<div data-acfupdate="lawyer_website" class="visit_website_button_wrapper myedit acf_edit">
+				
+						<a class="visit_website_button" href="<?php the_field( 'lawyer_website' ); ?>" target="_blank" rel="noopener">Visit Website</a><!-- visit_website -->
+					
+					</div><!-- visit_website_button_wrapper -->
 				
 				<?php } ?>
 				
@@ -188,22 +196,12 @@
 			
 			<div class="att_bio_content content">
 				
-				<?php if(get_field('lawyer_bio')) { ?>
-				
-					<div class="att_bio_experience">
-				
-						<?php the_field( 'lawyer_bio' ); ?>
-				
-					</div><!-- att_bio_experience -->
-				
-				<?php } ?>
-				
-				
+								
 								
 
         <?php if ( $terms && ! is_wp_error( $terms ) ) {?>
 								
-						<div class="att_bio_practice_areas">
+						<div data-gravityupdate="gform_wrapper_10" class="att_bio_practice_areas myedit edit_content gravity_edit">
 					
 							<h2>Practice Areas</h2>
 					
@@ -224,6 +222,18 @@
 						</div><!-- att_bio_practice_areas -->
 						
 					<?php } ?>
+					
+					<?php if(get_field('lawyer_bio')) { ?>
+				
+					<div class="att_bio_experience">
+				
+						<?php the_field( 'lawyer_bio' ); ?>
+				
+					</div><!-- att_bio_experience -->
+				
+				<?php } ?>
+				
+
 						
 				</div><!-- att_bio_content -->
 			

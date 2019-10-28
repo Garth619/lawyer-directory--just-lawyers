@@ -725,6 +725,16 @@ span.overall_count {
 		}
 	}
 	
+	
+	.internal_banner_meta {
+		> span {
+				display: block;
+				&:after {
+					display: none;
+				}
+		}
+	}
+	
 	#internal_main {
   	  margin-top: 79px;
 	}

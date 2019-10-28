@@ -16,7 +16,7 @@
 				
 <!-- 				<span class="prepare_items">Processing Payment...</span> -->
 				
-				<span class="prepare_items">Building Lawyer Profile...</span>
+				<span class="prepare_items">Updating Lawyer Profile...</span>
 				
 			</div><!-- prepare_content -->
 			

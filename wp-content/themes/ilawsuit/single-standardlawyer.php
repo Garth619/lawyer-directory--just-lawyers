@@ -12,7 +12,7 @@
 			
 			<div class="internal_banner_content">
 		
-			<h1 data-gravityupdate="gform_wrapper_7" data-homeurl="<?php bloginfo('url');?>" id="<?php echo $hiddenpost_id;?>" class="myedit edit_content gravity_edit" data><?php the_title();?></h1>
+			<h1 data-homeurl="<?php bloginfo('url');?>" id="<?php echo $hiddenpost_id;?>" data-gravityupdate="gform_wrapper_7" class="myedit edit_content gravity_edit" data><?php the_title();?></h1>
 		
 			<div class="internal_banner_meta">
 			
