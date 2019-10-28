@@ -232,9 +232,10 @@ body.single-lawyer {
     text-transform: uppercase;
     letter-spacing: 0.25em;
     padding: 15px 30px;
-    display: inline-block;
+    display: block;
     cursor: pointer;
-    margin-top:20px;
+    margin:20px auto 0;
+    //width:156px;
     transition: all 200ms ease-in-out;
     @include montserrat_extrabold;
     &:hover {
@@ -548,9 +549,9 @@ body.single-lawyer {
     text-transform: uppercase;
     letter-spacing: 0.25em;
     padding: 15px 30px;
-    display: inline-block;
+    display: block;
     cursor: pointer;
-    margin-top:0px;
+    margin:0px auto;
     transition: all 200ms ease-in-out;
     @include montserrat_extrabold;
     &:hover {
@@ -599,19 +600,20 @@ body.single-lawyer {
 		display: none;
 	}
 	.acf-actions {
-/*
-		margin-right:32px;
-		text-align: right;
-*/
+
+		//margin-left:32px;
+		text-align: center;
+
 	}
 	.acf-row.-hover {
 		.remove {
+			opacity: 1;
 			.acf-icon {
 				
 			}
 			.-minus {
 				//position: relative;
-				opacity: 1;
+				
 				&:after {
 					content:"remove row?";
 					display: block;
