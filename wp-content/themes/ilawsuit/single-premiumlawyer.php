@@ -301,15 +301,15 @@
 						
 						<?php if(get_field('lawyer_bar_admission')) { ?>
 					
-							<div class="att_bio_sidebar_row">
+							<div class="att_bio_content_row">
 				
-								<span class="att_bio_sidebar_title">Bar Admission</span><!-- att_bio_sidebar_title -->
+								<span class="att_bio_content_title">Bar Admission</span><!-- att_bio_sidebar_title -->
 					
 								<ul>
 									
 									 <?php while(has_sub_field('lawyer_bar_admission')): ?>
 									 
-											<li><?php the_sub_field('bar_admission_bullet');?></li>
+											<li data-acfupdate="lawyer_bar_admission" class="myedit acf_edit edit_inline"><?php the_sub_field('bar_admission_bullet');?></li>
 									    
 										<?php endwhile; ?>
 									 
@@ -333,23 +333,23 @@
 									
 										<strong>
 										
-											<span class="school_one_name"><?php the_field( 'school_one_name' );?></span><!-- school_one_name -->
+											<span data-acfupdate="school_one_name" class="school_one_name myedit acf_edit edit_inline"><?php the_field( 'school_one_name' );?></span><!-- school_one_name -->
 											
 										</strong>
 										
 										<?php if(get_field('school_one_major') && get_field('school_one_major') !== 'NULL' && get_field('school_one_major') !== 'N/A' ) { ?>
 									
-											<span class="school_one_major"><?php the_field( 'school_one_major' ); ?></span><!-- school_one_major -->
+											<span data-acfupdate="school_one_major" class="school_one_major myedit acf_edit edit_inline"><?php the_field( 'school_one_major' ); ?></span><!-- school_one_major -->
 										<?php } ?>
 										
 										<?php if(get_field('school_one_degree') && get_field('school_one_degree') !== 'NULL' && get_field('school_one_degree') !== 'N/A' ) { ?>
 									
-											<span class="school_one_degree"><?php the_field( 'school_one_degree' ); ?></span><!-- school_one_major -->
+											<span data-acfupdate="school_one_degree" class="school_one_degree myedit acf_edit edit_inline"><?php the_field( 'school_one_degree' ); ?></span><!-- school_one_major -->
 										<?php } ?>
 										
 										<?php if(get_field('school_one_year_graduated') && get_field('school_one_year_graduated') !== 'NULL' && get_field('school_one_year_graduated') !== 'N/A') { ?>
 									
-											<span class="school_one_year_graduated"><?php the_field( 'school_one_year_graduated' );?></span><!-- school_one_year_graduated -->
+											<span data-acfupdate="school_one_year_graduated" class="school_one_year_graduated myedit acf_edit edit_inline"><?php the_field( 'school_one_year_graduated' );?></span><!-- school_one_year_graduated -->
 										
 										<?php } ?>
 										
@@ -363,24 +363,24 @@
 									
 										<strong>
 									
-											<span class="school_two_name"><?php the_field( 'school_two_name' );?></span><!-- school_two_name -->
+											<span data-acfupdate="school_two_name" class="school_two_name myedit acf_edit edit_inline"><?php the_field( 'school_two_name' );?></span><!-- school_two_name -->
 											
 										</strong>
 										
 										<?php if(get_field('school_two_major') && get_field('school_two_major') !== 'NULL' && get_field('school_two_major') !== 'N/A') { ?>
 									
-											<span class="school_two_major"><?php the_field( 'school_two_major' );?></span><!-- school_two_major -->
+											<span data-acfupdate="school_two_major" class="school_two_major myedit acf_edit edit_inline"><?php the_field( 'school_two_major' );?></span><!-- school_two_major -->
 										
 										<?php } ?> 
 										
 										<?php if(get_field('school_two_degree') && get_field('school_two_degree') !== 'NULL' && get_field('school_two_degree') !== 'N/A' ) { ?>
 									
-											<span class="school_two_degree"><?php the_field( 'school_two_degree' ); ?></span><!-- school_one_major -->
+											<span data-acfupdate="school_two_degree" class="school_two_degree myedit acf_edit edit_inline"><?php the_field( 'school_two_degree' ); ?></span><!-- school_one_major -->
 										<?php } ?>
 										
 										<?php if(get_field('school_two_year_graduated') && get_field('school_two_year_graduated') !== 'NULL' && get_field('school_two_year_graduated') !== 'N/A') { ?>
 									
-											<span class="school_two_year_graduated"><?php the_field( 'school_two_year_graduated' );?></span><!-- school_two_year_graduated -->
+											<span data-acfupdate="school_two_year_graduated"><?php the_field( 'school_two_year_graduated' );?></span><!-- school_two_year_graduated -->
 										
 										<?php } ?>
 								

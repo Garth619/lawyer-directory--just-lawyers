@@ -1433,7 +1433,7 @@ if($('.current_author_form').length >0 ){
   
 		var showField = $(this).parent('.myedit').data('acfupdate');
 
-		$('[data-name="'+showField+'"], .acf-form-submit').css('display','block');
+		$('[data-name="'+showField+'"], [data-name="'+showField+'"] .acf-field, .acf-form-submit').css('display','block');
   
   
 	});

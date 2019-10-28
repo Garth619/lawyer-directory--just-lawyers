@@ -564,6 +564,126 @@ body.single-lawyer {
 }
 
 
+[data-name="lawyer_bar_admission"] {
+	padding-right:20px;
+	table {
+		width:100%;
+	}
+	.acf-label {
+		margin-left:32px;
+	}
+	.acf-row-handle {
+		span {
+			position: relative;
+			top:-10px;
+			cursor: move;
+			color:$bluetwo;
+			font-weight: bold;
+			transition: all 200ms ease-in-out;
+		}
+	}
+	 .acf-row {
+		 &:hover {
+			 .remove {
+				 opacity: 1;
+			 }
+		 }
+		.acf-fields {
+			padding-bottom: 20px;
+		}
+		.acf-label {
+			display: none;
+		}
+	}
+	.acf-clone {
+		display: none;
+	}
+	.acf-actions {
+/*
+		margin-right:32px;
+		text-align: right;
+*/
+	}
+	.acf-row.-hover {
+		.remove {
+			.acf-icon {
+				
+			}
+			.-minus {
+				//position: relative;
+				opacity: 1;
+				&:after {
+					content:"remove row?";
+					display: block;
+					position: absolute;
+					width:150px;
+					letter-spacing: 0.1em;
+					top:-7px;
+					text-transform: uppercase;
+					left:-125px;
+					font-size: 12px;
+					color:#fff;
+					background:$bluetwo;
+					cursor: pointer;
+					text-align: center;
+					transition: all 200ms ease-in-out;
+					@include montserrat_extrabold;
+					
+				}
+				&:hover {
+/*
+					&:after {
+						color:red;
+					}
+*/
+					}
+			}
+		}
+	}
+	.remove {
+		position: relative;
+		opacity: 0;
+		transition: all 200ms ease-in-out;
+		.acf-icon {
+			background: #fff;
+			width:22px;
+			height:22px;
+			border-radius: 50%;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			position: absolute;
+			top:0;
+			left:3px;
+			border:2px solid $bluetwo;
+			&:before {
+				content:"";
+				color:$bluetwo;
+				font-size: 15px;
+				font-weight: bold;
+				display: block;
+				
+			}
+		}
+		.-plus {
+			top:-22px;
+			
+			&:before {
+				content:"+";
+				
+			}
+		}
+		.-minus {
+			top:14px;
+			&:before {
+				content:"-";
+			}
+		}
+	}
+	
+}
+
+
 @media screen and (max-width: 1066px) {
 	
 	
