@@ -1691,6 +1691,156 @@ function update_term_information( $post_id, $feed, $entry, $form ) {
     
     update_field( 'years_licensed_for', rgar( $entry, '3' ), $post );
     update_field( 'lawyer_bio', rgar( $entry, '9' ), $post );
+    
+    $layoutOption = rgar( $entry, '42' );
+    
+    if($layoutOption == 'Premium Profile $189/Year') {
+    
+    
+    	// premium auto populate, these areas cant have repeaters on the gravity forms i cant figure out how to get repeaters on gform. so the second best way is to auto populate and then they can go in and adjust after the post is created through the front facing acf form
+			
+			$prem_bio = 'Lawyer Bio Content Section One';
+			
+			update_field( 'field_5b67c74fb7d3e', $prem_bio, $post_id );
+			
+			// selling points section
+			
+			$prem_selling_title = 'Selling Point Title';
+			
+			update_field( 'field_5c86cf23e8492', $prem_selling_title, $post_id );
+			
+			// selling point description
+			
+			$prem_selling_description = 'Selling Point Description';
+			
+			update_field( 'field_5c86cf7735c24', $prem_selling_description, $post_id );
+			
+			// selling poiny bg
+			
+			$prem_selling_bg = 'Building';
+			
+			update_field( 'field_5c86c4c695a34', $prem_selling_bg, $post_id );
+
+			// second bio section
+			
+			$prem_bio_two = 'Lawyer Bio Content Section Two';
+			
+			update_field( 'field_5c86cfdfe5bd2', $prem_bio_two, $post_id );
+			
+			
+			// bar admissions
+			
+			
+			$prem_bar_admission = array(
+			  // nested for each row
+			  array(
+			    'field_5c86d86e93e12' => 'Bar Admission List Item'
+			  ),
+			  array(
+			    'field_5c86d86e93e12' => 'Bar Admission List Item'
+			  ),
+			  array(
+			    'field_5c86d86e93e12' => 'Bar Admission List Item'
+			  ),
+			);
+			
+			/*
+			foreach ($wows as $wow) {
+			    $feature_value = (string)$second_gen;
+			    $value[] = array( 'field_59606dc9525dc' => $feature_value );
+			}
+			*/
+			
+			update_field( 'field_5c86d7cc93e11', $prem_bar_admission, $post_id );
+			
+			
+			// Case Results
+			
+			$prem_case_results = array(
+			  // nested for each row
+			  array(
+			    'field_5c86def7caf29' => 'Case Results Title',
+			    'field_5c86df05caf2a' => 'Verdict',
+			    'field_5c86df0fcaf2b' => 'Description',
+			  ),
+			  array(
+			    'field_5c86def7caf29' => 'Case Results Title',
+			    'field_5c86df05caf2a' => 'Verdict',
+			    'field_5c86df0fcaf2b' => 'Description',
+			  ),
+			  array(
+			    'field_5c86def7caf29' => 'Case Results Title',
+			    'field_5c86df05caf2a' => 'Verdict',
+			    'field_5c86df0fcaf2b' => 'Description',
+			  ),
+			  array(
+			    'field_5c86def7caf29' => 'Case Results Title',
+			    'field_5c86df05caf2a' => 'Verdict',
+			    'field_5c86df0fcaf2b' => 'Description',
+			  ),
+			  
+			);
+			
+			update_field( 'field_5c86dee8caf28', $prem_case_results, $post_id );
+			
+			
+			// faqs
+			
+			// column one
+			
+			$prem_faqs = array(
+			  // nested for each row
+			  array(
+			    'field_5c86e1292b9ea' => 'Question',
+			    'field_5c86e1332b9eb' => 'Answer',
+			  ),
+			  array(
+			    'field_5c86e1292b9ea' => 'Question',
+			    'field_5c86e1332b9eb' => 'Answer',
+			  ),
+			  array(
+			    'field_5c86e1292b9ea' => 'Question',
+			    'field_5c86e1332b9eb' => 'Answer',
+			  ),
+			  array(
+			    'field_5c86e1292b9ea' => 'Question',
+			    'field_5c86e1332b9eb' => 'Answer',
+			  ),
+			  
+			);
+			
+			update_field( 'field_5c86e1152b9e9', $prem_faqs, $post_id );
+			
+			
+			// column two
+			
+			$prem_faqs_two = array(
+			  // nested for each row
+			  array(
+			    'field_5c86e1a5d7024' => 'Question',
+			    'field_5c86e1a5d7025' => 'Answer',
+			  ),
+			   array(
+			    'field_5c86e1a5d7024' => 'Question',
+			    'field_5c86e1a5d7025' => 'Answer',
+			  ),
+				 array(
+			    'field_5c86e1a5d7024' => 'Question',
+			    'field_5c86e1a5d7025' => 'Answer',
+			  ),
+				 array(
+			    'field_5c86e1a5d7024' => 'Question',
+			    'field_5c86e1a5d7025' => 'Answer',
+			  ),
+			
+			    
+			);
+			
+			update_field( 'field_5c86e1a5d7023', $prem_faqs_two, $post_id );
+			
+			
+			}
+
         
     // featured image
     
