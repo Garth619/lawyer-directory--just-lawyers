@@ -28,8 +28,6 @@
 
 <?php wp_head(); ?>
 
-
-
 <?php the_field('schema_code', 'option'); ?>
 
 <?php the_field('analytics_code', 'option'); ?>

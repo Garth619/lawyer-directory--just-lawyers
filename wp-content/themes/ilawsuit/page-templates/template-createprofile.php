@@ -26,7 +26,49 @@
 			
 			<div class="default_wrapper content">
 				
-				<?php get_template_part('page-templates/template','multistepforms');?>
+				<?php if(is_user_logged_in()) : ?>
+				
+					<?php 
+						
+						$user_id = $current_user->ID;
+	        	
+	        	$author_args = array(
+							'posts_per_page' => 1,
+							'post_type' => 'lawyer',
+							'post_status' => 'publish',
+							'author' => $user_id,
+							'orderby' => 'date',
+							'order' => 'ASC',
+						);
+						
+						
+						
+						$first_post = new WP_Query($author_args); while($first_post->have_posts()) : $first_post->the_post(); 
+            
+            $post_redirect[] = get_the_ID();
+            
+            endwhile; 
+            
+            wp_reset_postdata(); // reset the query 
+						
+						
+						$url_id = reset($post_redirect);
+
+	        	
+	        	$url = get_bloginfo('url') . "/lawyer/?p=" . $url_id;  
+	        	
+	        	?>
+
+				
+					<p>Please <a href="<?php echo wp_logout_url(); ?>">logout</a> to create a new profile</p>
+				
+					<p>Or you can <a href="<?php echo $url;?>">update</a> your existing one here</p>
+				
+				<?php else: ?>
+				
+					<?php get_template_part('page-templates/template','multistepforms');?>
+				
+				<?php endif; ?>
 				
 			</div><!-- list_wrapper -->
 			

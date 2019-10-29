@@ -40,6 +40,7 @@
 
 .myedit.edit_content_top {
 	padding-top:45px;
+	margin-top:-35px;
 	> span.edit_icon {
 			top:0px;
 			left:0;
@@ -438,12 +439,12 @@ body.single-lawyer {
 				user-select: none;
 			}
 			.select-items {
-				position: absolute;
+				position: relative;
 				border: 2px solid #d8d8d8;
 				border-radius: 10px;
 				background: #fff;
-				top: 105px;
-				width:211%;
+				top: 8px;
+				width:100%;
 				left: 0;
 				z-index: 1;
 				padding: 20px 0px;
@@ -865,4 +866,36 @@ body.single-lawyer {
 	
 	
 } /* Media Query */
+
+
+@media screen and (max-width: 580px) {
+	
+	
+	.update_custom_form ul li.mylawyer_state .select-items {
+		display: block;
+	}
+	
+	.update_custom_form {
+		ul {
+			li.mylawyer_state {
+				.select-items {
+					display: block;
+				}
+			}
+		}
+	}
+	
+	
+	.update_custom_form ul li.mylawyer_state .select-hide {
+    display: none;
+}
+	
+	
+	
+} /* Media Query */
+	
+	
+	
+	
+	
 

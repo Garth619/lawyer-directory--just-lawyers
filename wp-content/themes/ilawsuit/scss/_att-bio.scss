@@ -1359,6 +1359,7 @@ span.overylay_header {
   transition: all 200ms ease-in-out;
   cursor: pointer;
   margin:0 5px;
+  border: none;
   @include montserrat_extrabold;
   &:hover {
 	  background: $blue;
@@ -2023,6 +2024,8 @@ span.ginput_card_security_code_icon {
 	ul {
 		li.mylawyer_state {
 			.select-items {
+				top: 8px;
+				position: relative;
 				display: block;
 			}
 			.select-items.select-hide {
