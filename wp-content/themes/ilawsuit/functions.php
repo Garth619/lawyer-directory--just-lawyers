@@ -1193,78 +1193,224 @@ function update_term_information( $post_id, $feed, $entry, $form ) {
     
     update_field( 'lawyer_address', $newaddress, $post_id );
     update_field( 'hide_claim_button', 'Yes', $post_id );
-	
-		// parent cat "State"
-		
-		$stateid = '139';
-		
-		// State Name to ID
-		
-		$statenameid = $entry['56'];
-		
-		$mystate_term = term_exists( $statenameid, 'location' );
-		
-		$mystate_termid = $mystate_term['term_id'];
-		
-		// City Name to ID
-		
-		$entrycity = $entry['39'];
-		
-		$mycity_term = term_exists( $entrycity, 'location' );
-		
-		$mycity_termid = $mycity_term['term_id'];
-		
-		$location_string = $stateid . ',' . $mystate_termid . ', ' . $mycity_termid;
-		
-		
-		if($mycity_term) {
+    
+    
+    $layoutOption = rgar( $entry, '42' );
+    
+    if($layoutOption == 'Premium Profile $189/Year') {
+    
+    
+    	// premium auto populate, these areas cant have repeaters on the gravity forms i cant figure out how to get repeaters on gform. so the second best way is to auto populate and then they can go in and adjust after the post is created through the front facing acf form
 			
-			wp_set_post_terms( $post_id, $location_string, 'location' );
-		
-		}
-		
-		if(!$mycity_term) {
+			$prem_bio = 'Lawyer Bio Content Section One';
 			
-				$rules[] = ",";
-				$rules[] = " ";
-				$rules[] = "'";
+			update_field( 'field_5b67c74fb7d3e', $prem_bio, $post_id );
 			
-			  $entrycity_nospace = str_replace($rules, '-', $entrycity);
+			// selling points section
 			
-			//$entrycity_nospace = preg_replace('/\s*/', '', $entrycity);
+			$prem_selling_title = 'Selling Point Title';
+			
+			update_field( 'field_5c86cf23e8492', $prem_selling_title, $post_id );
+			
+			// selling point description
+			
+			$prem_selling_description = 'Selling Point Description';
+			
+			update_field( 'field_5c86cf7735c24', $prem_selling_description, $post_id );
+			
+			// selling poiny bg
+			
+			$prem_selling_bg = 'Building';
+			
+			update_field( 'field_5c86c4c695a34', $prem_selling_bg, $post_id );
+
+			// second bio section
+			
+			$prem_bio_two = 'Lawyer Bio Content Section Two';
+			
+			update_field( 'field_5c86cfdfe5bd2', $prem_bio_two, $post_id );
 			
 			
-			$entrycity_slug = strtolower($entrycity_nospace);
+			// bar admissions
 			
-			wp_insert_term(
-				$entrycity, // the term 
-				'location', // the taxonomy
-				array(
-					//'description'=> 'a term update test of san diego',
-					'slug' => $entrycity_slug,
-					'parent'=> $mystate_termid  // get numeric term id
-				)
+			
+			$prem_bar_admission = array(
+			  // nested for each row
+			  array(
+			    'field_5c86d86e93e12' => 'Bar Admission List Item'
+			  ),
+			  array(
+			    'field_5c86d86e93e12' => 'Bar Admission List Item'
+			  ),
+			  array(
+			    'field_5c86d86e93e12' => 'Bar Admission List Item'
+			  ),
 			);
 			
-			//get the term id i just created and throw into the string below
+			/*
+			foreach ($wows as $wow) {
+			    $feature_value = (string)$second_gen;
+			    $value[] = array( 'field_59606dc9525dc' => $feature_value );
+			}
+			*/
 			
-			$mynewcity_term = term_exists( $entrycity, 'location' );
+			update_field( 'field_5c86d7cc93e11', $prem_bar_admission, $post_id );
 			
-			$mynewcity_termid = $mynewcity_term['term_id'];
 			
-			$newlocation_string = $stateid . ',' . $mystate_termid . ', ' . $mynewcity_termid;
+			// Case Results
 			
-			wp_set_post_terms( $post_id, $newlocation_string, 'location' ); // does $post_id need to become $post_id = get_post( $entry['post_id'] ); $podt_id->ID or is it just assumed in the advanced custom stuff, if i make my own post creation then i might have to do this ^^^
-		
-		}
+			$prem_case_results = array(
+			  // nested for each row
+			  array(
+			    'field_5c86def7caf29' => 'Case Results Title',
+			    'field_5c86df05caf2a' => 'Verdict',
+			    'field_5c86df0fcaf2b' => 'Description',
+			  ),
+			  array(
+			    'field_5c86def7caf29' => 'Case Results Title',
+			    'field_5c86df05caf2a' => 'Verdict',
+			    'field_5c86df0fcaf2b' => 'Description',
+			  ),
+			  array(
+			    'field_5c86def7caf29' => 'Case Results Title',
+			    'field_5c86df05caf2a' => 'Verdict',
+			    'field_5c86df0fcaf2b' => 'Description',
+			  ),
+			  array(
+			    'field_5c86def7caf29' => 'Case Results Title',
+			    'field_5c86df05caf2a' => 'Verdict',
+			    'field_5c86df0fcaf2b' => 'Description',
+			  ),
+			  
+			);
+			
+			update_field( 'field_5c86dee8caf28', $prem_case_results, $post_id );
+			
+			
+			// faqs
+			
+			// column one
+			
+			$prem_faqs = array(
+			  // nested for each row
+			  array(
+			    'field_5c86e1292b9ea' => 'Question',
+			    'field_5c86e1332b9eb' => 'Answer',
+			  ),
+			  array(
+			    'field_5c86e1292b9ea' => 'Question',
+			    'field_5c86e1332b9eb' => 'Answer',
+			  ),
+			  array(
+			    'field_5c86e1292b9ea' => 'Question',
+			    'field_5c86e1332b9eb' => 'Answer',
+			  ),
+			  array(
+			    'field_5c86e1292b9ea' => 'Question',
+			    'field_5c86e1332b9eb' => 'Answer',
+			  ),
+			  
+			);
+			
+			update_field( 'field_5c86e1152b9e9', $prem_faqs, $post_id );
+			
+			
+			// column two
+			
+			$prem_faqs_two = array(
+			  // nested for each row
+			  array(
+			    'field_5c86e1a5d7024' => 'Question',
+			    'field_5c86e1a5d7025' => 'Answer',
+			  ),
+			   array(
+			    'field_5c86e1a5d7024' => 'Question',
+			    'field_5c86e1a5d7025' => 'Answer',
+			  ),
+				 array(
+			    'field_5c86e1a5d7024' => 'Question',
+			    'field_5c86e1a5d7025' => 'Answer',
+			  ),
+				 array(
+			    'field_5c86e1a5d7024' => 'Question',
+			    'field_5c86e1a5d7025' => 'Answer',
+			  ),
+			
+			    
+			);
+			
+			update_field( 'field_5c86e1a5d7023', $prem_faqs_two, $post_id );
+			
+			
+			}
+			
+			
+			
+			// parent cat "State"
+			
+			$stateid = '139';
+			
+			// State Name to ID
+			
+			$statenameid = $entry['56'];
+			
+			$mystate_term = term_exists( $statenameid, 'location' );
+			
+			$mystate_termid = $mystate_term['term_id'];
+			
+			// City Name to ID
+			
+			$entrycity = $entry['39'];
+			
+			$mycity_term = term_exists( $entrycity, 'location' );
+			
+			$mycity_termid = $mycity_term['term_id'];
+			
+			$location_string = $stateid . ',' . $mystate_termid . ', ' . $mycity_termid;
+			
+			
+			if($mycity_term) {
+				
+				wp_set_post_terms( $post_id, $location_string, 'location' );
+			
+			}
+			
+			if(!$mycity_term) {
+				
+					$rules[] = ",";
+					$rules[] = " ";
+					$rules[] = "'";
+				
+				  $entrycity_nospace = str_replace($rules, '-', $entrycity);
+				
+				//$entrycity_nospace = preg_replace('/\s*/', '', $entrycity);
+				
+				
+				$entrycity_slug = strtolower($entrycity_nospace);
+				
+				wp_insert_term(
+					$entrycity, // the term 
+					'location', // the taxonomy
+					array(
+						//'description'=> 'a term update test of san diego',
+						'slug' => $entrycity_slug,
+						'parent'=> $mystate_termid  // get numeric term id
+					)
+				);
+				
+				//get the term id i just created and throw into the string below
+				
+				$mynewcity_term = term_exists( $entrycity, 'location' );
+				
+				$mynewcity_termid = $mynewcity_term['term_id'];
+				
+				$newlocation_string = $stateid . ',' . $mystate_termid . ', ' . $mynewcity_termid;
+				
+				wp_set_post_terms( $post_id, $newlocation_string, 'location' ); // does $post_id need to become $post_id = get_post( $entry['post_id'] ); $podt_id->ID or is it just assumed in the advanced custom stuff, if i make my own post creation then i might have to do this ^^^
+			
+			}
 
 	}
-	
-	
-	//
-	
-	
-	
 	
 	
 	// update profile image logged in
@@ -1910,6 +2056,15 @@ add_action( 'wp_enqueue_scripts', 'unqueue_af_css', 9999 );
 
 	}
 */
+
+
+
+
+
+
+
+
+
 
 
 	

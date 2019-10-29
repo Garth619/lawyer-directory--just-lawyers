@@ -14,7 +14,13 @@
 \margl1440\margr1440\vieww25940\viewh18100\viewkind0
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
-\f0\fs24 \cf0 update sidebar form needs single column mobile styles\
+\f0\fs24 \cf0 \
+why is the claim only redirecting half the time????? stripe? or wtf?? \
+\
+once i fix this ^ add it to the update to premium update function too\
+\
+\
+update sidebar form needs single column mobile styles\
 \
 areas that will have fake info by default will need an option to disable, and somehow get it back\'85.\
 \
@@ -25,6 +31,12 @@ maybe style select on selling points update form later\
 create a remove on the selling point custom image on the update sidebar form?\
 \
 test <h1 data-gravityupdate="gform_wrapper_7" data-homeurl=\
+\
+turn stripe back on\
+\
+both functions claim and create both have conditionals on 189 a year that needs to be updated smh\'85\
+\
+move cr edit like faqs\
 \
 login button has borders too, loo at all buttons, claim, lets begin, next, prev etc\
 \
@@ -48,7 +60,7 @@ premium - do the acf form hover over to update - prepopulate repeater rows on pa
 \
 <!-- https://support.advancedcustomfields.com/forums/topic/split-up-an-acf_form-into-a/ -->\
 \
-\
+convert acf field names to keys in my functions?\
 \
 hide stripe and user feeds from all these little gforms\
 \
@@ -73,6 +85,152 @@ forgot password forgot username stuff\
 \cf0 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 \cf0 895 mobile menu needs a search option\
+\
+cancel option\
+\
+ if($layoutOption == 'Premium Profile $189/Year') \{\
+    \
+    \
+    	// premium auto populate, these areas cant have repeaters on the gravity forms i cant figure out how to get repeaters on gform. so the second best way is to auto populate and then they can go in and adjust after the post is created through the front facing acf form\
+			\
+			$prem_bio = 'Lawyer Bio Content Section One';\
+			\
+			update_field( 'field_5b67c74fb7d3e', $prem_bio, $post_id );\
+			\
+			// selling points section\
+			\
+			$prem_selling_title = 'Selling Point Title';\
+			\
+			update_field( 'field_5c86cf23e8492', $prem_selling_title, $post_id );\
+			\
+			// selling point description\
+			\
+			$prem_selling_description = 'Selling Point Description';\
+			\
+			update_field( 'field_5c86cf7735c24', $prem_selling_description, $post_id );\
+			\
+			// second bio section\
+			\
+			\
+			$prem_bio_two = 'Lawyer Bio Content Section Two';\
+			\
+			update_field( 'field_5c86cfdfe5bd2', $prem_bio_two, $post_id );\
+			\
+			\
+			// bar admissions\
+			\
+			\
+			$prem_bar_admission = array(\
+			  // nested for each row\
+			  array(\
+			    'field_5c86d86e93e12' => 'Bar Admission List Item'\
+			  ),\
+			  array(\
+			    'field_5c86d86e93e12' => 'Bar Admission List Item'\
+			  ),\
+			  array(\
+			    'field_5c86d86e93e12' => 'Bar Admission List Item'\
+			  ),\
+			);\
+			\
+			/*\
+			foreach ($wows as $wow) \{\
+			    $feature_value = (string)$second_gen;\
+			    $value[] = array( 'field_59606dc9525dc' => $feature_value );\
+			\}\
+			*/\
+			\
+			update_field( 'field_5c86d7cc93e11', $prem_bar_admission, $post_id );\
+			\
+			\
+			// Case Results\
+			\
+			$prem_case_results = array(\
+			  // nested for each row\
+			  array(\
+			    'field_5c86def7caf29' => 'Case Results Title',\
+			    'field_5c86df05caf2a' => 'Verdict',\
+			    'field_5c86df0fcaf2b' => 'Description',\
+			  ),\
+			  array(\
+			    'field_5c86def7caf29' => 'Case Results Title',\
+			    'field_5c86df05caf2a' => 'Verdict',\
+			    'field_5c86df0fcaf2b' => 'Description',\
+			  ),\
+			  array(\
+			    'field_5c86def7caf29' => 'Case Results Title',\
+			    'field_5c86df05caf2a' => 'Verdict',\
+			    'field_5c86df0fcaf2b' => 'Description',\
+			  ),\
+			  array(\
+			    'field_5c86def7caf29' => 'Case Results Title',\
+			    'field_5c86df05caf2a' => 'Verdict',\
+			    'field_5c86df0fcaf2b' => 'Description',\
+			  ),\
+			  \
+			);\
+			\
+			update_field( 'field_5c86dee8caf28', $prem_case_results, $post_id );\
+			\
+			\
+			// faqs\
+			\
+			// column one\
+			\
+			$prem_faqs = array(\
+			  // nested for each row\
+			  array(\
+			    'field_5c86e1292b9ea' => 'Question',\
+			    'field_5c86e1332b9eb' => 'Answer',\
+			  ),\
+			  array(\
+			    'field_5c86e1292b9ea' => 'Question',\
+			    'field_5c86e1332b9eb' => 'Answer',\
+			  ),\
+			  array(\
+			    'field_5c86e1292b9ea' => 'Question',\
+			    'field_5c86e1332b9eb' => 'Answer',\
+			  ),\
+			  array(\
+			    'field_5c86e1292b9ea' => 'Question',\
+			    'field_5c86e1332b9eb' => 'Answer',\
+			  ),\
+			  \
+			);\
+			\
+			update_field( 'field_5c86e1152b9e9', $prem_faqs, $post_id );\
+			\
+			\
+			// column two\
+			\
+			$prem_faqs_two = array(\
+			  // nested for each row\
+			  array(\
+			    'field_5c86e1a5d7024' => 'Question',\
+			    'field_5c86e1a5d7025' => 'Answer',\
+			  ),\
+			   array(\
+			    'field_5c86e1a5d7024' => 'Question',\
+			    'field_5c86e1a5d7025' => 'Answer',\
+			  ),\
+				 array(\
+			    'field_5c86e1a5d7024' => 'Question',\
+			    'field_5c86e1a5d7025' => 'Answer',\
+			  ),\
+				 array(\
+			    'field_5c86e1a5d7024' => 'Question',\
+			    'field_5c86e1a5d7025' => 'Answer',\
+			  ),\
+			\
+			    \
+			);\
+			\
+			update_field( 'field_5c86e1a5d7023', $prem_faqs_two, $post_id );\
+			\
+			\
+			\}\
+			\
+\
 \
 \
 so we have a bunch of areas not listed on the premium form that are found in the template, and a bunch of areas listed on the premium form that arent found on the template. Faqs could be the questions but what would be the bio one and bio two? some areas where we are using repeaters for acfs\'85 i cant use them in the gravity form, I need to figure out a way to create repeater inputs fields for gravity forms, cant be acf form bc gform is what is creating the post\
@@ -119,6 +277,144 @@ if($entry['42'] =="Premium Profile $189/Year") \{ // this value or featured lawy
 tokens to make sure people dont get acces to our url for processing\
 \
 explain login and really the whole update/claim process\
+\
+\
+// premium auto populate, these areas cant have repeaters on the gravity forms i cant figure out how to get repeaters on gform. so the second best way is to auto populate and then they can go in and adjust after the post is created through the front facing acf form\
+\
+$prem_bio = 'Lawyer Bio Content Section One';\
+\
+update_field( 'field_5b67c74fb7d3e', $prem_bio, 598476 );\
+\
+// selling points section\
+\
+$prem_selling_title = 'Selling Point Title';\
+\
+update_field( 'field_5c86cf23e8492', $prem_selling_title, 598476 );\
+\
+// selling point description\
+\
+$prem_selling_description = 'Selling Point Description';\
+\
+update_field( 'field_5c86cf7735c24', $prem_selling_description, 598476 );\
+\
+// second bio section\
+\
+\
+$prem_bio_two = 'Lawyer Bio Content Section Two';\
+\
+update_field( 'field_5c86cfdfe5bd2', $prem_bio_two, 598476 );\
+\
+\
+// bar admissions\
+\
+\
+$prem_bar_admission = array(\
+  // nested for each row\
+  array(\
+    'field_5c86d86e93e12' => 'Bar Admission List Item'\
+  ),\
+  array(\
+    'field_5c86d86e93e12' => 'Bar Admission List Item'\
+  ),\
+  array(\
+    'field_5c86d86e93e12' => 'Bar Admission List Item'\
+  ),\
+);\
+\
+/*\
+foreach ($wows as $wow) \{\
+    $feature_value = (string)$second_gen;\
+    $value[] = array( 'field_59606dc9525dc' => $feature_value );\
+\}\
+*/\
+\
+update_field( 'field_5c86d7cc93e11', $prem_bar_admission, 598476 );\
+\
+\
+// Case Results\
+\
+$prem_case_results = array(\
+  // nested for each row\
+  array(\
+    'field_5c86def7caf29' => 'Case Results Title',\
+    'field_5c86df05caf2a' => 'Verdict',\
+    'field_5c86df0fcaf2b' => 'Description',\
+  ),\
+  array(\
+    'field_5c86def7caf29' => 'Case Results Title',\
+    'field_5c86df05caf2a' => 'Verdict',\
+    'field_5c86df0fcaf2b' => 'Description',\
+  ),\
+  array(\
+    'field_5c86def7caf29' => 'Case Results Title',\
+    'field_5c86df05caf2a' => 'Verdict',\
+    'field_5c86df0fcaf2b' => 'Description',\
+  ),\
+  array(\
+    'field_5c86def7caf29' => 'Case Results Title',\
+    'field_5c86df05caf2a' => 'Verdict',\
+    'field_5c86df0fcaf2b' => 'Description',\
+  ),\
+  \
+);\
+\
+update_field( 'field_5c86dee8caf28', $prem_case_results, 598476 );\
+\
+\
+// faqs\
+\
+// column one\
+\
+$prem_faqs = array(\
+  // nested for each row\
+  array(\
+    'field_5c86e1292b9ea' => 'Question',\
+    'field_5c86e1332b9eb' => 'Answer',\
+  ),\
+  array(\
+    'field_5c86e1292b9ea' => 'Question',\
+    'field_5c86e1332b9eb' => 'Answer',\
+  ),\
+  array(\
+    'field_5c86e1292b9ea' => 'Question',\
+    'field_5c86e1332b9eb' => 'Answer',\
+  ),\
+  array(\
+    'field_5c86e1292b9ea' => 'Question',\
+    'field_5c86e1332b9eb' => 'Answer',\
+  ),\
+  \
+);\
+\
+update_field( 'field_5c86e1152b9e9', $prem_faqs, 598476 );\
+\
+\
+// column two\
+\
+$prem_faqs_two = array(\
+  // nested for each row\
+  array(\
+    'field_5c86e1a5d7024' => 'Question',\
+    'field_5c86e1a5d7025' => 'Answer',\
+  ),\
+   array(\
+    'field_5c86e1a5d7024' => 'Question',\
+    'field_5c86e1a5d7025' => 'Answer',\
+  ),\
+	 array(\
+    'field_5c86e1a5d7024' => 'Question',\
+    'field_5c86e1a5d7025' => 'Answer',\
+  ),\
+	 array(\
+    'field_5c86e1a5d7024' => 'Question',\
+    'field_5c86e1a5d7025' => 'Answer',\
+  ),\
+\
+    \
+);\
+\
+update_field( 'field_5c86e1a5d7023', $prem_faqs_two, 598476 );\
+\
 \
 \pard\pardeftab720\sl420\partightenfactor0
 
