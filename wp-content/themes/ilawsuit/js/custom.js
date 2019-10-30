@@ -1453,9 +1453,53 @@ if($('.current_author_form').length >0 ){
 			$('[data-name="disable_selling_point_section"], [data-name="selling_points_title"], [data-name="selling_points_description"], [data-name="selling_point_banner_options"], [data-name="selling_point_banner_image_custom"]').css('display','block');
 			
 		}
+		
+		// custom premium case results section needs specific and multiple acf fields open
+		
+		if ($(this).parent('.myedit').data('acfupdate') === 'case_result_section') {
+			
+			$('[data-name="disable_case_results_section"], [data-name="lawyer_case_result_slides"], [data-name="lawyer_case_result_slides"] .acf-field').css('display','block');
+			
+		}
   
   
 	});
+	
+	
+	// acf form enable options in the premium banner
+
+	$('span.enable').on('click', function(e) {
+	
+		formEdit();
+		
+		hideGravity();
+		
+		hideAcf();
+  
+		var showField = $(this).parent().data('acfupdate');
+
+		$('[data-name="'+showField+'"], [data-name="'+showField+'"] .acf-field, .acf-form-submit').css('display','block');
+		
+		// custom premium selling section needs specific and multiple acf fields open
+		
+		if ($(this).parent().data('acfupdate') === 'selling_points_section') {
+			
+			$('[data-name="disable_selling_point_section"], [data-name="selling_points_title"], [data-name="selling_points_description"], [data-name="selling_point_banner_options"], [data-name="selling_point_banner_image_custom"]').css('display','block');
+			
+		}
+		
+		// custom premium case results section needs specific and multiple acf fields open
+		
+		if ($(this).parent().data('acfupdate') === 'case_result_section') {
+			
+			$('[data-name="disable_case_results_section"], [data-name="lawyer_case_result_slides"], [data-name="lawyer_case_result_slides"] .acf-field').css('display','block');
+			
+		}
+  
+  
+	});
+
+	
 	
 	// gravity form
 

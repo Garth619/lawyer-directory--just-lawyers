@@ -2,11 +2,20 @@
 	
 	<?php if(is_user_logged_in() && get_current_user_id() == $post->post_author) { ?>
 	
+
+	
 	<div class="upgrade_prompt_wrapper">
 		
-		<span class="prompt enable_header">The following sections are disabled:</span><!-- upgrade_prompt -->		
-		<span class="prompt enable_subheader">Selling Points: <span class="enable">Enable</span></span><!-- upgrade_prompt -->
-		<span class="prompt enable_subheader">Case Results: <span class="enable">Enable</span></span><!-- upgrade_prompt -->
+		<span class="prompt enable_header">The following sections are disabled:</span><!-- upgrade_prompt -->	
+		
+			<?php if(get_field('disable_selling_point_section')) { ?>	
+		
+				<span data-acfupdate="selling_points_section" class="prompt enable_subheader">Selling Points: <span class="enable">Enable</span></span><!-- upgrade_prompt -->
+				
+			<?php } ?>
+			
+			
+		<span data-acfupdate="case_result_section" class="prompt enable_subheader">Case Results: <span class="enable">Enable</span></span><!-- upgrade_prompt -->
 		<span class="prompt enable_subheader">FAQs: <span class="enable">Enable</span></span><!-- upgrade_prompt -->
 				
 	</div><!-- upgrade_prompt_wrapper -->
@@ -418,6 +427,8 @@
 			
 		</section><!-- att_bio_middle_content_wrapper -->
 		
+		<?php if(!get_field('disable_case_results_section')) { ?>	
+		
 		<?php if(get_field('lawyer_case_result_slides')): ?>
 		 
 		<section class="att_bio_caseresults">
@@ -460,7 +471,7 @@
 					
 					<?php endif; ?>
 				
-				<div data-acfupdate="lawyer_case_result_slides" class="att_bio_case_results_slider_wrapper myedit edit_content_top acf_edit">
+				<div data-acfupdate="case_result_section" class="att_bio_case_results_slider_wrapper myedit edit_content_top acf_edit">
 					
 					<div class="att_bio_case_results_slider">
 						
@@ -505,6 +516,8 @@
 		</section><!-- att_bio_caseresults -->
 		
 		<?php endif; ?>
+		
+		<?php } ?>
 		
 		<?php if(get_field('lawyer_faq')) { ?>
 		

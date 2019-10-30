@@ -809,6 +809,7 @@ span.upgrade_prompt, span.enable_header {
 }
 
 span.enable_header {
+	padding-bottom:10px;
 	&:after {
 		display: none;
 	}
@@ -816,7 +817,7 @@ span.enable_header {
 
 span.enable_subheader {
 	font-family: "Work Sans",sans-serif;
-  font-size: 17px;
+  font-size: 18px;
   line-height: 20px;
 }
 
