@@ -2552,20 +2552,6 @@ add_action('login_head', 'custom_login_logo');
 // disabes acf form styles 
 
 
-// disable acf css on front-end acf forms
-//add_action( 'wp_print_styles', 'my_deregister_styles', 100 );
- 
-/*
-function my_deregister_styles() {
-  wp_deregister_style( 'acf' );
-  wp_deregister_style( 'acf-field-group' );
-  wp_deregister_style( 'acf-global' );
-  wp_deregister_style( 'acf-input' );
-  wp_deregister_style( 'acf-datepicker' );
-}
-*/
-
-
 function unqueue_af_css() {
     wp_deregister_style('acf-input'); 
 }

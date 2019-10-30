@@ -59,6 +59,7 @@
 				
 				<div class="login_header_wrapper loggedin">
 					
+										
 					<?php 
 						
 						$user_id = $current_user->ID;
@@ -82,13 +83,25 @@
             
             wp_reset_postdata(); // reset the query 
 						
+						// redirect to wp-admin 
 						
-						$url_id = reset($post_redirect);
+						if($user_id === 1) {
+							
+							$url = get_bloginfo('url') . '/wp-admin'; 
+						
+						}
+						
+						else {
+							
+							$url_id = reset($post_redirect);
 
-	        	
-	        	$url = get_bloginfo('url') . "/lawyer/?p=" . $url_id;  
-	        	
-	        	?>
+							$url = get_bloginfo('url') . "/lawyer/?p=" . $url_id; 
+						
+						
+						}
+						
+						 
+	        ?>
 			
 					<a class="username_post_link" href="<?php echo $url;?>"><?php echo $current_user->user_login;?></a>
 				
