@@ -1023,13 +1023,13 @@ $('.sec_three_tab').on('click', function(e) {
 				
 				// maps to credit card feilds (if in use)
 				
-				$('input#input_2_104_5, input#input_4_101_5').val(contactname);
+				$('input#input_2_104_5, input#input_4_101_5, input#input_11_104_5').val(contactname);
 				
 				$('.mypersonal_name input').change(function() {
 					
 					var fullname = $('.mypersonal_name input').val();
 					
-					$('input#input_2_104_5, input#input_4_101_5').val(fullname);
+					$('input#input_2_104_5, input#input_4_101_5, input#input_11_104_5').val(fullname);
 					
 				});
 				

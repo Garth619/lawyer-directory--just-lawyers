@@ -1631,7 +1631,7 @@ function update_term_information( $post_id, $feed, $entry, $form ) {
 	// update existing posts 
 	
 	add_action( 'gform_after_submission_2', 'set_post_content', 10, 2 );
-	add_action( 'gform_after_submission_11', 'set_post_content', 10, 2 );
+	
 	
 	function set_post_content( $entry, $form ) {
  
@@ -1993,6 +1993,379 @@ function update_term_information( $post_id, $feed, $entry, $form ) {
 		
 	}
 	
+	
+	
+	add_action( 'gform_after_submission_11', 'set_upgradepost_content', 10, 2 );
+	
+	
+	
+	
+	function set_upgradepost_content( $entry, $form ) {
+ 
+    //getting post
+    $post = get_post( $entry['post_id'] );
+ 
+    //changing post title
+    
+    $post->post_title = rgar( $entry, '1' );
+    $post->post_name = rgar( $entry, '1' );
+    
+    //update_field("_personal_information_first_name","field_5b672aa250437",$post);
+    
+    update_field( 'lawyer_premium_layout_two', rgar( $entry, '42' ), $post );
+    
+    update_field( 'hide_claim_button', 'Yes', $post );
+    
+    
+    
+    //The field’s key should be used when saving a new value to a post (when no value exists) https://www.advancedcustomfields.com/resources/update_field/
+    
+    
+    
+    update_field( 'lawyer_phone', rgar( $entry, '2' ), $post );
+    update_field( 'lawyer_email', rgar( $entry, '48' ), $post );
+    update_field( 'lawfirm_name', rgar( $entry, '4' ), $post );
+    update_field( 'lawyer_website', rgar( $entry, '5' ), $post );
+    
+    update_field( 'lawyer_street_address', rgar( $entry, '36' ), $post );
+    update_field( 'lawyer_city', rgar( $entry, '39' ), $post );
+    update_field( 'lawyer_state', rgar( $entry, '56' ), $post );
+    update_field( 'lawyer_zip', rgar( $entry, '38' ), $post );
+    
+    //old address from orignal posts need to get updated for consistency redundant from other function fix this and combine into one function call
+    
+    $streetaddress = rgar( $entry, '36' );
+    $city = rgar( $entry, '39' );
+    $state = rgar( $entry, '56' );
+    $zip = rgar( $entry, '38' );
+    
+    $newaddress = '' . $streetaddress . ' ' . $city . ', ' . $state . ' ' . $zip . '';
+    
+    update_field( 'lawyer_address', $newaddress, $post );
+    
+    update_field( 'latitude', rgar( $entry, '88' ), $post );
+    update_field( 'longitude', rgar( $entry, '87' ), $post );
+    
+    update_field( 'school_one_name', rgar( $entry, '10' ), $post );
+    update_field( 'school_one_major', rgar( $entry, '11' ), $post );
+    update_field( 'school_one_degree', rgar( $entry, '12' ), $post );
+    update_field( 'school_one_year_graduated', rgar( $entry, '13' ), $post );
+    
+    update_field( 'school_two_name', rgar( $entry, '14' ), $post );
+    update_field( 'school_two_major', rgar( $entry, '15' ), $post );
+    update_field( 'school_two_degree', rgar( $entry, '16' ), $post );
+    update_field( 'school_two_year_graduated', rgar( $entry, '17' ), $post );
+    
+    update_field( 'years_licensed_for', rgar( $entry, '3' ), $post );
+    update_field( 'lawyer_bio', rgar( $entry, '9' ), $post );
+    
+    $layoutOption = rgar( $entry, '42' );
+    
+    if($layoutOption == 'Premium Profile $189/Year') {
+    
+    
+    	// premium auto populate, these areas cant have repeaters on the gravity forms i cant figure out how to get repeaters on gform. so the second best way is to auto populate and then they can go in and adjust after the post is created through the front facing acf form
+			
+			$prem_bio = 'Lawyer Bio Content Section One';
+			
+			update_field( 'field_5b67c74fb7d3e', $prem_bio, $post_id );
+			
+			// selling points section
+			
+			$prem_selling_title = 'Selling Point Title';
+			
+			update_field( 'field_5c86cf23e8492', $prem_selling_title, $post_id );
+			
+			// selling point description
+			
+			$prem_selling_description = 'Selling Point Description';
+			
+			update_field( 'field_5c86cf7735c24', $prem_selling_description, $post_id );
+			
+			// selling poiny bg
+			
+			$prem_selling_bg = 'Building';
+			
+			update_field( 'field_5c86c4c695a34', $prem_selling_bg, $post_id );
+
+			// second bio section
+			
+			$prem_bio_two = 'Lawyer Bio Content Section Two';
+			
+			update_field( 'field_5c86cfdfe5bd2', $prem_bio_two, $post_id );
+			
+			
+			// bar admissions
+			
+			
+			$prem_bar_admission = array(
+			  // nested for each row
+			  array(
+			    'field_5c86d86e93e12' => 'Bar Admission List Item'
+			  ),
+			  array(
+			    'field_5c86d86e93e12' => 'Bar Admission List Item'
+			  ),
+			  array(
+			    'field_5c86d86e93e12' => 'Bar Admission List Item'
+			  ),
+			);
+			
+			/*
+			foreach ($wows as $wow) {
+			    $feature_value = (string)$second_gen;
+			    $value[] = array( 'field_59606dc9525dc' => $feature_value );
+			}
+			*/
+			
+			update_field( 'field_5c86d7cc93e11', $prem_bar_admission, $post_id );
+			
+			
+			// Case Results
+			
+			$prem_case_results = array(
+			  // nested for each row
+			  array(
+			    'field_5c86def7caf29' => 'Case Results Title',
+			    'field_5c86df05caf2a' => 'Verdict',
+			    'field_5c86df0fcaf2b' => 'Description',
+			  ),
+			  array(
+			    'field_5c86def7caf29' => 'Case Results Title',
+			    'field_5c86df05caf2a' => 'Verdict',
+			    'field_5c86df0fcaf2b' => 'Description',
+			  ),
+			  array(
+			    'field_5c86def7caf29' => 'Case Results Title',
+			    'field_5c86df05caf2a' => 'Verdict',
+			    'field_5c86df0fcaf2b' => 'Description',
+			  ),
+			  array(
+			    'field_5c86def7caf29' => 'Case Results Title',
+			    'field_5c86df05caf2a' => 'Verdict',
+			    'field_5c86df0fcaf2b' => 'Description',
+			  ),
+			  
+			);
+			
+			update_field( 'field_5c86dee8caf28', $prem_case_results, $post_id );
+			
+			
+			// faqs
+			
+			// column one
+			
+			$prem_faqs = array(
+			  // nested for each row
+			  array(
+			    'field_5c86e1292b9ea' => 'Question',
+			    'field_5c86e1332b9eb' => 'Answer',
+			  ),
+			  array(
+			    'field_5c86e1292b9ea' => 'Question',
+			    'field_5c86e1332b9eb' => 'Answer',
+			  ),
+			  array(
+			    'field_5c86e1292b9ea' => 'Question',
+			    'field_5c86e1332b9eb' => 'Answer',
+			  ),
+			  array(
+			    'field_5c86e1292b9ea' => 'Question',
+			    'field_5c86e1332b9eb' => 'Answer',
+			  ),
+			  
+			);
+			
+			update_field( 'field_5c86e1152b9e9', $prem_faqs, $post_id );
+			
+			
+			// column two
+			
+			$prem_faqs_two = array(
+			  // nested for each row
+			  array(
+			    'field_5c86e1a5d7024' => 'Question',
+			    'field_5c86e1a5d7025' => 'Answer',
+			  ),
+			   array(
+			    'field_5c86e1a5d7024' => 'Question',
+			    'field_5c86e1a5d7025' => 'Answer',
+			  ),
+				 array(
+			    'field_5c86e1a5d7024' => 'Question',
+			    'field_5c86e1a5d7025' => 'Answer',
+			  ),
+				 array(
+			    'field_5c86e1a5d7024' => 'Question',
+			    'field_5c86e1a5d7025' => 'Answer',
+			  ),
+			
+			    
+			);
+			
+			update_field( 'field_5c86e1a5d7023', $prem_faqs_two, $post_id );
+			
+			
+			}
+
+        
+    // featured image
+    
+    $url = rgar( $entry, 55 ); 
+    
+    // Current directory
+		
+		$abs_path = getcwd();
+		
+		// Convert to absolute URL
+		
+		$url = str_replace( site_url(), $abs_path, $url);
+		
+		// Checking filetype for MIME
+		
+		$filetype = wp_check_filetype( basename( $url ), null );
+		
+		// WordPress upload directory	
+		
+		$wp_upload_dir = wp_upload_dir();	
+		
+		$attachment = array(
+			'guid'           => $wp_upload_dir['url'] . '/' . basename( $url ), 
+			'post_mime_type' => $filetype['type'],
+			'post_title'     => preg_replace( '/\.[^.]+$/', '', basename( $url ) ),
+			'post_content'   => '',
+			'post_status'    => 'inherit'
+		);
+	
+		// Get attachment ID
+	
+		$attach_id = wp_insert_attachment( $attachment, $url, $post );
+	
+		// Dependency for wp_generate_attachment_metadata().
+	
+		require_once( ABSPATH . 'wp-admin/includes/image.php' );
+	
+		// Generate metadata for image attachment.
+	
+		$attach_data = wp_generate_attachment_metadata( $attach_id, $url );
+	
+		wp_update_attachment_metadata( $attach_id, $attach_data );
+	
+		// Set as featured image for the post created on line 13.
+	
+		set_post_thumbnail( $post, $attach_id );
+
+		
+
+    //updating post
+    wp_update_post( $post );
+    
+    
+    // all taxonomies, pa, location and featured lawyers cats
+    
+    
+    // locations
+    
+    $postid = $post->ID;
+			
+		$stateid = '139';
+		
+		// State Name to ID
+		
+		$statenameid = $entry['56'];
+		
+		$mystate_term = term_exists( $statenameid, 'location' );
+		
+		$mystate_termid = $mystate_term['term_id'];
+		
+		// City Name to ID
+		
+		$entrycity = $entry['39'];
+		
+		$mycity_term = term_exists( $entrycity, 'location' );
+		
+		$mycity_termid = $mycity_term['term_id'];
+		
+		$location_string = $stateid . ',' . $mystate_termid . ', ' . $mycity_termid;
+		
+		
+		if($mycity_term) {
+			
+			wp_set_post_terms( $postid, $location_string, 'location' );
+		
+		}
+		
+		if(!$mycity_term) {
+			
+				$rules[] = ",";
+				$rules[] = " ";
+				$rules[] = "'";
+			
+			  $entrycity_nospace = str_replace($rules, '-', $entrycity);
+			
+			//$entrycity_nospace = preg_replace('/\s*/', '', $entrycity);
+			
+			
+			$entrycity_slug = strtolower($entrycity_nospace);
+			
+			wp_insert_term(
+				$entrycity, // the term 
+				'location', // the taxonomy
+				array(
+					//'description'=> 'a term update test of san diego',
+					'slug' => $entrycity_slug,
+					'parent'=> $mystate_termid  // get numeric term id
+				)
+			);
+			
+			//get the term id i just created and throw into the string below
+			
+			$mynewcity_term = term_exists( $entrycity, 'location' );
+			
+			$mynewcity_termid = $mynewcity_term['term_id'];
+			
+			$newlocation_string = $stateid . ',' . $mystate_termid . ', ' . $mynewcity_termid;
+			
+			wp_set_post_terms( $postid, $newlocation_string, 'location' ); 
+		
+		}
+		
+		// practice areas
+				
+
+		$field_id = 28; // Update this number to your field id number
+		$field = RGFormsModel::get_field( $form, $field_id );
+		$value = is_object( $field ) ? $field->get_value_export( $entry, $field_id, true ) : '';
+		
+		wp_set_post_terms( $postid, $value, 'practice_area' );
+		
+		// featured lawyer
+		
+		if($entry['42'] =="Premium Profile $189/Year") { // this value or featured lawyer wont work
+			
+			wp_set_post_terms( $postid, 'Featured Lawyer', 'featured_lawyers' );
+			
+		}
+		
+		
+	}
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	add_filter("gform_submit_button", "form_submit_button", 10, 2); 
 	
 	function form_submit_button( $button, $form ) {
@@ -2008,6 +2381,22 @@ function update_term_information( $post_id, $feed, $entry, $form ) {
     //document.getElementsByClassName('gform_wrapper_2').classList.remove('gform_validation_error');
 		
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 

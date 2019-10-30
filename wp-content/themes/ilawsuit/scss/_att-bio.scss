@@ -906,6 +906,9 @@ a.claim_button {
 			ul {
 				display: block;
 				margin-bottom:0;
+				li.gchoice_11_42_0, li.gchoice_11_42_1 {
+					display: none;
+				}
 				li {
 					display: flex;
 					flex-basis: 100%;
@@ -1096,7 +1099,7 @@ a.claim_button {
 	}
 	// credit card
 	li.mycreditcard {
-		#input_2_104_5_container, #input_4_101_5_container {
+		#input_2_104_5_container, #input_4_101_5_container, #input_11_104_5_container {
 			display: none;
 		}
 		span.ginput_full {
