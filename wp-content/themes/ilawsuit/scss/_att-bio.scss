@@ -661,7 +661,6 @@ a.claim_button {
 	text-transform: uppercase;
   letter-spacing: 0.25em;
   padding: 15px 30px;
-  //margin-top:30px;
   display: inline-block;
   transition: all 200ms ease-in-out;
   @include montserrat_extrabold;
@@ -671,42 +670,24 @@ a.claim_button {
 }
 
 
-
-
-
 .overlay {
-
-
-
-
-
 	width:100%;
 	height:100%;
 	background: rgba(0,0,0,0.7);
 	z-index:20;
+	position: fixed;
+	top:0;
+	left:0;
 	overflow-y: scroll;
-	//-webkit-overflow-scrolling: touch;
-	//opacity: 0;
-	//visibility: hidden;
-	//transition: all 200ms ease-in-out;
-	//padding:0 30px;
 	background: #fff;
-	
-	
-	
-	
-	//transform: translateY(-909px);
-	
-	
-	//padding-top: 120px;
-	//margin-top:-909px;
-	
 	display: none;
+	margin:120px auto 45px;
+	-webkit-overflow-scrolling: touch;
 	.overlay_inner {
 		width:100%;
 		max-width:1600px;
-		margin:165px auto 45px;
-		padding:55px 45px 65px;
+		
+		padding:100px 45px 65px;
 		position: relative;
 		
 	}
@@ -716,8 +697,6 @@ a.claim_button {
 .overlay.dropdown {
 	display: block;
 	margin-top:0px;
-	
-
 }
 
 
@@ -829,6 +808,7 @@ a.claim_button {
 		cursor: pointer;
 		text-align: center;
 		text-decoration: underline;
+		margin-bottom: 200px;
 		}
 
 	
@@ -859,8 +839,8 @@ a.claim_button {
 
 .overlay_close {
 	position: absolute;
-	top:0px;
-	right:20px;
+  top: 24px;
+  right: 40px;
 	width:50px;
 	height:50px;
 	cursor: pointer;
@@ -1584,6 +1564,27 @@ span.ginput_card_security_code_icon {
 			}
 			
 			
+	.premium_overlay {
+		.mymultistep_form_wrapper {
+			.price_description {
+				
+				.price_tier {
+					padding-top:0;
+					border:none;
+					&:nth-of-type(2) {
+						
+					}
+					p {
+						
+					}
+				}
+			}
+		}
+	}
+			
+			
+			
+			
 	body.page-template-template-createprofile {
 		.mymultistep_form_wrapper {
 			.price_description {
@@ -1750,6 +1751,18 @@ span.ginput_card_security_code_icon {
 	}
 }
 	
+	
+.overlay {
+	margin: 97px auto 45px;
+	.overlay_inner {
+		
+	}
+}
+
+
+.overlay_close {
+  top: 22px;
+ }
 	
 	
 	
@@ -1976,9 +1989,10 @@ span.ginput_card_security_code_icon {
 
 
 .overlay {
+	margin-top:79px;
 	.overlay_inner {
-		padding: 105px 25px 45px;
-		margin-top:25px;
+		padding: 65px 35px 45px;
+		
 		
 	}
 }
@@ -2012,6 +2026,15 @@ span.ginput_card_security_code_icon {
 }
 
 
+.overlay_close {
+  top: 17px;
+ }
+ 
+ 
+ span.go_back_to_profile {
+	 margin-bottom: 100px;
+ }
+
 	
 	
 } /* Media Query */
@@ -2040,4 +2063,15 @@ span.ginput_card_security_code_icon {
 } /* Media Query */
 
 
-
+@media screen and (max-width: 414px) {
+	
+	
+.overlay {
+	.overlay_inner {
+		padding: 85px 35px 45px;		
+	}
+}
+	
+	
+	
+} /* Media Query */

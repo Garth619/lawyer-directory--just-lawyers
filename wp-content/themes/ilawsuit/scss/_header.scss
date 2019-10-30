@@ -191,7 +191,7 @@ body:not(.page-template-template-home) {
 
 .mobile_sticky_header {
 	position: fixed;
-	top:79px;
+	top: 97px;
 	width:100%;
 	left:0;
 	z-index:10;
@@ -456,6 +456,10 @@ body:not(.page-template-template-home) {
 			display: none;
 		}
 	}
+}
+
+.mobile_sticky_header {
+	top:79px;
 }
 
 

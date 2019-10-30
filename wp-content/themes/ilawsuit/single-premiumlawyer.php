@@ -92,10 +92,9 @@
 					
 							<span class="att_bio_sidebar_title">Address</span><!-- att_bio_sidebar_title -->
 						
-							<span class="att_bio_address"><?php the_field( 'lawyer_street_address' ); ?>, <?php the_field( 'lawyer_city' ); ?>, <?php the_field( 'lawyer_state' ); ?> 
-<?php the_field( 'lawyer_zip' ); ?></span><!-- att_bio_address -->
-						
-							<!-- do this -->
+							<span class="att_bio_address"><span class="street_address"><?php the_field( 'lawyer_street_address' ); ?></span>, <?php the_field( 'lawyer_city' ); ?>, <?php the_field( 'lawyer_state' ); ?> 
+<?php the_field( 'lawyer_zip' ); ?></span><!-- att_bio_address -->						
+							
 							
 							<?php $claim_address = get_field('lawyer_street_address') . ' ' . get_field('lawyer_city') . ' ' . get_field('lawyer_state') . ' ' . get_field('lawyer_zip');
 	

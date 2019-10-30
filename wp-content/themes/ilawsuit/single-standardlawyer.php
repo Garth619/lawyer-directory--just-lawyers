@@ -2,6 +2,17 @@
 
 <div id="internal_main">
 	
+	<?php if(is_user_logged_in() && get_current_user_id() == $post->post_author) { ?>
+			
+				<div class="upgrade_prompt_wrapper">
+				
+					<span class="upgrade_prompt">want a premium profile? Upgrade now</span><!-- upgrade_prompt -->
+				
+				</div><!-- upgrade_prompt_wrapper -->
+			
+			<?php } ?>
+
+	
 	<div class="internal_banner">
 		
 		<?php 
@@ -11,7 +22,8 @@
 			$hiddenpost_id = get_the_ID();?>
 			
 			<div class="internal_banner_content">
-		
+				
+					
 			<h1 data-homeurl="<?php bloginfo('url');?>" id="<?php echo $hiddenpost_id;?>" data-gravityupdate="gform_wrapper_7" class="myedit edit_content gravity_edit" data><?php the_title();?></h1>
 		
 			<div class="internal_banner_meta">
@@ -86,7 +98,7 @@
 							<span class="att_bio_address"><span class="street_address"><?php the_field( 'lawyer_street_address' ); ?></span>, <?php the_field( 'lawyer_city' ); ?>, <?php the_field( 'lawyer_state' ); ?> 
 <?php the_field( 'lawyer_zip' ); ?></span><!-- att_bio_address -->
 						
-							<!-- do this -->
+						
 							
 							<?php $claim_address = get_field('lawyer_street_address') . ' ' . get_field('lawyer_city') . ' ' . get_field('lawyer_state') . ' ' . get_field('lawyer_zip');
 	
@@ -489,5 +501,21 @@
 						
 </div><!-- overlay -->
 
+
+<?php } ?>
+
+<?php if(is_user_logged_in() && get_current_user_id() == $post->post_author) { ?>
+
+	<div class="overlay claim_overlay premium_overlay content">
+						
+	<div class="overlay_inner">
+							
+		<div class="overlay_close"></div><!-- overlay_close -->
+							
+			<?php get_template_part('page-templates/template','multistepformsloggedin');?>
+							
+		</div><!-- overlay_inner -->
+						
+</div><!-- overlay -->
 
 <?php } ?>

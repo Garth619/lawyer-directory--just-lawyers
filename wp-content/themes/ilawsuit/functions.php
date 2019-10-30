@@ -1631,7 +1631,7 @@ function update_term_information( $post_id, $feed, $entry, $form ) {
 	// update existing posts 
 	
 	add_action( 'gform_after_submission_2', 'set_post_content', 10, 2 );
-	//add_action( 'gform_after_submission_5', 'set_post_content', 10, 2 );
+	add_action( 'gform_after_submission_11', 'set_post_content', 10, 2 );
 	
 	function set_post_content( $entry, $form ) {
  

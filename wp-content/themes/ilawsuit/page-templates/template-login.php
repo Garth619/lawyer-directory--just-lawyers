@@ -50,8 +50,16 @@
 			wp_login_form( $args );
 		} 
 ?>
+
+
 	
-	<a class="back_to_site" href="<?php bloginfo('url');?>">Back to Site</a><!-- back_to_site -->
+	<span class="back_to_site" onclick="goBack()">Back to Site</span><!-- back_to_site -->
+	
+	<script type="text/javascript">
+		function goBack() {
+    	window.history.back();
+		}
+	</script>
 		
 	</div><!-- custom_login_inner -->
 	

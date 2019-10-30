@@ -236,7 +236,7 @@ jQuery(document).ready(function($){
 
     createWaypoint('internal_main', '.mobile_sticky_header', 'visible', -300, null, true);
     
-    createWaypoint('internal_main', '.update_custom_form', 'adjust', -300, null, true);
+
     
 
 
@@ -590,12 +590,9 @@ $('.sec_three_tab').on('click', function(e) {
 	}
 	
 	
+	// claim overlay and upgrade to premium overlay
 	
-	
-	
-	// claim overlay
-	
-	$('a.claim_button').on('click', function(e) {
+	$('a.claim_button, span.upgrade_prompt').on('click', function(e) {
 		
 		$('#internal_main').fadeOut(400);
 		
@@ -1501,6 +1498,7 @@ $('#acf-form input[type="submit"]').on('click', function(e) {
   
   
 });
+
 
 
 

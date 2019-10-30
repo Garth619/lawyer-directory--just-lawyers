@@ -822,6 +822,14 @@
 		"oAP": "/page-templates/template-multistepforms.php",
 		"oF": 0
 		},
+	"/page-templates/template-multistepformsloggedin.php": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 0,
+		"oAP": "/page-templates/template-multistepformsloggedin.php",
+		"oF": 0
+		},
 	"/page-templates/template-practice_area.php": {
 		"cB": 0,
 		"ft": 8192,

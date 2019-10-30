@@ -2,7 +2,7 @@
 	
 	if(is_user_logged_in() && get_current_user_id() == $post->post_author) { 
 
-	acf_form_head();
+		acf_form_head();
 
 	} ?>
 
