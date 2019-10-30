@@ -6,7 +6,7 @@
 			
 				<div class="upgrade_prompt_wrapper">
 				
-					<span class="upgrade_prompt">want a premium profile? Upgrade now</span><!-- upgrade_prompt -->
+					<span class="prompt upgrade_prompt">want a premium profile? Upgrade now</span><!-- upgrade_prompt -->
 				
 				</div><!-- upgrade_prompt_wrapper -->
 			

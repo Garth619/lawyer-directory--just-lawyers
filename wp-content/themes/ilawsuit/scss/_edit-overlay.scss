@@ -273,6 +273,25 @@ body.single-lawyer {
 	    background: $blue;
     }
 	}
+	ul.acf-checkbox-list {
+		li {
+			label {
+				font-size: 20px;
+				line-height: 26px;
+				font-family: $worksans;
+				font-weight: 600;
+				text-transform: none;
+				letter-spacing: 0;
+				font-weight: 400;
+				margin-left:5px;
+				input {
+					position: relative;
+					top:4px;
+					margin-right: 10px;
+				}
+			}
+		}
+	}
 }
 
 
@@ -757,19 +776,25 @@ body.single-lawyer {
 	left:0;
 	width:100%;
 	background: #fff;
-	padding:16px 25px;
+	padding:25px 25px 15px;
 	cursor: pointer;
 	text-align: center;
 	border-bottom:1px solid #e2e2e2;
 }
 
-span.upgrade_prompt {
+span.prompt {
+	display: block;
+	margin-bottom: 10px;
+}
+
+
+
+span.upgrade_prompt, span.enable_header {
 	text-transform: uppercase;
 	color:$bluetwo;
 	letter-spacing: 0.2em;
 	font-size: 15px;
 	@include montserrat_extrabold;
-	display: inline-block;
 	&:after {
 		content:"";
 		display: inline-block;
@@ -781,6 +806,25 @@ span.upgrade_prompt {
 		border-bottom: 6px solid transparent;
 		border-left: 6px solid $bluetwo;
 	}
+}
+
+span.enable_header {
+	&:after {
+		display: none;
+	}
+}
+
+span.enable_subheader {
+	font-family: "Work Sans",sans-serif;
+  font-size: 17px;
+  line-height: 20px;
+}
+
+span.enable {
+	color:$bluetwo;
+	&:hover {
+	  text-decoration: underline;
+  }
 }
 
 

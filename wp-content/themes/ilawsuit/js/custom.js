@@ -1450,7 +1450,7 @@ if($('.current_author_form').length >0 ){
 		
 		if ($(this).parent('.myedit').data('acfupdate') === 'selling_points_section') {
 			
-			$('[data-name="selling_points_title"], [data-name="selling_points_description"], [data-name="selling_point_banner_options"], [data-name="selling_point_banner_image_custom"]').css('display','block');
+			$('[data-name="disable_selling_point_section"], [data-name="selling_points_title"], [data-name="selling_points_description"], [data-name="selling_point_banner_options"], [data-name="selling_point_banner_image_custom"]').css('display','block');
 			
 		}
   

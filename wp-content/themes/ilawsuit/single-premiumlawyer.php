@@ -1,5 +1,18 @@
 <div id="internal_main">
 	
+	<?php if(is_user_logged_in() && get_current_user_id() == $post->post_author) { ?>
+	
+	<div class="upgrade_prompt_wrapper">
+		
+		<span class="prompt enable_header">The following sections are disabled:</span><!-- upgrade_prompt -->		
+		<span class="prompt enable_subheader">Selling Points: <span class="enable">Enable</span></span><!-- upgrade_prompt -->
+		<span class="prompt enable_subheader">Case Results: <span class="enable">Enable</span></span><!-- upgrade_prompt -->
+		<span class="prompt enable_subheader">FAQs: <span class="enable">Enable</span></span><!-- upgrade_prompt -->
+				
+	</div><!-- upgrade_prompt_wrapper -->
+	
+	<?php } ?>
+	
 	<div class="internal_banner">
 		
 		<?php 
@@ -238,6 +251,8 @@
 			
 		</section><!-- att_bio_wrapper -->
 		
+		<?php if(!get_field('disable_selling_point_section')) { ?>
+		
 		<?php if(get_field('selling_points_title') || get_field('selling_points_description')) { ?>
 		
 		<section class="att_bio_selling_point">
@@ -281,6 +296,8 @@
 
 			
 		</section><!-- att_bio_selling_point -->
+		
+		<?php } ?>
 		
 		<?php } ?>
 		
