@@ -963,6 +963,13 @@ $('.sec_three_tab').on('click', function(e) {
 		
 		$('.myprofile_choice ul.gfield_radio li').each(function(i, el) {
     
+    	if ( i === 0) {
+      
+      	$(this).find('input').addClass('claim');
+      	
+    	}
+
+    	
     	if ( i === 1) {
       
       	$(this).find('input').addClass('basic');

@@ -1653,56 +1653,34 @@ function update_term_information( $post_id, $feed, $entry, $form ) {
     
     //The field’s key should be used when saving a new value to a post (when no value exists) https://www.advancedcustomfields.com/resources/update_field/
     
-    if(rgar( $entry, '2' )) {
-    	update_field( 'lawyer_phone', rgar( $entry, '2' ), $post );
-    }
     
-    if(rgar( $entry, '48' )) {
-    	update_field( 'lawyer_email', rgar( $entry, '48' ), $post );
-    }
     
-    if(rgar( $entry, '4' )) {
-	    update_field( 'lawfirm_name', rgar( $entry, '4' ), $post );
-    }
+    update_field( 'lawyer_phone', rgar( $entry, '2' ), $post );
+    update_field( 'lawyer_email', rgar( $entry, '48' ), $post );
+    update_field( 'lawfirm_name', rgar( $entry, '4' ), $post );
+    update_field( 'lawyer_website', rgar( $entry, '5' ), $post );
     
-    if(rgar( $entry, '5' )) {
-	    update_field( 'lawyer_website', rgar( $entry, '5' ), $post );
-    }
+    update_field( 'lawyer_street_address', rgar( $entry, '36' ), $post );
+    update_field( 'lawyer_city', rgar( $entry, '39' ), $post );
+    update_field( 'lawyer_state', rgar( $entry, '56' ), $post );
+    update_field( 'lawyer_zip', rgar( $entry, '38' ), $post );
     
-    // if profile choice is free claim, then dont reassingn the address, leave it alone
+    //old address from orignal posts need to get updated for consistency redundant from other function fix this and combine into one function call
     
-    if(!rgar( $entry, '42' ) == 'Claim Free Profile') {
-	    
-	     
-	     update_field( 'lawyer_street_address', rgar( $entry, '36' ), $post );
-			 update_field( 'lawyer_city', rgar( $entry, '39' ), $post );
-			 update_field( 'lawyer_state', rgar( $entry, '56' ), $post );
-			 update_field( 'lawyer_zip', rgar( $entry, '38' ), $post );
+    $streetaddress = rgar( $entry, '36' );
+    $city = rgar( $entry, '39' );
+    $state = rgar( $entry, '56' );
+    $zip = rgar( $entry, '38' );
     
-    	//old address from orignal posts need to get updated for consistency redundant from other function fix this and combine into one function call
+    $newaddress = '' . $streetaddress . ' ' . $city . ', ' . $state . ' ' . $zip . '';
     
-			$streetaddress = rgar( $entry, '36' );
-			$city = rgar( $entry, '39' );
-			$state = rgar( $entry, '56' );
-			$zip = rgar( $entry, '38' );
+    update_field( 'lawyer_address', $newaddress, $post );
     
-			$newaddress = '' . $streetaddress . ' ' . $city . ', ' . $state . ' ' . $zip . '';
+    update_field( 'latitude', rgar( $entry, '88' ), $post );
+    update_field( 'longitude', rgar( $entry, '87' ), $post );
     
-			update_field( 'lawyer_address', $newaddress, $post );
+    update_field( 'school_one_name', rgar( $entry, '10' ), $post );
     
-    }
-    
-    if(rgar( $entry, '88' )) {
-    	update_field( 'latitude', rgar( $entry, '88' ), $post );
-    }
-    
-    if(rgar( $entry, '87' )) {
-    	update_field( 'longitude', rgar( $entry, '87' ), $post );
-    }
-    
-    if(rgar( $entry, '10' )) {
-    	update_field( 'school_one_name', rgar( $entry, '10' ), $post );
-    }
     
     if(rgar( $entry, '11' )) {
 	    update_field( 'school_one_major', rgar( $entry, '11' ), $post );
@@ -1741,7 +1719,11 @@ function update_term_information( $post_id, $feed, $entry, $form ) {
     }
     
     
-    if(rgar( $entry, '42' ) == 'Premium Profile $189/Year') {
+   
+    
+    $layoutOption = rgar( $entry, '42' );
+    
+    if($layoutOption == 'Premium Profile $189/Year') {
     
     
     	// premium auto populate, these areas cant have repeaters on the gravity forms i cant figure out how to get repeaters on gform. so the second best way is to auto populate and then they can go in and adjust after the post is created through the front facing acf form
@@ -1886,58 +1868,54 @@ function update_term_information( $post_id, $feed, $entry, $form ) {
 			update_field( 'field_5c86e1a5d7023', $prem_faqs_two, $post_id );
 			
 			
-		}
+			}
 
         
     // featured image
     
-    if(rgar( $entry, 55 )) {
+    $url = rgar( $entry, 55 ); 
     
-    	$url = rgar( $entry, 55 ); 
-    	
-    	// Current directory
-			
-			$abs_path = getcwd();
-			
-			// Convert to absolute URL
-			
-			$url = str_replace( site_url(), $abs_path, $url);
-			
-			// Checking filetype for MIME
-			
-			$filetype = wp_check_filetype( basename( $url ), null );
-			
-			// WordPress upload directory	
-			
-			$wp_upload_dir = wp_upload_dir();	
-			
-			$attachment = array(
-				'guid'           => $wp_upload_dir['url'] . '/' . basename( $url ), 
-				'post_mime_type' => $filetype['type'],
-				'post_title'     => preg_replace( '/\.[^.]+$/', '', basename( $url ) ),
-				'post_content'   => '',
-				'post_status'    => 'inherit'
-			);
-			
-			// Get attachment ID
-			
-			$attach_id = wp_insert_attachment( $attachment, $url, $post );
-			
-			// Dependency for wp_generate_attachment_metadata().
-			
-			require_once( ABSPATH . 'wp-admin/includes/image.php' );
-			
-			// Generate metadata for image attachment.
-			
-			$attach_data = wp_generate_attachment_metadata( $attach_id, $url );
-			
-			wp_update_attachment_metadata( $attach_id, $attach_data );
-			
-			// Set as featured image for the post created on line 13.
-			
-			set_post_thumbnail( $post, $attach_id );
+    // Current directory
 		
-		}
+		$abs_path = getcwd();
+		
+		// Convert to absolute URL
+		
+		$url = str_replace( site_url(), $abs_path, $url);
+		
+		// Checking filetype for MIME
+		
+		$filetype = wp_check_filetype( basename( $url ), null );
+		
+		// WordPress upload directory	
+		
+		$wp_upload_dir = wp_upload_dir();	
+		
+		$attachment = array(
+			'guid'           => $wp_upload_dir['url'] . '/' . basename( $url ), 
+			'post_mime_type' => $filetype['type'],
+			'post_title'     => preg_replace( '/\.[^.]+$/', '', basename( $url ) ),
+			'post_content'   => '',
+			'post_status'    => 'inherit'
+		);
+	
+		// Get attachment ID
+	
+		$attach_id = wp_insert_attachment( $attachment, $url, $post );
+	
+		// Dependency for wp_generate_attachment_metadata().
+	
+		require_once( ABSPATH . 'wp-admin/includes/image.php' );
+	
+		// Generate metadata for image attachment.
+	
+		$attach_data = wp_generate_attachment_metadata( $attach_id, $url );
+	
+		wp_update_attachment_metadata( $attach_id, $attach_data );
+	
+		// Set as featured image for the post created on line 13.
+	
+		set_post_thumbnail( $post, $attach_id );
 		
 		// Set newly created user as the author for this updated post
 
@@ -1960,86 +1938,78 @@ function update_term_information( $post_id, $feed, $entry, $form ) {
     
     // locations
     
-    if($entry['56'] && $entry['39']) {
-	    
-    	$postid = $post->ID;
+    $postid = $post->ID;
 			
-			$stateid = '139';
-			
-			// State Name to ID
-			
-			$statenameid = $entry['56'];
-			
-			$mystate_term = term_exists( $statenameid, 'location' );
-			
-			$mystate_termid = $mystate_term['term_id'];
-			
-			// City Name to ID
-			
-			$entrycity = $entry['39'];
-			
-			$mycity_term = term_exists( $entrycity, 'location' );
-			
-			$mycity_termid = $mycity_term['term_id'];
-			
-			$location_string = $stateid . ',' . $mystate_termid . ', ' . $mycity_termid;
-			
-			
-			if($mycity_term) {
-				
-				wp_set_post_terms( $postid, $location_string, 'location' );
-			
-			}
-			
-			if(!$mycity_term) {
-				
-					$rules[] = ",";
-					$rules[] = " ";
-					$rules[] = "'";
-				
-				  $entrycity_nospace = str_replace($rules, '-', $entrycity);
-				
-				//$entrycity_nospace = preg_replace('/\s*/', '', $entrycity);
-				
-				
-				$entrycity_slug = strtolower($entrycity_nospace);
-				
-				wp_insert_term(
-					$entrycity, // the term 
-					'location', // the taxonomy
-					array(
-						//'description'=> 'a term update test of san diego',
-						'slug' => $entrycity_slug,
-						'parent'=> $mystate_termid  // get numeric term id
-					)
-				);
-				
-				//get the term id i just created and throw into the string below
-				
-				$mynewcity_term = term_exists( $entrycity, 'location' );
-				
-				$mynewcity_termid = $mynewcity_term['term_id'];
-				
-				$newlocation_string = $stateid . ',' . $mystate_termid . ', ' . $mynewcity_termid;
-				
-				wp_set_post_terms( $postid, $newlocation_string, 'location' ); 
-			
-			}
-
-   	}
-    
-    		
-		// practice areas
+		$stateid = '139';
 		
-		if(!$entry['42'] =="Claim Free Profile") {
-				
-			$field_id = 28; // Update this number to your field id number
-			$field = RGFormsModel::get_field( $form, $field_id );
-			$value = is_object( $field ) ? $field->get_value_export( $entry, $field_id, true ) : '';
+		// State Name to ID
 		
-			wp_set_post_terms( $postid, $value, 'practice_area' );
+		$statenameid = $entry['56'];
+		
+		$mystate_term = term_exists( $statenameid, 'location' );
+		
+		$mystate_termid = $mystate_term['term_id'];
+		
+		// City Name to ID
+		
+		$entrycity = $entry['39'];
+		
+		$mycity_term = term_exists( $entrycity, 'location' );
+		
+		$mycity_termid = $mycity_term['term_id'];
+		
+		$location_string = $stateid . ',' . $mystate_termid . ', ' . $mycity_termid;
+		
+		
+		if($mycity_term) {
+			
+			wp_set_post_terms( $postid, $location_string, 'location' );
 		
 		}
+		
+		if(!$mycity_term) {
+			
+				$rules[] = ",";
+				$rules[] = " ";
+				$rules[] = "'";
+			
+			  $entrycity_nospace = str_replace($rules, '-', $entrycity);
+			
+			//$entrycity_nospace = preg_replace('/\s*/', '', $entrycity);
+			
+			
+			$entrycity_slug = strtolower($entrycity_nospace);
+			
+			wp_insert_term(
+				$entrycity, // the term 
+				'location', // the taxonomy
+				array(
+					//'description'=> 'a term update test of san diego',
+					'slug' => $entrycity_slug,
+					'parent'=> $mystate_termid  // get numeric term id
+				)
+			);
+			
+			//get the term id i just created and throw into the string below
+			
+			$mynewcity_term = term_exists( $entrycity, 'location' );
+			
+			$mynewcity_termid = $mynewcity_term['term_id'];
+			
+			$newlocation_string = $stateid . ',' . $mystate_termid . ', ' . $mynewcity_termid;
+			
+			wp_set_post_terms( $postid, $newlocation_string, 'location' ); 
+		
+		}
+		
+		// practice areas
+				
+
+		$field_id = 28; // Update this number to your field id number
+		$field = RGFormsModel::get_field( $form, $field_id );
+		$value = is_object( $field ) ? $field->get_value_export( $entry, $field_id, true ) : '';
+		
+		wp_set_post_terms( $postid, $value, 'practice_area' );
 		
 		// featured lawyer
 		
@@ -2118,9 +2088,9 @@ function update_term_information( $post_id, $feed, $entry, $form ) {
     update_field( 'years_licensed_for', rgar( $entry, '3' ), $post );
     update_field( 'lawyer_bio', rgar( $entry, '9' ), $post );
     
-   
+    $layoutOption = rgar( $entry, '42' );
     
-    if(rgar( $entry, '42' ) == 'Premium Profile $189/Year') {
+    if($layoutOption == 'Premium Profile $189/Year') {
     
     
     	// premium auto populate, these areas cant have repeaters on the gravity forms i cant figure out how to get repeaters on gform. so the second best way is to auto populate and then they can go in and adjust after the post is created through the front facing acf form

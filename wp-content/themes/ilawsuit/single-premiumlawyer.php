@@ -8,9 +8,7 @@
 		
 			<span class="prompt enable_header">The following sections are disabled:</span><!-- upgrade_prompt -->
 		
-		
-		
-		<?php if(get_field('disable_selling_point_section')) { ?>	
+			<?php if(get_field('disable_selling_point_section')) { ?>	
 		
 				<span data-acfupdate="selling_points_section" class="prompt enable_subheader">Selling Points: <span class="enable">Enable</span></span><!-- upgrade_prompt -->
 				
@@ -28,7 +26,7 @@
 			
 			<?php } ?>
 				
-	</div><!-- upgrade_prompt_wrapper -->
+		</div><!-- upgrade_prompt_wrapper -->
 	
 	<?php } ?>
 	

@@ -930,7 +930,7 @@ a.claim_button {
 		}
 		// product
 		li.mypaypal_product {
-			display: none;
+			display: none !important;
 		}
 		li {
 			flex-basis: 47.5%;
