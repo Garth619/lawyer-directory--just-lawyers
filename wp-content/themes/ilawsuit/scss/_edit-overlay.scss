@@ -794,6 +794,7 @@ span.upgrade_prompt, span.enable_header {
 	color:$bluetwo;
 	letter-spacing: 0.2em;
 	font-size: 15px;
+	line-height: 18px;
 	@include montserrat_extrabold;
 	&:after {
 		content:"";
@@ -826,6 +827,11 @@ span.enable {
 	&:hover {
 	  text-decoration: underline;
   }
+}
+
+
+[data-name="disable_case_results_section"] {
+	padding-left:25px;
 }
 
 
@@ -963,6 +969,13 @@ span.enable {
 	
 	.update_custom_form ul li.mylawyer_state .select-hide {
     display: none;
+}
+
+
+span.enable_header {
+	max-width:300px;
+	margin-left:auto;
+	margin-right:auto;
 }
 	
 	

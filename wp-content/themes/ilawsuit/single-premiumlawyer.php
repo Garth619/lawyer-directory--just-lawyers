@@ -2,25 +2,37 @@
 	
 	<?php if(is_user_logged_in() && get_current_user_id() == $post->post_author) { ?>
 	
-
-	
-	<div class="upgrade_prompt_wrapper">
+		<?php if(get_field('disable_selling_point_section') || get_field('disable_case_results_section') || get_field('disable_faq_section')) { ?>
+			
+			<div class="upgrade_prompt_wrapper">
 		
-		<span class="prompt enable_header">The following sections are disabled:</span><!-- upgrade_prompt -->	
+			<span class="prompt enable_header">The following sections are disabled:</span><!-- upgrade_prompt -->
 		
-			<?php if(get_field('disable_selling_point_section')) { ?>	
+		
+		
+		<?php if(get_field('disable_selling_point_section')) { ?>	
 		
 				<span data-acfupdate="selling_points_section" class="prompt enable_subheader">Selling Points: <span class="enable">Enable</span></span><!-- upgrade_prompt -->
 				
 			<?php } ?>
 			
+			<?php if(get_field('disable_case_results_section')) { ?>	
+		
+				<span data-acfupdate="case_result_section" class="prompt enable_subheader">Case Results: <span class="enable">Enable</span></span><!-- upgrade_prompt -->
 			
-		<span data-acfupdate="case_result_section" class="prompt enable_subheader">Case Results: <span class="enable">Enable</span></span><!-- upgrade_prompt -->
-		<span class="prompt enable_subheader">FAQs: <span class="enable">Enable</span></span><!-- upgrade_prompt -->
+			<?php } ?>
+			
+			<?php if(get_field('disable_faq_section')) { ?>	
+			
+				<span data-acfupdate="lawyer_faq_col" class="prompt enable_subheader">FAQs: <span class="enable">Enable</span></span><!-- upgrade_prompt -->
+			
+			<?php } ?>
 				
 	</div><!-- upgrade_prompt_wrapper -->
 	
 	<?php } ?>
+	
+	<?php } ?>	
 	
 	<div class="internal_banner">
 		
@@ -519,6 +531,8 @@
 		
 		<?php } ?>
 		
+		<?php if(!get_field('disable_faq_section')) { ?>	
+		
 		<?php if(get_field('lawyer_faq')) { ?>
 		
 		<section class="faq">
@@ -529,7 +543,7 @@
 				
 				<div class="faq_questions">
 					
-					<div data-acfupdate="lawyer_faq" class="faq_col myedit edit_content_top acf_edit">
+					<div data-acfupdate="lawyer_faq_col" class="faq_col myedit edit_content_top acf_edit">
 						
 						<?php if(get_field('lawyer_faq')): ?>
 						 
@@ -582,6 +596,8 @@
 			</div><!-- faq_inner -->
 			
 		</section><!-- faq -->
+		
+		<?php } ?>
 		
 		<?php } ?>
 	
