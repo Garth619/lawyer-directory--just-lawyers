@@ -2041,6 +2041,7 @@ function update_term_information( $post_id, $feed, $entry, $form ) {
 		
 		}
 		
+		
 		// featured lawyer
 		
 		if($entry['42'] =="Premium Profile $189/Year") { // this value or featured lawyer wont work
@@ -2081,42 +2082,91 @@ function update_term_information( $post_id, $feed, $entry, $form ) {
     
     
     
-    update_field( 'lawyer_phone', rgar( $entry, '2' ), $post );
-    update_field( 'lawyer_email', rgar( $entry, '48' ), $post );
-    update_field( 'lawfirm_name', rgar( $entry, '4' ), $post );
-    update_field( 'lawyer_website', rgar( $entry, '5' ), $post );
+    if(rgar( $entry, '2' )) {
+    	update_field( 'lawyer_phone', rgar( $entry, '2' ), $post );
+    }
     
-    update_field( 'lawyer_street_address', rgar( $entry, '36' ), $post );
-    update_field( 'lawyer_city', rgar( $entry, '39' ), $post );
-    update_field( 'lawyer_state', rgar( $entry, '56' ), $post );
-    update_field( 'lawyer_zip', rgar( $entry, '38' ), $post );
+    if(rgar( $entry, '48' )) {
+    	update_field( 'lawyer_email', rgar( $entry, '48' ), $post );
+    }
     
-    //old address from orignal posts need to get updated for consistency redundant from other function fix this and combine into one function call
+    if(rgar( $entry, '4' )) {
+	    update_field( 'lawfirm_name', rgar( $entry, '4' ), $post );
+    }
     
-    $streetaddress = rgar( $entry, '36' );
-    $city = rgar( $entry, '39' );
-    $state = rgar( $entry, '56' );
-    $zip = rgar( $entry, '38' );
+    if(rgar( $entry, '5' )) {
+	    update_field( 'lawyer_website', rgar( $entry, '5' ), $post );
+    }
+        
+    if(!rgar( $entry, '42' ) == 'Claim Free Profile') {
+	    
+	     
+	     update_field( 'lawyer_street_address', rgar( $entry, '36' ), $post );
+			 update_field( 'lawyer_city', rgar( $entry, '39' ), $post );
+			 update_field( 'lawyer_state', rgar( $entry, '56' ), $post );
+			 update_field( 'lawyer_zip', rgar( $entry, '38' ), $post );
     
-    $newaddress = '' . $streetaddress . ' ' . $city . ', ' . $state . ' ' . $zip . '';
+    	//old address from orignal posts need to get updated for consistency redundant from other function fix this and combine into one function call
     
-    update_field( 'lawyer_address', $newaddress, $post );
+			$streetaddress = rgar( $entry, '36' );
+			$city = rgar( $entry, '39' );
+			$state = rgar( $entry, '56' );
+			$zip = rgar( $entry, '38' );
     
-    update_field( 'latitude', rgar( $entry, '88' ), $post );
-    update_field( 'longitude', rgar( $entry, '87' ), $post );
+			$newaddress = '' . $streetaddress . ' ' . $city . ', ' . $state . ' ' . $zip . '';
     
-    update_field( 'school_one_name', rgar( $entry, '10' ), $post );
-    update_field( 'school_one_major', rgar( $entry, '11' ), $post );
-    update_field( 'school_one_degree', rgar( $entry, '12' ), $post );
-    update_field( 'school_one_year_graduated', rgar( $entry, '13' ), $post );
+			update_field( 'lawyer_address', $newaddress, $post );
     
-    update_field( 'school_two_name', rgar( $entry, '14' ), $post );
-    update_field( 'school_two_major', rgar( $entry, '15' ), $post );
-    update_field( 'school_two_degree', rgar( $entry, '16' ), $post );
-    update_field( 'school_two_year_graduated', rgar( $entry, '17' ), $post );
+    }
+
     
-    update_field( 'years_licensed_for', rgar( $entry, '3' ), $post );
-    update_field( 'lawyer_bio', rgar( $entry, '9' ), $post );
+    if(rgar( $entry, '88' )) {
+    	update_field( 'latitude', rgar( $entry, '88' ), $post );
+    }
+    
+    if(rgar( $entry, '87' )) {
+    	update_field( 'longitude', rgar( $entry, '87' ), $post );
+    }
+    
+    if(rgar( $entry, '10' )) {
+    	update_field( 'school_one_name', rgar( $entry, '10' ), $post );
+    }
+    
+    if(rgar( $entry, '11' )) {
+	    update_field( 'school_one_major', rgar( $entry, '11' ), $post );
+    }
+    
+    if(rgar( $entry, '12' )) {
+	    update_field( 'school_one_degree', rgar( $entry, '12' ), $post );
+	  }
+    
+    if(rgar( $entry, '13' )) {
+	    update_field( 'school_one_year_graduated', rgar( $entry, '13' ), $post );
+    }
+    
+    if(rgar( $entry, '14' )) {
+	    update_field( 'school_two_name', rgar( $entry, '14' ), $post );
+    }
+    
+    if(rgar( $entry, '15' )) {
+	    update_field( 'school_two_major', rgar( $entry, '15' ), $post );
+    }
+    
+    if(rgar( $entry, '16' )) {
+	    update_field( 'school_two_degree', rgar( $entry, '16' ), $post );
+    }
+    
+    if(rgar( $entry, '17' )) {
+	    update_field( 'school_two_year_graduated', rgar( $entry, '17' ), $post );
+    }
+    
+    if(rgar( $entry, '3' )) {
+	    update_field( 'years_licensed_for', rgar( $entry, '3' ), $post );
+    }
+    
+    if(rgar( $entry, '9' )) {
+	    update_field( 'lawyer_bio', rgar( $entry, '9' ), $post );
+    }
     
    
     
@@ -2270,49 +2320,53 @@ function update_term_information( $post_id, $feed, $entry, $form ) {
         
     // featured image
     
-    $url = rgar( $entry, 55 ); 
+    if(rgar( $entry, 55 )) {
     
-    // Current directory
+    	$url = rgar( $entry, 55 ); 
+    	
+    	// Current directory
+			
+			$abs_path = getcwd();
+			
+			// Convert to absolute URL
+			
+			$url = str_replace( site_url(), $abs_path, $url);
+			
+			// Checking filetype for MIME
+			
+			$filetype = wp_check_filetype( basename( $url ), null );
+			
+			// WordPress upload directory	
+			
+			$wp_upload_dir = wp_upload_dir();	
+			
+			$attachment = array(
+				'guid'           => $wp_upload_dir['url'] . '/' . basename( $url ), 
+				'post_mime_type' => $filetype['type'],
+				'post_title'     => preg_replace( '/\.[^.]+$/', '', basename( $url ) ),
+				'post_content'   => '',
+				'post_status'    => 'inherit'
+			);
+			
+			// Get attachment ID
+			
+			$attach_id = wp_insert_attachment( $attachment, $url, $post );
+			
+			// Dependency for wp_generate_attachment_metadata().
+			
+			require_once( ABSPATH . 'wp-admin/includes/image.php' );
+			
+			// Generate metadata for image attachment.
+			
+			$attach_data = wp_generate_attachment_metadata( $attach_id, $url );
+			
+			wp_update_attachment_metadata( $attach_id, $attach_data );
+			
+			// Set as featured image for the post created on line 13.
+			
+			set_post_thumbnail( $post, $attach_id );
 		
-		$abs_path = getcwd();
-		
-		// Convert to absolute URL
-		
-		$url = str_replace( site_url(), $abs_path, $url);
-		
-		// Checking filetype for MIME
-		
-		$filetype = wp_check_filetype( basename( $url ), null );
-		
-		// WordPress upload directory	
-		
-		$wp_upload_dir = wp_upload_dir();	
-		
-		$attachment = array(
-			'guid'           => $wp_upload_dir['url'] . '/' . basename( $url ), 
-			'post_mime_type' => $filetype['type'],
-			'post_title'     => preg_replace( '/\.[^.]+$/', '', basename( $url ) ),
-			'post_content'   => '',
-			'post_status'    => 'inherit'
-		);
-	
-		// Get attachment ID
-	
-		$attach_id = wp_insert_attachment( $attachment, $url, $post );
-	
-		// Dependency for wp_generate_attachment_metadata().
-	
-		require_once( ABSPATH . 'wp-admin/includes/image.php' );
-	
-		// Generate metadata for image attachment.
-	
-		$attach_data = wp_generate_attachment_metadata( $attach_id, $url );
-	
-		wp_update_attachment_metadata( $attach_id, $attach_data );
-	
-		// Set as featured image for the post created on line 13.
-	
-		set_post_thumbnail( $post, $attach_id );
+		}
 
 		
 
@@ -2325,78 +2379,87 @@ function update_term_information( $post_id, $feed, $entry, $form ) {
     
     // locations
     
-    $postid = $post->ID;
+    if($entry['56'] && $entry['39']) {
+	    
+    	$postid = $post->ID;
 			
-		$stateid = '139';
-		
-		// State Name to ID
-		
-		$statenameid = $entry['56'];
-		
-		$mystate_term = term_exists( $statenameid, 'location' );
-		
-		$mystate_termid = $mystate_term['term_id'];
-		
-		// City Name to ID
-		
-		$entrycity = $entry['39'];
-		
-		$mycity_term = term_exists( $entrycity, 'location' );
-		
-		$mycity_termid = $mycity_term['term_id'];
-		
-		$location_string = $stateid . ',' . $mystate_termid . ', ' . $mycity_termid;
-		
-		
-		if($mycity_term) {
+			$stateid = '139';
 			
-			wp_set_post_terms( $postid, $location_string, 'location' );
-		
-		}
-		
-		if(!$mycity_term) {
+			// State Name to ID
 			
-				$rules[] = ",";
-				$rules[] = " ";
-				$rules[] = "'";
+			$statenameid = $entry['56'];
 			
-			  $entrycity_nospace = str_replace($rules, '-', $entrycity);
+			$mystate_term = term_exists( $statenameid, 'location' );
 			
-			//$entrycity_nospace = preg_replace('/\s*/', '', $entrycity);
+			$mystate_termid = $mystate_term['term_id'];
+			
+			// City Name to ID
+			
+			$entrycity = $entry['39'];
+			
+			$mycity_term = term_exists( $entrycity, 'location' );
+			
+			$mycity_termid = $mycity_term['term_id'];
+			
+			$location_string = $stateid . ',' . $mystate_termid . ', ' . $mycity_termid;
 			
 			
-			$entrycity_slug = strtolower($entrycity_nospace);
+			if($mycity_term) {
+				
+				wp_set_post_terms( $postid, $location_string, 'location' );
 			
-			wp_insert_term(
-				$entrycity, // the term 
-				'location', // the taxonomy
-				array(
-					//'description'=> 'a term update test of san diego',
-					'slug' => $entrycity_slug,
-					'parent'=> $mystate_termid  // get numeric term id
-				)
-			);
+			}
 			
-			//get the term id i just created and throw into the string below
+			if(!$mycity_term) {
+				
+					$rules[] = ",";
+					$rules[] = " ";
+					$rules[] = "'";
+				
+				  $entrycity_nospace = str_replace($rules, '-', $entrycity);
+				
+				//$entrycity_nospace = preg_replace('/\s*/', '', $entrycity);
+				
+				
+				$entrycity_slug = strtolower($entrycity_nospace);
+				
+				wp_insert_term(
+					$entrycity, // the term 
+					'location', // the taxonomy
+					array(
+						//'description'=> 'a term update test of san diego',
+						'slug' => $entrycity_slug,
+						'parent'=> $mystate_termid  // get numeric term id
+					)
+				);
+				
+				//get the term id i just created and throw into the string below
+				
+				$mynewcity_term = term_exists( $entrycity, 'location' );
+				
+				$mynewcity_termid = $mynewcity_term['term_id'];
+				
+				$newlocation_string = $stateid . ',' . $mystate_termid . ', ' . $mynewcity_termid;
+				
+				wp_set_post_terms( $postid, $newlocation_string, 'location' ); 
 			
-			$mynewcity_term = term_exists( $entrycity, 'location' );
-			
-			$mynewcity_termid = $mynewcity_term['term_id'];
-			
-			$newlocation_string = $stateid . ',' . $mystate_termid . ', ' . $mynewcity_termid;
-			
-			wp_set_post_terms( $postid, $newlocation_string, 'location' ); 
-		
-		}
+			}
+
+   	}
 		
 		// practice areas
 				
 
-		$field_id = 28; // Update this number to your field id number
-		$field = RGFormsModel::get_field( $form, $field_id );
-		$value = is_object( $field ) ? $field->get_value_export( $entry, $field_id, true ) : '';
+		if(!$entry['42'] =="Claim Free Profile") {
+				
+			$field_id = 28; // Update this number to your field id number
+			$field = RGFormsModel::get_field( $form, $field_id );
+			$value = is_object( $field ) ? $field->get_value_export( $entry, $field_id, true ) : '';
 		
-		wp_set_post_terms( $postid, $value, 'practice_area' );
+			wp_set_post_terms( $postid, $value, 'practice_area' );
+		
+		}
+
 		
 		// featured lawyer
 		
@@ -2409,21 +2472,7 @@ function update_term_information( $post_id, $feed, $entry, $form ) {
 		
 	}
 
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 	
 	add_filter("gform_submit_button", "form_submit_button", 10, 2); 
 	
@@ -2443,22 +2492,6 @@ function update_term_information( $post_id, $feed, $entry, $form ) {
 	
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-
 
 
 // autologin after registration
