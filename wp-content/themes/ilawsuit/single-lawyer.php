@@ -44,7 +44,11 @@
 	</div><!-- success_overlay -->
 	
 		
-	<?php if(is_user_logged_in() && get_current_user_id() == $post->post_author) { ?>
+	<?php 
+		
+	// if user is logged and looking at their current profile and its not a free profile then allow them to edit
+		
+	if(is_user_logged_in() && get_current_user_id() == $post->post_author && get_field('lawyer_premium_layout_two') !== "Claim Free Profile") { ?>
 	
 	<div class="update_custom_form current_author_form content">
 		
@@ -100,6 +104,4 @@
 	
 <?php } ?>
 
-	
-	
-	<?php  get_footer(); ?>
+<?php  get_footer(); ?>

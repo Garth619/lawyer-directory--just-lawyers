@@ -487,7 +487,11 @@
 				
 </div><!-- internal_main -->
 
-<?php if(!is_user_logged_in()) { ?>
+<?php 
+	
+	// logged out claim profile form
+	
+	if(!is_user_logged_in()) { ?>
 
 <div class="overlay claim_overlay content">
 						
@@ -504,7 +508,11 @@
 
 <?php } ?>
 
-<?php if(is_user_logged_in() && get_current_user_id() == $post->post_author) { ?>
+<?php 
+	
+	// upgrade profile while logged in
+	
+	if(is_user_logged_in() && get_current_user_id() == $post->post_author) { ?>
 
 	<div class="overlay claim_overlay premium_overlay content">
 						

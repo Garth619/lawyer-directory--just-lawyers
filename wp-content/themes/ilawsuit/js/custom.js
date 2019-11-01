@@ -1110,7 +1110,7 @@ $('.sec_three_tab').on('click', function(e) {
             if ($(mutation.target).hasClass('gform_validation_error')){
 	            			console.log('gform_validation_error class was added');
 	            			$('.prepare_overlay').removeClass('fadein');
-                    alert("gform_validation_error class was added");
+                    //alert("gform_validation_error class was added");
                     //fill();
            }
          }
