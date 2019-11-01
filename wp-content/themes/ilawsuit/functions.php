@@ -1181,23 +1181,26 @@ else
 add_action( 'gform_advancedpostcreation_post_after_creation', 'update_term_information', 10, 4 );
 
 function update_term_information( $post_id, $feed, $entry, $form ) {
+	
+		if(!rgar( $entry, '42' ) == 'Claim Free Profile') {
 		
-		//old address from orignal posts need to get updated for consistency
+			//old address from orignal posts need to get updated for consistency
+    	
+    	$streetaddress = rgar( $entry, '36' );
+    	$city = rgar( $entry, '39' );
+    	$state = rgar( $entry, '56' );
+    	$zip = rgar( $entry, '38' );
+    	
+    	$newaddress = '' . $streetaddress . ' ' . $city . ', ' . $state . ' ' . $zip . '';
+    	
+    	update_field( 'lawyer_address', $newaddress, $post_id );
+		
+		}
     
-    $streetaddress = rgar( $entry, '36' );
-    $city = rgar( $entry, '39' );
-    $state = rgar( $entry, '56' );
-    $zip = rgar( $entry, '38' );
-    
-    $newaddress = '' . $streetaddress . ' ' . $city . ', ' . $state . ' ' . $zip . '';
-    
-    update_field( 'lawyer_address', $newaddress, $post_id );
     update_field( 'hide_claim_button', 'Yes', $post_id );
     
     
-    $layoutOption = rgar( $entry, '42' );
-    
-    if($layoutOption == 'Premium Profile $189/Year') {
+    if(rgar( $entry, '42' ) == 'Premium Profile $189/Year') {
     
     
     	// premium auto populate, these areas cant have repeaters on the gravity forms i cant figure out how to get repeaters on gform. so the second best way is to auto populate and then they can go in and adjust after the post is created through the front facing acf form
@@ -1344,69 +1347,73 @@ function update_term_information( $post_id, $feed, $entry, $form ) {
 			
 			}
 			
+			//locations
 			
+			if($entry['56'] && $entry['39']) {
 			
-			// parent cat "State"
-			
-			$stateid = '139';
-			
-			// State Name to ID
-			
-			$statenameid = $entry['56'];
-			
-			$mystate_term = term_exists( $statenameid, 'location' );
-			
-			$mystate_termid = $mystate_term['term_id'];
-			
-			// City Name to ID
-			
-			$entrycity = $entry['39'];
-			
-			$mycity_term = term_exists( $entrycity, 'location' );
-			
-			$mycity_termid = $mycity_term['term_id'];
-			
-			$location_string = $stateid . ',' . $mystate_termid . ', ' . $mycity_termid;
-			
-			
-			if($mycity_term) {
+				// parent cat "State"
 				
-				wp_set_post_terms( $post_id, $location_string, 'location' );
-			
-			}
-			
-			if(!$mycity_term) {
+				$stateid = '139';
 				
-					$rules[] = ",";
-					$rules[] = " ";
-					$rules[] = "'";
+				// State Name to ID
 				
-				  $entrycity_nospace = str_replace($rules, '-', $entrycity);
+				$statenameid = $entry['56'];
 				
-				//$entrycity_nospace = preg_replace('/\s*/', '', $entrycity);
+				$mystate_term = term_exists( $statenameid, 'location' );
+				
+				$mystate_termid = $mystate_term['term_id'];
+				
+				// City Name to ID
+				
+				$entrycity = $entry['39'];
+				
+				$mycity_term = term_exists( $entrycity, 'location' );
+				
+				$mycity_termid = $mycity_term['term_id'];
+				
+				$location_string = $stateid . ',' . $mystate_termid . ', ' . $mycity_termid;
 				
 				
-				$entrycity_slug = strtolower($entrycity_nospace);
+				if($mycity_term) {
+					
+					wp_set_post_terms( $post_id, $location_string, 'location' );
 				
-				wp_insert_term(
-					$entrycity, // the term 
-					'location', // the taxonomy
-					array(
-						//'description'=> 'a term update test of san diego',
-						'slug' => $entrycity_slug,
-						'parent'=> $mystate_termid  // get numeric term id
-					)
-				);
+				}
 				
-				//get the term id i just created and throw into the string below
+				if(!$mycity_term) {
+					
+						$rules[] = ",";
+						$rules[] = " ";
+						$rules[] = "'";
+					
+					  $entrycity_nospace = str_replace($rules, '-', $entrycity);
+					
+					//$entrycity_nospace = preg_replace('/\s*/', '', $entrycity);
+					
+					
+					$entrycity_slug = strtolower($entrycity_nospace);
+					
+					wp_insert_term(
+						$entrycity, // the term 
+						'location', // the taxonomy
+						array(
+							//'description'=> 'a term update test of san diego',
+							'slug' => $entrycity_slug,
+							'parent'=> $mystate_termid  // get numeric term id
+						)
+					);
+					
+					//get the term id i just created and throw into the string below
+					
+					$mynewcity_term = term_exists( $entrycity, 'location' );
+					
+					$mynewcity_termid = $mynewcity_term['term_id'];
+					
+					$newlocation_string = $stateid . ',' . $mystate_termid . ', ' . $mynewcity_termid;
+					
+					wp_set_post_terms( $post_id, $newlocation_string, 'location' ); // does $post_id need to become $post_id = get_post( $entry['post_id'] ); $podt_id->ID or is it just assumed in the advanced custom stuff, if i make my own post creation then i might have to do this ^^^
 				
-				$mynewcity_term = term_exists( $entrycity, 'location' );
-				
-				$mynewcity_termid = $mynewcity_term['term_id'];
-				
-				$newlocation_string = $stateid . ',' . $mystate_termid . ', ' . $mynewcity_termid;
-				
-				wp_set_post_terms( $post_id, $newlocation_string, 'location' ); // does $post_id need to become $post_id = get_post( $entry['post_id'] ); $podt_id->ID or is it just assumed in the advanced custom stuff, if i make my own post creation then i might have to do this ^^^
+				}
 			
 			}
 
@@ -1426,49 +1433,53 @@ function update_term_information( $post_id, $feed, $entry, $form ) {
     
     // featured image
     
-    $url = rgar( $entry, 55 ); 
+    if(rgar( $entry, 55 )) {
     
-    // Current directory
+    	$url = rgar( $entry, 55 ); 
+    	
+    	// Current directory
+			
+			$abs_path = getcwd();
+			
+			// Convert to absolute URL
+			
+			$url = str_replace( site_url(), $abs_path, $url);
+			
+			// Checking filetype for MIME
+			
+			$filetype = wp_check_filetype( basename( $url ), null );
+			
+			// WordPress upload directory	
+			
+			$wp_upload_dir = wp_upload_dir();	
+			
+			$attachment = array(
+				'guid'           => $wp_upload_dir['url'] . '/' . basename( $url ), 
+				'post_mime_type' => $filetype['type'],
+				'post_title'     => preg_replace( '/\.[^.]+$/', '', basename( $url ) ),
+				'post_content'   => '',
+				'post_status'    => 'inherit'
+			);
+			
+			// Get attachment ID
+			
+			$attach_id = wp_insert_attachment( $attachment, $url, $post );
+			
+			// Dependency for wp_generate_attachment_metadata().
+			
+			require_once( ABSPATH . 'wp-admin/includes/image.php' );
+			
+			// Generate metadata for image attachment.
+			
+			$attach_data = wp_generate_attachment_metadata( $attach_id, $url );
+			
+			wp_update_attachment_metadata( $attach_id, $attach_data );
+			
+			// Set as featured image for the post created on line 13.
+			
+			set_post_thumbnail( $post, $attach_id );
 		
-		$abs_path = getcwd();
-		
-		// Convert to absolute URL
-		
-		$url = str_replace( site_url(), $abs_path, $url);
-		
-		// Checking filetype for MIME
-		
-		$filetype = wp_check_filetype( basename( $url ), null );
-		
-		// WordPress upload directory	
-		
-		$wp_upload_dir = wp_upload_dir();	
-		
-		$attachment = array(
-			'guid'           => $wp_upload_dir['url'] . '/' . basename( $url ), 
-			'post_mime_type' => $filetype['type'],
-			'post_title'     => preg_replace( '/\.[^.]+$/', '', basename( $url ) ),
-			'post_content'   => '',
-			'post_status'    => 'inherit'
-		);
-	
-		// Get attachment ID
-	
-		$attach_id = wp_insert_attachment( $attachment, $url, $post );
-	
-		// Dependency for wp_generate_attachment_metadata().
-	
-		require_once( ABSPATH . 'wp-admin/includes/image.php' );
-	
-		// Generate metadata for image attachment.
-	
-		$attach_data = wp_generate_attachment_metadata( $attach_id, $url );
-	
-		wp_update_attachment_metadata( $attach_id, $attach_data );
-	
-		// Set as featured image for the post created on line 13.
-	
-		set_post_thumbnail( $post, $attach_id );
+		}
 		
     //updating post
     wp_update_post( $post );
@@ -1515,15 +1526,19 @@ function update_term_information( $post_id, $feed, $entry, $form ) {
     
     // practice areas
     
+    if(!$entry['42'] =="Claim Free Profile") {
     
-    $postid = $post->ID;
+    
+    	$postid = $post->ID;
 				
 
-		$field_id = 28; // Update this number to your field id number
-		$field = RGFormsModel::get_field( $form, $field_id );
-		$value = is_object( $field ) ? $field->get_value_export( $entry, $field_id, true ) : '';
+			$field_id = 28; // Update this number to your field id number
+			$field = RGFormsModel::get_field( $form, $field_id );
+			$value = is_object( $field ) ? $field->get_value_export( $entry, $field_id, true ) : '';
 		
-		wp_set_post_terms( $postid, $value, 'practice_area' );
+			wp_set_post_terms( $postid, $value, 'practice_area' );
+		
+		}
 		
 		
 	}
@@ -1543,88 +1558,99 @@ function update_term_information( $post_id, $feed, $entry, $form ) {
 		//getting post
     $post = get_post( $entry['post_id'] );
     
+    if(!rgar( $entry, '42' ) == 'Claim Free Profile') {
     
-    update_field( 'lawyer_street_address', rgar( $entry, '36' ), $post );
-    update_field( 'lawyer_city', rgar( $entry, '39' ), $post );
-    update_field( 'lawyer_state', rgar( $entry, '56' ), $post );
-    update_field( 'lawyer_zip', rgar( $entry, '38' ), $post );
+    	update_field( 'lawyer_street_address', rgar( $entry, '36' ), $post );
+			update_field( 'lawyer_city', rgar( $entry, '39' ), $post );
+			update_field( 'lawyer_state', rgar( $entry, '56' ), $post );
+			update_field( 'lawyer_zip', rgar( $entry, '38' ), $post );
     
-    update_field( 'latitude', rgar( $entry, '88' ), $post );
-    update_field( 'longitude', rgar( $entry, '87' ), $post );
-
+    }
     
-    //updating post
+    if(rgar( $entry, '88' )) {
+    	update_field( 'latitude', rgar( $entry, '88' ), $post );
+    }
+    
+    if(rgar( $entry, '87' )) {
+    	update_field( 'longitude', rgar( $entry, '87' ), $post );
+    }
+    
+    
+		//updating post
     wp_update_post( $post );
     
     // locations
     
-    $postid = $post->ID;
+    if($entry['56'] && $entry['39']) {
+    
+    	$postid = $post->ID;
+				
+			$stateid = '139';
 			
-		$stateid = '139';
-		
-		// State Name to ID
-		
-		$statenameid = $entry['56'];
-		
-		$mystate_term = term_exists( $statenameid, 'location' );
-		
-		$mystate_termid = $mystate_term['term_id'];
-		
-		// City Name to ID
-		
-		$entrycity = $entry['39'];
-		
-		$mycity_term = term_exists( $entrycity, 'location' );
-		
-		$mycity_termid = $mycity_term['term_id'];
-		
-		$location_string = $stateid . ',' . $mystate_termid . ', ' . $mycity_termid;
-		
-		
-		if($mycity_term) {
+			// State Name to ID
 			
-			wp_set_post_terms( $postid, $location_string, 'location' );
-		
-		}
-		
-		if(!$mycity_term) {
+			$statenameid = $entry['56'];
 			
-				$rules[] = ",";
-				$rules[] = " ";
-				$rules[] = "'";
+			$mystate_term = term_exists( $statenameid, 'location' );
 			
-			  $entrycity_nospace = str_replace($rules, '-', $entrycity);
+			$mystate_termid = $mystate_term['term_id'];
 			
-			//$entrycity_nospace = preg_replace('/\s*/', '', $entrycity);
+			// City Name to ID
+			
+			$entrycity = $entry['39'];
+			
+			$mycity_term = term_exists( $entrycity, 'location' );
+			
+			$mycity_termid = $mycity_term['term_id'];
+			
+			$location_string = $stateid . ',' . $mystate_termid . ', ' . $mycity_termid;
 			
 			
-			$entrycity_slug = strtolower($entrycity_nospace);
+			if($mycity_term) {
+				
+				wp_set_post_terms( $postid, $location_string, 'location' );
 			
-			wp_insert_term(
-				$entrycity, // the term 
-				'location', // the taxonomy
-				array(
-					//'description'=> 'a term update test of san diego',
-					'slug' => $entrycity_slug,
-					'parent'=> $mystate_termid  // get numeric term id
-				)
-			);
+			}
 			
-			//get the term id i just created and throw into the string below
+			if(!$mycity_term) {
+				
+					$rules[] = ",";
+					$rules[] = " ";
+					$rules[] = "'";
+				
+				  $entrycity_nospace = str_replace($rules, '-', $entrycity);
+				
+				//$entrycity_nospace = preg_replace('/\s*/', '', $entrycity);
+				
+				
+				$entrycity_slug = strtolower($entrycity_nospace);
+				
+				wp_insert_term(
+					$entrycity, // the term 
+					'location', // the taxonomy
+					array(
+						//'description'=> 'a term update test of san diego',
+						'slug' => $entrycity_slug,
+						'parent'=> $mystate_termid  // get numeric term id
+					)
+				);
+				
+				//get the term id i just created and throw into the string below
+				
+				$mynewcity_term = term_exists( $entrycity, 'location' );
+				
+				$mynewcity_termid = $mynewcity_term['term_id'];
+				
+				$newlocation_string = $stateid . ',' . $mystate_termid . ', ' . $mynewcity_termid;
+				
+				wp_set_post_terms( $postid, $newlocation_string, 'location' ); 
 			
-			$mynewcity_term = term_exists( $entrycity, 'location' );
-			
-			$mynewcity_termid = $mynewcity_term['term_id'];
-			
-			$newlocation_string = $stateid . ',' . $mystate_termid . ', ' . $mynewcity_termid;
-			
-			wp_set_post_terms( $postid, $newlocation_string, 'location' ); 
+			}
 		
 		}
 
-		
-		
-	}
+
+}
 	
 	
 	
