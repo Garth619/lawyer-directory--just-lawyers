@@ -1182,7 +1182,7 @@ add_action( 'gform_advancedpostcreation_post_after_creation', 'update_term_infor
 
 function update_term_information( $post_id, $feed, $entry, $form ) {
 	
-		if(!rgar( $entry, '42' ) == 'Claim Free Profile') {
+		if(rgar( $entry, '42' ) !== 'Claim Free Profile') {
 		
 			//old address from orignal posts need to get updated for consistency
     	
@@ -1526,7 +1526,7 @@ function update_term_information( $post_id, $feed, $entry, $form ) {
     
     // practice areas
     
-    if(!$entry['42'] =="Claim Free Profile") {
+    if($entry['42'] !== "Claim Free Profile") {
     
     
     	$postid = $post->ID;
@@ -1558,7 +1558,7 @@ function update_term_information( $post_id, $feed, $entry, $form ) {
 		//getting post
     $post = get_post( $entry['post_id'] );
     
-    if(!rgar( $entry, '42' ) == 'Claim Free Profile') {
+    if(rgar( $entry, '42' ) !== 'Claim Free Profile') {
     
     	update_field( 'lawyer_street_address', rgar( $entry, '36' ), $post );
 			update_field( 'lawyer_city', rgar( $entry, '39' ), $post );
@@ -1697,7 +1697,7 @@ function update_term_information( $post_id, $feed, $entry, $form ) {
     
     // if profile choice is free claim, then dont reassingn the address, leave it alone
     
-    if(!rgar( $entry, '42' ) == 'Claim Free Profile') {
+    if(rgar( $entry, '42' ) !== 'Claim Free Profile') {
 	    
 	     
 	     update_field( 'lawyer_street_address', rgar( $entry, '36' ), $post );
@@ -2057,20 +2057,24 @@ function update_term_information( $post_id, $feed, $entry, $form ) {
     		
 		// practice areas
 		
-		if(!$entry['42'] =="Claim Free Profile") {
+		if($entry['42'] !== "Claim Free Profile") {
+			
+
 				
-			$field_id = 28; // Update this number to your field id number
-			$field = RGFormsModel::get_field( $form, $field_id );
-			$value = is_object( $field ) ? $field->get_value_export( $entry, $field_id, true ) : '';
+				$field_id = 28; 
+				$field = RGFormsModel::get_field( $form, $field_id );
+				$value = is_object( $field ) ? $field->get_value_export( $entry, $field_id, true ) : '';
 		
 			wp_set_post_terms( $postid, $value, 'practice_area' );
+			
+			
 		
 		}
 		
 		
 		// featured lawyer
 		
-		if($entry['42'] =="Premium Profile $189/Year") { // this value or featured lawyer wont work
+		if($entry['42'] == "Premium Profile $189/Year") { // this value or featured lawyer wont work
 			
 			wp_set_post_terms( $postid, 'Featured Lawyer', 'featured_lawyers' );
 			
@@ -2124,7 +2128,7 @@ function update_term_information( $post_id, $feed, $entry, $form ) {
 	    update_field( 'lawyer_website', rgar( $entry, '5' ), $post );
     }
         
-    if(!rgar( $entry, '42' ) == 'Claim Free Profile') {
+    if(rgar( $entry, '42' ) !== 'Claim Free Profile') {
 	    
 	     
 	     update_field( 'lawyer_street_address', rgar( $entry, '36' ), $post );
@@ -2476,7 +2480,7 @@ function update_term_information( $post_id, $feed, $entry, $form ) {
 		// practice areas
 				
 
-		if(!$entry['42'] =="Claim Free Profile") {
+		if($entry['42'] !== "Claim Free Profile") {
 				
 			$field_id = 28; // Update this number to your field id number
 			$field = RGFormsModel::get_field( $form, $field_id );

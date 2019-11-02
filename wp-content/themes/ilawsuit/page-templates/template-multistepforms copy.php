@@ -86,43 +86,8 @@
 		<?php 
 			
 			if(is_singular('lawyer')) {
-				
-				// logged out claim profile form
-	
-				if(!is_user_logged_in()) { 
 		
-					gravity_form(2, false, false, false, '', true, 1344);
-				
-				}
-				
-				// upgrade profile while logged in
-	
-				if(is_user_logged_in() && get_current_user_id() == $post->post_author) {
-					
-					// if the profile is currently a free profile
-					
-					if(get_field('lawyer_premium_layout_two') == 'Claim Free Profile') {
-						
-						echo "<div class='free_profile_form'";
-							
-						gravity_form(11, false, false, false, '', true, 1357);
-							
-						echo "</div>";
-						
-					}
-					
-					if(get_field('lawyer_premium_layout_two') == 'Basic Profile $119/Year') {
-							
-							echo "<div class='basic_profile_form'";
-							
-							gravity_form(11, false, false, false, '', true, 1357);
-							
-							echo "</div>";
-						
-					}
-
-					
-				}
+				gravity_form(2, false, false, false, '', true, 1344);
 				
 				echo "<span class='go_back_to_profile'>Go Back to Profile</span>";
 			
@@ -130,7 +95,7 @@
 			
 			if(is_page_template('page-templates/template-createprofile.php')) {
 				
-				gravity_form(4, false, false, false, '', true, 1364);
+				gravity_form(4, false, false, false, '', true, 1344);
 				
 			}
 		

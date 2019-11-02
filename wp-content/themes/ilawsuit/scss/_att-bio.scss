@@ -572,6 +572,9 @@ h2.att_bio_title {
 	span.related_att_title {
 		display: block;
 		font-size:65px;
+		max-width: 1280px;
+		margin-left:auto;
+		margin-right:auto;
 		line-height: 75px;
 		font-family: $prata;
 	}
@@ -675,9 +678,11 @@ a.claim_button {
 	height:100%;
 	background: rgba(0,0,0,0.7);
 	z-index:20;
+/*
 	position: fixed;
 	top:0;
 	left:0;
+*/
 	overflow-y: scroll;
 	background: #fff;
 	display: none;
@@ -906,9 +911,11 @@ a.claim_button {
 			ul {
 				display: block;
 				margin-bottom:0;
-				li.gchoice_11_42_0, li.gchoice_11_42_1 {
+				
+				li.gchoice_11_42_0 {
 					display: none;
 				}
+
 				li {
 					display: flex;
 					flex-basis: 100%;
@@ -966,6 +973,7 @@ a.claim_button {
 				height:25px;
 				border: 2px solid #d8d8d8;
 				position: relative;
+				flex-shrink: 0;
 				&:checked {
 					//background: $offwhite;
 					&:after {
@@ -1198,7 +1206,15 @@ a.claim_button {
 }
 
 
+.basic_profile_form {
+	li.gchoice_11_42_1 {
+		display: none !important;
+	}
+}
 
+li#field_11_110 {
+	display: none;
+}
 
 
 .gform_validation_error {

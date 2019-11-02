@@ -495,7 +495,11 @@
 				
 </div><!-- internal_main -->
 
-
+<?php 
+	
+	// logged out claim profile form
+	
+	if(!is_user_logged_in()) { ?>
 
 <div class="overlay claim_overlay content">
 						
@@ -510,3 +514,24 @@
 </div><!-- overlay -->
 
 
+<?php } ?>
+
+<?php 
+	
+	// upgrade profile while logged in
+	
+	if(is_user_logged_in() && get_current_user_id() == $post->post_author) { ?>
+
+	<div class="overlay claim_overlay premium_overlay content">
+						
+	<div class="overlay_inner">
+							
+		<div class="overlay_close"></div><!-- overlay_close -->
+							
+			<?php get_template_part('page-templates/template','multistepformsloggedin');?>
+							
+		</div><!-- overlay_inner -->
+						
+</div><!-- overlay -->
+
+<?php } ?>

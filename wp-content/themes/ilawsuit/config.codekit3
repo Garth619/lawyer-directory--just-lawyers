@@ -822,12 +822,28 @@
 		"oAP": "/page-templates/template-login.php",
 		"oF": 0
 		},
+	"/page-templates/template-multistepforms copy.php": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 0,
+		"oAP": "/page-templates/template-multistepforms copy.php",
+		"oF": 0
+		},
 	"/page-templates/template-multistepforms.php": {
 		"cB": 0,
 		"ft": 8192,
 		"hM": 0,
 		"oA": 0,
 		"oAP": "/page-templates/template-multistepforms.php",
+		"oF": 0
+		},
+	"/page-templates/template-multistepformsloggedin copy.php": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 0,
+		"oAP": "/page-templates/template-multistepformsloggedin copy.php",
 		"oF": 0
 		},
 	"/page-templates/template-multistepformsloggedin.php": {
@@ -1203,6 +1219,14 @@
 		"hM": 0,
 		"oA": 0,
 		"oAP": "/single-premiumlawyer.php",
+		"oF": 0
+		},
+	"/single-standardlawyer copy.php": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 0,
+		"oAP": "/single-standardlawyer copy.php",
 		"oF": 0
 		},
 	"/single-standardlawyer.php": {
