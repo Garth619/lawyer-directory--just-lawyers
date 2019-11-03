@@ -6,9 +6,84 @@
 		
 		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
 		
-		<div class="price_tier_wrapper">
+		
+			<?php if(get_field('lawyer_premium_layout_two') == 'Claim Free Profile') { ?>
+				
+				<div class="price_tier_wrapper claim_profile_update">
+				
+					<div class="price_tier">
+		
+						<h3>Basic Profile</h3>
 			
-		<?php if(is_singular('lawyer')) {?>
+						<span class="price_tier_subheder">$99/Year</span><!-- price_tier_subheder -->
+		
+						<p>Lorem ipsum dolor sit amet, consectetur adip</p>
+		
+						<div class="layout_selection">
+			
+							<span class="radio_button radio_button_two"></span>
+			
+							<span class="radio_button_verbiage">Update Basis Profile</span>
+			
+						</div><!-- layout_selection -->
+		
+					</div><!-- price_tier -->
+		
+					<div class="price_tier">
+		
+						<h3>Premium Profile</h3>
+			
+						<span class="price_tier_subheder">$199/Year</span><!-- price_tier_subheder -->
+		
+						<p>Lorem ipsum dolor sit amet, consectetur adip</p>
+		
+						<div class="layout_selection">
+			
+							<span class="radio_button radio_button_three"></span>
+			
+							<span class="radio_button_verbiage">Update Premium Profile</span>
+			
+						</div><!-- layout_selection -->
+		
+				</div><!-- price_tier -->
+		
+			</div><!-- price_tier_wrapper -->
+
+		<?php } ?>
+		
+		<?php if(get_field('lawyer_premium_layout_two') == 'Basic Profile $119/Year') { ?>
+		
+			<div class="price_tier_wrapper basic_profile_update">
+					
+				<div class="price_tier">
+		
+					<h3>Premium Profile</h3>
+			
+					<span class="price_tier_subheder">$199/Year</span><!-- price_tier_subheder -->
+		
+					<p>Lorem ipsum dolor sit amet, consectetur adip</p>
+		
+					<div class="layout_selection">
+			
+						<span class="radio_button radio_button_three"></span>
+			
+						<span class="radio_button_verbiage">Update Premium Profile</span>
+			
+					</div><!-- layout_selection -->
+		
+				</div><!-- price_tier -->
+		
+			</div><!-- price_tier_wrapper -->
+
+		<?php } ?>
+		
+		<?php 
+			
+			// before a profile is claimed when user hasnt been created yet
+			
+			if(!get_field('lawyer_premium_layout_two')) { ?>
+		
+			<div class="price_tier_wrapper pre_claim_update">
 		
 			<div class="price_tier">
 		
@@ -28,46 +103,46 @@
 		
 			</div><!-- price_tier -->
 		
-		<?php } ?>
+			<div class="price_tier">
 		
-		<div class="price_tier">
-		
-			<h3>Basic Profile</h3>
+				<h3>Basic Profile</h3>
 			
-			<span class="price_tier_subheder">$99/Year</span><!-- price_tier_subheder -->
+				<span class="price_tier_subheder">$99/Year</span><!-- price_tier_subheder -->
 		
-			<p>Lorem ipsum dolor sit amet, consectetur adip</p>
+				<p>Lorem ipsum dolor sit amet, consectetur adip</p>
 		
-			<div class="layout_selection">
+				<div class="layout_selection">
 			
-				<span class="radio_button radio_button_two"></span>
+					<span class="radio_button radio_button_two"></span>
 			
-				<span class="radio_button_verbiage">Update Basis Profile</span>
+					<span class="radio_button_verbiage">Update Basis Profile</span>
 			
-			</div><!-- layout_selection -->
+				</div><!-- layout_selection -->
 		
-		</div><!-- price_tier -->
+			</div><!-- price_tier -->
 		
-		<div class="price_tier">
+			<div class="price_tier">
 		
-			<h3>Premium Profile</h3>
+				<h3>Premium Profile</h3>
 			
-			<span class="price_tier_subheder">$199/Year</span><!-- price_tier_subheder -->
+				<span class="price_tier_subheder">$199/Year</span><!-- price_tier_subheder -->
 		
-			<p>Lorem ipsum dolor sit amet, consectetur adip</p>
+				<p>Lorem ipsum dolor sit amet, consectetur adip</p>
 		
-			<div class="layout_selection">
+				<div class="layout_selection">
 			
-				<span class="radio_button radio_button_three"></span>
+					<span class="radio_button radio_button_three"></span>
 			
-				<span class="radio_button_verbiage">Update Premium Profile</span>
+					<span class="radio_button_verbiage">Update Premium Profile</span>
 			
-			</div><!-- layout_selection -->
+				</div><!-- layout_selection -->
 		
-		</div><!-- price_tier -->
+			</div><!-- price_tier -->
 		
 		</div><!-- price_tier_wrapper -->
 		
+		<?php } ?>
+	
 		<span class="claim_begin">Let's Begin</span><!-- claim_begin -->
 		
 		<?php 
@@ -135,8 +210,6 @@
 			}
 		
 		?>
-		
-	
 		
 		</div><!-- mymultistep_form -->
 		
