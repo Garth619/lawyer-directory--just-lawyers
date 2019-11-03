@@ -7,7 +7,7 @@
 		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
 		
 		
-			<?php if(get_field('lawyer_premium_layout_two') == 'Claim Free Profile') { ?>
+			<?php if(get_field('lawyer_premium_layout_two') == 'Claim Free Profile' ||is_page_template('page-templates/template-createprofile.php'))  { ?>
 				
 				<div class="price_tier_wrapper claim_profile_update">
 				
@@ -15,7 +15,7 @@
 		
 						<h3>Basic Profile</h3>
 			
-						<span class="price_tier_subheder">$99/Year</span><!-- price_tier_subheder -->
+						<span class="price_tier_subheader">$99/Year</span><!-- price_tier_subheader -->
 		
 						<p>Lorem ipsum dolor sit amet, consectetur adip</p>
 		
@@ -33,7 +33,7 @@
 		
 						<h3>Premium Profile</h3>
 			
-						<span class="price_tier_subheder">$199/Year</span><!-- price_tier_subheder -->
+						<span class="price_tier_subheader">$199/Year</span><!-- price_tier_subheader -->
 		
 						<p>Lorem ipsum dolor sit amet, consectetur adip</p>
 		
@@ -59,7 +59,7 @@
 		
 					<h3>Premium Profile</h3>
 			
-					<span class="price_tier_subheder">$199/Year</span><!-- price_tier_subheder -->
+					<span class="price_tier_subheader">$199/Year</span><!-- price_tier_subheader -->
 		
 					<p>Lorem ipsum dolor sit amet, consectetur adip</p>
 		
@@ -77,79 +77,76 @@
 
 		<?php } ?>
 		
-		<?php 
+		<?php if(is_singular('lawyer') && !is_user_logged_in()) { ?>
+		
+			<div class="price_tier_wrapper pre_claim_profile_update">
+				
+				<div class="price_tier">
+		
+					<h3>Claim Profile</h3>
 			
-			// before a profile is claimed when user hasnt been created yet
+					<span class="price_tier_subheader">Free</span><!-- price_tier_subheader -->
+		
+					<p>Lorem ipsum dolor sit amet, consectetur adip</p>
+		
+					<div class="layout_selection">
 			
-			if(!get_field('lawyer_premium_layout_two')) { ?>
-		
-			<div class="price_tier_wrapper pre_claim_update">
-		
-			<div class="price_tier">
-		
-				<h3>Claim Profile</h3>
+						<span class="radio_button radio_button_one checked"></span>
 			
-				<span class="price_tier_subheder">Free</span><!-- price_tier_subheder -->
-		
-				<p>Lorem ipsum dolor sit amet, consectetur adip</p>
-		
-				<div class="layout_selection">
+						<span class="radio_button_verbiage">Claim Profile</span>
 			
-					<span class="radio_button radio_button_one checked"></span>
+					</div><!-- layout_selection -->
+		
+				</div><!-- price_tier -->
+
+				<div class="price_tier">
+		
+						<h3>Basic Profile</h3>
 			
-					<span class="radio_button_verbiage">Claim Profile</span>
+						<span class="price_tier_subheader">$99/Year</span><!-- price_tier_subheader -->
+		
+						<p>Lorem ipsum dolor sit amet, consectetur adip</p>
+		
+						<div class="layout_selection">
 			
-				</div><!-- layout_selection -->
-		
-			</div><!-- price_tier -->
-		
-			<div class="price_tier">
-		
-				<h3>Basic Profile</h3>
+							<span class="radio_button radio_button_two"></span>
 			
-				<span class="price_tier_subheder">$99/Year</span><!-- price_tier_subheder -->
-		
-				<p>Lorem ipsum dolor sit amet, consectetur adip</p>
-		
-				<div class="layout_selection">
+							<span class="radio_button_verbiage">Update Basis Profile</span>
 			
-					<span class="radio_button radio_button_two"></span>
+						</div><!-- layout_selection -->
+		
+					</div><!-- price_tier -->
+
+					
+				<div class="price_tier">
+		
+					<h3>Premium Profile</h3>
 			
-					<span class="radio_button_verbiage">Update Basis Profile</span>
+					<span class="price_tier_subheader">$199/Year</span><!-- price_tier_subheader -->
+		
+					<p>Lorem ipsum dolor sit amet, consectetur adip</p>
+		
+					<div class="layout_selection">
 			
-				</div><!-- layout_selection -->
-		
-			</div><!-- price_tier -->
-		
-			<div class="price_tier">
-		
-				<h3>Premium Profile</h3>
+						<span class="radio_button radio_button_three"></span>
 			
-				<span class="price_tier_subheder">$199/Year</span><!-- price_tier_subheder -->
-		
-				<p>Lorem ipsum dolor sit amet, consectetur adip</p>
-		
-				<div class="layout_selection">
+						<span class="radio_button_verbiage">Update Premium Profile</span>
 			
-					<span class="radio_button radio_button_three"></span>
-			
-					<span class="radio_button_verbiage">Update Premium Profile</span>
-			
-				</div><!-- layout_selection -->
+					</div><!-- layout_selection -->
 		
-			</div><!-- price_tier -->
+				</div><!-- price_tier -->
 		
-		</div><!-- price_tier_wrapper -->
+			</div><!-- price_tier_wrapper -->
 		
 		<?php } ?>
-	
+		
 		<span class="claim_begin">Let's Begin</span><!-- claim_begin -->
 		
 		<?php 
 			
 			if(is_singular('lawyer')) {?>
 		
-				<span class="go_back_to_profile">Go Back to Profile</span><!-- go_back_to_profile -->
+				<div class="go_back_to_profile">Go Back to Profile</div><!-- go_back_to_profile -->
 		
 		<?php } ?>
 		
@@ -199,7 +196,7 @@
 					
 				}
 				
-				echo "<span class='go_back_to_profile'>Go Back to Profile</span>";
+				echo "<div class='go_back_to_profile go_back_form'>Go Back to Profile</div>";
 			
 			}
 			

@@ -736,7 +736,7 @@ a.claim_button {
 				line-height: 22px;
 				font-size: 17px;
 			}
-			span.price_tier_subheder {
+			span.price_tier_subheader {
 				display: block;
 				text-transform: uppercase;
 				color:$blue;
@@ -805,7 +805,7 @@ a.claim_button {
 	}
 	
 	
-	span.go_back_to_profile {
+	.go_back_to_profile {
 		display: block;
 		color:$blue;
 		font-size: 16px;
@@ -814,7 +814,13 @@ a.claim_button {
 		text-align: center;
 		text-decoration: underline;
 		margin-bottom: 200px;
-		}
+	}
+	
+	
+	.go_back_form {
+		display: none;
+		text-align: center;
+	}
 
 	
 	body.page-template-template-createprofile {
@@ -912,7 +918,7 @@ a.claim_button {
 				display: block;
 				margin-bottom:0;
 				
-				li.gchoice_11_42_0 {
+				li.gchoice_11_42_0, li.gchoice_4_42_0 {
 					display: none;
 				}
 
@@ -2050,7 +2056,7 @@ span.ginput_card_security_code_icon {
  }
  
  
- span.go_back_to_profile {
+ .go_back_to_profile {
 	 margin-bottom: 100px;
  }
 

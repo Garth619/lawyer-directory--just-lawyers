@@ -617,7 +617,7 @@ $('.sec_three_tab').on('click', function(e) {
 	  
 		$('.price_description').fadeOut(300);
 		
-		$('.mymultistep_form').delay(500).fadeIn(300);
+		$('.mymultistep_form, .go_back_form').delay(500).fadeIn(300);
 	
 	});
 	
