@@ -17,7 +17,7 @@
 			
 						<span class="price_tier_subheader">$99/Year</span><!-- price_tier_subheader -->
 		
-						<p>Lorem ipsum dolor sit amet, consectetur adip</p>
+						<p>Lorem ipsum dolor sit amet, consectetur adip amet dolor</p>
 		
 						<div class="layout_selection">
 			
@@ -35,7 +35,7 @@
 			
 						<span class="price_tier_subheader">$199/Year</span><!-- price_tier_subheader -->
 		
-						<p>Lorem ipsum dolor sit amet, consectetur adip</p>
+						<p>Lorem ipsum dolor sit amet, consectetur adip amet dolor</p>
 		
 						<div class="layout_selection">
 			
@@ -61,7 +61,7 @@
 			
 					<span class="price_tier_subheader">$199/Year</span><!-- price_tier_subheader -->
 		
-					<p>Lorem ipsum dolor sit amet, consectetur adip</p>
+					<p>Lorem ipsum dolor sit amet, consectetur adip amet dolor</p>
 		
 					<div class="layout_selection">
 			
@@ -87,7 +87,7 @@
 			
 					<span class="price_tier_subheader">Free</span><!-- price_tier_subheader -->
 		
-					<p>Lorem ipsum dolor sit amet, consectetur adip</p>
+					<p>Lorem ipsum dolor sit amet, consectetur adip amet dolor</p>
 		
 					<div class="layout_selection">
 			
@@ -105,7 +105,7 @@
 			
 						<span class="price_tier_subheader">$99/Year</span><!-- price_tier_subheader -->
 		
-						<p>Lorem ipsum dolor sit amet, consectetur adip</p>
+						<p>Lorem ipsum dolor sit amet, consectetur adip amet dolor</p>
 		
 						<div class="layout_selection">
 			
@@ -124,7 +124,7 @@
 			
 					<span class="price_tier_subheader">$199/Year</span><!-- price_tier_subheader -->
 		
-					<p>Lorem ipsum dolor sit amet, consectetur adip</p>
+					<p>Lorem ipsum dolor sit amet, consectetur adip amet dolor</p>
 		
 					<div class="layout_selection">
 			

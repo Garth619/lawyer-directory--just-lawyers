@@ -602,7 +602,7 @@ $('.sec_three_tab').on('click', function(e) {
 	
 	// close/back to profile
 	
-	$('.overlay_close, span.go_back_to_profile').on('click', function(e) {
+	$('.overlay_close, .go_back_to_profile').on('click', function(e) {
 		
 		$('.overlay').fadeOut(400);
 		
