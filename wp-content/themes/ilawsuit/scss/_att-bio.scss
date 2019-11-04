@@ -896,6 +896,23 @@ a.claim_button {
 	}
 
 
+.update_custom_form {
+	.myselect_dropdown {
+		width:101%;
+		position: relative;
+		top: 23px;
+		ul {
+			
+			li {
+				flex-basis:47% !important;
+			}
+		}
+	}
+}
+
+
+
+
 .claim_overlay.open {
 	opacity: 1;
 	visibility: visible;
@@ -1903,6 +1920,18 @@ span.ginput_card_security_code_icon {
 	
 } /* Media Query */
 
+@media screen and (max-width: 835px) {
+	
+	
+	.update_custom_form {
+		.myselect_dropdown {
+			width:100.5%;
+		}
+	}
+	
+	
+} /* Media Query */
+
 
 @media screen and (max-width: 767px) {
 	
@@ -2127,11 +2156,27 @@ span.ginput_card_security_code_icon {
  
  .myselect_dropdown {
 	 width:100%;
+	 position: relative;
 	 left:0;
+	 top:15px;
 		ul {
 			padding:25px;
 			li {
+				margin-bottom: 10px;
 				flex-basis: 100% !important;
+			}
+		}
+	}
+	
+	
+	.update_custom_form {
+		.myselect_dropdown {
+			width:100%;
+			ul {
+				padding:25px;
+				li {
+					flex-basis: 100% !important;
+				}
 			}
 		}
 	}

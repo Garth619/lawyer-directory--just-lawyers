@@ -3,7 +3,7 @@
 // @codekit-prepend 'slick.js'
 // @codekit-prepend 'lity.js'
 // @codekit-prepend 'modernizr-webp.js'
-// @codekit-prepend 'selectbox.js'
+
 
 jQuery(document).ready(function($){
 	
@@ -597,6 +597,8 @@ $('.sec_three_tab').on('click', function(e) {
 		
 		$('#internal_main').fadeOut(400);
 		
+		$('.mobile_edit').fadeOut(400);
+		
 		$('.overlay').delay(800).fadeIn();
 			
 	});
@@ -608,6 +610,8 @@ $('.sec_three_tab').on('click', function(e) {
 		$('.overlay').fadeOut(400);
 		
 		$('#internal_main').delay(800).fadeIn();
+		
+		$('.mobile_edit').delay(800).fadeIn(400);
 		
 	});
 	

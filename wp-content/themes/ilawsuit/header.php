@@ -150,6 +150,12 @@
 	
 	</header>
 	
+	<?php 
+		
+		// this clashed with the multistep forms visually its confusing
+		
+		if(!is_singular('lawyer')) {?>
+	
 	
 	<div class="mobile_sticky_header">
 		
@@ -180,6 +186,11 @@
 			</div><!-- mobile_search_overlay_inner -->
 			
 		</div><!-- mobile_search_overlay -->
+	
+	
+	<?php } ?>
+	
+	
 	
 	
 	
