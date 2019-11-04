@@ -43,7 +43,7 @@
 }
 
 .ui-front {
-	z-index: 100;
+	z-index: 1;
 }
 
 
@@ -121,7 +121,7 @@
 }
 .ui-menu .ui-menu-item-wrapper {
 	position: relative;
-	padding: 3px 1em 3px .4em;
+	padding: 3px 20px;
 }
 .ui-menu .ui-menu-divider {
 	margin: 5px 0;
@@ -158,7 +158,8 @@
 	right: 0;
 }
 .ui-button {
-	padding: .4em 1em;
+	padding: 5px 20px;
+	height:52px;
 	display: inline-block;
 	position: relative;
 	line-height: normal;
@@ -700,6 +701,7 @@ button.ui-button::-moz-focus-inner {
 }
 .ui-selectmenu-text {
 	display: block;
+	margin-top:7px;
 	margin-right: 20px;
 	overflow: hidden;
 	text-overflow: ellipsis;
@@ -707,7 +709,7 @@ button.ui-button::-moz-focus-inner {
 .ui-selectmenu-button.ui-button {
 	text-align: left;
 	white-space: nowrap;
-	width: 14em;
+	width: 100%;
 }
 .ui-selectmenu-icon.ui-icon {
 	float: right;
@@ -892,7 +894,9 @@ body .ui-tooltip {
 	font-size: 1em;
 }
 .ui-widget.ui-widget-content {
-	border: 1px solid #c5c5c5;
+	border: 2px solid #d8d8d8;
+	border-top:none;
+	padding:10px 0;
 }
 .ui-widget-content {
 	border: 1px solid #dddddd;
@@ -923,8 +927,8 @@ body .ui-tooltip {
 works properly when clicked or hovered */
 html .ui-button.ui-state-disabled:hover,
 html .ui-button.ui-state-disabled:active {
-	border: 1px solid #c5c5c5;
-	background: #f6f6f6;
+	border: 2px solid #d8d8d8;
+	background: #fff;
 	font-weight: normal;
 	color: #454545;
 }
@@ -946,10 +950,12 @@ a:visited.ui-button,
 .ui-widget-header .ui-state-focus,
 .ui-button:hover,
 .ui-button:focus {
+/*
 	border: 1px solid #cccccc;
 	background: #ededed;
 	font-weight: normal;
 	color: #2b2b2b;
+*/
 }
 .ui-state-hover a,
 .ui-state-hover a:hover,
@@ -1273,25 +1279,25 @@ a.ui-button:active,
 .ui-corner-top,
 .ui-corner-left,
 .ui-corner-tl {
-	border-top-left-radius: 3px;
+	border-top-left-radius: 10px;
 }
 .ui-corner-all,
 .ui-corner-top,
 .ui-corner-right,
 .ui-corner-tr {
-	border-top-right-radius: 3px;
+	border-top-right-radius: 10px;
 }
 .ui-corner-all,
 .ui-corner-bottom,
 .ui-corner-left,
 .ui-corner-bl {
-	border-bottom-left-radius: 3px;
+	border-bottom-left-radius: 10px;
 }
 .ui-corner-all,
 .ui-corner-bottom,
 .ui-corner-right,
 .ui-corner-br {
-	border-bottom-right-radius: 3px;
+	border-bottom-right-radius: 10px;
 }
 
 /* Overlays */
