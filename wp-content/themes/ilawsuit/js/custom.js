@@ -3,7 +3,7 @@
 // @codekit-prepend 'slick.js'
 // @codekit-prepend 'lity.js'
 // @codekit-prepend 'modernizr-webp.js'
-// @codekit-prepend 'jquery-ui.js'
+// @codekit-prepend 'selectbox.js'
 
 jQuery(document).ready(function($){
 	
@@ -819,8 +819,72 @@ $('.sec_three_tab').on('click', function(e) {
 
 	function selectStyle() {
 		
-		$( ".mycustom-select select" ).selectmenu();
-	 	
+		// grabs all options text
+		
+		var valuesArray = $("li.mylawyer_state option").map(function(){
+			return this.value;
+		});
+		
+		// variable to get current value
+		
+		var currentValue = $('li.mylawyer_state select').val();
+		
+		// list out all options data into new list
+		
+		ul = $('<ul>');
+
+		$.each(valuesArray, function(index, value) {
+  		$('<li>').text(value).appendTo(ul);
+		});
+		
+		// create new markup
+
+		
+		$('<div class="myselect_wrapper"><div class="myselect_label"><span>'+currentValue+'</span></div><div class="myselect_dropdown"></div></div>').insertAfter('li.mylawyer_state select');
+
+		ul.appendTo('.myselect_dropdown');
+		
+		// open dropdown
+		
+		$('.myselect_label').on('click', function(e) {
+			
+				$('.myselect_dropdown').addClass('open');
+		  
+		});
+		
+		// on list item click get the text and add it to the label, also update the select val
+		
+		$('.myselect_dropdown ul li').on('click', function(e) {
+		  
+		  var selectVal = $(this).text();
+		  
+		  $('.myselect_label > span').replaceWith('<span>'+selectVal+'</span>');
+		  
+		  $('li.mylawyer_state select').val(selectVal);
+		  
+		  $('.myselect_dropdown').removeClass('open');
+		  
+		
+		});
+		
+		// click anywhere outside the dropdown to have it close (mimic select behavior)
+		
+		
+		$(document).click(function (e){
+
+			var container = $(".myselect_wrapper");
+
+			if (!container.is(e.target) && container.has(e.target).length === 0){
+
+				$('.myselect_dropdown').removeClass('open');
+		
+			}
+
+		}); 
+
+		
+		
+			 	
 	 }
 	 
 	 selectStyle();

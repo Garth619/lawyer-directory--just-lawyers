@@ -852,7 +852,48 @@ a.claim_button {
 			}
 		}
 	}
-
+	
+	
+	.myselect_wrapper {
+		position: relative;
+	}
+	
+	.myselect_label {
+		padding:7px 20px 5px;
+		width:100%;
+		height:52px;
+		background: #fff;
+		border-radius: 10px;
+		position: relative;
+		border: 2px solid #d8d8d8;
+	}
+	
+	.myselect_dropdown {
+		position: absolute;
+		top:65px;
+		left:-2px;
+		width:100%;
+		background: #fff;
+		border-radius: 10px;
+		border: 2px solid #d8d8d8;
+		z-index:1;
+		width:211%;
+		display: none;
+		ul {
+			padding:25px 45px;
+			li {
+				flex-basis:30% !important;
+				cursor: pointer;
+				&:first-of-type {
+					display: none;
+				}
+			}
+		}
+	}
+	
+	.myselect_dropdown.open {
+		display: block;
+	}
 
 
 .claim_overlay.open {
@@ -1848,6 +1889,16 @@ span.ginput_card_security_code_icon {
 }
 	
 	
+	
+	.myselect_dropdown {
+		ul {
+			li {
+				flex-basis: 48% !important;
+			}
+		}
+	}
+    
+	
 
 	
 } /* Media Query */
@@ -2072,6 +2123,19 @@ span.ginput_card_security_code_icon {
  .go_back_to_profile {
 	 margin-bottom: 100px;
  }
+ 
+ 
+ .myselect_dropdown {
+	 width:100%;
+	 left:0;
+		ul {
+			padding:25px;
+			li {
+				flex-basis: 100% !important;
+			}
+		}
+	}
+
 
 	
 	

@@ -2679,7 +2679,7 @@ function unqueue_af_css() {
 }
 add_action( 'wp_enqueue_scripts', 'unqueue_af_css', 9999 );
 
-
+//add_filter('show_admin_bar', '__return_false');
 
 	// overrides the confirmation on form 2 to just redirect back itself (the ?p=post_id doesnt redirect properly when starting on the bio post, but works from settings from antoher page like "create a profile"
 	
