@@ -175,7 +175,7 @@
 					
 					if(get_field('lawyer_premium_layout_two') == 'Claim Free Profile') {
 						
-						echo "<div class='free_profile_form'";
+						echo "<div class='free_profile_form'>";
 							
 						gravity_form(11, false, false, false, '', true, 1357);
 							
@@ -185,7 +185,7 @@
 					
 					if(get_field('lawyer_premium_layout_two') == 'Basic Profile $119/Year') {
 							
-							echo "<div class='basic_profile_form'";
+							echo "<div class='basic_profile_form'>";
 							
 							gravity_form(11, false, false, false, '', true, 1357);
 							
