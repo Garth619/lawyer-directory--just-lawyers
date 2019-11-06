@@ -878,6 +878,9 @@ span.enable {
 	background: $bluetwo;
 	text-align: center;
 	padding: 11px 10px;
+	opacity: 1;
+	visibility: visible;
+	transition: all 200ms ease-in-out;
 	span {
 		text-transform: uppercase;
 		display: block;
@@ -886,6 +889,11 @@ span.enable {
     letter-spacing: 0.1em;
     @include montserrat_extrabold;
 	}
+}
+
+.mobile_edit.fadeout {
+	opacity: 0;
+	visibility: hidden;
 }
 	
 	

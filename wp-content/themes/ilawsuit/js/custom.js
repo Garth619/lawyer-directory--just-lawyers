@@ -597,8 +597,8 @@ $('.sec_three_tab').on('click', function(e) {
 		
 		$('#internal_main').fadeOut(400);
 		
-		$('.mobile_edit').fadeOut(400);
-		
+		$('.mobile_edit').addClass('fadeout');
+				
 		$('.overlay').delay(800).fadeIn();
 			
 	});
@@ -611,7 +611,7 @@ $('.sec_three_tab').on('click', function(e) {
 		
 		$('#internal_main').delay(800).fadeIn();
 		
-		$('.mobile_edit').delay(800).fadeIn(400);
+		$('.mobile_edit').removeClass('fadeout');
 		
 	});
 	
