@@ -411,7 +411,7 @@
 					); 
 				
 				 
-				 $mymain_query = new WP_Query($query_args); while($mymain_query->have_posts()) : $mymain_query->the_post(); ?>
+				 $mymain_query = new WP_Query($query_args); if($mymain_query->have_posts()): while($mymain_query->have_posts()) : $mymain_query->the_post(); ?>
                 	
           
           	<div class="related_single_att">
@@ -482,6 +482,12 @@
           
           
           <?php endwhile; ?>
+          
+          <?php else:?>
+          
+          	<span class="no_attorneys_message">There are currently no related attorneys in this area.</span><!-- no_attorneys_message -->
+          
+          <?php endif;?>
 					
 					<?php wp_reset_postdata(); // reset the query ?>
 					

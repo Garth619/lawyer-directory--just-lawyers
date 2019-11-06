@@ -561,7 +561,13 @@ h2.att_bio_title {
 	}
 }
 
-
+span.no_attorneys_message {
+	font-size: 20px;
+  line-height: 28px;
+  font-family: $worksans;
+  display: block;
+  margin-bottom: 50px;
+}
 
 
 .related_att {
@@ -579,6 +585,9 @@ h2.att_bio_title {
 		font-family: $prata;
 	}
 }
+
+
+
 
 
 .related_att_grid {
