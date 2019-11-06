@@ -825,7 +825,48 @@ $('.sec_three_tab').on('click', function(e) {
 		
 		// grabs all options text
 		
-		var valuesArray = $("li.mylawyer_state option").map(function(){
+		// state
+		
+		var stateSelect = '.mymultistep_form_wrapper li.mylawyer_state select';
+		var stateOption = '.mymultistep_form_wrapper li.mylawyer_state option';
+		
+		// update sidebar state
+		
+		var updatestateSelect = '.update_custom_form li.mylawyer_state select';
+		var updatestateOption = '.update_custom_form li.mylawyer_state option';
+		
+		// ccmonth
+		
+		var ccmonthSelect = 'select.ginput_card_expiration_month';
+		var ccmonthOption = 'select.ginput_card_expiration_month option';
+		
+		// ccyear
+		
+		var ccyearSelect = 'select.ginput_card_expiration_year';
+		var ccyearOption = 'select.ginput_card_expiration_year option';
+		
+		
+		// state options
+		
+		var valuesArray = $(stateOption).map(function(){
+			return this.value;
+		});
+		
+		// update state options
+		
+		var updatestateArray = $(updatestateOption).map(function(){
+			return this.value;
+		});
+		
+		// cc month options
+		
+		var ccmonthArray = $(ccmonthOption).map(function(){
+			return this.value;
+		});
+		
+		// cc year options
+		
+		var ccyearArray = $(ccyearOption).map(function(){
 			return this.value;
 		});
 		
@@ -835,24 +876,71 @@ $('.sec_three_tab').on('click', function(e) {
 		
 		// list out all options data into new list
 		
-		ul = $('<ul>');
+		ulstate = $('<ul>');
+		
+		ulupdatestate = $('<ul>');
+		
+		ulccmonth = $('<ul>');
+		
+		ulccyear = $('<ul>');
+		
+		// list state options
 
 		$.each(valuesArray, function(index, value) {
-  		$('<li>').text(value).appendTo(ul);
+  		$('<li>').text(value).appendTo(ulstate);
 		});
 		
-		// create new markup
+		// list update state options
 
+		$.each(updatestateArray, function(index, value) {
+  		$('<li>').text(value).appendTo(ulupdatestate);
+		});
 		
-		$('<div class="myselect_wrapper"><div class="myselect_label"><span>'+currentValue+'</span></div><div class="myselect_dropdown"></div></div>').insertAfter('li.mylawyer_state select');
+		// list cc month options
+		
+		$.each(ccmonthArray, function(index, value) {
+  		$('<li>').text(value).appendTo(ulccmonth);
+		});
+		
+		// list cc year options
+		
+		$.each(ccyearArray, function(index, value) {
+  		$('<li>').text(value).appendTo(ulccyear);
+		});
+		
+		
+		// create new markup
+		
+		// state
 
-		ul.appendTo('.myselect_dropdown');
+		$('<div class="state_wrapper myselect_wrapper"><div class="myselect_label"><span>'+currentValue+'</span></div><div class="myselect_dropdown"></div></div>').insertAfter(stateSelect);
+		
+		// update state
+
+		$('<div class="updatestate_wrapper myselect_wrapper"><div class="myselect_label"><span>'+currentValue+'</span></div><div class="myselect_dropdown"></div></div>').insertAfter(updatestateSelect);
+		
+		// cc month
+		
+		$('<div class="ccmonth_wrapper myselect_wrapper"><div class="myselect_label"><span>Month</span></div><div class="myselect_dropdown"></div></div>').insertAfter(ccmonthSelect);
+		
+		// cc year
+		
+		$('<div class="ccyear_wrapper myselect_wrapper"><div class="myselect_label"><span>Year</span></div><div class="myselect_dropdown"></div></div>').insertAfter(ccyearSelect);
+
+
+		ulstate.appendTo('.state_wrapper .myselect_dropdown');
+		
+		ulupdatestate.appendTo('.updatestate_wrapper .myselect_dropdown');
+		
+		ulccmonth.appendTo('.ccmonth_wrapper .myselect_dropdown');
+		
+		ulccyear.appendTo('.ccyear_wrapper .myselect_dropdown');
 		
 		// open dropdown
 		
 		$('.myselect_label').on('click', function(e) {
 			
-				$('.myselect_dropdown').addClass('open');
+			$(this).next('.myselect_dropdown').addClass('open');
 		  
 		});
 		
@@ -862,9 +950,7 @@ $('.sec_three_tab').on('click', function(e) {
 		  
 		  var selectVal = $(this).text();
 		  
-		  $('.myselect_label > span').replaceWith('<span>'+selectVal+'</span>');
-		  
-		  $('li.mylawyer_state select').val(selectVal);
+		  $(this).closest('.myselect_dropdown').prev('.myselect_label').find('span').replaceWith('<span>'+selectVal+'</span>');
 		  
 		  $('.myselect_dropdown').removeClass('open');
 		  
@@ -892,8 +978,8 @@ $('.sec_three_tab').on('click', function(e) {
 	 }
 	 
 	 selectStyle();
-
-	
+	 
+	 
 	// latitude and longitude
 	
 	function mylatLng() {
