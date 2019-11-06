@@ -940,6 +940,8 @@ $('.sec_three_tab').on('click', function(e) {
 		
 		$('.myselect_label').on('click', function(e) {
 			
+			$('.myselect_dropdown').removeClass('open');
+			
 			$(this).next('.myselect_dropdown').addClass('open');
 		  
 		});

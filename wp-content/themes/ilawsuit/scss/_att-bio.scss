@@ -1283,6 +1283,19 @@ a.claim_button {
 }
 
 
+select.ginput_card_expiration_month, select.ginput_card_expiration_year {
+	display: none;
+}
+
+.ginput_card_expiration_container {
+	.myselect_wrapper {
+		.myselect_label {
+			width:110px;
+		}
+	}
+}
+
+
 .basic_profile_form {
 	li.gchoice_11_42_1 {
 		display: none !important;
