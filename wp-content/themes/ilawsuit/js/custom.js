@@ -237,6 +237,7 @@ jQuery(document).ready(function($){
 
     createWaypoint('internal_main', '.mobile_sticky_header', 'visible', -300, null, true);
     
+    
 
     
 
@@ -552,6 +553,8 @@ $('.sec_three_tab').on('click', function(e) {
 		$('.mobile_search_overlay').slideToggle();
 		
 		$(this).fadeOut(300);
+		
+		$('.mobile_sticky_header').removeClass('show');
 		
 		$('.mobile_refine_wrapper').delay(300).css("display", "flex").hide().fadeIn(300);
 	
@@ -1627,8 +1630,56 @@ $('#acf-form input[type="submit"]').on('click', function(e) {
   
 });
 
+// viewport for custom login screen
+
+if($('.custom_login').length >0 ){
+
+	var viewPortTag=document.createElement('meta');
+	viewPortTag.id="viewport";
+	viewPortTag.name = "viewport";
+	viewPortTag.content = "width=device-width, minimum-scale=1.0, maximum-scale=1.0";
+	document.getElementsByTagName('head')[0].appendChild(viewPortTag);
+
+}
 
 
+// additional nav 
+
+ var loginnav = '<li><a href="'+my_mapdata.current_domain+'/login">Login</a></li>';
+ var logoutnav = '<li><a href="'+my_mapdata.nav_logout+'">Logout</a></li>';
+ var searchnav = '<li class="search_nav"><a>Search</a></li>';
+
+ if(my_mapdata.logged_in == "loggedin") {
+	 
+	 $(logoutnav).appendTo('.nav_col_two ul');
+ 
+ }
+ 
+ if(my_mapdata.logged_in == "loggedout") {
+	 
+	  $(loginnav).appendTo('.nav_col_two ul');
+ 
+ }
+ 
+ 
+ $(searchnav).appendTo('.nav_col_two ul');
+ 
+
+$('li.search_nav').on('click', function(e) {
+	
+		$('nav').fadeOut();
+		
+		$('.mobile_sticky_header').addClass('show');
+		
+		$('.mobile_search_overlay').fadeIn();
+		
+		$('.mobile_refine_wrapper').hide();
+		
+		$('.mobile_close_wrapper').addClass('from_nav');
+		
+		$('.mobile_close_wrapper').css("display", "flex").show();
+	
+	});
 
 
   

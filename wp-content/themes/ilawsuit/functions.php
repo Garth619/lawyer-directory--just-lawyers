@@ -121,6 +121,22 @@ function load_my_styles_scripts() {
        $lawyerbio_latitude = get_field('latitude');
        $lawyerbio_longitude = get_field('longitude');
        
+       // sitewide logout call
+       
+       $navlogout = wp_logout_url();
+              
+       if(is_user_logged_in()) {
+	        
+	        $loggedin = 'loggedin';
+	        
+       }
+       
+       else {
+	       
+	       $loggedin = 'loggedout';
+	       
+       }
+       
        
        // Localize the script with new data array 
 						
@@ -138,6 +154,8 @@ function load_my_styles_scripts() {
 				'lawyerbio_zipcode' => $lawyerbio_zipcode,
 				'lawyerbio_latitude' => $lawyerbio_latitude,
 				'lawyerbio_longitude' => $lawyerbio_longitude,
+				'nav_logout' => $navlogout,
+				'logged_in' => $loggedin,
 			);
 
 			wp_localize_script( 'jquery-addon', 'my_mapdata', $map_array );
