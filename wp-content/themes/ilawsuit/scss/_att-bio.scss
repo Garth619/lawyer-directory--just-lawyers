@@ -1289,8 +1289,17 @@ select.ginput_card_expiration_month, select.ginput_card_expiration_year {
 
 .ginput_card_expiration_container {
 	.myselect_wrapper {
+		margin-bottom: 20px;
 		.myselect_label {
-			width:110px;
+			width:120px;
+		}
+		.myselect_dropdown {
+			width:100%;
+			ul {
+				li {
+					flex-basis:48% !important;
+				}
+			}
 		}
 	}
 }

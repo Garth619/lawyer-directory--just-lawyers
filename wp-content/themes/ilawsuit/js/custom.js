@@ -984,6 +984,57 @@ $('.sec_three_tab').on('click', function(e) {
 	 
 	// latitude and longitude
 	
+	function multisteplatlong() {
+		
+		var latStreet = $('.mymultistep_form_wrapper .mylawyer_streetaddress input').val();
+		var latCity = $('.mymultistep_form_wrapper .mylawyer_city input').val();
+		var latState = $('.mymultistep_form_wrapper .mylawyer_state select').val();
+		var latZip = $('.mymultistep_form_wrapper .mylawyer_zipcode input').val();
+		var address = ''+latStreet+', '+latCity+', '+latState+' '+latZip+'';
+		var address_plus = address.replace(/\s/g , "+");
+		
+		$.ajax({
+			url: 'https://maps.googleapis.com/maps/api/geocode/json?address='+address_plus+'&key=AIzaSyDPAds-G8zjbtCxCC19dH2o_voVQIEjg7o',
+		  dataType: 'json',
+		  success: function(json) {
+		    //console.log(json.results[0].geometry.location.lat);
+		    //console.log(json.results[0].geometry.location.lng);
+		            
+		    var mylat = json.results[0].geometry.location.lat;
+		    var mylong = json.results[0].geometry.location.lng;
+		            
+		    $('.mymultistep_form_wrapper .mylatitude input').val(mylat);
+		    $('.mymultistep_form_wrapper .mylongitude input').val(mylong);
+		  }
+		});
+	}
+	
+	function updatelatlong() {
+		
+		var latStreet = $('.update_custom_form .mylawyer_streetaddress input').val();
+		var latCity = $('.update_custom_form .mylawyer_city input').val();
+		var latState = $('.update_custom_form .mylawyer_state select').val();
+		var latZip = $('.update_custom_form .mylawyer_zipcode input').val();
+		var address = ''+latStreet+', '+latCity+', '+latState+' '+latZip+'';
+		var address_plus = address.replace(/\s/g , "+");
+		
+		$.ajax({
+			url: 'https://maps.googleapis.com/maps/api/geocode/json?address='+address_plus+'&key=AIzaSyDPAds-G8zjbtCxCC19dH2o_voVQIEjg7o',
+		  dataType: 'json',
+		  success: function(json) {
+		    //console.log(json.results[0].geometry.location.lat);
+		    //console.log(json.results[0].geometry.location.lng);
+		            
+		    var mylat = json.results[0].geometry.location.lat;
+		    var mylong = json.results[0].geometry.location.lng;
+		            
+		    $('.update_custom_form .mylatitude input').val(mylat);
+		    $('.update_custom_form .mylongitude input').val(mylong);
+		  }
+		});
+	}
+	
+	
 	function mylatLng() {
 		
 		// read only input
@@ -993,6 +1044,7 @@ $('.sec_three_tab').on('click', function(e) {
 				
 		// clear the old lat and long if the original value is changed
 		
+		
 		$('.myaddress input').on('input', function() {
    
 			$('.mylatitude input, .mylongitude input').val('');
@@ -1001,40 +1053,41 @@ $('.sec_three_tab').on('click', function(e) {
 		
 		// if all address input fields have a value, fire the ajax call to convert the address into latitude/longtitude coordinates
 		
-		$('span.calculate_lat_long').on('click', function(e) {
+		// multistep form
+		
+		$('.mymultistep_form_wrapper span.calculate_lat_long').on('click', function(e) {
 			
 			// if all address inputs are filled out then fire the lat long coordinates on click, spaced out to target each one for validation
 		
 			
-			if(!$('.mylawyer_streetaddress input, .mylawyer_city input, .mylawyer_state input, .mylawyer_zipcode input').val() == '') {
+			if(!$('.mymultistep_form_wrapper .mylawyer_streetaddress input, .mymultistep_form_wrapper .mylawyer_city input, .mymultistep_form_wrapper .mylawyer_state input, .mymultistep_form_wrapper .mylawyer_zipcode input').val() == '') {
 		  
-		  	var latStreet = $('.mylawyer_streetaddress input').val();
-				var latCity = $('.mylawyer_city input').val();
-				var latState = $('.mylawyer_state select').val();
-				var latZip = $('.mylawyer_zipcode input').val();
-				var address = ''+latStreet+', '+latCity+', '+latState+' '+latZip+'';
-				var address_plus = address.replace(/\s/g , "+");
+		  	multisteplatlong();
+		  	
 		  
-				// console.log(address_plus);
-		  
-				$.ajax({
-		      url: 'https://maps.googleapis.com/maps/api/geocode/json?address='+address_plus+'&key=AIzaSyDPAds-G8zjbtCxCC19dH2o_voVQIEjg7o',
-		      dataType: 'json',
-		      success: function(json) {
-		       //console.log(json.results[0].geometry.location.lat);
-		       //console.log(json.results[0].geometry.location.lng);
-		            
-		       var mylat = json.results[0].geometry.location.lat;
-		       var mylong = json.results[0].geometry.location.lng;
-		            
-		       $('.mylatitude input').val(mylat);
-		       $('.mylongitude input').val(mylong);
-		            
-		      }
-		    });
 			}
 		
 		});
+		
+		// update form
+		
+		
+		$('.update_custom_form span.calculate_lat_long').on('click', function(e) {
+			
+			// if all address inputs are filled out then fire the lat long coordinates on click, spaced out to target each one for validation
+		
+			
+			if(!$('.update_custom_form .mylawyer_streetaddress input, .update_custom_form .mylawyer_city input, .update_custom_form .mylawyer_state input, .update_custom_form .mylawyer_zipcode input').val() == '') {
+		  
+		  	updatelatlong();
+		  	
+		  
+			}
+		
+		});
+
+		
+		
 		
 	}
 	
