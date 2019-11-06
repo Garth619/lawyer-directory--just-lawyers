@@ -1680,6 +1680,22 @@ $('li.search_nav').on('click', function(e) {
 		$('.mobile_close_wrapper').css("display", "flex").show();
 	
 	});
+	
+	
+	
+	// temp switch labels on gforms adjust conditionals on backend later
+	
+	
+	
+	
+	$('label#label_2_42_1, label#label_4_42_1, label#label_11_42_1').text('Basic Profile $99/Year');
+	
+	$('label#label_2_42_2, label#label_4_42_2, label#label_11_42_2').text('Premium Profile $199/Year');
+	
+	
+	
+	
+	
 
 
   
