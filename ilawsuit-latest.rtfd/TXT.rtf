@@ -1,20 +1,92 @@
 {\rtf1\ansi\ansicpg1252\cocoartf1671\cocoasubrtf600
-{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fnil\fcharset0 Verdana;\f2\fswiss\fcharset0 ArialMT;
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fswiss\fcharset0 ArialMT;\f2\fnil\fcharset0 Verdana;
 \f3\froman\fcharset0 Palatino-Roman;\f4\froman\fcharset0 Times-Roman;\f5\fnil\fcharset0 LucidaGrande;
 \f6\fswiss\fcharset0 Helvetica-Bold;\f7\fmodern\fcharset0 CourierNewPSMT;\f8\fmodern\fcharset0 CourierNewPS-BoldMT;
 \f9\fmodern\fcharset0 Courier;\f10\fnil\fcharset0 Monaco;}
-{\colortbl;\red255\green255\blue255;\red38\green38\blue38;\red26\green26\blue26;\red255\green255\blue255;
+{\colortbl;\red255\green255\blue255;\red26\green26\blue26;\red255\green255\blue255;\red38\green38\blue38;
 \red0\green0\blue0;\red27\green29\blue31;\red0\green0\blue233;\red51\green51\blue51;\red245\green245\blue245;
 \red63\green105\blue30;\red255\green0\blue0;\red57\green57\blue57;\red236\green236\blue236;\red240\green240\blue245;
 }
-{\*\expandedcolortbl;;\cssrgb\c20000\c20000\c20000;\cssrgb\c13333\c13333\c13333;\cssrgb\c100000\c100000\c100000;
+{\*\expandedcolortbl;;\cssrgb\c13333\c13333\c13333;\cssrgb\c100000\c100000\c100000;\cssrgb\c20000\c20000\c20000;
 \cssrgb\c0\c0\c0;\cssrgb\c14118\c15294\c16078;\cssrgb\c0\c0\c93333;\cssrgb\c25882\c25882\c25882;\cssrgb\c96863\c96863\c96863;
 \csgenericrgb\c24706\c41176\c11765;\csgenericrgb\c100000\c0\c0;\cssrgb\c29020\c29020\c29020;\cssrgb\c94118\c94118\c94118;\cssrgb\c95294\c95294\c96863;
 }
 \margl1440\margr1440\vieww28220\viewh18100\viewkind0
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
-\f0\fs24 \cf0 \
+\f0\fs24 \cf0 does each form need a different endpoint?\
+\
+\
+Here are some basic notes but I was hoping to have you just go through it and find what makes sense and what is confusing from a user\'92s standpoint. Try to Claim a Free Profile, then upgrade it again to a Basic Prfofile, Then Upgrade it again to a premium theme.\
+\
+screenshots\
+\
+We can change but here is what I have for levels:\
+\
+1. Claim Profile - Free \
+ability to change the name, slug, add email, create a user account, and upgrade if they choose. No editing abilities beyond that.\
+2. Basic - Ability to change anything they want. upgrade to premium \
+3. Premium layout , also makes the profile a \'93featured post\'94 this adds the profile to the top of directory results\
+\
+Payments:\
+\
+Paypal Stripe Dilemma \
+\
+list as bullets\
+\
+paypal/gravity form response email, so paypal is having an issue with creating our posts before the payment is processed, bc it leaves the site after the gravity form hooks run. i am looking into a way to use some of the gform hooks that fire after a pyment is processed to see if that will help. I have also sent my question to the gform support team.\
+\
+But in the meantime\'85I got everything to work flawlessly with Stripe. All my redirects work and it actually eliminates alot of the issues I was having with paypal.\
+\
+i looked into stripe and for no extra fee with same % as paypal per transaction, i am able to run the payment directly on the site and it wont create the post unless the credit card is legit and processes plus its twice as fast as paypal. paypal redirects to their page, then you have to go through the process logging in etc. multiple confirm buttons to click, then an additional  click to return to our site.\
+\
+\pard\pardeftab720\sl300\partightenfactor0
+
+\f1\fs26 \cf2 \cb3 \expnd0\expndtw0\kerning0
+If you enable the setting on the PayPal feed it will delay the processing of the APC feed until PayPal sends an IPN message indicating the transaction was successful, which is usually within a few minutes or hours (depending on how busy the PayPal IPN server is) of the user being redirected back to your site from PayPal.
+\f0\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
+tell mike to make a new user \
+4242424242424242\
+choose any future month and year\
+choose any \
+\
+\
+Post creation may take several seconds:\
+\
+Lots of data to be mapped, and it has to cross reference for duplicate post or term names before executing \
+\
+\
+\
+How to Edit:\
+\
+\
+\
+Ask about:\
+Pa checkmarks\
+\
+\
+\
+Premium no repeaters on gforms so some premium stuff might have to added in by the user after the profile is created.\
+\
+so we have a bunch of areas not listed on the premium form that are found in the template, and a bunch of areas listed on the premium form that arent found on the template. Faqs could be the questions but what would be the bio one and bio two? some areas where we are using repeaters for acfs\'85 i cant use them in the gravity form, I need to figure out a way to create repeater inputs fields for gravity forms, cant be acf form bc gform is what is creating the post, // premium auto populate, these areas cant have repeaters on the gravity forms i cant figure out how to get repeaters on gform. so the second best way is to auto populate and then they can go in and adjust after the post is created through the front facing acf form. there are two bios on premium too, how should we handle that?\
+\
+\
+Will work on:\
+\
+I want to run a script with update_fields with posts arrays\
+\
+I want to add a map to the search results pages\
+\
+I want to filter results two additional ways by best reviews and by geolocation\
+\
+\
+\'97\'97\'97\
+\
+\
+\
+does stripe go through even payment fails?\
 \
 tut w table of contents etc maaybe just in site page somwhere\
 ask about the pa options again bc people might not see what they want on their\
@@ -24,6 +96,8 @@ ask about the pa options again bc people might not see what they want on their\
 \
 \
 later:\
+\
+upgrades will actually need to be upgrade in existing subscription\
 \
 search the whole theme for \'93Basic\'94 verbiage, both functions claim and create both have conditionals on 189 a year that needs to be updated smh\'85search the whole theme for \'93Basic\'94 verbiage\'85super annoying that coditional is based on labels not values so when i change the price the whole thing needs to be reconfigured, make sure to back up first bc it was breaking the multistep forms before\
 \
@@ -43,7 +117,7 @@ we need updrade options on the subscriptions on paypal\
 \
 \pard\pardeftab720\sl440\partightenfactor0
 
-\f1\fs35\fsmilli17600 \cf2 \expnd0\expndtw0\kerning0
+\f2\fs35\fsmilli17600 \cf4 \expnd0\expndtw0\kerning0
 Object Oriented PHP\'a0 when combining functions, $post and $post_id might be different\
 \
 maaan just through and add if \{\} else\{\}
@@ -127,21 +201,6 @@ by selecting premium your setting up a featured post all across the directory an
 \cf0 whats the difference between free and basic? tell mike\
 bummer it has to loop a bunch of locations that makes slow, post creation get infinitely faster without having it search through terms during post creation, can I do that afterwards?\
 \
-paypal/gravity form response email, so paypal is having an issue with creating our posts before the payment is processed, bc it leaves the site after the gravity form hooks run. i am looking into a way to use some of the gform hooks that fire after a pyment is processed to see if that will help. I have also sent my question to the gform support team.\
-\
-But in the meantime\'85I got everything to work flawlessly with Stripe. All my redirects work and it actually eliminates alot of the issues I was having with paypal.\
-\
-i looked into stripe and for no extra fee with same % as paypal per transaction, i am able to run the payment directly on the site and it wont create the post unless the credit card is legit and processes plus its twice as fast as paypal. paypal redirects to their page, then you have to go through the process logging in etc. multiple confirm buttons to click, then an additional  click to return to our site.\
-\
-\pard\pardeftab720\sl300\partightenfactor0
-
-\f2\fs26 \cf3 \cb4 \expnd0\expndtw0\kerning0
-If you enable the setting on the PayPal feed it will delay the processing of the APC feed until PayPal sends an IPN message indicating the transaction was successful, which is usually within a few minutes or hours (depending on how busy the PayPal IPN server is) of the user being redirected back to your site from PayPal.
-\f0\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0 \
-\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
-\cf0 \
-tell mike to make a new user \
-4242424242424242\
 \
 instead of redoing all of them i might be able to create a function that checks if my new lat long acfs are empty. if so run the lat long for the posts on the page and update one time only. thenover time the problem will correct itself. or run a chron job to do batch updates as well \
 \
@@ -150,11 +209,11 @@ instead of redoing all of them i might be able to create a function that checks 
 HIDE API KEYS IN FNCTIONS (TO GIT) AND IN JS FILE\
 \pard\pardeftab720\sl440\partightenfactor0
 
-\f3\fs40 \cf5 \cb4 \expnd0\expndtw0\kerning0
+\f3\fs40 \cf5 \cb3 \expnd0\expndtw0\kerning0
 serverside wrapper or proxy\'a0\
 \pard\pardeftab720\sl340\partightenfactor0
 
-\f2\fs30 \cf6 create a PHP wrapper around the API calls that require keys, and then call that wrapper from Javascript\
+\f1\fs30 \cf6 create a PHP wrapper around the API calls that require keys, and then call that wrapper from Javascript\
 maybe try to use config file to ignore the api key in functions.php? or call the file into functions then ignore \
 \
 \
@@ -204,7 +263,7 @@ i could make the post a draft, have it create that\'85without cat creation or wi
 \
 \pard\tx220\tx720\pardeftab720\li720\fi-720\sl390\sa120\partightenfactor0
 
-\f5\fs26 \cf5 \cb4 \expnd0\expndtw0\kerning0
+\f5\fs26 \cf5 \cb3 \expnd0\expndtw0\kerning0
 \'a0{\field{\*\fldinst{HYPERLINK "https://docs.gravityforms.com/gform_trigger_payment_delayed_feeds/"}}{\fldrslt \cf7 \ul gform_trigger_payment_delayed_feeds}}\cf7 \ul \
 \
 \pard\pardeftab720\li1520\sl640\sa648\partightenfactor0
@@ -603,7 +662,7 @@ this worked to export db\
 \
 \pard\pardeftab720\sl300\sa440\partightenfactor0
 
-\f6\b\fs26 \cf5 \cb4 \expnd0\expndtw0\kerning0
+\f6\b\fs26 \cf5 \cb3 \expnd0\expndtw0\kerning0
 Nested Taxonomy Handling:
 \f0\b0 \
 The\'a0

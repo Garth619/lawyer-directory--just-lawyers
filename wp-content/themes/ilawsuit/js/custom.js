@@ -957,6 +957,8 @@ $('.sec_three_tab').on('click', function(e) {
 		  
 		  $(this).closest('.myselect_dropdown').prev('.myselect_label').find('span').replaceWith('<span>'+selectVal+'</span>');
 		  
+		  $(this).closest('.myselect_wrapper').prev('select').val(selectVal);
+		  
 		  $('.myselect_dropdown').removeClass('open');
 		  
 		

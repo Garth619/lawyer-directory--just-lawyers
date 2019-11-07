@@ -12,7 +12,7 @@
 					
 					<?php } else {?>
 						
-						<span class="prompt upgrade_prompt">want to upgrade your profile? Upgrade now</span><!-- upgrade_prompt -->
+						<span class="prompt upgrade_prompt">want to upgrade your profile? Get Started now</span><!-- upgrade_prompt -->
 						
 					<?php } ?>
 				
