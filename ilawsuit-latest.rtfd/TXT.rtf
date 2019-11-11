@@ -14,7 +14,37 @@
 \margl1440\margr1440\vieww28220\viewh18100\viewkind0
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
-\f0\fs24 \cf0 does each form need a different endpoint?\
+\f0\fs24 \cf0 \
+\
+seems kinda shady to store the id and the username in a cookie\
+\
+\
+if user is logged in, go get the username from object, also a logged in true to enable editing capabilities, create profile, navigation and anywhere else there are is user logged in functions and set that to a logged in cookie. then retrieve through ajax\
+\
+if(is_user_logged_in()) \{\
+	        \
+	        $loggedin = 'loggedin';\
+	        \
+       \}\
+       \
+       else \{\
+	       \
+	       $loggedin = 'loggedout';\
+	       \
+       \}\
+\
+is redundant on my new ajax cache buster \
+\
+Hello, I have a few different areas on my site that are using 'is_user_logged_in' The problem is SG Optimizer Cache sometime skips over my is_user_logged_in content. Is there a way to have the plugin overlook those functions? I wouldn't be able to just exclude entire pages/urls because the function is mostly used in the sitewide header.php file. Thanks\
+\
+faqs and case results on mobile cant be over the top\
+check all mobile\
+amex issue on mobile\
+process screen messed up on mobile\
+need some sort of stripe success or stop after it times out after awhile so the process page doesnt hang\
+\
+\
+does each form need a different endpoint?\
 \
 \
 Here are some basic notes but I was hoping to have you just go through it and find what makes sense and what is confusing from a user\'92s standpoint. Try to Claim a Free Profile, then upgrade it again to a Basic Prfofile, Then Upgrade it again to a premium theme.\
@@ -74,6 +104,8 @@ so we have a bunch of areas not listed on the premium form that are found in the
 \
 \
 Will work on:\
+\
+Problem with the aggressive siteground catch skipping over is_user_logged_in function. It will kick you out of logged in session unless you reload page\
 \
 I want to run a script with update_fields with posts arrays\
 \

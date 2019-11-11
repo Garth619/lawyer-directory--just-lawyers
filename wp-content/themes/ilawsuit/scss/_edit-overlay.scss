@@ -795,6 +795,8 @@ span.upgrade_prompt, span.enable_header {
 	letter-spacing: 0.2em;
 	font-size: 15px;
 	line-height: 18px;
+	margin-left:auto;
+	margin-right:auto;
 	@include montserrat_extrabold;
 	&:after {
 		content:"";
