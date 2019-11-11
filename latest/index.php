@@ -39,8 +39,8 @@
 			<ul class="info">
 				<li>Try to Claim a Free Profile</li>
 				<li>Then upgrade it again to a Basic Profile</li>
-				<li>Then upgrade it again to a premium theme.</li>
-				<li>Create a new profile for basic and for premium</li>
+				<li>Then upgrade it again to a Premium Profile.</li>
+				<li>Create a brand new profile for basic and for premium</li>
 			</ul>
 			
 		</div><!-- slidecontent -->
@@ -54,14 +54,14 @@
 			<ul class="info">
 				<li>Ability to change the name, slug, add email, create a user account, and upgrade if they choose.</li>
 				<li>Also collects their personal info to up sell later</li>
-				<li>No editing abilities beyond that, (these can change depending on what you want to do here)</li>
+				<li>No editing abilities beyond that (these can change depending on what you want to do here)</li>
 			</ul>
 			
 			<h3>Basic Profile</h3>
 			
 			<ul class="info">
 				<li>Ability to change anything they want on the front end of the page</li>
-				<li>Ability to Upgrade to premium </li>
+				<li>Ability to upgrade to premium </li>
 			</ul>
 			
 			<h3>Premium Profile with advanced layout</h3>
@@ -78,7 +78,7 @@
 		
 		<div class="slidecontent">
 			
-			<p>Once you get to basic or premium profile levels (claim profile doesn’t have editing capabilities until they buy a subscription), there are front end editing capabilities.</p>
+			<p>Once you get to Basic or Premium profile levels (claim profile doesn’t have editing capabilities until they buy a subscription), there are front end editing capabilities.</p>
 			
 			<p>By hovering over any section on a profile and clicking on the edit icon, you are able to update right there. I did this because the backend of each post looks messy and could be confusing to users. This way is easy and fast.</p>
 			
@@ -98,7 +98,7 @@
 		
 		<div class="slidecontent">
 			
-			<p>Post creation may take several seconds because 1. theres a lot of data to map, 2. It has to check  if there are any other posts with the same tile or terms, so it checks all 597,000 posts. But with the caching on, it seems to still be pretty fast. I made a processing screen for this:</p>
+			<p>Post creation may take several seconds because 1. Theres a lot of data to map 2. It has to check if there are any other posts with the same title or same terms, so it checks all 597,000 posts. But with the caching on, it seems to still be pretty fast. I made a processing screen for this:</p>
 			
 			<img class="c_img" src="/latest/images/c.jpg"/>
 			
@@ -110,9 +110,9 @@
 			
 			<h3>Siteground Cache</h3>
 			
-			<p>First off, the siteground cache is great bc some of the longer queries would normally take a little longer to process without it. But the cache is messing with logged in users. If you're logged in and you hit a cached page, you have to reload the page in order to see some of my logged in content (i.e.) username in header, front facing editing capabilities etc. I’m currently asking support if theres anything I can do. There are three levels of of caching and so I’m also experimenting with which ones are being overly aggressive. Maybe I can find a happy medium of caching preferences this way.</p>
+			<p>First off, the siteground cache is great bc some of the longer queries would normally take a little longer to process without it. But the cache is messing with logged in users. If you're logged in and you hit a cached page, you have to reload the page in order to see some of my logged in content (i.e.) username in header, front facing editing capabilities etc. I’m currently asking Siteground support if theres anything I can do. There are three levels of caching and so I’m also experimenting with which ones are overly aggressive. Maybe I can find a happy medium of caching preferences this way.</p>
 			
-			<p>So if you log in or out and are not seeing any user info of editing icons change, reload the page and the cookie will set. I will try and fix this.</p>
+			<p><i>To sum it up, if you log in or out and are not seeing any user info or editing icons appear, reload the page and the cookie will set. I will try and fix this.</i></p>
 			
 			<h3>Paypal Payments are buggy with post creation/update but Stripe works great:</h3>
 			
@@ -120,14 +120,14 @@
 			
 			<ul class="info">
 				<li>The posts get created/updated before a user’s card is processed.</li>
-				<li>There is an option on paypal to create the post after the payment has cleared, however, paypal support said this can take anywhere from several minutes to a few hours for the IPN to clear the payment. This disrupts the whole process of having the post redirect immediately after paying.</li>
+				<li>There is an option on Paypal to create the post after the payment has cleared, however, Paypal support said this can take anywhere from several minutes to a few hours for the IPN to clear the payment. This disrupts the whole process of having the post redirect immediately after paying.</li>
 			</ul>
 			
 			<p>Here is what Paypal told me:</p>
 			
 			<p><i>“If you enable the setting on the PayPal feed it will delay the processing of the APC feed until PayPal sends an IPN message indicating the transaction was successful, which is usually within a few minutes or hours (depending on how busy the PayPal IPN server is) of the user being redirected back to your site from PayPal.” </i></p>
 			
-			<p>However, I tried Stripe as an alternative and it works great. All my redirects work and it actually eliminates alot of the issues I was having with paypal.</p>
+			<p>However, I tried Stripe as an alternative and it works great. All my redirects work immediately and it actually eliminates alot of the issues I was having with paypal.</p>
 			
 			<h3>Stripe</h3>
 			
@@ -148,7 +148,7 @@
 			<ul class="info">
 				<li>I want to add map results to the search results pages</li>
 				<li>I want to filter results two additional ways by best reviews and by geolocation</li>
-				<li>SEO: Most directory pages don’t have a backend or actually exist bc of the custom permalink structure. I need to look at some examples on how yoast injects meta tags so we can make our own dynamically, but also with the ability to override with unique meta descriptions for most urls.</li>
+				<li>SEO: Most directory pages don’t have a backend or actually exist because of the custom permalink structure. I need to look at some examples on how yoast injects meta tags so we can make our own dynamically, but also with the ability to override with unique meta descriptions for most urls.</li>
 			</ul>
 			
 		</div><!-- slidecontent -->
@@ -163,7 +163,7 @@
 			
 			<h3>Premium Layout Bios and Form</h3>
 			
-			<p>So we have a bunch of areas not listed on the premium form that are found in the template, and a bunch of areas listed on the premium form that aren't found on the template. See Below. Faqs could be the form questions.  There are also two bios on premium too, how should we handle that in the form inputs?</p>
+			<p>So we have a bunch of areas not listed on the premium form that are found in the template, and a bunch of areas listed on the premium form that aren't found on the template. See Below. There are also two bios on premium too, how should we handle that in the form inputs? Faqs could maybe map from some of the form questions. </p>
 			
 			<p>I wasn’t sure where to map these types of questions below onto the premium template. There are several of them:</p>
 			
