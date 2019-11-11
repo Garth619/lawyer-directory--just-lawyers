@@ -24,7 +24,7 @@
 			
 			<p>Make sure to clear your cache</p>
 			
-			<p>Please go over the notes/questions/comments below, but initially, I was hoping you could walk through claiming profile as if you are a user. See what makes sense and what needs to be change and give me feedback</p>
+			<p>Please go over the notes/questions/comments below, but initially, I was hoping you could just dive in and claim a profile as if you are a user. See what makes sense and what needs to be change and give me feedback.</p>
 			
 			<p>Here is the fake Credit Card Info to use:</p>
 			
