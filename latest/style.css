@@ -27,15 +27,24 @@ line-height: 1;
 
 .content h2, .content h3, .content h4 {
 	display: block;
+	margin-bottom:20px;
 }
 
 .content h2 {
-	font-size: 23px;
+	font-size: 20px;
 	letter-spacing: 0.05em;
-	line-height: 29px;
-	padding:10px 0;
+	line-height: 26px;
+	padding:10px 20px;
+	text-transform: uppercase;
 	margin-bottom:15px;
 	cursor: pointer;
+	color:#fff;
+	background: #04289f;
+}
+
+.content h3 {
+	font-size: 17px;
+	line-height: 21px;
 }
 
 .content h2:after {
@@ -47,12 +56,13 @@ line-height: 1;
 
 .content p {
 	font-size: 16px;
-	line-height: 19px;
+	line-height: 22px;
 	margin-bottom:20px;
 }
 
 .slidecontent {
 	display: none;
+	padding-top:10px;
 }
 
 .content .info {
@@ -62,8 +72,10 @@ line-height: 1;
 }
 
 ul {
-	list-style: none;
+	list-style: circle;
 	margin-bottom:20px;
+	font-size: 16px;
+	line-height: 22px;
 }
 
 li {
@@ -75,5 +87,25 @@ span.number {
 	font-weight: bold;
 	letter-spacing: 0.05em;
 }
+
+img {
+	width:100%;
+	max-width: 600px;
+	height:auto;
+	display: block;
+	margin-bottom:20px;
+}
+
+img.f_img {
+	max-width:300px;
+}
+
+/*
+img.e_img, img.d_img, img.c_img {
+	max-width:600px;
+}
+*/
+
+
 
 
