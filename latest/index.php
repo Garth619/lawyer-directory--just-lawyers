@@ -103,6 +103,55 @@
 			<img class="c_img" src="/latest/images/c.jpg"/>
 			
 		</div><!-- slidecontent -->
+				
+		<h2 class="slide">Issues</h2>
+		
+		<div class="slidecontent">
+			
+			<h3>Siteground Cache</h3>
+			
+			<p>First off, the siteground cache is great bc some of the longer queries would normally take a little longer to process without it. But the cache is messing with logged in users. If you're logged in and you hit a cached page, you have to reload the page in order to see some of my logged in content (i.e.) username in header, front facing editing capabilities etc. I’m currently asking support if theres anything I can do. There are three levels of of caching and so I’m also experimenting with which ones are being overly aggressive. Maybe I can find a happy medium of caching preferences this way.</p>
+			
+			<p>So if you log in or out and are not seeing any user info of editing icons change, reload the page and the cookie will set. I will try and fix this.</p>
+			
+			<h3>Paypal Payments are buggy with post creation/update but Stripe works great:</h3>
+			
+			<p>I am having a few issues with Paypal Standard disrupting the post creation process. A few things break once the user is taken away from our site and onto paypal.</p>
+			
+			<ul class="info">
+				<li>The posts get created/updated before a user’s card is processed.</li>
+				<li>There is an option on paypal to create the post after the payment has cleared, however, paypal support said this can take anywhere from several minutes to a few hours for the IPN to clear the payment. This disrupts the whole process of having the post redirect immediately after paying.</li>
+			</ul>
+			
+			<p>Here is what Paypal told me:</p>
+			
+			<p><i>“If you enable the setting on the PayPal feed it will delay the processing of the APC feed until PayPal sends an IPN message indicating the transaction was successful, which is usually within a few minutes or hours (depending on how busy the PayPal IPN server is) of the user being redirected back to your site from PayPal.” </i></p>
+			
+			<p>However, I tried Stripe as an alternative and it works great. All my redirects work and it actually eliminates alot of the issues I was having with paypal.</p>
+			
+			<h3>Stripe</h3>
+			
+			<ul class="info">
+				<li>There are no extra fees with same % per transaction as Paypal</li>
+				<li>I am able to run the payment directly on our site and it won’t create the post unless the credit card is legit.</li>
+				<li>Its twice as fast as Paypal. Paypal redirects to their page, then you have to go through the process logging in etc. multiple confirm buttons to click, then an additional click to return to our site. Stripe just processes in the background allowing my hooks to create/update post and then redirect to the newly created post.</li>
+			</ul>
+			
+			<p>Let me know your thoughts on possibly using Stripe</p>
+			
+		</div><!-- slidecontent -->
+		
+		<h2 class="slide">Ongoing work</h2>
+		
+		<div class="slidecontent">
+			
+			<ul class="info">
+				<li>I want to add map results to the search results pages</li>
+				<li>I want to filter results two additional ways by best reviews and by geolocation</li>
+				<li>SEO: Most directory pages don’t have a backend or actually exist bc of the custom permalink structure. I need to look at some examples on how yoast injects meta tags so we can make our own dynamically, but also with the ability to override with unique meta descriptions for most urls.</li>
+			</ul>
+			
+		</div><!-- slidecontent -->
 		
 		<h2 class="slide">Questions for you</h2>
 		
@@ -125,32 +174,7 @@
 			<p>Gravity forms doesn’t allow for repeatable input, so I have it set up to when they upgrade to premium, those repeatable layout areas will show up as lorem ipsum, then they can edit them right away through front facing acf form.</p>
 			
 		</div><!-- slidecontent -->
-		
-		<h2 class="slide">Issues and ongoing</h2>
-		
-		<div class="slidecontent">
-			
-			<h3>Siteground Cache</h3>
-			
-			<p>First off, the siteground cache is great bc some of the longer queries would normally take a little longer to process without it. But the cache is messing with logged in users. If you're logged in and you hit a cached page, you have to reload the page in order to see some of my logged in content (i.e.) username in header, front facing editing capabilities etc. I’m currently asking support if theres anything I can do. There are three levels of of caching and so I’m also experimenting with which ones are being overly aggressive. Maybe I can find a happy medium of caching preferences this way.</p>
-			
-			<p>So if you log in or out and are not seeing any user info of editing icons change, reload the page and the cookie will set. I will try and fix this.</p>
-			
-			<h3>Paypal Payments are buggy with post creation/update but Stripe works great:</h3>
-			
-			<p>I am having a few issues with Paypal Standard disrupting the post creation process. A few things break once the user is taken away from our site and onto paypal.</p>
-			
-			<ul class="info">
-				<li>The posts get created/updated before a user’s card is processed.</li>
-				<li>There is an option on paypal to create the post after the payment has cleared, however, paypal support said this can take anywhere from several minutes to a few hours for the IPN to clear the payment. This disrupts the whole process of having the post redirect immediately after paying.</li>
-			</ul>
-			
-			<p>Here is what Paypal told me:</p>
-			
-			<p><i>“If you enable the setting on the PayPal feed it will delay the processing of the APC feed until PayPal sends an IPN message indicating the transaction was successful, which is usually within a few minutes or hours (depending on how busy the PayPal IPN server is) of the user being redirected back to your site from PayPal.” </i></p>
 
-			
-		</div><!-- slidecontent -->
 		
 	</div><!-- content -->
 	
