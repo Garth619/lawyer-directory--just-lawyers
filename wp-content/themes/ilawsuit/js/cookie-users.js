@@ -25,9 +25,9 @@
 					
 					if (Cookie.exists(ajaxInfo.ajax_username)) {
 					
-						//console.log('cookie '+ajaxInfo.ajax_username+' exists');
+						console.log('cookie '+ajaxInfo.ajax_username+' exists');
 						
-						$('a.username_post_link').text('ajax test');
+						//$('a.username_post_link').text('ajax test');
 						
 					
 					}

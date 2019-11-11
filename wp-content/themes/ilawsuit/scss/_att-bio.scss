@@ -1480,26 +1480,26 @@ span.overylay_header {
 	padding-top:10px;
 	margin-bottom:45px;
 	.gform_card_icon {
-		flex-basis:50px;
+		width:50px;
 		flex-shrink:0;
 		height:31px;
 		text-indent: -9999px;
 		margin-right:8px;
 	}
 	.gform_card_icon_amex {
-		background: url(#{$themePath}images/amex.png);
+		background: url(#{$themePath}images/amex.png) no-repeat;
 		background-size: 50px 31px;
 	}
 	.gform_card_icon_discover {
-		background: url(#{$themePath}images/discover.png);
+		background: url(#{$themePath}images/discover.png) no-repeat;
 		background-size: 50px 31px;
 	}
 	.gform_card_icon_mastercard {
-		background: url(#{$themePath}images/master.png);
+		background: url(#{$themePath}images/master.png) no-repeat;
 		background-size: 50px 31px;
 	}
 	.gform_card_icon_visa {
-		background: url(#{$themePath}images/visa.png);
+		background: url(#{$themePath}images/visa.png) no-repeat;
 		background-size: 50px 31px;
 	}
 }

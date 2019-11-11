@@ -190,59 +190,7 @@ function load_my_styles_scripts() {
  add_action( 'wp_enqueue_scripts', 'load_my_styles_scripts', 20 );
  
  
- // ajax cache busting cookies for logged in users
- 
-add_action( 'wp_enqueue_scripts', 'wpshout_cookie_scripts' );
-
-function wpshout_cookie_scripts() {
-	wp_enqueue_script( 'cookie-users', get_template_directory_uri() . '/js/cookie-users-min.js', array( 'jquery', 'cookie' ) );
-	wp_enqueue_script( 'cookie', get_template_directory_uri() . '/js/cookie-min.js', array( 'jquery' ) );
-	
-	global $current_user; 
-	
-	if(is_user_logged_in()) {
-	        
-	   $loggedin = 'ajax_loggedin';
-	   $getname = $current_user->user_login;
-	   $getid = $current_user->ID;
-	        
-   }
-       
-  else {
-	       
-		$loggedin = 'ajax_loggedout';
-		$getname = 'no user';
-	       
-  }
-
-	/* Telling the JS file where ajaxUrl is */
-	wp_localize_script( 'cookie-users', 'ajaxInfo', array( 
-		'url' => admin_url() . 'admin-ajax.php',
-		'ajax_loggedin' => $loggedin,
-		'ajax_username' => $getname,
-		'ajax_userid' => $getid,
-	) );
-}
-
-
-add_action( 'wp_ajax_wpshout_get_fave_food_cookie', 'wpshout_get_fave_food_cookie' );
-add_action( 'wp_ajax_nopriv_wpshout_get_fave_food_cookie', 'wpshout_get_fave_food_cookie' );
-
-
-function wpshout_get_fave_food_cookie() {
-	
-	
-	$cookie = $_POST['cookie'];
-	echo $_COOKIE[ $cookie ];
-	die;
-	
-	
-	
-	
-}
-
-
- 
+  
  
  
  /* Defer JS for Lighthouse
