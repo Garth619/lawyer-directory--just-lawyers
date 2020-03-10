@@ -52,7 +52,7 @@
 	
 		<div class="input_wrapper city_state_input">
 	
-			<input type="text" placeholder="City or State" value="" name="attorney_location" required />
+			<input type="text" placeholder="City or State" value="" autocomplete="off" name="attorney_location" required />
 	
 		</div><!-- input_wrapper -->
 	

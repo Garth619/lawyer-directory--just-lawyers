@@ -58,7 +58,7 @@ function load_my_styles_scripts() {
 				
 				// Get lat and long by address 
      
-     		$google_map_api = 'AIzaSyDPAds-G8zjbtCxCC19dH2o_voVQIEjg7o';
+     		$google_map_api = 'AIzaSyBxrP4KivR3OsTV9Rvy8OuTv6PBJtjk4R4';
      		
 		 		// pa url query -> pa id conversion
 	
@@ -2220,154 +2220,7 @@ function update_term_information( $post_id, $feed, $entry, $form ) {
     
    
     
-    if(rgar( $entry, '42' ) == 'Premium Profile $189/Year') {
-    
-    
-    	// premium auto populate, these areas cant have repeaters on the gravity forms i cant figure out how to get repeaters on gform. so the second best way is to auto populate and then they can go in and adjust after the post is created through the front facing acf form
-			
-			$prem_bio = 'Lawyer Bio Content Section One';
-			
-			update_field( 'field_5b67c74fb7d3e', $prem_bio, $post_id );
-			
-			// selling points section
-			
-			$prem_selling_title = 'Selling Point Title';
-			
-			update_field( 'field_5c86cf23e8492', $prem_selling_title, $post_id );
-			
-			// selling point description
-			
-			$prem_selling_description = 'Selling Point Description';
-			
-			update_field( 'field_5c86cf7735c24', $prem_selling_description, $post_id );
-			
-			// selling poiny bg
-			
-			$prem_selling_bg = 'Building';
-			
-			update_field( 'field_5c86c4c695a34', $prem_selling_bg, $post_id );
-
-			// second bio section
-			
-			$prem_bio_two = 'Lawyer Bio Content Section Two';
-			
-			update_field( 'field_5c86cfdfe5bd2', $prem_bio_two, $post_id );
-			
-			
-			// bar admissions
-			
-			
-			$prem_bar_admission = array(
-			  // nested for each row
-			  array(
-			    'field_5c86d86e93e12' => 'Bar Admission List Item'
-			  ),
-			  array(
-			    'field_5c86d86e93e12' => 'Bar Admission List Item'
-			  ),
-			  array(
-			    'field_5c86d86e93e12' => 'Bar Admission List Item'
-			  ),
-			);
-			
-			/*
-			foreach ($wows as $wow) {
-			    $feature_value = (string)$second_gen;
-			    $value[] = array( 'field_59606dc9525dc' => $feature_value );
-			}
-			*/
-			
-			update_field( 'field_5c86d7cc93e11', $prem_bar_admission, $post_id );
-			
-			
-			// Case Results
-			
-			$prem_case_results = array(
-			  // nested for each row
-			  array(
-			    'field_5c86def7caf29' => 'Case Results Title',
-			    'field_5c86df05caf2a' => 'Verdict',
-			    'field_5c86df0fcaf2b' => 'Description',
-			  ),
-			  array(
-			    'field_5c86def7caf29' => 'Case Results Title',
-			    'field_5c86df05caf2a' => 'Verdict',
-			    'field_5c86df0fcaf2b' => 'Description',
-			  ),
-			  array(
-			    'field_5c86def7caf29' => 'Case Results Title',
-			    'field_5c86df05caf2a' => 'Verdict',
-			    'field_5c86df0fcaf2b' => 'Description',
-			  ),
-			  array(
-			    'field_5c86def7caf29' => 'Case Results Title',
-			    'field_5c86df05caf2a' => 'Verdict',
-			    'field_5c86df0fcaf2b' => 'Description',
-			  ),
-			  
-			);
-			
-			update_field( 'field_5c86dee8caf28', $prem_case_results, $post_id );
-			
-			
-			// faqs
-			
-			// column one
-			
-			$prem_faqs = array(
-			  // nested for each row
-			  array(
-			    'field_5c86e1292b9ea' => 'Question',
-			    'field_5c86e1332b9eb' => 'Answer',
-			  ),
-			  array(
-			    'field_5c86e1292b9ea' => 'Question',
-			    'field_5c86e1332b9eb' => 'Answer',
-			  ),
-			  array(
-			    'field_5c86e1292b9ea' => 'Question',
-			    'field_5c86e1332b9eb' => 'Answer',
-			  ),
-			  array(
-			    'field_5c86e1292b9ea' => 'Question',
-			    'field_5c86e1332b9eb' => 'Answer',
-			  ),
-			  
-			);
-			
-			update_field( 'field_5c86e1152b9e9', $prem_faqs, $post_id );
-			
-			
-			// column two
-			
-			$prem_faqs_two = array(
-			  // nested for each row
-			  array(
-			    'field_5c86e1a5d7024' => 'Question',
-			    'field_5c86e1a5d7025' => 'Answer',
-			  ),
-			   array(
-			    'field_5c86e1a5d7024' => 'Question',
-			    'field_5c86e1a5d7025' => 'Answer',
-			  ),
-				 array(
-			    'field_5c86e1a5d7024' => 'Question',
-			    'field_5c86e1a5d7025' => 'Answer',
-			  ),
-				 array(
-			    'field_5c86e1a5d7024' => 'Question',
-			    'field_5c86e1a5d7025' => 'Answer',
-			  ),
-			
-			    
-			);
-			
-			update_field( 'field_5c86e1a5d7023', $prem_faqs_two, $post_id );
-			
-			
-			}
-
-        
+            
     // featured image
     
     if(rgar( $entry, 55 )) {
@@ -2517,10 +2370,154 @@ function update_term_information( $post_id, $feed, $entry, $form ) {
 			
 			wp_set_post_terms( $postid, 'Featured Lawyer', 'featured_lawyers' );
 			
+			$postid = $post->ID;
+    
+    
+    	// premium auto populate, these areas cant have repeaters on the gravity forms i cant figure out how to get repeaters on gform. so the second best way is to auto populate and then they can go in and adjust after the post is created through the front facing acf form
+			
+			$prem_bio = 'Lawyer Bio Content Section One';
+			
+			update_field( 'field_5b67c74fb7d3e', $prem_bio, $postid );
+			
+			// selling points section
+			
+			$prem_selling_title = 'Selling Point Title';
+			
+			update_field( 'field_5c86cf23e8492', $prem_selling_title, $postid );
+			
+			// selling point description
+			
+			$prem_selling_description = 'Selling Point Description';
+			
+			update_field( 'field_5c86cf7735c24', $prem_selling_description, $postid );
+			
+			// selling poiny bg
+			
+			$prem_selling_bg = 'Building';
+			
+			update_field( 'field_5c86c4c695a34', $prem_selling_bg, $postid );
+
+			// second bio section
+			
+			$prem_bio_two = 'Lawyer Bio Content Section Two';
+			
+			update_field( 'field_5c86cfdfe5bd2', $prem_bio_two, $postid );
+			
+			
+			// bar admissions
+			
+			
+			$prem_bar_admission = array(
+			  // nested for each row
+			  array(
+			    'field_5c86d86e93e12' => 'Bar Admission List Item'
+			  ),
+			  array(
+			    'field_5c86d86e93e12' => 'Bar Admission List Item'
+			  ),
+			  array(
+			    'field_5c86d86e93e12' => 'Bar Admission List Item'
+			  ),
+			);
+			
+			/*
+			foreach ($wows as $wow) {
+			    $feature_value = (string)$second_gen;
+			    $value[] = array( 'field_59606dc9525dc' => $feature_value );
+			}
+			*/
+			
+			update_field( 'field_5c86d7cc93e11', $prem_bar_admission, $postid );
+			
+			
+			// Case Results
+			
+			$prem_case_results = array(
+			  // nested for each row
+			  array(
+			    'field_5c86def7caf29' => 'Case Results Title',
+			    'field_5c86df05caf2a' => 'Verdict',
+			    'field_5c86df0fcaf2b' => 'Description',
+			  ),
+			  array(
+			    'field_5c86def7caf29' => 'Case Results Title',
+			    'field_5c86df05caf2a' => 'Verdict',
+			    'field_5c86df0fcaf2b' => 'Description',
+			  ),
+			  array(
+			    'field_5c86def7caf29' => 'Case Results Title',
+			    'field_5c86df05caf2a' => 'Verdict',
+			    'field_5c86df0fcaf2b' => 'Description',
+			  ),
+			  array(
+			    'field_5c86def7caf29' => 'Case Results Title',
+			    'field_5c86df05caf2a' => 'Verdict',
+			    'field_5c86df0fcaf2b' => 'Description',
+			  ),
+			  
+			);
+			
+			update_field( 'field_5c86dee8caf28', $prem_case_results, $postid );
+			
+			
+			// faqs
+			
+			// column one
+			
+			$prem_faqs = array(
+			  // nested for each row
+			  array(
+			    'field_5c86e1292b9ea' => 'Question',
+			    'field_5c86e1332b9eb' => 'Answer',
+			  ),
+			  array(
+			    'field_5c86e1292b9ea' => 'Question',
+			    'field_5c86e1332b9eb' => 'Answer',
+			  ),
+			  array(
+			    'field_5c86e1292b9ea' => 'Question',
+			    'field_5c86e1332b9eb' => 'Answer',
+			  ),
+			  array(
+			    'field_5c86e1292b9ea' => 'Question',
+			    'field_5c86e1332b9eb' => 'Answer',
+			  ),
+			  
+			);
+			
+			update_field( 'field_5c86e1152b9e9', $prem_faqs, $postid );
+			
+			
+			// column two
+			
+			$prem_faqs_two = array(
+			  // nested for each row
+			  array(
+			    'field_5c86e1a5d7024' => 'Question',
+			    'field_5c86e1a5d7025' => 'Answer',
+			  ),
+			   array(
+			    'field_5c86e1a5d7024' => 'Question',
+			    'field_5c86e1a5d7025' => 'Answer',
+			  ),
+				 array(
+			    'field_5c86e1a5d7024' => 'Question',
+			    'field_5c86e1a5d7025' => 'Answer',
+			  ),
+				 array(
+			    'field_5c86e1a5d7024' => 'Question',
+			    'field_5c86e1a5d7025' => 'Answer',
+			  ),
+			
+			    
+			);
+			
+			update_field( 'field_5c86e1a5d7023', $prem_faqs_two, $postid );
+			
+			
+			}
+
 		}
-		
-		
-	}
 
 
 	

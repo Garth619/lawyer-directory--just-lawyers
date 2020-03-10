@@ -999,7 +999,7 @@ $('.sec_three_tab').on('click', function(e) {
 		var address_plus = address.replace(/\s/g , "+");
 		
 		$.ajax({
-			url: 'https://maps.googleapis.com/maps/api/geocode/json?address='+address_plus+'&key=AIzaSyDPAds-G8zjbtCxCC19dH2o_voVQIEjg7o',
+			url: 'https://maps.googleapis.com/maps/api/geocode/json?address='+address_plus+'&key=AIzaSyBxrP4KivR3OsTV9Rvy8OuTv6PBJtjk4R4',
 		  dataType: 'json',
 		  success: function(json) {
 		    //console.log(json.results[0].geometry.location.lat);
@@ -1024,7 +1024,7 @@ $('.sec_three_tab').on('click', function(e) {
 		var address_plus = address.replace(/\s/g , "+");
 		
 		$.ajax({
-			url: 'https://maps.googleapis.com/maps/api/geocode/json?address='+address_plus+'&key=AIzaSyDPAds-G8zjbtCxCC19dH2o_voVQIEjg7o',
+			url: 'https://maps.googleapis.com/maps/api/geocode/json?address='+address_plus+'&key=AIzaSyBxrP4KivR3OsTV9Rvy8OuTv6PBJtjk4R4',
 		  dataType: 'json',
 		  success: function(json) {
 		    //console.log(json.results[0].geometry.location.lat);
