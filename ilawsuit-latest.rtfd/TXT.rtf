@@ -4,17 +4,20 @@
 \f6\fswiss\fcharset0 Helvetica-Bold;\f7\fmodern\fcharset0 CourierNewPSMT;\f8\fmodern\fcharset0 CourierNewPS-BoldMT;
 \f9\fmodern\fcharset0 Courier;\f10\fnil\fcharset0 Monaco;}
 {\colortbl;\red255\green255\blue255;\red0\green0\blue233;\red26\green26\blue26;\red255\green255\blue255;
-\red38\green38\blue38;\red0\green0\blue0;\red27\green29\blue31;\red51\green51\blue51;\red245\green245\blue245;
-\red63\green105\blue30;\red255\green0\blue0;\red57\green57\blue57;\red236\green236\blue236;\red240\green240\blue245;
-}
+\red0\green0\blue233;\red38\green38\blue38;\red0\green0\blue0;\red27\green29\blue31;\red51\green51\blue51;
+\red245\green245\blue245;\red63\green105\blue30;\red255\green0\blue0;\red57\green57\blue57;\red236\green236\blue236;
+\red240\green240\blue245;}
 {\*\expandedcolortbl;;\cssrgb\c0\c0\c93333;\cssrgb\c13333\c13333\c13333;\cssrgb\c100000\c100000\c100000;
-\cssrgb\c20000\c20000\c20000;\cssrgb\c0\c0\c0;\cssrgb\c14118\c15294\c16078;\cssrgb\c25882\c25882\c25882;\cssrgb\c96863\c96863\c96863;
-\csgenericrgb\c24706\c41176\c11765;\csgenericrgb\c100000\c0\c0;\cssrgb\c29020\c29020\c29020;\cssrgb\c94118\c94118\c94118;\cssrgb\c95294\c95294\c96863;
-}
+\cssrgb\c0\c0\c93333;\cssrgb\c20000\c20000\c20000;\cssrgb\c0\c0\c0;\cssrgb\c14118\c15294\c16078;\cssrgb\c25882\c25882\c25882;
+\cssrgb\c96863\c96863\c96863;\csgenericrgb\c24706\c41176\c11765;\csgenericrgb\c100000\c0\c0;\cssrgb\c29020\c29020\c29020;\cssrgb\c94118\c94118\c94118;
+\cssrgb\c95294\c95294\c96863;}
 \margl1440\margr1440\vieww28220\viewh18100\viewkind0
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
-\f0\fs24 \cf0 clean code so its like this:\
+\f0\fs24 \cf0 need new latlong to show up in custom field probably, oh and i need to think about that im using the lat long acf for new customers\'85\
+\
+\
+clean code so its like this:\
 \
 <?php\
 class Fruit \{\
@@ -85,7 +88,7 @@ divorce is only on one post on the whole need an easy way to bulk edit that\
 \pard\pardeftab720\sl280\partightenfactor0
 {\field{\*\fldinst{HYPERLINK "https://stackoverflow.com/questions/22087076/how-to-make-a-simple-image-upload-using-javascript-html"}}{\fldrslt 
 \f1 \cf2 \expnd0\expndtw0\kerning0
-\ul \ulc2 https://stackoverflow.com/questions/22087076/how-to-make-a-simple-image-upload-using-javascript-html}}\
+\ul https://stackoverflow.com/questions/22087076/how-to-make-a-simple-image-upload-using-javascript-html}}\
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 \cf0 \
 city isnt mapping correctly on form 11 9 works though, its gotta be something above 11 in the functions ok confirmed that its something above, its wokring when remove all, I need to see whats breaking it \
@@ -150,6 +153,12 @@ Post creation may take several seconds:\
 Lots of data to be mapped, and it has to cross reference for duplicate post or term names before executing \
 \
 \
+\pard\pardeftab720\sl280\partightenfactor0
+{\field{\*\fldinst{HYPERLINK "https://att-directory.com/wp-json/mapping/v1/location/los-angeles/business/1"}}{\fldrslt 
+\f1 \cf5 \expnd0\expndtw0\kerning0
+\ul \ulc5 \outl0\strokewidth0 \strokec5 https://att-directory.com/wp-json/mapping/v1/location/los-angeles/business/1}}\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 \
 \
 How to Edit:\
 \
@@ -211,7 +220,7 @@ we need updrade options on the subscriptions on paypal\
 \
 \pard\pardeftab720\sl440\partightenfactor0
 
-\f3\fs35\fsmilli17600 \cf5 \expnd0\expndtw0\kerning0
+\f3\fs35\fsmilli17600 \cf6 \expnd0\expndtw0\kerning0
 Object Oriented PHP\'a0 when combining functions, $post and $post_id might be different\
 \
 maaan just through and add if \{\} else\{\}
@@ -303,11 +312,11 @@ instead of redoing all of them i might be able to create a function that checks 
 HIDE API KEYS IN FNCTIONS (TO GIT) AND IN JS FILE\
 \pard\pardeftab720\sl440\partightenfactor0
 
-\f4\fs40 \cf6 \cb4 \expnd0\expndtw0\kerning0
+\f4\fs40 \cf7 \cb4 \expnd0\expndtw0\kerning0
 serverside wrapper or proxy\'a0\
 \pard\pardeftab720\sl340\partightenfactor0
 
-\f2\fs30 \cf7 create a PHP wrapper around the API calls that require keys, and then call that wrapper from Javascript\
+\f2\fs30 \cf8 create a PHP wrapper around the API calls that require keys, and then call that wrapper from Javascript\
 maybe try to use config file to ignore the api key in functions.php? or call the file into functions then ignore \
 \
 \
@@ -357,16 +366,16 @@ i could make the post a draft, have it create that\'85without cat creation or wi
 \
 \pard\tx220\tx720\pardeftab720\li720\fi-720\sl390\sa120\partightenfactor0
 
-\f5\fs26 \cf6 \cb4 \expnd0\expndtw0\kerning0
+\f5\fs26 \cf7 \cb4 \expnd0\expndtw0\kerning0
 \'a0{\field{\*\fldinst{HYPERLINK "https://docs.gravityforms.com/gform_trigger_payment_delayed_feeds/"}}{\fldrslt \cf2 \ul gform_trigger_payment_delayed_feeds}}\cf2 \ul \
 \
 \pard\pardeftab720\li1520\sl640\sa648\partightenfactor0
 
-\f0\fs54 \cf8 \cb9 \ulnone gform_post_payment_action\
+\f0\fs54 \cf9 \cb10 \ulnone gform_post_payment_action\
 \
 \pard\pardeftab720\sl360\partightenfactor0
 
-\f6\b\fs32 \cf8 Payment Completed
+\f6\b\fs32 \cf9 Payment Completed
 \f0\b0 \'a0hook
 \fs54 \
 \pard\tx220\tx720\pardeftab720\li720\fi-720\sl390\sa120\partightenfactor0
@@ -640,7 +649,7 @@ templates\
 \'97\'97\'97\'97\'97\'97\'97\'97\'97\'97\
 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
-\cf10 1. pre_get_post\cf0 \
+\cf11 1. pre_get_post\cf0 \
 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
@@ -656,7 +665,7 @@ templates\
 	- runs a pre_get_post - needs a rewrite rule setup to handle pagination\
 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
-\cf10 2. Unable to run pre_get_post at this time, each of these loops are similar with multiple wp_query calls, these also seem like I\'92m running a few things too many times\cf0 \
+\cf11 2. Unable to run pre_get_post at this time, each of these loops are similar with multiple wp_query calls, these also seem like I\'92m running a few things too many times\cf0 \
 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
@@ -665,14 +674,14 @@ templates\
 \
 	- im unable to use pre_get_posts and there are a couple wp_query calls\'85\
 	- timeout on large ones\
-	- I get the first 2000 post ids that are in both the locations and current pa - \cf11 this needs to be improved upon\cf0 \
+	- I get the first 2000 post ids that are in both the locations and current pa - \cf12 this needs to be improved upon\cf0 \
 	- then I return all terms found in locations that have those object_ids (post ids)\
 \
 
 \f6\b \'93template-locations_state_pa.php\'94 /lawyers-practice/colorado/criminal-defense-lawyers/\
 \
 	
-\f0\b0 \cf11 - look at this closer what is get_term_by I think this is here to show just cities tied to a current state id\cf0 \
+\f0\b0 \cf12 - look at this closer what is get_term_by I think this is here to show just cities tied to a current state id\cf0 \
 	- most likely won\'92t be using pre_get_post because I need to run mutiple wp_queries\
 	- I get all post ids in the current state and the current pa\
 	- then I return all terms of locations (cities) that have those object ids (post ids)\
@@ -718,7 +727,7 @@ look at transients again\
 \
 \pard\pardeftab720\sl300\partightenfactor0
 
-\f7\fs26 \cf12 \cb13 \expnd0\expndtw0\kerning0
+\f7\fs26 \cf13 \cb14 \expnd0\expndtw0\kerning0
 \'a0
 \f8\b \cb1 'cache_results'\'a0 => false,
 \f7\b0 \
@@ -756,7 +765,7 @@ this worked to export db\
 \
 \pard\pardeftab720\sl300\sa440\partightenfactor0
 
-\f6\b\fs26 \cf6 \cb4 \expnd0\expndtw0\kerning0
+\f6\b\fs26 \cf7 \cb4 \expnd0\expndtw0\kerning0
 Nested Taxonomy Handling:
 \f0\b0 \
 The\'a0
@@ -772,7 +781,7 @@ The\'a0
 \f0\b0 \'a0category:\
 \pard\pardeftab720\sl312\partightenfactor0
 
-\f10\fs24 \cf6 \cb14 $args = array(\
+\f10\fs24 \cf7 \cb15 $args = array(\
 	'post_type' => 'post',\
 	'tax_query' => array(\
 		'relation' => 'OR',\

@@ -584,6 +584,17 @@
 		"sC": 0,
 		"tS": 0
 		},
+	"/js/custom copy-min.js": {
+		"bF": 0,
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "/js/custom copy-min-min.js",
+		"oF": 0,
+		"sC": 3,
+		"tS": 0
+		},
 	"/js/custom copy.js": {
 		"bF": 0,
 		"ft": 64,
@@ -592,7 +603,7 @@
 		"oA": 0,
 		"oAP": "/js/custom copy-min.js",
 		"oF": 0,
-		"sC": 3,
+		"sC": 0,
 		"tS": 0
 		},
 	"/js/custom-min.js": {

@@ -140,10 +140,61 @@ window.eqfeed_callback = function(myJsonFile) {
 
 
         //loops through the longitude and latitude data
+        
+        
+        var latlngcensus = myJsonFile[i].Latlong[0];
+        
+        console.log(latlngcensus);
+        
+        //https://www.sitepoint.com/community/t/error-split-is-not-a-function/5922/2
+        
+/*
+        var latlongpieces = latlngcensus.toString().split(",");
+				var mylatitude = latlongpieces[0];
+				var mylongitude = latlongpieces[1];
+        
+        console.log(JSON.stringify(mylatitude));
+*/
+        
+        
+        var arr2 = Object.values(latlngcensus);
+        
+				console.log(arr2);
+				
+				
+				var newww = arr2.toString();
+				
+				console.log(newww);
+				
+				var split = newww.split(",");
+				
+				console.log(split);
+				
+				
+				//var arr = ["1", "2", "3"];
+				
+				arr = split.map(Number);
+				
+/*
+				new lat = arr[0];
+				
+				new lng = arr[1]);
+*/
+				
+        
+/*
+        var latlngsplit = latlngcensus.split(",");
+        
+        console.log(latlngsplit);
+*/
+        
         var lat = myJsonFile[i].Lat;
+        //console.log(Lat);
+        
+        
         var long = myJsonFile[i].Lng;
 
-        var latLng = new google.maps.LatLng(lat, long);
+        var latLng = new google.maps.LatLng(arr[1], arr[0]);
         
 				
 				var featuredPost = myJsonFile[i].Featured_lawyer;

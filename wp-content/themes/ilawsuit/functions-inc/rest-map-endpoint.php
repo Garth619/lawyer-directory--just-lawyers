@@ -28,6 +28,8 @@ add_action( 'rest_api_init', 'map_route' );
 	
 	function map_query($request_data) {
 		
+		global $wpdb;
+		
 		$parameters = $request_data->get_params();
     $map_city = $parameters['map_city'];
     $map_pa = $parameters['map_pa'];
@@ -81,13 +83,17 @@ add_action( 'rest_api_init', 'map_route' );
 				
 				$post_ids[] = get_the_ID();
 				
-				// long/lat string to integer conversion
+				
+				$latlong = get_the_ID();    
+				$result = $wpdb->get_results( "SELECT lat_long FROM gmoney_geocode WHERE post_id='".$latlong."'");
 				
 				$latgnum = get_field('latitude');
 				$latfloat = (float)$latgnum;
 				
-				$longnum = get_field('longitude');
-				$longfloat = (float)$longnum;
+				//$longnum = get_field('longitude');
+				//$longfloat = (float)$longnum;
+				
+				
 				
 				// loop data
 				
@@ -97,8 +103,8 @@ add_action( 'rest_api_init', 'map_route' );
 					'Featured_lawyer' => true,
 					'Featured_post_image' => $lawyer_profile_picture,
 					'Permalink' => get_the_permalink(),
-					'Lat' => $latfloat,
-					'Lng' =>  $longfloat,
+					'Latlong' => $result,
+					'Lat' => $latlong,
 					'Full_address' => get_field('lawyer_address'),
 					'Street_address' => get_field('lawyer_street_address'),
 					'City' => get_field('lawyer_city'),
@@ -107,7 +113,7 @@ add_action( 'rest_api_init', 'map_route' );
 					'Zip_code' => get_field('lawyer_zip'),
 					'Tel_href' => str_replace(['-', '(', ')', ' '], '', get_field('lawyer_phone')),
 					//'"ACF"' => get_fields($post->ID)
-					);
+				);
 	    
 			endwhile; 
 		
@@ -156,8 +162,12 @@ add_action( 'rest_api_init', 'map_route' );
 		$latgnum = get_field('latitude');
 		$latfloat = (float)$latgnum;
 				
-		$longnum = get_field('longitude');
-		$longfloat = (float)$longnum;
+		//$longnum = get_field('longitude');
+		//$longfloat = (float)$longnum;
+		
+			
+			$latlong = get_the_ID();    
+			$result = $wpdb->get_results( "SELECT lat_long FROM gmoney_geocode WHERE post_id='".$latlong."'");
 		
 			$post_data_two[] = array(
 		    'Title' => get_the_title(),
@@ -165,8 +175,8 @@ add_action( 'rest_api_init', 'map_route' );
 		    'Permalink' => get_the_permalink(),
 		    'Featured_lawyer' => false,
 		    'Featured_post_image' => false,
-		    'Lat' => $latfloat,
-				'Lng' =>  $longfloat,
+		    'Latlong' => $result,
+		    'Lat' => $latlong,
 		    'Full_address' => get_field('lawyer_address'),
 		    'Street_address' => get_field('lawyer_street_address'),
 				'City' => get_field('lawyer_city'),

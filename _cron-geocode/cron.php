@@ -29,7 +29,7 @@
 	// grab desired list of entries
 	
 	
-	$acfaddress = "SELECT post_id, meta_value FROM gmoney_postmeta WHERE conversion_completed='Not Completed' ORDER BY post_id ASC LIMIT 20";
+	$acfaddress = "SELECT post_id, meta_value FROM gmoney_postmeta WHERE conversion_completed='Not Completed' ORDER BY post_id ASC LIMIT 500";
 	
 	//$acfaddress = "SELECT post_id, meta_value FROM gmoney_postmeta LIMIT 5"; // debug php without running down the primary keys 
 	
@@ -68,7 +68,7 @@
 			
 			// send it to error log and manually look at the address at a later time
 			
-			$txt = "post_id: " . $addressrow["post_id"] . ", " .$addressrow["meta_value"] . " - address error";
+			$txt = '"' . $addressrow["post_id"] . '","Address Error: ' .$addressrow["meta_value"] . '"';
 			$myfile = file_put_contents('/Applications/MAMP/htdocs/lawyer-directory--just-lawyers/_cron-geocode/_address_errors.log', $txt.PHP_EOL , FILE_APPEND | LOCK_EX);			
 		
 		}
