@@ -146,17 +146,6 @@ window.eqfeed_callback = function(myJsonFile) {
         
         console.log(latlngcensus);
         
-        //https://www.sitepoint.com/community/t/error-split-is-not-a-function/5922/2
-        
-/*
-        var latlongpieces = latlngcensus.toString().split(",");
-				var mylatitude = latlongpieces[0];
-				var mylongitude = latlongpieces[1];
-        
-        console.log(JSON.stringify(mylatitude));
-*/
-        
-        
         var arr2 = Object.values(latlngcensus);
         
 				console.log(arr2);
