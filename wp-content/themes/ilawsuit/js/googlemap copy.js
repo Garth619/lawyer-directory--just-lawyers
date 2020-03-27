@@ -1,5 +1,5 @@
 var map;
-//var markerBounds;
+var markerBounds;
 function initMap() {
 
     var styledMapType = new google.maps.StyledMapType(
@@ -113,8 +113,8 @@ function initMap() {
 	
 
     map = new google.maps.Map(document.getElementById('map'), {
-        zoom: 10,
-        center: new google.maps.LatLng(lat_number,long_number),
+        //zoom: 10,
+        //center: new google.maps.LatLng(lat_number,long_number),
         mapTypeId: 'roadmap'
     });
     
@@ -160,9 +160,9 @@ window.eqfeed_callback = function(myJsonFile) {
 				
 				var arr = split.map(Number);
 				
-				//var latLng = new google.maps.LatLng(34.02605, -118.28397);
+				var latLng = new google.maps.LatLng(34.02605, -118.28397);
 
-        var latLng = new google.maps.LatLng(arr[1], arr[0]);
+        //var latLng = new google.maps.LatLng(arr[1], arr[0]);
         
 				
 				var featuredPost = myJsonFile[i].Featured_lawyer;
@@ -232,9 +232,8 @@ window.eqfeed_callback = function(myJsonFile) {
                 marker.setAnimation(google.maps.Animation.BOUNCE);
             }
         }
-*/
-				//markerBounds.extend(latLng);
+*/markerBounds.extend(latLng);
 			}
     }
-   // map.fitBounds(markerBounds);
+    map.fitBounds(markerBounds);
 }

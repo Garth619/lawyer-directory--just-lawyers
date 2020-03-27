@@ -3,18 +3,30 @@
 \f3\fnil\fcharset0 Verdana;\f4\froman\fcharset0 Palatino-Roman;\f5\fnil\fcharset0 LucidaGrande;
 \f6\fswiss\fcharset0 Helvetica-Bold;\f7\fmodern\fcharset0 CourierNewPSMT;\f8\fmodern\fcharset0 CourierNewPS-BoldMT;
 \f9\fmodern\fcharset0 Courier;\f10\fnil\fcharset0 Monaco;}
-{\colortbl;\red255\green255\blue255;\red0\green0\blue233;\red26\green26\blue26;\red255\green255\blue255;
-\red0\green0\blue233;\red38\green38\blue38;\red0\green0\blue0;\red27\green29\blue31;\red51\green51\blue51;
+{\colortbl;\red255\green255\blue255;\red0\green0\blue233;\red0\green0\blue233;\red26\green26\blue26;
+\red255\green255\blue255;\red38\green38\blue38;\red0\green0\blue0;\red27\green29\blue31;\red51\green51\blue51;
 \red245\green245\blue245;\red63\green105\blue30;\red255\green0\blue0;\red57\green57\blue57;\red236\green236\blue236;
 \red240\green240\blue245;}
-{\*\expandedcolortbl;;\cssrgb\c0\c0\c93333;\cssrgb\c13333\c13333\c13333;\cssrgb\c100000\c100000\c100000;
-\cssrgb\c0\c0\c93333;\cssrgb\c20000\c20000\c20000;\cssrgb\c0\c0\c0;\cssrgb\c14118\c15294\c16078;\cssrgb\c25882\c25882\c25882;
+{\*\expandedcolortbl;;\cssrgb\c0\c0\c93333;\cssrgb\c0\c0\c93333;\cssrgb\c13333\c13333\c13333;
+\cssrgb\c100000\c100000\c100000;\cssrgb\c20000\c20000\c20000;\cssrgb\c0\c0\c0;\cssrgb\c14118\c15294\c16078;\cssrgb\c25882\c25882\c25882;
 \cssrgb\c96863\c96863\c96863;\csgenericrgb\c24706\c41176\c11765;\csgenericrgb\c100000\c0\c0;\cssrgb\c29020\c29020\c29020;\cssrgb\c94118\c94118\c94118;
 \cssrgb\c95294\c95294\c96863;}
 \margl1440\margr1440\vieww28220\viewh18100\viewkind0
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
-\f0\fs24 \cf0 need new latlong to show up in custom field probably, oh and i need to think about that im using the lat long acf for new customers\'85\
+\f0\fs24 \cf0 map needs street names\
+have it recenter and square up based in pins\
+i think suites are working just by not having that extra comma, if i can just remove that i might be good\
+phone map - string of null - get rid of ({\field{\*\fldinst{HYPERLINK "https://att-directory.com/lawyer/allen-erenbaum/"}}{\fldrslt 
+\f1 \cf2 \expnd0\expndtw0\kerning0
+\ul \ulc2 \outl0\strokewidth0 \strokec2 https://att-directory.com/lawyer/allen-erenbaum/}}
+\f1 \cf2 \expnd0\expndtw0\kerning0
+\ul \ulc2 \outl0\strokewidth0 \strokec2 )
+\f0 \cf0 \kerning1\expnd0\expndtw0 \ulnone \outl0\strokewidth0 \
+\
+will prob need to lose the lat long acf not sure, and also need to have my new numbers post to each post\
+\
+need new latlong to show up in custom field probably, oh and i need to think about that im using the lat long acf for new customers\'85\
 why is this breaking https://att-directory.com/lawyers-location/state/new-york/new-york-new-york-lawyers/\
 \
 clean code so its like this:\
@@ -47,15 +59,15 @@ echo $banana->get_name();\
 maybe i just do my thing, then insert the  x y width and height as hidden field values, then run image crop, then resize in the gform post creation function. then i might need a similar function that I already have in there. instead of taking the file, somehow take my newly resized and cropped image and feed into the featured image part do it uploads into the media library. \
 \
 damn i need a way to have croppr use updated images or something, when i use this, and updated croppr has already been initiated  {\field{\*\fldinst{HYPERLINK "https://stackoverflow.com/questions/14069421/show-an-image-preview-before-upload"}}{\fldrslt 
-\f1 \cf2 \expnd0\expndtw0\kerning0
-\ul \ulc2 https://stackoverflow.com/questions/14069421/show-an-image-preview-before-upload}}\
+\f1 \cf3 \expnd0\expndtw0\kerning0
+\ul \ulc3 https://stackoverflow.com/questions/14069421/show-an-image-preview-before-upload}}\
 \
 1150 has sections that look way narrower than others\
 \
 \pard\pardeftab720\sl280\partightenfactor0
 {\field{\*\fldinst{HYPERLINK "https://stackoverflow.com/questions/23945494/use-html5-to-resize-an-image-before-upload"}}{\fldrslt 
-\f1 \cf2 \expnd0\expndtw0\kerning0
-\ul \ulc2 https://stackoverflow.com/questions/23945494/use-html5-to-resize-an-image-before-upload}}\
+\f1 \cf3 \expnd0\expndtw0\kerning0
+\ul \ulc3 https://stackoverflow.com/questions/23945494/use-html5-to-resize-an-image-before-upload}}\
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 \cf0 \
 I like this idea but I dont fully grasp it ^ 1. can i add the x y coordinates from croppr to the canvas resize function he has? 2. What is he doing with  ajax, do I need that? or will gforms handle it from there?\
@@ -64,21 +76,21 @@ i could just use gforms as a hidden field for validation and do the rest in myow
 \
 \pard\pardeftab720\sl280\partightenfactor0
 {\field{\*\fldinst{HYPERLINK "https://stackoverflow.com/questions/38750612/crop-image-using-coordinates/#answer-38752414"}}{\fldrslt 
-\f1 \cf2 \expnd0\expndtw0\kerning0
-\ul \ulc2 https://stackoverflow.com/questions/38750612/crop-image-using-coordinates/#answer-38752414}}\
+\f1 \cf3 \expnd0\expndtw0\kerning0
+\ul \ulc3 https://stackoverflow.com/questions/38750612/crop-image-using-coordinates/#answer-38752414}}\
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 \cf0 \
 \
 \pard\pardeftab720\sl280\partightenfactor0
 {\field{\*\fldinst{HYPERLINK "https://jamesooi.design/Croppr.js/"}}{\fldrslt 
-\f1 \cf2 \expnd0\expndtw0\kerning0
-\ul \ulc2 https://jamesooi.design/Croppr.js/}}
-\f1 \cf2 \expnd0\expndtw0\kerning0
-\ul \ulc2 \
+\f1 \cf3 \expnd0\expndtw0\kerning0
+\ul \ulc3 https://jamesooi.design/Croppr.js/}}
+\f1 \cf3 \expnd0\expndtw0\kerning0
+\ul \ulc3 \
 \pard\pardeftab720\sl280\partightenfactor0
-{\field{\*\fldinst{HYPERLINK "https://foliotek.github.io/Croppie/"}}{\fldrslt \cf2 https://foliotek.github.io/Croppie/}}\
+{\field{\*\fldinst{HYPERLINK "https://foliotek.github.io/Croppie/"}}{\fldrslt \cf3 https://foliotek.github.io/Croppie/}}\
 \pard\pardeftab720\sl280\partightenfactor0
-{\field{\*\fldinst{HYPERLINK "https://fengyuanchen.github.io/cropperjs/"}}{\fldrslt \cf2 https://fengyuanchen.github.io/cropperjs/}}
+{\field{\*\fldinst{HYPERLINK "https://fengyuanchen.github.io/cropperjs/"}}{\fldrslt \cf3 https://fengyuanchen.github.io/cropperjs/}}
 \f0 \cf0 \kerning1\expnd0\expndtw0 \ulnone \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 \cf0 \
@@ -87,7 +99,7 @@ divorce is only on one post on the whole need an easy way to bulk edit that\
 \
 \pard\pardeftab720\sl280\partightenfactor0
 {\field{\*\fldinst{HYPERLINK "https://stackoverflow.com/questions/22087076/how-to-make-a-simple-image-upload-using-javascript-html"}}{\fldrslt 
-\f1 \cf2 \expnd0\expndtw0\kerning0
+\f1 \cf3 \expnd0\expndtw0\kerning0
 \ul https://stackoverflow.com/questions/22087076/how-to-make-a-simple-image-upload-using-javascript-html}}\
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 \cf0 \
@@ -97,7 +109,7 @@ this one not working now:\
 \
 \pard\pardeftab720\sl280\partightenfactor0
 {\field{\*\fldinst{HYPERLINK "https://lawyersnearme.io/lawyers-practice/business-lawyers/"}}{\fldrslt 
-\f1 \cf2 \expnd0\expndtw0\kerning0
+\f1 \cf3 \expnd0\expndtw0\kerning0
 \ul https://lawyersnearme.io/lawyers-practice/business-lawyers/}}\
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 \cf0 \
@@ -137,7 +149,7 @@ i looked into stripe and for no extra fee with same % as paypal per transaction,
 \
 \pard\pardeftab720\sl300\partightenfactor0
 
-\f2\fs26 \cf3 \cb4 \expnd0\expndtw0\kerning0
+\f2\fs26 \cf4 \cb5 \expnd0\expndtw0\kerning0
 If you enable the setting on the PayPal feed it will delay the processing of the APC feed until PayPal sends an IPN message indicating the transaction was successful, which is usually within a few minutes or hours (depending on how busy the PayPal IPN server is) of the user being redirected back to your site from PayPal.
 \f0\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
@@ -155,8 +167,8 @@ Lots of data to be mapped, and it has to cross reference for duplicate post or t
 \
 \pard\pardeftab720\sl280\partightenfactor0
 {\field{\*\fldinst{HYPERLINK "https://att-directory.com/wp-json/mapping/v1/location/los-angeles/business/1"}}{\fldrslt 
-\f1 \cf5 \expnd0\expndtw0\kerning0
-\ul \ulc5 \outl0\strokewidth0 \strokec5 https://att-directory.com/wp-json/mapping/v1/location/los-angeles/business/1}}\
+\f1 \cf3 \expnd0\expndtw0\kerning0
+\ul https://att-directory.com/wp-json/mapping/v1/location/los-angeles/business/1}}\
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 \cf0 \
 \
@@ -312,7 +324,7 @@ instead of redoing all of them i might be able to create a function that checks 
 HIDE API KEYS IN FNCTIONS (TO GIT) AND IN JS FILE\
 \pard\pardeftab720\sl440\partightenfactor0
 
-\f4\fs40 \cf7 \cb4 \expnd0\expndtw0\kerning0
+\f4\fs40 \cf7 \cb5 \expnd0\expndtw0\kerning0
 serverside wrapper or proxy\'a0\
 \pard\pardeftab720\sl340\partightenfactor0
 
@@ -322,8 +334,8 @@ maybe try to use config file to ignore the api key in functions.php? or call the
 \
 \pard\pardeftab720\sl280\partightenfactor0
 {\field{\*\fldinst{HYPERLINK "https://stackoverflow.com/questions/30464889/how-to-hide-api-key-using-php"}}{\fldrslt 
-\f1\fs24 \cf2 \cb1 \ul https://stackoverflow.com/questions/30464889/how-to-hide-api-key-using-php}}
-\f1\fs24 \cf2 \cb1 \ul \
+\f1\fs24 \cf3 \cb1 \ul https://stackoverflow.com/questions/30464889/how-to-hide-api-key-using-php}}
+\f1\fs24 \cf3 \cb1 \ul \
 \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 
@@ -366,8 +378,8 @@ i could make the post a draft, have it create that\'85without cat creation or wi
 \
 \pard\tx220\tx720\pardeftab720\li720\fi-720\sl390\sa120\partightenfactor0
 
-\f5\fs26 \cf7 \cb4 \expnd0\expndtw0\kerning0
-\'a0{\field{\*\fldinst{HYPERLINK "https://docs.gravityforms.com/gform_trigger_payment_delayed_feeds/"}}{\fldrslt \cf2 \ul gform_trigger_payment_delayed_feeds}}\cf2 \ul \
+\f5\fs26 \cf7 \cb5 \expnd0\expndtw0\kerning0
+\'a0{\field{\*\fldinst{HYPERLINK "https://docs.gravityforms.com/gform_trigger_payment_delayed_feeds/"}}{\fldrslt \cf3 \ul gform_trigger_payment_delayed_feeds}}\cf3 \ul \
 \
 \pard\pardeftab720\li1520\sl640\sa648\partightenfactor0
 
@@ -389,13 +401,13 @@ stripe might still be easier\'85.\
 \cf0 \
 \pard\pardeftab720\sl280\partightenfactor0
 {\field{\*\fldinst{HYPERLINK "https://www.sandbox.paypal.com/"}}{\fldrslt 
-\f1 \cf2 \expnd0\expndtw0\kerning0
+\f1 \cf3 \expnd0\expndtw0\kerning0
 \ul https://www.sandbox.paypal.co}}\
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 \cf0 \
 \pard\pardeftab720\sl280\partightenfactor0
 {\field{\*\fldinst{HYPERLINK "https://zeropointdevelopment.com/how-to-scroll-to-the-first-error-on-a-gravity-form/"}}{\fldrslt 
-\f1 \cf2 \expnd0\expndtw0\kerning0
+\f1 \cf3 \expnd0\expndtw0\kerning0
 \ul https://zeropointdevelopment.com/how-to-scroll-to-the-first-error-on-a-gravity-form/}}\
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 \cf0 pagination is broken agaaaain \
@@ -448,9 +460,9 @@ The practice area title in the banner on the bio page is grabbing the first PA f
 \
 \pard\pardeftab720\sl280\partightenfactor0
 {\field{\*\fldinst{HYPERLINK "https://att-directory.com/lawyer/bobby-dale-peterson-2/"}}{\fldrslt 
-\f1 \cf2 \expnd0\expndtw0\kerning0
+\f1 \cf3 \expnd0\expndtw0\kerning0
 \ul https://att-directory.com/lawyer/bobby-dale-peterson-2/}}
-\f1 \cf2 \expnd0\expndtw0\kerning0
+\f1 \cf3 \expnd0\expndtw0\kerning0
 \ul \
 \pard\pardeftab720\sl280\partightenfactor0
 
@@ -515,13 +527,13 @@ to do\
 get git set up to push to siteground\
 \
 search all types is timing out its too many what if i have it go to here {\field{\*\fldinst{HYPERLINK "https://lawyersnearme.io/lawyers-location/state/california-lawyers/"}}{\fldrslt 
-\f1 \cf2 \expnd0\expndtw0\kerning0
+\f1 \cf3 \expnd0\expndtw0\kerning0
 \ul https://lawyersnearme.io/lawyers-location/state/california-lawyers/}}\
 \
 featured city is hitting the filter when it shouldnt be \
 \
 rewrite lawyer bios and make sure the search results reflect the new urls as well, also practice area lists on the bio pages, also related layers need the urls, check featured cities loop too, map view profile link - {\field{\*\fldinst{HYPERLINK "https://wordpress.stackexchange.com/questions/39500/how-to-create-a-permalink-structure-with-custom-taxonomies-and-custom-post-types/39862#39862"}}{\fldrslt 
-\f1 \cf2 \expnd0\expndtw0\kerning0
+\f1 \cf3 \expnd0\expndtw0\kerning0
 \ul https://wordpress.stackexchange.com/questions/39500/how-to-create-a-permalink-structure-with-custom-taxonomies-and-custom-post-types/39862#39862}}\
 \
 redirect broken rewrite rules if they dont match \
@@ -570,17 +582,17 @@ longitude and latitudes \'85 fuck this, lets just do it from the spreadsheet and
 rebuild seo - also get someone to crawl site with that spider seo - this part will take some trial and error - make acfs? will have to be acfs\'85. but build most by hand if I can\'85.. im losing page hooks with rewrite rules and template_include might be a big problem - how could I live edit stuff? setup a live edit that links to an acf option box somehow for seo and content blocks\
 \pard\pardeftab720\sl280\partightenfactor0
 {\field{\*\fldinst{HYPERLINK "https://teslathemes.com/blog/how-to-optimize-your-wordpress-site-without-any-seo-plugins/"}}{\fldrslt 
-\f1 \cf2 \expnd0\expndtw0\kerning0
+\f1 \cf3 \expnd0\expndtw0\kerning0
 \ul https://teslathemes.com/blog/how-to-optimize-your-wordpress-site-without-any-seo-plugins/}}\
 \pard\pardeftab720\sl280\partightenfactor0
 {\field{\*\fldinst{HYPERLINK "https://www.google.com/search?q=rewrite+api+and+custom+fields&rlz=1C5CHFA_enUS779US779&oq=rewrite+api+and+custom+fields&aqs=chrome..69i57.4332j0j1&sourceid=chrome&ie=UTF-8"}}{\fldrslt 
-\f1 \cf2 \expnd0\expndtw0\kerning0
+\f1 \cf3 \expnd0\expndtw0\kerning0
 \ul https://www.google.com/search?q=rewrite+api+and+custom+fields&rlz=1C5CHFA_enUS779US779&oq=rewrite+api+and+custom+fields&aqs=chrome..69i57.4332j0j1&sourceid=chrome&ie=UTF-8}}
-\f1 \cf2 \expnd0\expndtw0\kerning0
+\f1 \cf3 \expnd0\expndtw0\kerning0
 \ul \
 \
 \pard\pardeftab720\sl280\partightenfactor0
-{\field{\*\fldinst{HYPERLINK "https://teslathemes.com/blog/how-to-optimize-your-wordpress-site-without-any-seo-plugins/"}}{\fldrslt \cf2 https://teslathemes.com/blog/how-to-optimize-your-wordpress-site-without-any-seo-plugins/}}
+{\field{\*\fldinst{HYPERLINK "https://teslathemes.com/blog/how-to-optimize-your-wordpress-site-without-any-seo-plugins/"}}{\fldrslt \cf3 https://teslathemes.com/blog/how-to-optimize-your-wordpress-site-without-any-seo-plugins/}}
 \f0 \cf0 \kerning1\expnd0\expndtw0 \ulnone \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 \cf0 \
@@ -596,7 +608,7 @@ set up git terminal into siteground\
 \
 \pard\pardeftab720\sl280\partightenfactor0
 
-\f1 \cf2 \expnd0\expndtw0\kerning0
+\f1 \cf3 \expnd0\expndtw0\kerning0
 \ul for titles and even those search conditionals in the h1s, write a function then echo function to keep templates clean
 \f0 \cf0 \kerning1\expnd0\expndtw0 \ulnone \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
@@ -607,7 +619,7 @@ finish organizing function incs\
 \
 \pard\pardeftab720\sl280\partightenfactor0
 
-\f1 \cf2 \expnd0\expndtw0\kerning0
+\f1 \cf3 \expnd0\expndtw0\kerning0
 \ul look into our google limits
 \f0 \cf0 \kerning1\expnd0\expndtw0 \ulnone \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
@@ -707,12 +719,12 @@ search\
 think about index the really slow ones:\
 \pard\pardeftab720\sl280\partightenfactor0
 {\field{\*\fldinst{HYPERLINK "https://deliciousbrains.com/sql-query-optimization/"}}{\fldrslt 
-\f1 \cf2 \expnd0\expndtw0\kerning0
+\f1 \cf3 \expnd0\expndtw0\kerning0
 \ul https://deliciousbrains.com/sql-query-optimization/}}
-\f1 \cf2 \expnd0\expndtw0\kerning0
+\f1 \cf3 \expnd0\expndtw0\kerning0
 \ul \
 \pard\pardeftab720\sl280\partightenfactor0
-{\field{\*\fldinst{HYPERLINK "https://thomasgriffin.io/optimize-wordpress-queries/"}}{\fldrslt \cf2 https://thomasgriffin.io/optimize-wordpress-queries/}}
+{\field{\*\fldinst{HYPERLINK "https://thomasgriffin.io/optimize-wordpress-queries/"}}{\fldrslt \cf3 https://thomasgriffin.io/optimize-wordpress-queries/}}
 \f0 \cf0 \kerning1\expnd0\expndtw0 \ulnone \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 \cf0 \
@@ -765,7 +777,7 @@ this worked to export db\
 \
 \pard\pardeftab720\sl300\sa440\partightenfactor0
 
-\f6\b\fs26 \cf7 \cb4 \expnd0\expndtw0\kerning0
+\f6\b\fs26 \cf7 \cb5 \expnd0\expndtw0\kerning0
 Nested Taxonomy Handling:
 \f0\b0 \
 The\'a0
@@ -916,36 +928,36 @@ validatoin errorss arent snapping \
 \
 \pard\pardeftab720\sl280\partightenfactor0
 {\field{\*\fldinst{HYPERLINK "https://legacy.forums.gravityhelp.com/topic/using-forms-to-update-a-post"}}{\fldrslt 
-\f1 \cf2 \expnd0\expndtw0\kerning0
+\f1 \cf3 \expnd0\expndtw0\kerning0
 \ul https://legacy.forums.gravityhelp.com/topic/using-forms-to-update-a-post}}
-\f1 \cf2 \expnd0\expndtw0\kerning0
+\f1 \cf3 \expnd0\expndtw0\kerning0
 \ul \
 \pard\pardeftab720\sl280\partightenfactor0
-{\field{\*\fldinst{HYPERLINK "https://legacy.forums.gravityhelp.com/topic/how-to-update-a-post"}}{\fldrslt \cf2 https://legacy.forums.gravityhelp.com/topic/how-to-update-a-post}}\
+{\field{\*\fldinst{HYPERLINK "https://legacy.forums.gravityhelp.com/topic/how-to-update-a-post"}}{\fldrslt \cf3 https://legacy.forums.gravityhelp.com/topic/how-to-update-a-post}}\
 \pard\pardeftab720\sl280\partightenfactor0
-{\field{\*\fldinst{HYPERLINK "https://docs.gravityforms.com/gform_after_submission/"}}{\fldrslt \cf2 https://docs.gravityforms.com/gform_after_submission/}}\
+{\field{\*\fldinst{HYPERLINK "https://docs.gravityforms.com/gform_after_submission/"}}{\fldrslt \cf3 https://docs.gravityforms.com/gform_after_submission/}}\
 \pard\pardeftab720\sl280\partightenfactor0
-{\field{\*\fldinst{HYPERLINK "https://docs.gravityforms.com/entry-object/"}}{\fldrslt \cf2 https://docs.gravityforms.com/entry-object/}}\
+{\field{\*\fldinst{HYPERLINK "https://docs.gravityforms.com/entry-object/"}}{\fldrslt \cf3 https://docs.gravityforms.com/entry-object/}}\
 \pard\pardeftab720\sl280\partightenfactor0
-{\field{\*\fldinst{HYPERLINK "https://codex.wordpress.org/Function_Reference/wp_update_post"}}{\fldrslt \cf2 https://codex.wordpress.org/Function_Reference/wp_update_post}}\
+{\field{\*\fldinst{HYPERLINK "https://codex.wordpress.org/Function_Reference/wp_update_post"}}{\fldrslt \cf3 https://codex.wordpress.org/Function_Reference/wp_update_post}}\
 \pard\pardeftab720\sl280\partightenfactor0
-{\field{\*\fldinst{HYPERLINK "https://www.advancedcustomfields.com/resources/update_field/"}}{\fldrslt \cf2 https://www.advancedcustomfields.com/resources/update_field/}}\
+{\field{\*\fldinst{HYPERLINK "https://www.advancedcustomfields.com/resources/update_field/"}}{\fldrslt \cf3 https://www.advancedcustomfields.com/resources/update_field/}}\
 \pard\pardeftab720\sl280\partightenfactor0
-{\field{\*\fldinst{HYPERLINK "http://bionicteaching.com/gravity-forms-to-acf-pattern/"}}{\fldrslt \cf2 http://bionicteaching.com/gravity-forms-to-acf-pattern/}}
+{\field{\*\fldinst{HYPERLINK "http://bionicteaching.com/gravity-forms-to-acf-pattern/"}}{\fldrslt \cf3 http://bionicteaching.com/gravity-forms-to-acf-pattern/}}
 \f0 \cf0 \kerning1\expnd0\expndtw0 \ulnone \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 \cf0 \
 \
 \pard\pardeftab720\sl280\partightenfactor0
 {\field{\*\fldinst{HYPERLINK "https://att-directory.com/wp-json/mapping/v1/location/san-diego/business/1?_jsonp=eqfeed_callback#"}}{\fldrslt 
-\f1 \cf2 \expnd0\expndtw0\kerning0
+\f1 \cf3 \expnd0\expndtw0\kerning0
 \ul https://att-directory.com/wp-json/mapping/v1/location/san-diego/business/1?_jsonp=eqfeed_callback#}}
-\f1 \cf2 \expnd0\expndtw0\kerning0
+\f1 \cf3 \expnd0\expndtw0\kerning0
 \ul \
 \pard\pardeftab720\sl280\partightenfactor0
-{\field{\*\fldinst{HYPERLINK "https://stackoverflow.com/questions/30464889/how-to-hide-api-key-using-php"}}{\fldrslt \cf2 https://stackoverflow.com/questions/30464889/how-to-hide-api-key-using-php}}\
+{\field{\*\fldinst{HYPERLINK "https://stackoverflow.com/questions/30464889/how-to-hide-api-key-using-php"}}{\fldrslt \cf3 https://stackoverflow.com/questions/30464889/how-to-hide-api-key-using-php}}\
 \pard\pardeftab720\sl280\partightenfactor0
-{\field{\*\fldinst{HYPERLINK "http://bionicteaching.com/gravity-forms-to-acf-pattern/"}}{\fldrslt \cf2 http://bionicteaching.com/gravity-forms-to-acf-pattern/}}
+{\field{\*\fldinst{HYPERLINK "http://bionicteaching.com/gravity-forms-to-acf-pattern/"}}{\fldrslt \cf3 http://bionicteaching.com/gravity-forms-to-acf-pattern/}}
 \f0 \cf0 \kerning1\expnd0\expndtw0 \ulnone \
 \pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
 \cf0 \
@@ -1152,9 +1164,9 @@ var_dump( $entry['56'] );\
 \
 \pard\pardeftab720\sl280\partightenfactor0
 {\field{\*\fldinst{HYPERLINK "https://www.google.com/search?q=ph+variables+101&rlz=1C5CHFA_enUS724US726&oq=ph+variables+101&aqs=chrome..69i57.3894j0j1&sourceid=chrome&ie=UTF-8"}}{\fldrslt 
-\f1 \cf2 \expnd0\expndtw0\kerning0
+\f1 \cf3 \expnd0\expndtw0\kerning0
 \ul https://www.google.com/search?q=ph+variables+101&rlz=1C5CHFA_enUS724US726&oq=ph+variables+101&aqs=chrome..69i57.3894j0j1&sourceid=chrome&ie=UTF-8}}
-\f1 \cf2 \expnd0\expndtw0\kerning0
+\f1 \cf3 \expnd0\expndtw0\kerning0
 \ul \
 \pard\pardeftab720\sl280\partightenfactor0
 
