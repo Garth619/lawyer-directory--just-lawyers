@@ -58,7 +58,9 @@
 
 	</div><!-- internal_banner -->
 	
-	<div id="map"></div><!-- map -->
+	<div id="map_outer">
+		<div id="map"></div><!-- map -->
+	</div><!-- map_outer -->
 	
 	<div class="outer_container">
 		
@@ -152,7 +154,7 @@
 						
 								<div class="logo_placeholder">
 									
-									<span>Add Logo</span>
+									<img src="<?php bloginfo('template_directory');?>/images/lawfirm_icon.png"/>
 									
 								</div><!-- logo_placeholder -->
 
@@ -286,8 +288,8 @@
 										<?php else:?>
 						
 											<div class="logo_placeholder">
-									
-												<span>Add Logo</span>
+												
+												<img src="<?php bloginfo('template_directory');?>/images/lawfirm_icon.png"/>
 									
 											</div><!-- logo_placeholder -->
 					

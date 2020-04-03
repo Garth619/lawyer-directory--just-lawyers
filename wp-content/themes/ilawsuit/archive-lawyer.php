@@ -182,7 +182,7 @@
 						
 									<div class="logo_placeholder">
 									
-										<span>Add Logo</span>
+										<img src="<?php bloginfo('template_directory');?>/images/lawfirm_icon.png"/>
 									
 									</div><!-- logo_placeholder -->
 					

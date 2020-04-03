@@ -88,8 +88,8 @@
 						<?php else:?>
 						
 						<div class="att_bio_placeholder">
-						
-							<span>Add Photo</span>
+							
+							<img class="placeholder" src="<?php bloginfo('template_directory');?>/images/lawfirm_icon.png"/>
 						
 						</div><!-- att_bio_placeholder -->
 
@@ -426,7 +426,7 @@
 						
 							<div class="att_bio_placeholder">
 						
-							<span>Add Photo</span>
+								<img class="placeholder" src="<?php bloginfo('template_directory');?>/images/lawfirm_icon.png"/>
 						
 							</div><!-- att_bio_placeholder -->
 					
